@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Installing GDAL with Python in Ubunut1204 - Nishadh KA</title>
+    <meta property="og:title" content="Installing GDAL with Python in Ubunut1204 - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##InstallingGDALwith_Python## - to make geotiff file from wrf output, python script requiers gdal such as for this from osgeo import gdal and from osgeo import osr - to install it in Ubuntu 12.04, it &amp;hellip;">
+      <meta property="og:description" content="##InstallingGDALwith_Python## - to make geotiff file from wrf output, python script requiers gdal such as for this from osgeo import gdal and from osgeo import osr - to install it in Ubuntu 12.04, it &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Installing GDAL with Python in Ubunut1204</h1>
+
+<h3>
+  2014-06-18</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Installing<em>GDAL</em>with_Python##
+- to make geotiff file from wrf output, python script requiers gdal such as for this <code>from osgeo import gdal and from osgeo import osr</code>
+- to install it in Ubuntu 12.04, it reuiers to install gdal-bin, libgdal1 and ptthon-gdal, after installing running python and importing crahes
+  python with this message <code>segmentation error(core dumped)</code>
+- first it was detected of version difference, so installed with deb packages avaolable for the version for 1.9.2
+- this alos not removed this eroro
+- another attmept made is follwoign <a href="http://gis.stackexchange.com/questions/21728/how-can-i-install-gdal-1-9-0-on-my-linux-ubuntu-server-10-04">this</a>
+  but the routine command for compiiling from source I used is a problematic(explained <a href="http://stackoverflow.com/questions/1439950/whats-the-opposite-of-make-install-ie-how-do-you-uninstall-a-library-in-lin">here</a>) in long run <code>sudo make install</code>, just install the file in where ever it
+  like and removing the package is virtually iporssible, instaead it is suggested that to run <code>sudo checkinstall</code>
+- to remove a packae in ubuntu use <code>dpkg -s &lt;packagename&gt;</code>, to view the installed packages in python <code>pip freeze</code>
+- so with all this step also no devlopement, importing gdal crashes python
+- for a resuce tryed with Anaconda, a distributin of python with all packages for sicentific computing
+- Anaconda can be downaoded as .sh file and installed in linux by <code>bash file.sh</code>, it asks for licencane, set to envirotnma variable and location of the anacond directory
+- based on some old page tryed with virtualenv with anaconda and tryed to isntlle gdal from its normal source but it gives error of same nature,   and it not reactivatiing the virtuaenv in ubunutu also
+- instead followed <a href="https://groups.google.com/a/continuum.io/forum/#!topic/anaconda/ba1YzY5ENr8">this</a> and installed gdal with anaconda simplly by
+  <code>conda install gdal</code>, it just installed gdal and importing works with out any error.
+- like wise netcdf4 also installed <code>conda install netcdf4</code> and it works the wrfncxnj.py appliation, so wrfoutput python routine just works outofbox with Anaconda! site to refer <a href="http://www.continuum.io/blog/conda">1</a>, <a href="http://conda.pydata.org/docs/">2</a></p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

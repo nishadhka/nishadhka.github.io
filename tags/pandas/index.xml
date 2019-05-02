@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pandas on Nishadh KA</title>
+    <link>/tags/pandas/</link>
+    <description>Recent content in Pandas on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Nov 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/pandas/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Geonames Pandas Shapefile</title>
+      <link>/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</link>
+      <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</guid>
+      <description>###GEONAMESPandasintoSHape file#### ####For the scripts /script/ /scripts/csvtoshp.py, csvtoshpTEST.py, Geoname.py#### 1. The industry data for emission inventory is in address with its details. To get get the latitude and longitude value of each address has to have a database with address with its latitude and longitude. 1. One such database is Geonames, its country wise data is having smaller amount of data for Coimbatore case, but POSTAL CODE data has more than 641 postal code details with latitude and longitude information.</description>
+    </item>
+    
+    <item>
+      <title>Pandas JSON</title>
+      <link>/working-notes/2014/wn_2014-11/pandas_json/</link>
+      <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-11/pandas_json/</guid>
+      <description>####Pandas to JSON#### #####It is for this script /scripts/PandasJSONscript.py#####
+ To convert pandas dataframe into JSON, converted pandas dataframe into csv and then using this script to convert csv into json. But it was not giving satisfactory json file, the fields where completely shuffled. Then used pandas in built function of to_json but it was giving nested json file.  import pandas import pandas as pd d=pd.read_csv(&#39;/home/swl-sacon-dst/Documents/GISE_2013/LAB/Aerocet_DATA/Oct_sample/json/A08102014M.csv&#39;) db=d[[&#39;Time&#39;,&#39;long&#39;,&#39;lat&#39;,&#39;PM1(ug/m3)&#39;,&#39;PM2.5(ug/m3)&#39;,&#39;PM4(ug/m3)&#39;,&#39;PM7(ug/m3)&#39;,&#39;PM10(ug/m3)&#39;,&#39;TSP(ug/m3)&#39;]] db[&#39;geojson&#39;]=&#39;{\\&amp;quot;type\\&amp;quot;:\\&amp;quot;Point\\&amp;quot;,\\&amp;quot;coordinates\\&amp;quot;:[&#39;+db[&#39;long&#39;].astype(str)+&#39;,&#39;+db[&#39;lat&#39;].astype(str)+&#39;]}&#39; db2=db[[&#39;Time&#39;,&#39;PM2.5(ug/m3)&#39;,&#39;PM10(ug/m3)&#39;,&#39;TSP(ug/m3)&#39;,&#39;geojson&#39;]] db2.</description>
+    </item>
+    
+    <item>
+      <title>Excel Pandas LATEX PDF</title>
+      <link>/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</link>
+      <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</guid>
+      <description>###CSV data into pandas and LATEX then into PDF and then print!###
+ To import csv file with date into pandas dataframe. Pands can parse date column, but it won&amp;rsquo;t be correct. The date column formate has top be mentiod and parsed for this, like below based on [this], then this can be imported into pandas datafrem emntioing the dateparse.  dateparse = lambda x: pd.datetime.strptime(x, &amp;lsquo;%d/%m/%y&amp;rsquo;) pro=pd.readcsv(&amp;lsquo;PROJECTEXPNDTR1.csv&amp;rsquo;,parsedates=[1],date_parser=dateparse)
+dateparse = lambda x: pd.</description>
+    </item>
+    
+    <item>
+      <title>Timeseries Pandas</title>
+      <link>/working-notes/2014/wn_2014-10/timeseries_pandas/</link>
+      <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-10/timeseries_pandas/</guid>
+      <description>###Time series data plot and table creation with pandas and latex###
+ to import the csv file into pandas df = pd.read_csv(&#39;/home/swl-sacon-dst/Documents/GISE_2013/LAB/Aerocet_DATA/TDM/TDM_MASS_20102014_171059-073359.csv&#39;), based on this To sepcifiy date time index in the dateframe df = df.set_index(pd.DatetimeIndex(df[&#39;Time&#39;])), based on this To resample 1 minute data into 15 minutes by avergae method, bars=df.resample(&#39;15min&#39;), here default method is mean. based on this To select specific columns in pandas df1=df[[&#39;Time&#39;,&#39;PM2.5(ug/m3)&#39;,&#39;PM10(ug/m3)&#39;,&#39;TSP(ug/m3)&#39;,&#39;AT(C)&#39;,&#39;RH(%)&#39;]] based on this To plot datframe by import matplotlib.</description>
+    </item>
+    
+    <item>
+      <title>Aerocet sampleData KML Pandas</title>
+      <link>/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</link>
+      <pubDate>Wed, 15 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</guid>
+      <description>####Aerocet Sampling Data, using kml files and pandas####
+ The data from dust pollution monitoring in Coimbatore using Aerocet was copy paste into a csv file from miniterm.py program and command 2 given to aerocet. Seprate CSV files were made for count and mass mode sampling. The location of sampling point is made into a point feature in Google earth with name of respective sampling time. This was saved as kml file and opened in QGIS converted into shape file to add gemoetry.</description>
+    </item>
+    
+    <item>
+      <title>data editing with pandas</title>
+      <link>/working-notes/2014/wn_2014-06/data_editing_with_pandas/</link>
+      <pubDate>Tue, 17 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-06/data_editing_with_pandas/</guid>
+      <description>##data editing with pandas## - to import data into python
+import pandas as pd data=pd.read_csv(&#39;value.txt&#39;)   to view dat ahead or sepcified rows  data.iloc[:5, :4]  to sort data based on specific oclumn, here data column  d2=d1.sort([&#39;observation_time&#39;])  to make a dataetime column recognized as date column in padnas dataframe  d1[&#39;SamplingDate&#39;] = pd.to_datetime(d1[&#39;SamplingDate&#39;])  to remove NaN valued rows in any of the columns of dataframe  d1=data.</description>
+    </item>
+    
+    <item>
+      <title>pandas dataframe into LATEX PDF</title>
+      <link>/working-notes/2014/wn_2014-05/pandas_dataframe_into_latex_pdf/</link>
+      <pubDate>Sat, 10 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-05/pandas_dataframe_into_latex_pdf/</guid>
+      <description>##pandasdataframeinto_PDF## - Huge dataframes whihc goes for multiple A4 pages landscape is difficult to make in excel - Alternative is use python pandas and convert the pandas dataframe into pdf thorugh latex or html, latex is promising for just printing - Basically from ([1])(http://stackoverflow.com/questions/14380371/export-a-latex-table-from-pandas-dataframe) for convert dataframe into tex and this for converting tex into landscape pdf document - the python script to make table text is as follows, It is mostly from 3rd answer [1] and bold column heading write python trick from</description>
+    </item>
+    
+    <item>
+      <title>CSV edit by pandas</title>
+      <link>/working-notes/2014/wn_2014-04/csv_edit_by_pandas/</link>
+      <pubDate>Thu, 10 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-04/csv_edit_by_pandas/</guid>
+      <description>Modfying csv files using pandas, python
+ to import csv file into python  import pandas data = pd.read_csv(&#39;/home/hoopoe/Documents/Real_time_air_pollution_Mod_Proj-2013-2014/obj2/237.csv&#39;)   to query the specfic column in data frame  data[&#39;SamplingDate&#39;]   to specifiy the column as datetime formate column for pandas  data[&#39;SamplingDate&#39;] = pd.to_datetime(data[&#39;SamplingDate&#39;])  to avoid date and month mismatch specify the formate of date as
+data[&#39;SamplingDate&#39;] = pd.to_datetime(data[&#39;SamplingDate&#39;],format=&#39;%d/%m/%Y&#39;)   to sort the data based on date column descending  dataso=data.</description>
+    </item>
+    
+    <item>
+      <title>Python pandas cont</title>
+      <link>/working-notes/2013/wn_2013-11/python_pandas_cont/</link>
+      <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-11/python_pandas_cont/</guid>
+      <description>Pythonpandas-cont. To call specific column in data frame df[df.columns[2:4]] To join called rows, in concatenating fashion df[“DateTime”] = [’ ’.join(row) for row in df[df.columns[2:4]].values] To speifiy the date time foramte in data frame of DPCC dMDIDT= pa.todatetime(Time, format=‘%A, %B %d, %Y %H:%M:%S’)
+based on http://www.cyberciti.biz/faq/howto-get-current-date-time-in-python/ http://stackoverflow.com/questions/12030398/concatenate-multiple-columns-based-on-index-in-pandas A best tutorial for visualization in pyhton http://nbviewer.ipython.org/urls/raw.github.com/bolhovsky/notebooks/master/earth-day-data-challenge.ipynb</description>
+    </item>
+    
+    <item>
+      <title>Python for data frame editing using pandas</title>
+      <link>/working-notes/2013/wn_2013-10/python-for-data-frame-editing-using-pandas/</link>
+      <pubDate>Wed, 16 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-10/python-for-data-frame-editing-using-pandas/</guid>
+      <description>Pandas is a library for a data frame manipulation and analysis; it gives the ability to python as R like functionality. It is for converting a CSV file into the form to import into istsos as a tutorial sensor observations. The steps are as follows
+ 1. remove the unwanted column in csv file 2. filter each station’s readings 3. remove duplicates 4.convert the date and time format into ISO standards as demo data</description>
+    </item>
+    
+  </channel>
+</rss>

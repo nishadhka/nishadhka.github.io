@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Plot Aerocet sample D3JS - Nishadh KA</title>
+    <meta property="og:title" content="Plot Aerocet sample D3JS - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="####Plot aerocet data with D3 JS scrip####
+[&amp;hellip;] &amp;lt;div id=&amp;quot;year-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Year of Impact&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;hellip;">
+      <meta property="og:description" content="####Plot aerocet data with D3 JS scrip####
+[&amp;hellip;] &amp;lt;div id=&amp;quot;year-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Year of Impact&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Plot Aerocet sample D3JS</h1>
+
+<h3>
+  2014-11-16</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>####Plot aerocet data with D3 JS scrip####</p>
+
+<ol>
+<li>Based on <a href="http://roadtolarissa.com/meteor-map/">this</a> and its source <a href="https://github.com/1wheel/meteors/blob/master/metors.json">code</a>.</li>
+<li>The meteor web application is based on one index.html file and marker visualizer based on  JS drawMap.js.</li>
+<li>The index.html was edited for to remove the CHART in the line 14 to 19 contains</li>
+</ol>
+
+<pre><code>&lt;div id=&quot;year-chart&quot; class=&quot;chart display&quot;&gt;
+			&lt;div class=&quot;title&quot;&gt;Year of Impact&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div id=&quot;mass-chart&quot; class=&quot;chart display&quot;&gt;
+			&lt;div class=&quot;title&quot;&gt;Mass (g)&lt;/div&gt;
+		&lt;/div&gt;
+</code></pre>
+
+<ol>
+<li>IN drawMap.js, following lines were removed
+```
+function renderAll(){
+		chart.each(render);</li>
+</ol>
+
+<p>		var filterArray = cartoDbIds.all();
+		filterArray.forEach(function(d, i){
+			if (d.value != lastFilterArray[i]){
+				lastFilterArray[i] = d.value;
+				d3.select(&ldquo;#id&rdquo; + d.key).transition().duration(500)
+						.attr(&ldquo;r&rdquo;, d.value == 1 ? 2*metorScale(metors[i].mass) : 0)
+					.transition().delay(550).duration(500)
+						.attr(&ldquo;r&rdquo;, d.value == 1 ? metorScale(metors[i].mass) : 0);</p>
+
+<p>			}
+		})</p>
+
+<p>		d3.select(&ldquo;#active&rdquo;).text(all.value());
+	}</p>
+
+<pre><code>1. Also removed line from 129 tp 159 related with cahrts
+
+1. To make python to print \ baclklash charterer
+
+based on [this](http://stackoverflow.com/questions/301068/python-backslash-quoting-in-string-literals)
+1. Then it is learn that instead of json, meteros web app is taking csv file and getting data from it even the lat and long. These functionalities are included in the drawMap.js and the line ```queue()``` where it referring the csv file is taking care of this data parsing and drawing all the realted process, such as point making in d3 (by lat long parsing) and gving other infor in pop up box.
+1. To make the cbe map visualize in d3 canvas, several attempt related with different map, shape file was made. 
+1. First attempt was made with recently created ```cbe_webmap.shp``` with all the wards and village was converted into topojson by following command
+
+ogr2ogr -f GeoJSON cbe_city.json cbe_webmap_city.shp
+topojson -o cbe_citytopo.json cbe_city.json
+
+But this was visulaized in canvas as hapzard rectangualr and scribbled image, for surprise. 
+1. So it is doubted the problem with shape file or conversion process. to check this the ```letsmake map``` tutorial referred shape file was converted into toposjon with following command 
+
+ogr2ogr -f GeoJSON world.json ne_10m_admin_0_map_subunits.shp
+topojson -o worldT.json world.json
+
+This was repolace in the meteros web app topojson and drawmap.js is edited to taking care this change, this was perfectly visulized in the canvas. This indicating the problem is related with shape file. 
+1. To ascertain this again a new shape file was created with ne_10m_admin_0_map_subunits.shp opened in qgis. This file named as test_webmapA1.shp was converted into topjson with command 
+</code></pre>
+
+<p>ogr2ogr -f GeoJSON testA1.json test_webmapA1.shp
+topojson -o testtopoA1.json testA1.json</p>
+
+<pre><code>this file was again referen in web app and editing the js file, this also viewed correctly  in the canvas. Thus indicating that the problem is with shape file.
+1. So for this, problem might be of wrong projection. Opened the world file and the cbe_webmap.shp and created a new file tracing it. This was ```testtopoA3.json``` made into viewed in the canvas of web app but having problem of zooming.
+1. Though changing the values in .scale of var proj and .scaleExtent of var zoom, the zoom is working for single time and then gets strucked.
+1. For solving above problem a new shape file as of past test ```test_webmapA2.shp``` wass created and converted into json by 
+
+ogr2ogr -f GeoJSON testwebA2.json test_webmapA2.shp
+topojson -o testtopoA2.json testwebA2.json
+
+This can be viewed in canvas with zoom and drag functionality. But zoom is still strucking to a maximun limit. This made to know about the functionality of zoom comment in the D3 from [this](https://github.com/mbostock/d3/wiki/Zoom-Behavior). It is found that the command ```.scaleExtent([height*.33, 4 * height])``` is indicating minmum and maximum zooming functioalty. So changing that make more control of map viewing and thus solved the porblem of cbe map view in d3 canvas.
+1. This is bascially a simple arthmeatic. To get maximum zoom value, it has to be above the ```.scale(180000)```, so if height is 500, the scale extent has to be 180000/500*height or above
+1. With this solution the digitizing cbe map ```testtopoA3.json``` was viewed in the web app and it perfectly gets viewed. Proving onceagain, one day of reading documentation is better than one week of googling. 
+1. So the cbe_map overlay with world.shp file was traced with keeping the snapping option to both the shape files. Not giving this 100 pixels units for snapping option eiher of it didn't made snapping option true with turn on enabling topological editing and Enable snapping on intersection.
+1. This file was converted into topojson by following command 
+</code></pre>
+
+<p>ogr2ogr -f GeoJSON cbe<em>webmap.json cbe</em>webmap<em>D3A1.shp
+topojson -o cbe</em>webmapT.json cbe_webmap.json</p>
+
+<pre><code>1. This was correctly visualized in d3 canvas by giving ```.scale(150000)```,  ```.center(76.9715,11.0142)```, ```.rotate([0,0]);``` and ```.scaleExtent([height*360, 560 * height])```.
+1. Further to this the data source, fell.csv file was edited to consider the aerocet data. Before hand the aerocet data was made shorten by removing the unnecessary column by following commands.
+</code></pre>
+
+<p>import os
+ad=[]
+for file in os.listdir(&lsquo;/home/swl-sacon-dst/Documents/GISE<em>2013/LAB/Aerocet</em>DATA/Oct_sample/&lsquo;):
+    if file.endswith(&ldquo;M.csv&rdquo;):
+        ad.append(file)</p>
+
+<p>for file in os.listdir(&lsquo;/home/swl-sacon-dst/Documents/GISE<em>2013/LAB/Aerocet</em>DATA/Oct<em>sample/&lsquo;):
+    if file.endswith(&ldquo;M</em>N.csv&rdquo;):
+        ad.append(file)</p>
+
+<p>for i in ad:
+	db=pd.read<em>csv(i)
+	db1=db[[&lsquo;Time&rsquo;,&lsquo;long&rsquo;,&lsquo;lat&rsquo;,&lsquo;PM2.5(ug/m3)&rsquo;,&lsquo;PM10(ug/m3)&rsquo;]]
+	db1.to</em>csv(&lsquo;web_&lsquo;+i)</p>
+
+<pre><code>There was need of minor change in the function ready(),
+```.attr(&quot;r&quot;, 	function(d){return metorScale(d.mass);})```
+
+where it takes up the mass_g column of fell.csv for scaling the point marker size. This makes the point data of aeorcet sample completely to be visualized.  
+
+###Adding the functionality of drop down to choose date###
+
+1. This functionality is requiered to visualize the mulitple date Aerocet readings saved in different csv file. For this made a first attempt ```webmap_A1``` based on [this](http://fiddle.jshell.net/7KJC7/2/) and second attempt ``was`webmap_A2``` made with [this](http://fiddle.jshell.net/7KJC7/2/) sample code.
+1. The attempted functionality was based on drop down select to change the csv file quired in queue function (the lines 51-55 of drawMap.js) are as follows
+
+</code></pre>
+
+<p>queue()
+    .defer(d3.json, &ldquo;worldTopo.json&rdquo;)
+    .defer(d3.csv, csv)
+    .defer(d3.json, &ldquo;pics.json&rdquo;)
+    .await(ready);</p>
+
+<pre><code>Getting the csv variable value in attempt ```webmap_A1``` by 
+</code></pre>
+
+<p>var csv = function() {
+    var selectedValue = d3.event.target.value;
+console.log(selectedValue)
+}
+d3.select(&ldquo;#select-list&rdquo;).on(&ldquo;change&rdquo;, csv);
+.defer(d3.csv, selectedValue)</p>
+
+<pre><code>
+this attempt was ended with error of no csv file. So made  second attempt ```webmap_A2``` by 
+
+d3.select('#select-list')
+  .on('change', function() {
+    var csv = eval(d3.select(this).property('value'));
+    console.log(csv)
+});  
+this attempt was ended with getting of file name with out csv extension based on [this](http://stackoverflow.com/questions/24193593/d3-how-to-change-dataset-based-on-drop-down-box-selection), such as ```web_08102014M.csv```
+
+1. Then it is found that changing csv file is way around method for drop down requirement. There is native d3 method for this requirement named as object constancy. Examples are [this](http://bl.ocks.org/nsonnad/4175202), [this1](https://github.com/mbostock/bost.ocks.org/blob/gh-pages/mike/constancy/index.html) and [this2](http://www.delimited.io/blog/2013/11/8/object-constancy-in-d3)
+1. Based on [this](http://bl.ocks.org/nsonnad/4175202) example the csv datafiltering by column/ time is made as follows
+
+</code></pre>
+
+<p>rawMetors = csv;
+        var nested = d3.nest()
+        .key(function(d) { return d.Time; })
+        .map(rawMetors)</p>
+
+<pre><code>    var series = menu.property(&quot;value&quot;);
+
+    // only retrieve data from the selected series, using the nest we just created
+    data = nested[series];
+    console.log(JSON.stringify(data));
+
+
+
+metors = [];
+data.forEach(function(d){
+    d.mass = +d.PM25;
+    d.year = +d.year;
+    d.id = +d.cartodb_id;
+    metors.push(d);
+});
+</code></pre>
+
+<pre><code>1. With the bove code it can filter csv file with time, which is referen cein drop down element
+1. So now to create data for the map, stacking all the csv fileinto one csv file by below code
+</code></pre>
+
+<p>import os
+ad=[]
+for file in os.listdir(&lsquo;/home/swl-sacon-dst/Documents/GISE<em>2013/LAB/Aerocet</em>DATA/Oct_sample/&lsquo;):
+    if file.startswith(&ldquo;web&rdquo;):
+        ad.append(file)</p>
+
+<p>#concatenate pandas dataframe and then convertinginto single csv file
+for i in ad:
+  db0=pd.DataFrame()
+  db=pd.read<em>csv(i)
+  db2=pd.concat([db0, ], axis=0)
+    db2.to</em>csv(&lsquo;web_aerocetdata.csv&rsquo;)
+#this is not working, lets try based on <a href="http://stackoverflow.com/questions/20906474/import-multiple-csv-files-into-python-pandas-and-concatenate-into-one-dataframe">this</a></p>
+
+<p>frame = pd.DataFrame()
+list = []
+for files in db:
+  df = pd.read<em>csv(join(directory,files),index</em>col=None, header=0)
+  list.append(df)
+frame = pd.concat(list)
+#this also not working
+#based on <a href="http://stackoverflow.com/questions/21149920/pandas-import-multiple-csv-files-into-dataframe-using-a-loop-and-hierarchical-i">this</a>
+for i in ad
+  d = concat([read<em>csv(f, index</em>col=0, header=None, axis=1) for f in ad], keys=files)
+for i in ad
+    d = pd.concat([(pd.read<em>csv(i, index</em>col=0, header=0).T) for f in i], keys=i)
+#this also not working neds in some error</p>
+
+<p>#
+ad1=[]
+for i in ad:
+  db=pd.read_csv(i)
+  db2=df23=pd.concat([Series(row[1], row[0].split(&lsquo;,&rsquo;)) for <em>, row in db.iterrows()]).reset</em>index()
+  ad1.append(db2)<br />
+#not working
+#
+names = pd.DataFrame()
+for i in ad:
+  frame = pd.read<em>csv(i)
+  names = pd.concat(names, frame, ignore</em>index=True)
+#Not working
+#
+db = pd.DataFrame()
+for i in ad:
+  frame = pd.read<em>csv(i)
+  db = db.append(frame, ignore</em>index=True)
+#thjis is working
+db2=db[[&lsquo;Time&rsquo;,&lsquo;lat&rsquo;,&lsquo;long&rsquo;,&lsquo;PM10(ug/m3)&rsquo;,&lsquo;PM2.5(ug/m3)&rsquo;]]
+db3=pd.DataFrame(db2.Time.str.split(&rdquo; &ldquo;).tolist())
+T1 = pd.merge(db2,db3, on=db2.index, how=&lsquo;outer&rsquo;)1. The</p>
+
+<ol>
+<li>with the above file, a new column was added to give the size of the pointer in the map as circle. The title of the column also has to be changed to plot correctly the map. This makes the points to be plotted in the map but with a problem.</li>
+<li>The points selected by drop down is not removed and next selection was overlaid with old selction points.</li>
+
+<li><p>For the the change function in BRICS app can be used but problen n queue the json file inside the d3.tranmsion use un the change function.</p></li>
+
+<li><p>It is found that the above method also is not usable. Basic problem with this is rendering whole objects in canvas that is not economical.</p></li>
+
+<li><p>Based on <a href="http://bl.ocks.org/PBrockmann/230f567762de650953b5">this</a> example there is an alternative using the slider and changing/filtering the csv file.</p></li>
+
+<li><p>For this d3.js slider is basically a object/number genraor in which each slider operation gives new number and so the date in the aerocet data can be gerated by slider by chnageing the date formate to single numerical object refrened with csv file.</p></li>
+
+<li><p>To edit the web aerocet file for changingthe date formate</p></li>
+</ol>
+
+<p>import pandas as pd
+db=pd.read<em>csv(&lsquo;web</em>aerocst.csv&rsquo;)
+db[&lsquo;Date2&rsquo;]=pd.to_datetime(db.Date,format=&lsquo;%Y-%m-%d&rsquo;)
+db[&lsquo;Date3&rsquo;] = db[&lsquo;Date2&rsquo;].map(lambda x: x.strftime(&lsquo;%Y%m%d&rsquo;))
+#to get unique values out of pandas column for dates
+db22=pd.Series(db.Date3.values.ravel()).unique()</p>
+
+<ol>
+<li>This can be referenced in slider as per below</li>
+</ol>
+
+<p>$(&ldquo;#scale&rdquo;).slider({
+min: 20141008, // there are 6 days of sampling 0 is all events
+max: 20141023,
+value: 20141008, //default slider value
+step: 1, // step is the allow increments the slider can move. 1 = one day
+slide: function(event, ui) {</p>
+
+<p>var months = [0,20141008, 20141021, 20141022, 20141023, 20141017,20141014, 20141020, 20141011];</p>
+
+<p>// handle case where slider at zero = show all sampling
+if(ui.value == 0)
+{
+// highlight all sampling points
+d3.selectAll(&lsquo;.samplingpoints&rsquo;)
+.style(&ldquo;display&rdquo;,&ldquo;block&rdquo;);</p>
+
+<p>// change the slider text to appropriate date
+d3.select(&ldquo;#slidertext&rdquo;)
+.text(&lsquo;Attacks During 01/2004 - 12/2009&rsquo;);</p>
+
+<p>}else{</p>
+
+<p>// dim all explosion points
+d3.selectAll(&lsquo;.samplingpoints&rsquo;)
+.style(&ldquo;display&rdquo;,&ldquo;none&rdquo;);</p>
+
+<p>// get and format current slider value
+$tempvalue = &ldquo;+months[ui.value]; //look up which month the slider value corresponds to and convert to a string for printing
+$tempvalueclass = &lsquo;._&lsquo;+$tempvalue; //take month and convert to a class</p>
+
+<p>// highlight all samplingpoints in the selected month by class
+d3.selectAll($tempvalueclass)
+.style(&ldquo;display&rdquo;,&ldquo;block&rdquo;);</p>
+
+<p>// change the slider text to appropriate date
+d3.select(&ldquo;#slidertext&rdquo;)
+.text(&lsquo;sampling During &lsquo;+$tempvalue.substring(4,6)+&rsquo;/&lsquo;+$tempvalue.substring(0,4));</p>
+
+<p>}//endelse</p>
+
+<p>}
+});</p>
+
+<ol>
+<li>Usgae of <a href="http://bl.ocks.org/PBrockmann/230f567762de650953b5">this</a> example can&rsquo;t be reproduable with the current web app based on metero web app, it seems it is due to different libraries used and projection system used in these two d3.js based web apps. So this attempt named as meteors-master_A5 is left as such due to this lock.</li>
+<li>A new attempt by adding slider in the native meteors app and console log its working is tried. it would give clues to learn needed functionality.</li>
+<li>Changing of libraries in native meteros app for slider is not working. So tried with changing native slider app with libraries of meteros is tried and it is working. So coping meteros app content in ti to make it as a metros app</li>
+<li>An attempt upto visualization of map, it has ot be defined in svg and other canvas needs of svg. For example if it is a topjson that changes has to be reflected in it blwo code is for topojson visualization by changing a code for json view</li>
+</ol>
+
+<p>var w = 1200;
+var h = 500;</p>
+
+<p>var xy = d3.geo.mercator()
+          .center([76.9715,11.0100])
+        .scale(145000)
+        .rotate([0,0]);</p>
+
+<p>var path = d3.geo.path()
+    .projection(xy);</p>
+
+<p>var zoom = d3.behavior.zoom()
+    .translate(xy.translate())
+    .scale(xy.scale())
+    .scaleExtent([h*290, 645 * h])
+    .on(&ldquo;zoom&rdquo;, zoom);</p>
+
+<p>var svg = d3.select(&ldquo;#graph&rdquo;).append(&ldquo;svg&rdquo;)
+        .attr(&ldquo;width&rdquo;, w)
+                .attr(&ldquo;height&rdquo;, h)
+        .call(zoom);</p>
+
+<p>function zoom() {
+    xy.translate(d3.event.translate).scale(d3.event.scale);
+    svg.selectAll(&ldquo;path&rdquo;).attr(&ldquo;d&rdquo;, path);
+    circles
+        .attr(&ldquo;cx&rdquo;, function(d){return xy([d.long, d.lat])[0];})
+        .attr(&ldquo;cy&rdquo;, function(d){return xy([d.long, d.lat])[1];});
+}</p>
+
+<p>var borders = svg.append(&ldquo;g&rdquo;);</p>
+
+<p>var states = svg.append(&ldquo;svg:g&rdquo;)
+    .attr(&ldquo;id&rdquo;, &ldquo;states&rdquo;);</p>
+
+<p>var circles = svg.append(&ldquo;svg:g&rdquo;)
+    .attr(&ldquo;id&rdquo;, &ldquo;circles&rdquo;);</p>
+
+<p>var labels = svg.append(&ldquo;svg:g&rdquo;)
+    .attr(&ldquo;id&rdquo;, &ldquo;labels&rdquo;);</p>
+
+<p>d3.json(&ldquo;cbe<em>webmapT.json&rdquo;, function(error, topology) {
+  borders.selectAll(&ldquo;path&rdquo;)
+        .data(topojson.object(topology, topology.objects.cbe</em>webmap)
+                .geometries)
+    .enter()
+        .append(&ldquo;path&rdquo;)
+        .attr(&ldquo;d&rdquo;, path)
+        .attr(&ldquo;class&rdquo;, &ldquo;border&rdquo;)
+});</p>
+
+<ol>
+<li>More overt the css also has to be changed, otherwise the the map drawn is filled with black color. The path is important in the case of topojson and it has to be defined in css.</li>
+<li>Slide change for data change</li>
+<li>reflect the slider change in data query of canvas drawing element.<br /></li>
+
+<li><p>It is very difficult to reuse js scripts already written. Basics of what ;line what behavior it exhibits has to be known to change single line in it. So list what are all required in the app. One try with slider app, another with meteros app
+###with slider app</p>
+
+<ol>
+<li>plot cbe map(it is done in meteors-master_A7 with slider app)</li>
+<li>plot the sampling points</li>
+<li>give tool tip info of pollution sampled</li>
+<li>change the date with slider or drop down box
+###with meteros app</li>
+<li>plot the sampling points(done with meteros app)</li>
+<li>give tool tip info of pollution sampled (done with metros app)</li>
+<li>change the date with drop down box(it is not working)
+<br /></li>
+</ol></li>
+
+<li><p>I think the meteros app can be edited as of slider app, which is more simple and understandable for data filter with slider option.</p></li>
+
+<li><p>meteors-master_A9 is doing that- first removing usage of queue library in the app. Then giving the functionality to view the map and get the csv data into it plot it, then have funcotnality of zooming, slider data change and tool tip info view.</p>
+
+<ol>
+<li>With attempt 1 in the drwamap.js of  meteors-master_A9, it was achived view the map, get the csv data and plot it</li>
+<li>with attemp 3, it is achived zooming funcitiality</li>
+<li>with attempt 4, achived slider view in the web app, it can&rsquo;t usable with custom dates, alternative is go with drop down box only. The library use for slider is a custom js named d3.slider.js.</li>
+<li>with attempt 5, achived slider functionlity data filtering by slider movment is achived
+the decritpiton of all the steps carried ouyt is given in the file of drawMap.js of  meteors-master_A9.</li>
+</ol></li>
+
+<li><p>The ast attmept gives more insight into the working of d3.js based web app. It basically consist of three compoennts wht we want to achive witht the web app.</p>
+
+<ol>
+<li>view map</li>
+<li>plot the sampling point</li>
+<li>refresh the sampling point based on the date filter.
+the web app contains also threee components for abvove functioalite, all are in main js  file, in current case js file is drawMap.js.  This file conatins three section, one global variable declaaration section, two is file prociessing section which does draw the map(json and csv file), three is the reploting section rteelated with filter tool slider and its associated redraw function.</li>
+</ol></li>
+
+<li><p>The filtering carried out in the last attempt has to  be improved to include the normal csv we use it in the apps. The last attempt was carried out using the csv file of slider app and changing lat long to coimbatore.</p></li>
+
+<li><p>This attempt will be named as meteors-master_A10 and dealt with drop down funcitronality and redraw funcitoanluty with drop down box using the remaining one and second section as such.</p></li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

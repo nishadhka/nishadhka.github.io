@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Working with WRF CHEM part4 cbe domain run - Nishadh KA</title>
+    <meta property="og:title" content="Working with WRF CHEM part4 cbe domain run - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##Running WRF-CHEM for Coimbatore domain## - After doing wps with wrf-chem and problem faced to run wrf.exe, recompilation then decided to run the wrf-chem for Coimbatore domain - Coimbatore domain &amp;hellip;">
+      <meta property="og:description" content="##Running WRF-CHEM for Coimbatore domain## - After doing wps with wrf-chem and problem faced to run wrf.exe, recompilation then decided to run the wrf-chem for Coimbatore domain - Coimbatore domain &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Working with WRF CHEM part4 cbe domain run</h1>
+
+<h3>
+  2014-07-13</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Running WRF-CHEM for Coimbatore domain##
+- After doing wps with wrf-chem and problem faced to run wrf.exe, recompilation then decided to run the wrf-chem for Coimbatore domain
+- Coimbatore domain made with four nested domain feature has been run with wrf ems with resolution starting from 100&gt;27&gt;9&gt;3&gt;1km, this was made with dwiz application in wrf ems.
+- However to test the domain above the Coimbatore region the output was subject for wrfncxnj.py utility. It took 4 hours and 33 minutes to run this domain in IBM X4 series server computer with 16 GB ram.
+- to overlay the Coimbatore city shape file above the wrf output netcdf from wrfcnxnj.py. The Coimbatore city boundary shape file was converted into custom projection as per <a href="http://geoexamples.blogspot.in/2013/09/reading-wrf-netcdf-files-with-gdal.html">this</a>, <a href="http://www.gis.usu.edu/%7Echrisg/python/2009/lectures/ospy_hw2b.py">this</a> and <a href="http://geoinformaticstutorial.blogspot.in/2012/10/reprojecting-shapefile-with-gdalogr-and.html">this</a>. the final code is given in <a href="https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-06/Reprojecting_SHAPE_file_python.md">this</a>. But unfortunately the wrf output in far above north of  city boundary so it has to edited to involve the Coimbatore region.
+- So the server IBM started and made copy of the domain cbe<em>h1  tinto cbe</em>h2 and open this domain and edited the doamin in dwiz with asumption that it will encopose coimabtore region.
+- to ascertain the doamin creation assuumption the geogrid formed by wrf ems can be visulisaed in gis platform, for theis the nc file was subject to open in qgis, but it ends with error saying not supported format.
+- so the ioption is to convert this necdef file into geotiff and visulaise it in the qgis.
+- One advatgae observed was the shape file converted into the defined projhection is giving the area derived ifnroamtion in square kilometer, thsi awas problem in road network assementi in coimabtoer region, so the road netwwrk has to be converted into this projection and problem can rectified.
+- to get the geotiff from the geogrid nc files, ncview was used to know the variables to call the lat, long and parameters in geogrid. But, the variables pretended from ncview was througing error
+- so made a last attempt of viewing nc file various variables from pythonic way, the command used were</p>
+
+<pre><code>from osgeo import gdal
+from osgeo import osr
+import numpy
+import numpy.ma as ma
+datafile = 'geo_em.d04.nc'
+ds_in = gdal.Open(datafile)
+subdatasets = ds_in.GetSubDatasets()
+subdatasets
+</code></pre>
+
+<p>these command gives the list of variables in the geo_em.d04.nc. In which the variables CLONG and CLAT was considered as lon and lat and variabnle GREENFRAC was used as parameter for geotiff conversion script. The script used were</p>
+
+<pre><code>from osgeo import gdal
+from osgeo import osr
+import numpy
+import numpy.ma as ma
+datafile = 'geo_em.d04.nc'
+proj_out = osr.SpatialReference()
+proj_out.SetMercator(0.0, 115.02, 0.98931892612652, 0.0, 0.0)
+ds_in = gdal.Open(datafile)
+#subdatasets = ds_in.GetSubDatasets()
+#variables = []
+#for subdataset in subdatasets:
+#     variables.append(subdataset[1].split(&quot; &quot;)[1])
+ds_lon = gdal.Open('NETCDF:&quot;geo_em.d04.nc&quot;:CLONG')
+ds_lat = gdal.Open('NETCDF:&quot;geo_em.d04.nc&quot;:CLAT')
+longs = ds_lon.GetRasterBand(1).ReadAsArray()
+lats = ds_lat.GetRasterBand(1).ReadAsArray()
+ds_lon = None
+ds_lat = None
+proj_gcp = osr.SpatialReference()
+proj_gcp.ImportFromEPSG(4326)
+transf = osr.CoordinateTransformation(proj_gcp, proj_out)
+ul = transf.TransformPoint(float(longs[0][0]), float(lats[0][0]))
+lr = transf.TransformPoint(float(longs[len(longs)-1][len(longs[0])-1]),
+float(lats[len(longs)-1][len(longs[0])-1]))
+ur = transf.TransformPoint(float(longs[0][len(longs[0])-1]),
+float(lats[0][len(longs[0])-1]))
+ll = transf.TransformPoint(float(longs[len(longs)-1][0]),
+float(lats[len(longs)-1][0]))
+gt0 = ul[0]
+gt1 = (ur[0] - gt0) / len(longs[0])
+gt2 = (lr[0] - gt0 - gt1*len(longs[0])) / len(longs)
+gt3 = ul[1]
+gt5 = (ll[1] - gt3) / len(longs)
+gt4 = (lr[1] - gt3 - gt5*len(longs) ) / len(longs[0])
+gt = (gt0,gt1,gt2,gt3,gt4,gt5)
+ds_u10 = gdal.Open('NETCDF:&quot;'+datafile+'&quot;:GREENFRAC')
+#i=23
+#num_bands = ds_u10.RasterCount
+x_size = ds_u10.RasterXSize
+y_size = ds_u10.RasterYSize
+ds_p_b = ds_u10.GetRasterBand(1).ReadAsArray()
+driver = gdal.GetDriverByName( 'GTiff' )
+ds_out = driver.Create( 'geo_em.d04.tiff', x_size, y_size, 1, gdal.GDT_Float32 )
+ds_out.SetGeoTransform( gt )
+ds_out.SetProjection(proj_out.ExportToWkt())
+ds_out.GetRasterBand(1).WriteArray( ds_p_b )
+</code></pre>
+
+<p>By this script the geotiff file <code>geo_em.d04.tiff</code> was created and it was overlay with Coimbatore city boundary, by this the wrf -ems domain was ascertained that it involves Coimbatore region extent.
+- this made to copy the cbe_h1 folder in runs folder of WRF ems and kept it to use for input.wps and input.real in wrf chem simulation over Coimbatore domain</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

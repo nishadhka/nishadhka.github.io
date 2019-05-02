@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Bewolf cluster for WRF EMS - Nishadh KA</title>
+    <meta property="og:title" content="Bewolf cluster for WRF EMS - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##BewolfclusterforWRFEMS##
+[&amp;hellip;] ####Add the nodes to the hosts file of master####
+ sudo nano /etc/hosts 127.0.0.1	localhost 192.168.1.79	master 192.168.1.100	node1   and to the node1 as  sudo &amp;hellip;">
+      <meta property="og:description" content="##BewolfclusterforWRFEMS##
+[&amp;hellip;] ####Add the nodes to the hosts file of master####
+ sudo nano /etc/hosts 127.0.0.1	localhost 192.168.1.79	master 192.168.1.100	node1   and to the node1 as  sudo &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Bewolf cluster for WRF EMS</h1>
+
+<h3>
+  2014-06-05</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Bewolf<em>cluster</em>for<em>WRF</em>EMS##</p>
+
+<ol>
+<li>The four domain running of WRF EMS with reoslution startng from 27km, 9km, 3km to 1km gives error of <code>exit with status of -9</code>,<br />
+<a href="http://stackoverflow.com/questions/18529452/sudden-exit-with-status-of-9">this</a> showing that it would because of outof memeory status([more from this])(<a href="http://forum.wrfforum.com/viewtopic.php?f=6&amp;t=407">http://forum.wrfforum.com/viewtopic.php?f=6&amp;t=407</a>), this gives motivation further for cluster running of wrf ems</li>
+<li>passwordless SSH is not suffecieidnt for cluster running of WRF EMS, as specfied in run_ncpus.conf, the created cluster has to be checked with
+netcheck script given with WRF-EMS, it is in strc folder <a href="http://strc.comet.ucar.edu/library/lists/wrfems/2011-January/000808.html">hint</a></li>
+<li>So while running netcheck with passwordless ssh, it gives error that <code>ssh localhostname hostname</code> is not doing pasword less ssh, in the      begning, this error seems to be ridiculus, how and what! ssh is needed for local computer!</li>
+<li>After a while repeated error on this genre, it is decided to go with normal cluster creation and try with the netcheck script again.</li>
+<li>In the meantime it is found that host name lookup is varying based on server and Desktop, <code>nwlookup -A</code> shows no repaly in Dekstop Ubuntu    and in server it returns hostname with its satus</li>
+<li>So googling further reveals that this discripancy might be due to hsot name decripancy or static ip difference.</li>
+<li>to resolve the doubt of static ip difference, as follwoing ubuntu server edited the file <code>sudo nano /etc/network/interfaces</code> and added the ip address given in <a href="http://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu">this</a>, but ater doing this after a reboot the LAN is not showing in the network manager, then found that the utilities networkmanager and network interfaces are contradaataory complementaroies <a href="http://askubuntu.com/questions/7079/how-do-you-configure-desktop-for-a-static-ip-address">ref</a><a href="http://askubuntu.com/questions/168670/connection-not-visible-or-not-available-after-switch-dsl-to-lan">ref2</a> so revert back to intitial. the relaity was static ip address was earlier setup useing network manager, so this problem doubt is leftout</li>
+<li>For Host name decripancy, followed <a href="http://sysblogd.wordpress.com/2008/05/16/ubuntu-changing-hostname-from-command-line/">this</a> and from this    switched to make simple bewolf cluster from ubuntu so followed <a href="http://rashmi2592.wordpress.com/2014/02/06/building-a-beowulf-cluster-in-ubuntu-12-04-lts/">this</a> it satrts from host name editing of the file <code>sudo edit /etc/hosts</code> in hoopoe(master) and dhcppc3(node1). this tutorial was then replaced with more advanced and comphrehenive <a href="http://byobu.info/article/Building_a_simple_Beowulf_cluster_with_Ubuntu/">tut</a>. the steps invoves as follows, as heading given in <a href="http://byobu.info/article/Building_a_simple_Beowulf_cluster_with_Ubuntu/">tut</a></li>
+</ol>
+
+<p>####Add the nodes to the hosts file of master####</p>
+
+<pre><code>  sudo nano /etc/hosts
+  127.0.0.1	localhost
+  192.168.1.79	master
+  192.168.1.100	node1
+</code></pre>
+
+<ul>
+<li>and to the node1 as
+<code>
+sudo nano /etc/hosts
+127.0.0.1	localhost
+192.168.1.100	node1
+192.168.1.79	master
+</code></li>
+</ul>
+
+<p>####test the ping####</p>
+
+<p>ping master or ping node1 from vice versa computer, it has to ping without error
+####Defining a user for running MPI jobs####</p>
+
+<p>a new user was added in node1 so this was not followed, this user addition in the begning made due course hostname resolve step. While adding the user giving the identical uuid for master and node will avaoid nfs folder write error later. It can be done by <code>sudo adduser username --uid uidofmaster</code>, then installing nfs common <code>sudo apt-get install nfs-common</code> tells user is not in sudoers group, for this logout to a user name having sudo access and can be done the isntallation. But latter to mount the nfs folder sudo has to supplay, to solve this <a href="http://tuxthink.blogspot.in/2012/05/user-is-not-in-sudoers-file-this.html">follow</a> <code>sudo nano /etc/sudoers\ //add this line/ username ALL = (ALL) ALL</code></p>
+
+<p>####Install and setup the Network File System####</p>
+
+<ul>
+<li>install nfs-kernel-server
+<code>
+master:~$ sudo apt-get install nfs-kernel-server
+</code></li>
+<li>followed these steps for chmod the user for the home folder
+<code>
+master:~$ ls -l /home/ | grep mpiuser
+drwxr-xr-x   7 mpiuser mpiuser  4096 May 11 15:47 mpiuser
+master:~$ sudo chown mpiuser:mpiuser /path/to/shared/dir
+</code></li>
+<li>then edited the <code>/etc/exports</code> added the line <code>/home/mpiuser *(rw,sync,no_subtree_check)</code></li>
+<li>then restarted the nfs server by <code>master:~$ sudo service nfs-kernel-server restart</code></li>
+<li>In node1 checked the nfs server running by <code>node1:~$ showmount -e master</code> it gives output of <code>/home/mpiuser *</code></li>
+<li>after this as per tut opeed the firewall in master by <code>master:~$ sudo ufw allow from 192.168.1.0/24</code></li>
+<li>to mount the opened nfs folder in node1 run this command <code>node1:~$ sudo mount master:/home/mpiuser /home/mpiuser</code></li>
+<li>after this step without any error, <code>ls -al</code> shows all the folders and file in the node1 computer!</li>
+
+<li><p>from node1 has to maeke a mount with master by
+<code>sudo mount master:/home/mpiuser /home/mpiuser</code>
+####Setup passwordless SSH for communication between nodes####</p></li>
+
+<li><p>this major step made earlier before nfs server folder mounting seems aboslute by reaading this step in the tut!, follwoed those steps and it returend error of permission denied(publickey) follwoing steps were followed from <a href="https://help.ubuntu.com/community/MpichCluster">here</a> aslo refered fr this step by getting error</p>
+
+<pre><code>ssh­-keygen ­-t rsa
+cat id_pub.dsa &gt;&gt; authorized_keys
+</code></pre></li>
+
+<li><p>but after this step, doing <code>ssh hostname</code> returned the error of permission denied(publickey), it is of time consuming error took attmepts of keygenration and deletion, nfs unmount hanging in server, which was resolved by pressing key <code>ALT+Prntscrren+REISUB</code> to revoke the hanged server from force <a href="http://askubuntu.com/questions/4408/what-should-i-do-when-ubuntu-freezes">restart</a>. It seems the nfs folder mount and disruption of nfs folder can serieously hand ubuntu server, it has to solved by first stoping the nfs-kernel-server by <code>sudo service nfs-kernel-server stop</code> in master node, then umount the foldeer by going into root in node1 by <code>sudo bash\ umount -f -l /home/hoopoe/</code>, based on <a href="http://unix.stackexchange.com/questions/15024/umount-device-is-busy-why">this</a></p></li>
+
+<li><p>to ssh permision error, after a long google search and multiple compination of key genraton!, it is settleed that the permission of .ssh folders makes difference, it is from obervation that, some time the node1 can&rsquo;t get into .ssh folder saying permission denied and also from <a href="http://serverfault.com/questions/39733/why-do-i-get-permission-denied-publickey-when-trying-to-ssh-from-local-ubunt">this</a> and <a href="http://stackoverflow.com/questions/7086678/permission-denied-publickey-when-connecting-to-aws-sever">this</a>, installed <code>sudo apt-get install policycoreutils</code> to do this <code>restorecon -r /home/*/.ssh</code> as measure to rsolve the error, after this made changes of file foldeer permission as <a href="http://www.howtogeek.com/168119/fixing-warning-unprotected-private-key-file-on-linux/">follows</a>, this step was atained by running the ssh in this manner <code>ssh -vvv oneadmin@YOU_HOST</code> which gives error of <code>WARNING: UNPROTECTED PRIVATE KEY FILE!</code></p></li>
+
+<li><p>so follwoed these steps</p>
+
+<pre><code>sudo chmod 600 ~/.ssh/id_rsa
+sudo chmod 600 ~/.ssh/id_rsa.pub
+sudo chmod 644 ~/.ssh/known_hosts
+sudo chmod 755 ~/.ssh
+</code></pre>
+
+<p>the ssh config files has to be edited <code>sudo nano /etc/ssh/sshd_config</code> and ssh has to be restarted <code>sudo service ssh restart</code></p></li>
+
+<li><p>after this steps the ssh can be accessed in node1 nfs folder, and made check of similar permison in master and node1 by runnin <code>ls -alZ</code> which give detailed perimion and uid</p></li>
+
+<li><p>by this step a further netcheckup was made and the ssh error goes away!, now the write permission erro due to the different UID between master and node1 username</p></li>
+
+<li><p>uid of user name was changed by followeing <a href="http://askubuntu.com/questions/16700/how-can-i-change-my-own-user-id">this</a></p>
+
+<pre><code>sudo passwd root
+groupmod --gid NEWGID username
+usermod  --uid NEWUID username 
+passwd -dl root
+</code></pre></li>
+
+<li><p>now again checking for netcheckup master node1, this time all went fine, now going for running wrf ems in cluster, hopefull of resolving exit code9!</p></li>
+</ul>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

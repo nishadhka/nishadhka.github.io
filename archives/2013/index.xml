@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2013 on Nishadh KA</title>
+    <link>/archives/2013/</link>
+    <description>Recent content in 2013 on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Dec 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/archives/2013/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DYLOS raspberry pi and xively</title>
+      <link>/working-notes/2013/wn_2013-12/dylos_raspberry_pi_and_xively/</link>
+      <pubDate>Mon, 16 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-12/dylos_raspberry_pi_and_xively/</guid>
+      <description>To connect the raspberry pi with Dylos serial to xively IOT, based on https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley
+the written code was this
+#!/usr/bin/env python from __future__ import division import time import os import eeml import sys import syslog import json import serial import subprocess import re a = 0.02832 ser = serial.Serial(&#39;/dev/ttyUSB0&#39;, 9600, timeout=60) def getCPUtemperature(): res = os.popen(&#39;vcgencmd measure_temp&#39;).readline() return(res.replace(&amp;quot;temp=&amp;quot;,&amp;quot;&amp;quot;).replace(&amp;quot;&#39;C\n&amp;quot;,&amp;quot;&amp;quot;)) def getDiskSpace(): p = os.popen(&amp;quot;df -h /&amp;quot;) i = 0 while 1: i = i +1 line = p.</description>
+    </item>
+    
+    <item>
+      <title>Script for json to csv for weather underground API fetching historical data</title>
+      <link>/working-notes/2013/wn_2013-12/script-for-json-to-csv-for-weather-underground-api-fetching-historical-data/</link>
+      <pubDate>Mon, 16 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-12/script-for-json-to-csv-for-weather-underground-api-fetching-historical-data/</guid>
+      <description>based on this https://github.com/PythonJournos/LearningPython/blob/master/tutorials/convert_json_to_csv.py a sample script  import urllib2 import json import csv outfile_path=&#39;history.csv&#39; writer = csv.writer(open(outfile_path, &#39;w&#39;)) headers = [&#39;date&#39;] writer.writerow(headers) req = urllib2.Request(&amp;quot;http://api.wunderground.com/api/YOUR_KEY/history_20131001/q/India/Coimbatore.json&amp;quot;) opener = urllib2.build_opener() f = opener.open(req) data = json.load(f) for history in data[&#39;history&#39;][&#39;observations&#39;]: row = [] row.append(str(history[&#39;date&#39;][&#39;pretty&#39;])) row.append(str(history[&#39;tempm&#39;])) writer.writerow(row)   Now the URL has to be iterated to give a range of historical data required, and most important the date range has to set.</description>
+    </item>
+    
+    <item>
+      <title>AWS instances and more tips</title>
+      <link>/working-notes/2013/wn_2013-12/aws-instances-and-more-tips/</link>
+      <pubDate>Wed, 04 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-12/aws-instances-and-more-tips/</guid>
+      <description>Created a medium instances, it showed an error or not getting into the ssh, due to non-availability of ssh port in the security group. some command line tips * to rename a file or folder mv old_name new_name * to install git sudo apt-get install git-core * PostgreSQL reference [http://www.thegeekstuff.com/2009/04/15-practical-postgresql-database-adminstration-commands/] * to use FileZilla with AWS [http://glidingphenomena.blogspot.in/2011/03/using-filezilla-to-login-into-amazon.html]</description>
+    </item>
+    
+    <item>
+      <title>Adding font in Ubuntu 1204</title>
+      <link>/working-notes/2013/wn_2013-12/adding-font-in-ubuntu-1204/</link>
+      <pubDate>Wed, 04 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-12/adding-font-in-ubuntu-1204/</guid>
+      <description>To add font
+ move the ttf file into the folder usr/share/fonts/ttf then remove fonts cache by rm -f /usr/share/fonts/*fonts.cache-1 then create the cache again sudo fc-cache that&amp;rsquo;s it, added ttf can be seen in all the text editors.  </description>
+    </item>
+    
+    <item>
+      <title>DYLOS raspberry pi experiment</title>
+      <link>/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</link>
+      <pubDate>Mon, 11 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</guid>
+      <description>The Dylos air quality monitor with serial to USB port was connected to the raspberry pi. Raspberry pi connected through mini USB for power, LAN is connected to RPi, for SD card preparation followed this
+ using DD already had a .img file of old raspberry pi SD card Linux files make fresh SD card for RPi, SD card is formatted with FAT file formate and then run df -h to view the currently mounted devices, it shows the presence of “/dev/mmcblk0p1” then unmounted the /dev/mmcblk0p1 then ran this command dd bs=4M if=~/2012-12-16-wheezy-raspbian.</description>
+    </item>
+    
+    <item>
+      <title>Steps to view attached USB serial in RPI</title>
+      <link>/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</link>
+      <pubDate>Mon, 11 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</guid>
+      <description>in case of DYLOS air quality monitor /dev,based on http://www.linfo.org/dmesg.html bash dmesg | grep -i tty  Now to use this for data logging and GSM data transmission for data logging python script from this replay is used#3 http://forum.arduino.cc/index.php?topic=105148.0 python import serial import time ser = serial.Serial(‘/dev/ttyUSB0’, 9600, timeout=60) time.sleep(60) logfile = open(‘test.csv’, ‘a’) while 1: line = ser.readline() now = time.strftime(“%Y-%m-%dT%H:%M:%S:00.000000+0530”, time.localtime()) a = “%s,%s” % (now,line) print a logfile.</description>
+    </item>
+    
+    <item>
+      <title>AWS postgresql remote host connection</title>
+      <link>/working-notes/2013/wn_2013-11/aws_postgresql_remote_host_connection/</link>
+      <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-11/aws_postgresql_remote_host_connection/</guid>
+      <description>To connect and run PostgreSQL database for istsos in AWS ubuntu 12.04. As per istsos tutorial, specifying localhost in database credentials says the database is inactive and subsequent service creation will end up in error, saying the wrong database the PostgreSQL TCP/IP connection and access credentials has to change.
+ have to edit  sudo nano /etc/postgresql/9.1/main/postgresql.conf
+file line listenaddresses ‘localhost’ to listenaddresses ‘*’ and
+ sudo nano /etc/postgresql/9.1/main/pg_hba.conf  file ipv4 section IP address to</description>
+    </item>
+    
+    <item>
+      <title>Notes on AWS</title>
+      <link>/working-notes/2013/wn_2013-11/notes-on-aws/</link>
+      <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-11/notes-on-aws/</guid>
+      <description>To start up AWS tutorial notes on getting started is too good notes For know about EBS for AWS and its role in data storage https://spruce.it/noise/setting-up-a-proper-lamp-stack-on-aws-ec2-ebs/ For mounting the EBS volume to cloud http://stackoverflow.com/questions/11535617/add-ebs-to-ubuntu-ec2-instance http://maplpro.blogspot.in/ A best visualization for pyhton turoail For more comphrehensive understanding of AWS follow this http://serverfault.com/questions/315123/difference-between-rebooting-and-stop-starting-an-amazon-ec2-instance</description>
+    </item>
+    
+    <item>
+      <title>Notes on Geoserver</title>
+      <link>/working-notes/2013/wn_2013-11/notes-on-geoserver/</link>
+      <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-11/notes-on-geoserver/</guid>
+      <description>Started based on this link http://gis.stackexchange.com/questions/69430/best-way-to-visualize-the-postgis-raster-in-openlayers Geoserver very easy to install, followed installation based on war and Apache tomcat. For know more about rest api for Geoserver http://boundlessgeo.com/2012/10/adding-layers-to-geoserver-using-the-rest-api/ to more on the python script for automatic the MODIS visualization http://gis.stackexchange.com/questions/16515/how-to-import-a-raster-into-postgis</description>
+    </item>
+    
+    <item>
+      <title>PostGresql table edit in command line</title>
+      <link>/working-notes/2013/wn_2013-11/postgresql-table-edit-in-command-line/</link>
+      <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-11/postgresql-table-edit-in-command-line/</guid>
+      <description>To edit the Istsos database table “measures” in PostgreSQL it is to overcome to the error in istsos import saying the Dylos reading is exceeding the digit limit of the column val_meas in the table. Normally it is easy to change column digit size through pgadmin. However, for command line, it requires following commands.
+ Get access to PostgreSQL  sudo -u postres psql
+ To view the database in PostgreSQL \dt</description>
+    </item>
+    
+    <item>
+      <title>SMS management web application</title>
+      <link>/working-notes/2013/wn_2013-11/sms-management-web-application/</link>
+      <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-11/sms-management-web-application/</guid>
+      <description>Use
+http://kalkun.sourceforge.net/</description>
+    </item>
+    
+    <item>
+      <title>Screen for remote head less sever</title>
+      <link>/working-notes/2013/wn_2013-11/screen-for-remote-head-less-sever/</link>
+      <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-11/screen-for-remote-head-less-sever/</guid>
+      <description>Execute multiple programs simultaneously in the terminal, use the program screen. based on http://askubuntu.com/questions/163567/start-program-from-terminal and http://www.howtoforge.com/linux_screen
+Basic running steps
+ screen -r: to view any running screen If there is no running screen, by this command a new terminal will be open, and any commands can be run here, such as to get a file using sftp To get out of the screen type CTRL +A+D after this the cursor goes to the base terminal  based on http://askubuntu.</description>
+    </item>
+    
+    <item>
+      <title>Notes on selenium</title>
+      <link>/working-notes/2013/wn_2013-11/notes-on-selenium/</link>
+      <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-11/notes-on-selenium/</guid>
+      <description>Selenium installation is based on http://www.pererikstrandberg.se/blog/index.cgi?page=InstallingSelenium</description>
+    </item>
+    
+    <item>
+      <title>Python pandas cont</title>
+      <link>/working-notes/2013/wn_2013-11/python_pandas_cont/</link>
+      <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-11/python_pandas_cont/</guid>
+      <description>Pythonpandas-cont. To call specific column in data frame df[df.columns[2:4]] To join called rows, in concatenating fashion df[“DateTime”] = [’ ’.join(row) for row in df[df.columns[2:4]].values] To speifiy the date time foramte in data frame of DPCC dMDIDT= pa.todatetime(Time, format=‘%A, %B %d, %Y %H:%M:%S’)
+based on http://www.cyberciti.biz/faq/howto-get-current-date-time-in-python/ http://stackoverflow.com/questions/12030398/concatenate-multiple-columns-based-on-index-in-pandas A best tutorial for visualization in pyhton http://nbviewer.ipython.org/urls/raw.github.com/bolhovsky/notebooks/master/earth-day-data-challenge.ipynb</description>
+    </item>
+    
+    <item>
+      <title>Giving Raspberry pi net connection</title>
+      <link>/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</link>
+      <pubDate>Tue, 29 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</guid>
+      <description>The static IP address addition on SD card seems not connecting RPi (Raspberry Pi) to the Internet (1) 1. A possible way is to remove DHCP and invoke static 2. So the command netstat -nr will show up only the
+Destination Gateway Genmask Flags MSS 192.168.1.0 0.0.0.0 255.255.255.0 U 0 Window irtt Iface 0 0 eth0
+without UG flag (from http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues)
+so no gateway, no way to access the Internet</description>
+    </item>
+    
+    <item>
+      <title>Store json data into Mysql using python</title>
+      <link>/working-notes/2013/wn_2013-10/store-json-data-into-mysql-using-python/</link>
+      <pubDate>Mon, 28 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-10/store-json-data-into-mysql-using-python/</guid>
+      <description>Web services APIs such as weather underground data provided in json format is stored in Mysql table using this python script.
+Based on stack overflow answers http://stackoverflow.com/questions/1640715/get-json-data-via-url-and-use-in-python-simplejson http://stackoverflow.com/questions/5687718/python-mysql-insert-data
+import urllib2 import json import MySQLdb
+req = urllib2.Request(&amp;ldquo;http://api.wunderground.com/api/YOUR API key/conditions/q/country/town.json&amp;rdquo;) opener = urllib2.buildopener() f = opener.open(req) data = json.load(f) print data[&amp;lsquo;current_observation&amp;rsquo;][&amp;lsquo;observation_location&amp;rsquo;][&amp;lsquo;city&amp;rsquo;],data[&amp;lsquo;currentobservation&amp;rsquo;][&amp;lsquo;observationtimerfc822&amp;rsquo;]
+conn = MySQLdb.connect(host= &amp;ldquo;localhost&amp;rdquo;, user=&amp;ldquo;YOUR username&amp;rdquo;, passwd=&amp;ldquo;YOUR password&amp;rdquo;, db=&amp;ldquo;database&amp;rdquo;) x = conn.cursor()
+try: x.execute( &amp;ldquo;INSERT INTO CBEmeterology (Station, DateAP)&amp;rdquo; &amp;ldquo;VALUES (%s,%s)&amp;rdquo;,(data[&amp;lsquo;current_observation&amp;rsquo;][&amp;lsquo;observation_location&amp;rsquo;][&amp;lsquo;city&amp;rsquo;],data[&amp;lsquo;currentobservation&amp;rsquo;][&amp;lsquo;observationtimerfc822&amp;rsquo;])) conn.</description>
+    </item>
+    
+    <item>
+      <title>Python for data frame editing using pandas</title>
+      <link>/working-notes/2013/wn_2013-10/python-for-data-frame-editing-using-pandas/</link>
+      <pubDate>Wed, 16 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-10/python-for-data-frame-editing-using-pandas/</guid>
+      <description>Pandas is a library for a data frame manipulation and analysis; it gives the ability to python as R like functionality. It is for converting a CSV file into the form to import into istsos as a tutorial sensor observations. The steps are as follows
+ 1. remove the unwanted column in csv file 2. filter each station’s readings 3. remove duplicates 4.convert the date and time format into ISO standards as demo data</description>
+    </item>
+    
+    <item>
+      <title>Installing maven in Ubuntu 1204</title>
+      <link>/working-notes/2013/wn_2013-10/installing-maven-in-ubuntu-1204/</link>
+      <pubDate>Tue, 08 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-10/installing-maven-in-ubuntu-1204/</guid>
+      <description>Based on links http://docs.geotools.org/latest/userguide/build/install/mvn.html http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/ http://lukieb.wordpress.com/2011/02/15/installing-maven-3-on-ubuntu-10-04-lts-server/
+ Download, untar and copy maven in /usr/local/
+  wget http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz tar -zxf apache-maven-3.0.4-bin.tar.gz sudo cp -R apache-maven-3.0.4 /usr/local
+ then link with bin folder  sudo ln -s /usr/local/apache-maven-3.0.4/bin/mvn /usr/bin/mvn
+ Then add java home link in the .bashrc sudo nano .bashrc &amp;mdash;JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64 Thats it maven is installed Test it  mvn –version
+ Seems every think ok but there will be an issue while mvn install, the error of javac&amp;rdquo;: java.</description>
+    </item>
+    
+    <item>
+      <title>Xvfb Virtual FrameBuffer error for Ubuntu server 1204</title>
+      <link>/working-notes/2013/wn_2013-10/xvfb-virtual-framebuffer-error-for-ubuntu-server-1204/</link>
+      <pubDate>Mon, 07 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-10/xvfb-virtual-framebuffer-error-for-ubuntu-server-1204/</guid>
+      <description>The frame buffer is a hardware portion in memory to provide a display. X window systems are the basic display setup for computers. The display in the computer is organized as bitmap windows. In headless Ubuntu servers, virtual framebuffers are used for the application which requires display explicitly such as for Firefox or other browsers. Xvfb provides a virtual display for those applications. In Ubuntu headless server (server without any GUI) this is installed for mainly running Selenium scripts which require a browser to run.</description>
+    </item>
+    
+    <item>
+      <title>Bluetoothshield Arduino and Android</title>
+      <link>/working-notes/2013/wn_2013-08/bluetoothshield_arduino_and_android/</link>
+      <pubDate>Sat, 31 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-08/bluetoothshield_arduino_and_android/</guid>
+      <description>For building a mobile particulate matter pollution monitoring. Fusing a Arduino controlling Shenyi dust sensor and am Android tablet.
+Alternatives: 1. Tried with Amarino library and apps 2. App Inventor and Arduino with blue tooth shield 3. Crude code and android app
+following links were most useful for error-free slave connection between Android and Arduino with seed studio blue tooth shield.
+http://forum.arduino.cc/index.php?PHPSESSID=n80llfhki75ufb2ne0e8158u47&amp;amp;topic=120113.30
+http://www.rjanick.com/2012/11/26/seeed-studio-bluetooth-shield/
+http://arduinobasics.blogspot.in/2013/01/arduino-basics-bluetooth-tutorial.html
+http://jondontdoit.blogspot.com.au/2011/11/bluetooth-mate-tutorial.html
+For seeing the blue tooth serial in Android</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>json data into SQLinsert with python - Nishadh KA</title>
+    <meta property="og:title" content="json data into SQLinsert with python - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##jsondataintoSQLinsertwith python## - to start with json data in python and loop over its elements
+">
+      <meta property="og:description" content="##jsondataintoSQLinsertwith python## - to start with json data in python and loop over its elements
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>json data into SQLinsert with python</h1>
+
+<h3>
+  2014-05-23</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##json<em>data</em>into<em>SQLinsert</em>with python##
+- to start with json data in python and loop over its elements</p>
+
+<pre><code>import json
+json_data=open('data.json')
+data=json.load(json_data)
+a=data[0]['samples']
+for rs in a:
+ print rs['wind']
+</code></pre>
+
+<ul>
+<li>to join two list as a column in python
+<code>
+to join two list inpython
+for c1, c2 in zip(de, c):
+			print &quot;%-9s %s&quot; % (c1, c2)
+</code></li>
+<li>to append loop items into a array
+<code>
+c=[]
+for rs in a:
+c.append(rs['wind'])
+</code></li>
+<li>to remove u from list elemnt
+<code>
+de=[]
+for x in d:
+de.append(x.encode('ascii','ignore'))
+</code></li>
+<li>to join one or more list into sql insert format from json loopable elements, from <a href="http://stackoverflow.com/questions/19302612/python-how-to-write-data-from-two-lists-into-columns-in-a-csv">this</a>
+<code>
+for i in xrange(len(bins)):
+...     print(&quot;('2014-05-23 13:00:00+09:00'{},{}\n&quot;.format(bins[i], freq[i]))
+</code>
+So the implementation of converting json into sql insert formate for postgresql is as follows,</li>
+</ul>
+
+<pre><code>import json
+json_data=open('data.json')
+data=json.load(json_data)
+a=data[0]['samples']
+st=[]
+for rs in a:
+		st.append(rs['stationId'])
+//st will have value with u', to remove this
+stde=[]
+for s in st:
+		stde.append(s.encode('ascii','ignore'))
+//to get wd from json 
+wd=[]
+for rs in a:
+		wd.append(rs['wind'][0])
+//to get second element wv from json
+wv=[]
+for rs in a:
+		wv.append(rs['wind'][1])
+// to join three list into a sql insert statment like this 
+//INSERT INTO samples(date,&quot;stationId&quot;,wd,wv)
+//VALUES
+//   	('2014-05-23 13:00:00+09:00',101,90,0.7)
+print &quot;INSERT INTO samples(date,&quot;stationId&quot;,wd,wv)\n VALUES&quot;
+for i in xrange(len(wd)):
+		print(&quot;('2014-05-23 13:00:00+09:00',{},{},{}),\n&quot;.format(stde[i],wv[i],wd[i]))
+</code></pre>
+
+<ul>
+<li>to call only the keys of json based on <a href="http://stackoverflow.com/questions/15789059/python-json-only-get-keys-in-first-level">this</a>
+<code>
+for key in data.keys():
+ print key
+</code></li>
+</ul>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

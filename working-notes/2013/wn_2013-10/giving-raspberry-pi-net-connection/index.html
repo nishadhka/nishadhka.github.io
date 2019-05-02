@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Giving Raspberry pi net connection - Nishadh KA</title>
+    <meta property="og:title" content="Giving Raspberry pi net connection - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="The static IP address addition on SD card seems not connecting RPi (Raspberry Pi) to the Internet (1) 1. A possible way is to remove DHCP and invoke static 2. So the command netstat -nr will show up &amp;hellip;">
+      <meta property="og:description" content="The static IP address addition on SD card seems not connecting RPi (Raspberry Pi) to the Internet (1) 1. A possible way is to remove DHCP and invoke static 2. So the command netstat -nr will show up &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Giving Raspberry pi net connection</h1>
+
+<h3>
+  2013-10-29</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>The static IP address addition on SD card seems not connecting RPi (Raspberry Pi) to the Internet (1)
+1. A possible way is to remove DHCP and invoke static
+2. So the command netstat -nr will show up only the</p>
+
+<p>Destination Gateway  Genmask Flags MSS 
+192.168.1.0 0.0.0.0 255.255.255.0 U 0
+Window  irtt   Iface
+ 0 0 eth0</p>
+
+<p>without UG flag (from <a href="http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues">http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues</a>)</p>
+
+<p>so no gateway, no way to access the Internet</p>
+
+<ol>
+<li>The solution is to add the following entries</li>
+</ol>
+
+<p>pi@raspberrypi ~ $ cat /etc/network/interfaces
+auto lo</p>
+
+<p>iface lo inet loopback
+iface eth0 inet static
+address 192.168.1.104
+netmask 255.255.255.0
+gateway 192.168.1.1</p>
+
+<p>allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa<em>supplicant/wpa</em>supplicant.conf
+iface default inet dhcp</p>
+
+<p>and</p>
+
+<p>pi@raspberrypi ~ $ cat /etc/resolv.conf
+DNS 218.248.240.179
+nameserver 218.248.240.179</p>
+
+<p>and</p>
+
+<p>sudo /sbin/route add -net 0.0.0.0 gw 192.168.1.254 eth0
+sudo /sbin/route add -net 0.0.0.0 gw 192.168.1.1 eth0</p>
+
+<ol>
+<li>It makes three lines in <code>netstat</code> table with these gateway address. After this, the Internet will be getting.</li>
+</ol>
+
+<p>now the  netstat -nr will look like</p>
+
+<p>pi@raspberrypi ~ $ netstat -nr
+Kernel IP routing table
+Destination Gateway   Genmask Flags MSS Window  irtt Iface
+0.0.0.0 192.168.1.1 0.0.0.0 UG 0 0 0 eth0
+0.0.0.0 192.168.1.254 0.0.0.0 UG 0 0 0 eth0
+192.168.1.0 0.0.0.0 255.255.255.0 U 0 0 0 eth0</p>
+
+<p>References:
+1. <a href="http://raspberrypi.stackexchange.com/questions/7624/setting-a-static-eth0-ip">http://raspberrypi.stackexchange.com/questions/7624/setting-a-static-eth0-ip</a>
+2. <a href="http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues">http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues</a>
+3. <a href="http://www.soslug.org/wiki/getting_your_raspberry_pi_to_run_on_a_static_ip_with_internet">http://www.soslug.org/wiki/getting_your_raspberry_pi_to_run_on_a_static_ip_with_internet</a>
+4. <a href="http://www.penguintutor.com/linux/raspberrypi-webserver">http://www.penguintutor.com/linux/raspberrypi-webserver</a>
+5. <a href="http://pihw.wordpress.com/guides/direct-network-connection/">http://pihw.wordpress.com/guides/direct-network-connection/</a>
+6. <a href="http://www.penguintutor.com/linux/raspberrypi-headless">http://www.penguintutor.com/linux/raspberrypi-headless</a></p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

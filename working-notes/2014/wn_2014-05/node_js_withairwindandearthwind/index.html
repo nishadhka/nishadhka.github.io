@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Node js withAIRwindandEarthwind - Nishadh KA</title>
+    <meta property="og:title" content="Node js withAIRwindandEarthwind - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##Node.jswithairwindandearthwindintocbe-air##
+[&amp;hellip;] ###learnings with earth web app### ###learning with air web app### node server.js 8080 postgres://postgres:postgres@localhost:5432/air &amp;hellip;">
+      <meta property="og:description" content="##Node.jswithairwindandearthwindintocbe-air##
+[&amp;hellip;] ###learnings with earth web app### ###learning with air web app### node server.js 8080 postgres://postgres:postgres@localhost:5432/air &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Node js withAIRwindandEarthwind</h1>
+
+<h3>
+  2014-05-23</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Node.js<em>with</em>air<em>wind</em>and<em>earth</em>wind<em>into</em>cbe-air##</p>
+
+<ul>
+<li>for addressing objective2 of web processing service for real time air pollution model, the implementation with
+node.js<a href="https://github.com/cambecc/earth">earth</a> or <a href="https://github.com/cambecc/earth">air</a>is planned.</li>
+<li>These are perfect match for this objective in showing the grandioseness of air circulation and how air pollution effect this grandioseness in real time animation of wind</li>
+<li>As a node.js web application, node has to installed as specified in the project&rsquo;s readme.</li>
+<li>for node installation followed <a href="https://rtcamp.com/tutorials/nodejs/node-js-npm-install-ubuntu/">this</a> wonderful tutorial, it basically involves and checking with <code>node -v</code> and <code>npm -v</code>
+<code>
+apt-get install python-software-properties
+apt-add-repository ppa:chris-lea/node.js
+apt-get update
+apt-get install nodejs
+</code></li>
+<li>It is found that, in the line of aptana IDE for web application, there is a eclipse plugin for node.js related web application development</li>
+<li>Followed <a href="http://www.nodeclipse.org/updates/">this</a> for installion of nodeclipse, step invovles
+<code>
+npm install -g nodeclipse
+npm install -g express-generator
+npm install -g express
+npm install -g coffee-script
+</code></li>
+<li>and a bulky download of eclipse IDE, finally found that it not working as expected, it seems Aptana was not having functionality for node.js</li>
+<li>So as an alternative, followed the Node.js
+<code>
+git clone https://github.com/cambecc/earth
+cd earth
+npm install
+node dev-server.js 8080
+http://localhost:8080
+</code>
+based server initiation as specified in project README.md</li>
+<li>Along with this, javascript editor <a href="http://www.sublimetext.com/">sublime text</a> is a good match for node.js based web application workbench, so now starts working!</li>
+</ul>
+
+<p>###learnings with earth web app###
+###learning with air web app###
+node server.js 8080 postgres://postgres:postgres@localhost:5432/air <a href="http://www.kankyo.metro.tokyo.jp">http://www.kankyo.metro.tokyo.jp</a>
+- air implemntation is quite simpler than earth implemntaion, it seems it doesn&rsquo;t much have cahe problem for editing the server file with node and reexcuting as in earth.
+- the code reading shows the main folder contains all the necessary files for server running and js folder contain the main web browser programs/
+- let&rsquo;s learn this elegant code! to make a finest WRF output visiulizer for Coimbatore region
+- the server.js is main backend of air
+###Map of coimbatore###
+- tokyo map used in air web app was generated from a xml file converted into topojson, air.js script is written to work with this specific file
+- to make cbe file to work with this situaation becomes difficult, so try was converting tokyo topojson into shape file and then again converting into topojson and find is it apt with that
+- <a href="http://www.mapshaper.org/">mapshaer</a> was used to convert the topojson into shape file and then ogr2ogr is used to convert this shape file into geojson and then into topojson using topojson.
+- this file is similar to original file except non availability of bbox in it. to add bboc, followed <a href="http://gis.stackexchange.com/questions/21122/using-qgis-how-can-i-add-a-bounding-box-attribute">this</a></p>
+
+<pre><code>ogr2ogr   -f GeoJSON   -lco WRITE_BBOX=YES tokyo-bbb.json   tokyo-topob-main.shp
+topojson -o tokyo-bbb.json tokyo-bbb.json
+</code></pre>
+
+<p>this gives bbox for every polygon in the shape file.
+- so another way is to edit the json and add the bbox, based on this to write json <a href="http://stackoverflow.com/questions/18980039/how-to-append-in-a-json-file-in-python">files</a> and add a new key to <a href="http://stackoverflow.com/questions/18980039/how-to-append-in-a-json-file-in-python">json</a>
+its example</p>
+
+<pre><code>import json
+
+a_dict = {'new_key': 'new_value'}
+
+with open('test.json') as f:
+    data = json.load(f)
+
+data.update(a_dict)
+
+with open('test.json', 'w') as f:
+    json.dump(data, f)
+</code></pre>
+
+<p>and</p>
+
+<pre><code>def updateJsonFile():
+ jsonFile = open(&quot;replayScript.json&quot;, &quot;r&quot;)
+ data = json.load(jsonFile)
+ jsonFile.close()
+
+
+ tmp = data[&quot;location&quot;]
+ data[&quot;location&quot;] = path
+ data[&quot;mode&quot;] = &quot;replay&quot;
+
+ jsonFile = open(&quot;replayScript.json&quot;, &quot;w+&quot;)
+ jsonFile.write(json.dumps(data))
+ jsonFile.close()
+</code></pre>
+
+<ul>
+<li>the editing of json file was as follows
+<code>
+import json
+data=open('tokyo-topo.json')
+data1=json.load(data)
+//to view keys in json
+for key in data1.keys():
+		 print key
+//to add a key to json
+dict={'bbox':[138.942865,35.501252,139.918904,35.898424]}
+data1.update(dict)
+// to save json file
+jsonFile = open(&quot;replayScript.json&quot;, &quot;w+&quot;)
+jsonFile.write(json.dumps(data1))
+jsonFile.close()
+// to remove a key in json
+data1.pop('bbox')
+//to load json in ordered form
+data1=json.load(data, object_pairs_hook=collections.OrderedDict)
+//to order json based on dict characteristics, based on [this](http://stackoverflow.com/questions/20577840/python-dictionary-sorting-in-descending-order-based-on-values) and [this](https://docs.python.org/2/library/collections.html#ordereddict-examples-and-recipes)
+// to order based on keys' alphabet
+data2=collections.OrderedDict(sorted(data1.items(), key=lambda t: t[0]))
+// to reverse order the keys
+data4=collections.OrderedDict(sorted(data1.items(), key=lambda t: t[0],reverse=True))
+// to order the keys based on its length
+data4=collections.OrderedDict(sorted(data1.items(), key=lambda t: len(t[0]),reverse=True))
+// to order the dicts based on key list, found finally
+od='type','bbox','transform','objects','arcs'
+data4=collections.OrderedDict(sorted(data1.items(), key=lambda t: od))
+// this is not working for newly updated json, what to do
+//to save the json file in same order sepcified
+jsonFile.write(json.dumps(collections.OrderedDict(sorted(data1.items(), key=lambda t: len(t[0]),reverse=True))))
+//to change a key name in topojson or geojson or josn
+data1['objects']['main']= data1['objects']['tokyo']
+</code></li>
+<li>conversion of topojson as per the air web app, written in the file /ksj/bin/ksj as like this
+<code>
+topojson --bbox -o ../../scratch/tokyo-topo.json ../../scratch/main.json
+</code></li>
+<li>Finally it is found that, ordering JSON based on its key list is not possible and useless step, since python dict is orderless and key is the primary index in json and not its positonal index. One whole day search was made for this!</li>
+<li>So now only option is to find other way, the codeing part of air web app, it is found that index.html of app contains the file reference for tokyo-topo.json.</li>
+<li>it is found that the order of key in that topo file is not at all matter for air.js function, <code>function createSettings(topo) {``, instead it is the problem of nonavailablity of key reference in the function</code>function buildMeshes(topo, settings) {<code>. where the key objects is refernced as</code>objects.main<code>, in the provided topo.json(made out of converting data/tokyo-topo.json into shape file in mapshaper.com) objects key is referenced as</code>tokyo<code>, changing of this discrepancy removed the error of</code>o undefined``` and map svg is formed</li>
+<li>to make cbe_city.json to visible in the canvas, same procedure was followed and it is found that having problem in objects key of the json file. Objects key polygon donesn&rsquo;t showing any arcs. Some problem in shape file formate, it seems, even though removing the projection file also didn&rsquo;t solved the problem.</li>
+<li>A method of converting individual shape file into json file and then merging these shape file into single shape file and then converting this into topjson made some polygon to have more than one arcs element and it is being visible in the map display area of te air web app!. The display is showing very haphazard shape file of Coimbatore region with polygon not in shape, so qgis was used to make more tightly packed multiple polygons.</li>
+<li>The dissolve method of making common boundary for multiple polygon was also didn&rsquo;t turned well. the steps where,
+<code>
+ogr2ogr   -f GeoJSON kalapatti.json kalapatti.shp 
+ogr2ogr   -f GeoJSON vadavalli.json vadavalli.shp 
+ogr2ogr   -f GeoJSON thudiyalur.json thudiyalur.shp
+ogr2ogr   -f GeoJSON Cbe_zone_MP.json Cbe_zone_MP.shp
+ogr2ogr   -f GeoJSON kovaipudur.json kovaipudur.shp
+python merge-geojsons.py kalapatti.json vadavalli.json thudiyalur.json kovaipudur.json Cbe_zone_MP.json cbe_city.json
+topojson --bbox --id-property id -o cbe_city_TOPO.json cbe_city.json
+</code></li>
+<li>copied cbe_city.json into</li>
+</ul>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

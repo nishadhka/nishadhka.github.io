@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Ubunut1204 recovery - Nishadh KA</title>
+    <meta property="og:title" content="Ubunut1204 recovery - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="###Ubunut 12.04 recovery###
+">
+      <meta property="og:description" content="###Ubunut 12.04 recovery###
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Ubunut1204 recovery</h1>
+
+<h3>
+  2014-11-22</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>###Ubunut 12.04 recovery###</p>
+
+<ol>
+<li>It is found that changing the file /etc/environment has huge problem after reboot.</li>
+<li>Added the environment variables for ncl language in /etc/environment as <code>export NCARG_ROOT=/usr/local/ncl-6.2.1; export PATH=$NCARG_ROOT/bin:$PATH</code>.</li>
+<li>This was resultant in problematic reboot of the system. The system gets instead of into login page, gets flickering command log. By reboot went inside of command line and there no system command like <code>ls</code> or <code>sudo</code> was not working. saying no /bin folder in PATH environment. Indicating the problem of above.</li>
+<li>More over the command line is populated with info of <code>KEYPAD ID some thing...</code> with no room for enter ing anything. Still in this situation the command such as sudo nano /etc/environment was entered and removed those lines added for ncl language and then saved quickly. For running the sudo and nano its respective folder has to be entered to over come the no /bin PATH error.</li>
+<li>After this the system loaded without any error mentioned earlier.</li>
+</ol>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

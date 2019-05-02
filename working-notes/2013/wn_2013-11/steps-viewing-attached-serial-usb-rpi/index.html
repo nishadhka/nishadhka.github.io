@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Steps to view attached USB serial in RPI - Nishadh KA</title>
+    <meta property="og:title" content="Steps to view attached USB serial in RPI - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="then create a file in /etc/init.d as pythonscript.sh and add following codes in it
+#!/bin/sh ### BEGIN INIT INFO # Provides: myservice # Required-Start: $remote_fs $syslog # Required-Stop: $remote_fs &amp;hellip;">
+      <meta property="og:description" content="then create a file in /etc/init.d as pythonscript.sh and add following codes in it
+#!/bin/sh ### BEGIN INIT INFO # Provides: myservice # Required-Start: $remote_fs $syslog # Required-Stop: $remote_fs &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Steps to view attached USB serial in RPI</h1>
+
+<h3>
+  2013-11-11</h3>
+<hr>
+
+
+      </header>
+
+
+
+<ol>
+<li>in case of DYLOS air quality monitor /dev,based on <a href="http://www.linfo.org/dmesg.html">http://www.linfo.org/dmesg.html</a>
+<code>bash
+dmesg | grep -i tty
+</code></li>
+<li>Now to use this for data logging and GSM data transmission for data logging python script from this replay is used#3 <a href="http://forum.arduino.cc/index.php?topic=105148.0">http://forum.arduino.cc/index.php?topic=105148.0</a>
+<code>python
+import serial
+import time
+ser = serial.Serial(‘/dev/ttyUSB0’, 9600, timeout=60)
+time.sleep(60)
+logfile = open(‘test.csv’, ‘a’)
+while 1:
+        line = ser.readline()
+        now = time.strftime(“%Y-%m-%dT%H:%M:%S:00.000000+0530”, time.localtime())
+        a = “%s,%s” % (now,line)
+        print a
+        logfile.write(a)
+        logfile.flush()
+logfile.close()
+ser.close()
+</code></li>
+<li>To make the RPi run automatically this script for every reboot, followed this well-written tutorial
+<a href="http://blog.scphillips.com/2013/07/getting-a-python-script-to-run-in-the-background-as-a-service-on-boot/">http://blog.scphillips.com/2013/07/getting-a-python-script-to-run-in-the-background-as-a-service-on-boot/</a> the steps were</li>
+<li>added this line to the first line of python script
+<code>python
+#!/usr/bin/env python
+</code></li>
+<li>then moved this file to the location of /usr/local/bin/myservice here myservice folder has to  be created</li>
+<li>give execute command for the file
+<code>bash
+chmod 755 pythonscript.py
+</code></li>
+
+<li><p>then create a file in /etc/init.d as pythonscript.sh and add following codes in it</p>
+
+<pre><code class="language-bash">#!/bin/sh
+### BEGIN INIT INFO
+# Provides: myservice
+# Required-Start: $remote_fs $syslog
+# Required-Stop: $remote_fs $syslog
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Put a short description of the service here
+# Description: Put a long description of the service here
+### END INIT INFO
+# Change the next 3 lines to suit where you install your script and what you want to call it
+DIR=/usr/local/bin/myservice
+DAEMON=$DIR/pythonscript.py
+DAEMON_NAME=pythonscript
+# This next line determines what user the script runs as.
+# Root generally not recommended but necessary if you are using the Raspberry Pi GPIO from Python.
+DAEMON_USER=root
+# The process ID of the script when it runs is stored here:
+PIDFILE=/var/run/$DAEMON_NAME.pid
+. /lib/lsb/init-functions
+do_start () {
+log_daemon_msg “Starting system $DAEMON_NAME daemon”
+start-stop-daemon --start --background --pidfile $PIDFILE --make-pidfile --user $DAEMON_USER --startas $DAEMON
+log_end_msg $?
+}
+do_stop () {
+log_daemon_msg “Stopping system $DAEMON_NAME daemon”
+start-stop-daemon --stop --pidfile $PIDFILE --retry 10
+log_end_msg $?
+}
+case “$1” in
+start|stop)
+do_${1}
+;;
+restart|reload|force-reload)
+do_stop
+do_start
+;;
+status)
+status_of_proc “$DAEMON_NAME” “$DAEMON” &amp;&amp; exit 0 || exit $?
+;;
+*)
+echo “Usage: /etc/init.d/$DEAMON_NAME {start|stop|restart|status}”
+exit 1
+;;
+esac
+exit 0
+</code></pre></li>
+
+<li><p>give execute command for this file</p>
+
+<pre><code class="language-bash">chmod 755 pythonscript.sh
+</code></pre></li>
+
+<li><p>now test it with this command</p>
+
+<pre><code class="language-bash">sudo /etc/init.d/pythonscript start
+</code></pre></li>
+
+<li><p>it will show</p>
+
+<pre><code class="language-bash">[ ok ] Starting system dylos_csv_ser daemon:.
+</code></pre></li>
+
+<li><p>now give this command</p>
+
+<pre><code class="language-bash">sudo /etc/init.d/dylos_csv_ser.sh stop
+</code></pre></li>
+
+<li><p>it give this error [….] Stopping system dylos<em>csv</em>ser daemon:start-stop-daemon: warning: failed to kill 2794: No such process No process in pidfile ‘/var/run/dylos<em>csv</em>ser.pid’ found running; none killed.</p></li>
+
+<li><p>Check any pesky mistake in the python script python script has to run with this command it self</p></li>
+
+<li><p>cd into the python script directory then run ./pythonscript.py it has to run other wise problem is in python script, mine was due to a space in front of the python (Hrrrrrrah) interpreter in the python script</p>
+
+<pre><code class="language-python">#!/usr/bin/env python
+</code></pre></li>
+
+<li><p>after changing this all are fine</p></li>
+
+<li><p>Another tips to rename files in linux</p>
+
+<pre><code class="language-bash">mv file1 file2
+</code></pre></li>
+
+<li><p>have to careful it can replace the file, can see more option in <a href="http://www.cyberciti.biz/faq/linux-rename-file/">http://www.cyberciti.biz/faq/linux-rename-file/</a></p></li>
+
+<li><p>that is it, python script is in daemon and keep automatically work after rebooting.</p></li>
+
+<li><p>For GSM based transmission of DYLOS reading, use <a href="http://misc.flogisoft.com/phone/gammu_send_sms">http://misc.flogisoft.com/phone/gammu_send_sms</a></p></li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

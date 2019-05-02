@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Dylos monitor setup full with log - Nishadh KA</title>
+    <meta property="og:title" content="Dylos monitor setup full with log - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="Dylosmonitorsetupfullwith_log Following http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/ and UdevrulesforUSB&amp;rsquo;sattachedtoRPi
+create a udev rule for RPI
+edited the file &amp;hellip;">
+      <meta property="og:description" content="Dylosmonitorsetupfullwith_log Following http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/ and UdevrulesforUSB&amp;rsquo;sattachedtoRPi
+create a udev rule for RPI
+edited the file &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Dylos monitor setup full with log</h1>
+
+<h3>
+  2014-04-10</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p><strong>Dylos<em>monitor</em>setup<em>full</em>with_log</strong>
+Following <a href="http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/">http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/</a> and Udev<em>rules</em>for<em>USB&rsquo;s</em>attached<em>to</em>RPi</p>
+
+<p>create a udev rule for RPI</p>
+
+<p>edited the file /etc/udev/rules.d</p>
+
+<p>using command</p>
+
+<p>sudo nano /etc/udev/rules.d/90-phone.rules</p>
+
+<p>and add follwoing lines to giving persistant name for USB data card (HUWAEI E303F) and USB to serial cable for Dylos monitor.</p>
+
+<p>KERNEL==&ldquo;ttyUSB<em>&rdquo;, ATTRS{idVendor}==&ldquo;12d1&rdquo;, ATTRS{idProduct}==&ldquo;1506&rdquo;, NAME=&ldquo;phone&rdquo;, MODE=&ldquo;0666&rdquo;,SYMLINK+=&ldquo;mobile&rdquo;
+KERNEL==&ldquo;ttyUSB</em>&rdquo;, ATTRS{idVendor}==&ldquo;067b&rdquo;, ATTRS{idProduct}==&ldquo;2303&rdquo;, NAME=&ldquo;dylos&rdquo;, MODE=&ldquo;0666&rdquo;,SYMLINK+=&ldquo;dylos&rdquo;</p>
+
+<p>by this, while connecting these two devices, the folder /dev shows the files for USB data card and USB to serial cable for Dylos monitor. By this, these device can be refered in python script or gammu-config etc.</p>
+
+<p>Gammu installation</p>
+
+<p>gammu-config , with /dev/phone
+gammu &ndash;identify, hangs whole computer, no pinging, and RPI has to be restarted, this is the problem with BBB also, inwhich it even non detect the usb in lsusb.</p>
+
+<p>Found gammu makes problem with RPi, alternative is use it as inetrnet based data tranfer following</p>
+
+<p><a href="http://bigcowpi.blogspot.in/2013/03/raspberry-pi-as-3g-huawei-e303-wireless.html">http://bigcowpi.blogspot.in/2013/03/raspberry-pi-as-3g-huawei-e303-wireless.html</a></p>
+
+<p>Internet gets connected with hipuchs, any how try,</p>
+
+<p>Use github as data repository, a alternative to xylos.
+cron with git push.
+1. Writing code for collecting serial and save it as csv file, Use logging module to save the exception and info into a file.
+2. Exception hanlder for serial connection and data base problem was addressed by follwoing
+<a href="http://stackoverflow.com/questions/4508849/how-to-log-python-exception">http://stackoverflow.com/questions/4508849/how-to-log-python-exception</a>
+executing this</p>
+
+<pre><code>import logging 
+def foo():
+    try:
+        some_code()
+    except:
+        logging.exception('')
+</code></pre>
+
+<p>This makes the python command to run silent and error and exception recorded in log file. exception for SERIAl, database was made.
+3. The data coming from serial has to be cleaned to remove unwanted chareterc and spaces. used this command</p>
+
+<pre><code>a= '2014-04-10T09:35,4941,513    '
+&gt;&gt;&gt; b = a.strip( ' \r\n' )
+</code></pre>
+
+<p>Still in sqlite a special chrecters is seen.
+4. There is a problem in csv file it is not getting updated, instead overwritten. follwoed this</p>
+
+<p>and changed the flag from &lsquo;w&rsquo; to &lsquo;a&rsquo;
+5. In csv file there is a &ldquo; in each line has to see, finally found a old script written for this and used instead, the script is as follows</p>
+
+<pre><code>#!/usr/bin/env python
+import serial
+import time
+
+ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=60)
+time.sleep(60)
+
+logfile = open('DYLOS_log.csv', 'a')
+
+while 1:
+	line = ser.readline() 
+	now = time.strftime(&quot;%Y-%m-%dT%H:%M:%S:00.000000+0530&quot;, time.localtime())
+	a =  &quot;%s,%s&quot; % (now,line)
+	#print a	
+	logfile.write(a)
+        logfile.flush()    
+logfile.close()
+ser.close()
+
+</code></pre>
+
+<ol>
+<li>##giving github access to RPi##</li>
+<li>followed this to genrate a key
+<a href="https://help.github.com/articles/generating-ssh-keys">https://help.github.com/articles/generating-ssh-keys</a>
+followed this subprocess based python script to make git push</li>
+
+<li><p>##adding crontab properly with python script itself
+followed
+<a href="http://stackoverflow.com/questions/8727935/execute-python-script-on-crontab">http://stackoverflow.com/questions/8727935/execute-python-script-on-crontab</a></p></li>
+
+<li><p>Sqlite database was cleaned by follwoing
+<a href="http://stackoverflow.com/questions/4245714/select-numbers-between-a-range-1-to-100-in-sqlite">http://stackoverflow.com/questions/4245714/select-numbers-between-a-range-1-to-100-in-sqlite</a>
+and executed the command of
+<a href="http://stackoverflow.com/questions/4245714/select-numbers-between-a-range-1-to-100-in-sqlite">http://stackoverflow.com/questions/4245714/select-numbers-between-a-range-1-to-100-in-sqlite</a></p></li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Working with WRF CHEM part64 DustOnlyTutorial - Nishadh KA</title>
+    <meta property="og:title" content="Working with WRF CHEM part64 DustOnlyTutorial - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##Trail for WRF-CHEM, WRF CHEM simulation with dust only tutorial## 1. It is based on this to run compiled wrf chem in serial mode with only dust.
+###WPS:Geogrid### 9. As per this point 7, file &amp;hellip;">
+      <meta property="og:description" content="##Trail for WRF-CHEM, WRF CHEM simulation with dust only tutorial## 1. It is based on this to run compiled wrf chem in serial mode with only dust.
+###WPS:Geogrid### 9. As per this point 7, file &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Working with WRF CHEM part64 DustOnlyTutorial</h1>
+
+<h3>
+  2014-08-19</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Trail for WRF-CHEM, WRF CHEM simulation with dust only tutorial##
+1. It is based on <a href="http://ruc.noaa.gov/wrf/WG11/wrf_tutorial_exercises_v35/exercise_1.html">this</a> to run compiled wrf chem in serial mode with only dust.</p>
+
+<p>###WPS:Geogrid###
+9. As per <a href="http://ruc.noaa.gov/wrf/WG11/wrf_tutorial_exercises_v35/exercise_1.html">this</a> point 7, file <code>GEOGRID.TBL.ARW_CHEM</code> in WPS geogrid directory was linked as GEOGRID.TBL using GUI of ubuntu 12.04.
+10. The namelist.wps from the <a href="http://ruc.noaa.gov/wrf/WG11/wrf_tutorial_exercises_v35/ex1_namelist.wps">page</a> was used. The namelist.wps is as follows,</p>
+
+<pre><code>    &amp;share
+            wrf_core = 'ARW',
+            max_dom = 1,
+            start_date = '2010-07-14_00:00:00','2010-07-14_00:00:00',
+            end_date = '2010-07-19_00:00:00','2010-07-19_00:00:00',
+            interval_seconds = 10800,
+            io_form_geogrid = 2,
+            /
+
+            &amp;geogrid
+            parent_id         =   1,     1,     1,
+            parent_grid_ratio =   1,     5,     5,
+            i_parent_start    =   1,     6,     105,
+            j_parent_start    =   1,     65,    25,
+            e_we              =    41,   201,   226,
+            e_sn              =    41,   311,   231,
+            geog_data_res     =   '10m', '2m', '30s'
+            dx        = 100000,
+            dy        = 100000,
+            map_proj  =  'lambert',
+            ref_lat   =  35.0,
+            ref_lon   =  25.0,
+            truelat1  =  30.0,
+            truelat2  =  40.0,
+            stand_lon =  25.0,
+            ref_x     =  20.5
+            ref_y     =  20.5
+            geog_data_path = '/home/hoopoe/ems/wrfems/data/geog'
+            /
+
+            &amp;ungrib
+            out_format = 'WPS',
+            prefix = 'FILE',
+            /
+
+            &amp;metgrid
+            fg_name = 'FILE'
+            io_form_metgrid = 2,
+            /
+            opt_ignore_dom_center = .true.,
+
+            &amp;mod_levs
+            press_pa = 201300 , 200100 , 100000 ,
+         95000 ,  90000 ,
+         85000 ,  80000 ,
+         75000 ,  70000 ,
+         65000 ,  60000 ,
+         55000 ,  50000 ,
+         45000 ,  40000 ,
+         35000 ,  30000 ,
+         25000 ,  20000 ,
+         15000 ,  10000 ,
+          5000 ,   1000
+            /
+</code></pre>
+
+<ol>
+<li>With this the geogrid was executed by <code>./geogrid.exe</code> and ended with successful completion and following file <code>
+geo_em.d01.nc</code> was created. During geogrid.exe, as per the <a href="http://ruc.noaa.gov/wrf/WG11/wrf_tutorial_exercises_v35/exercise_1.html">page</a> point 10, EORD was processed but no processing was happen for CLAYFRAC and SANDFRAC.</li>
+</ol>
+
+<p>###WPS: Ungrib###</p>
+
+<ol>
+<li>The gfs files downloaded as per <a href="http://ruc.noaa.gov/wrf/WG11/wrf_tutorial_exercises_v35/exercise_1.html">this</a> and from <a href="ftp://aftp.fsl.noaa.gov/divisions/taq/wrfchemv35_tutorial">here</a> was used, average size around 45MB for each files. The files naming convention in a such a manner that no dates can be clarified from just read.</li>
+<li>The vtable was linked inside WPS folder by <code>ln -sf ungrib/Variable_Tables/Vtable.GFS Vtable</code>.</li>
+
+<li><p>The GFS files inside the gfs folder is linked with WPS folder by <code>./link_grib.csh /home/swl-sacon-dst/wrf/WRF341/WRF_CHEM_trails/dust_onlytut/WRF-CHEM_GFS/</code>, by this following file with links were created by this step inside WPS folder.</p>
+
+<pre><code>GRIBFILE.AAA -&gt; /home/swl-sacon-dst/wrf/WRF341/WRF_CHEM_trails/dust_onlytut/WRF-CHEM_GFS/1019500000000
+GRIBFILE.AAB -&gt; /home/swl-sacon-dst/wrf/WRF341/WRF_CHEM_trails/dust_onlytut/WRF-CHEM_GFS/1019506000000
+GRIBFILE.AAC -&gt; /home/swl-sacon-dst/wrf/WRF341/WRF_CHEM_trails/dust_onlytut/WRF-CHEM_GFS/1019512000000
+</code></pre>
+
+<p>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;
+&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;
+    GRIBFILE.AAU -&gt; /home/swl-sacon-dst/wrf/WRF341/WRF<em>CHEM</em>trails/dust<em>onlytut/WRF-CHEM</em>GFS/1020000000000</p></li>
+
+<li><p>The ungrib.exe was run using this command <code>./ungrib.exe &gt;&amp; ungrib_data.log</code>, the log file says successful completion of the ungrib and run for about 7 minutes. It created a 41 files such as this FILE:2010-07-14_00.</p></li>
+</ol>
+
+<p>###WPS:Metgrid###</p>
+
+<ol>
+<li>For the metgrid part of WPS, as per the tutorial page the content was checked for namelist.wps and kept as such of geogrid.exe namelist.</li>
+<li>Then the metgrid was executed by <code>./metgrid.exe</code> and it ended with successful completion and creation of following nc files named from <code>met_em.d01.2010-07-14_00:00:00.nc</code> to <code>met_em.d01.2010-07-19_00:00:00.nc</code></li>
+<li>The metgrid.log was reviewed and it is found message saying the EROD field has been read in and written to file.</li>
+</ol>
+
+<p>###WRF:real.exe###</p>
+
+<ol>
+<li>For making WRF run, the folder content from <code>WRFV3CHEM_serial/test/em_real</code> was used as such and all the met files are linked inside the em_real folder using the command <code>ln -sf /home/swl-sacon-dst/wrf/WRF341/WRF_CHEM_trails/dust_onlytut/WPS/met_em* .</code>. With this real.exe was executed and it created wrfinput and wrfbdy files, input file used was of provided with tutorial.</li>
+</ol>
+
+<p>####WRF:wrf.exe###</p>
+
+<ol>
+<li>The wrf.exe was executed after real.exe and it ran for 50 minutes to simulate 48 hours of weather condition over the domain.</li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

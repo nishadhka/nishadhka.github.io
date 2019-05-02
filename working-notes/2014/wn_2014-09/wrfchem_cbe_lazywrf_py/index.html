@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>WRFCHEM CBE lazyWRF py - Nishadh KA</title>
+    <meta property="og:title" content="WRFCHEM CBE lazyWRF py - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="###Use script to execute WRF CHEM CBE### 1. To run in real time and in cluster environment(AWS or ARM), various steps of WRF have to be made into script. 1. There are several python based scripts &amp;hellip;">
+      <meta property="og:description" content="###Use script to execute WRF CHEM CBE### 1. To run in real time and in cluster environment(AWS or ARM), various steps of WRF have to be made into script. 1. There are several python based scripts &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>WRFCHEM CBE lazyWRF py</h1>
+
+<h3>
+  2014-09-25</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>###Use script to execute WRF CHEM CBE###
+1. To run in real time and in cluster environment(AWS or ARM), various steps of WRF have to be made into script.
+1. There are several python based scripts avaiable for running WRF. The script lazyWRF is a neat and simple script to run wrf from WPS stage.
+1. The script has minor problem in running, it was forked from its git hub <a href="https://github.com/nishadhka/WEM/blob/master/lazyWRF/lazyWRF/lazyWRF.py">repository</a> and edited. Adding a git repo inside a repo and mainiting its authrosihp is little diffcult, <a href="http://stackoverflow.com/questions/2140985/how-to-set-up-a-git-project-to-use-an-external-repo-submodule">see here</a> so It was not included in the saconswl real time project repository. A clone of this git forked in github session was made and editing was carried out there.<br />
+###Edits on the script###<br />
+1. The script was giving error due to line number 208 as <code>cp: missing destination file operand after</code>` it was solved by giving correct formate for copy operation in the line such as</p>
+
+<pre><code class="language-os.system('cp">1. The script def function ```edit_namelist``` through wrong editing of namelist with one more domain addition, it was solved by changing the functions variable from ```def edit_namelist(old,new,incolumn=1):``` to ```def edit_namelist(old,new,incolumn=0):```. 
+1. Another issue was with line numbers 238 and 239, in which lines 			
+			edit_namelist(&quot;dx&quot;,str(dx*1000),incolumn=0)
+    	edit_namelist(&quot;dy&quot;,str(dy*1000),incolumn=0```
+
+giving 1000 repeated multiplication value. It is feature of python notes [here](http://stackoverflow.com/questions/12733184/multiplication-in-python) while multiplying with sting and integer. This was solved by changing the value to integer and then multiplying as follows
+
+			edit_namelist(&quot;dx&quot;,str(1000*int(dx))+',',incolumn=0)
+    	edit_namelist(&quot;dy&quot;,str(1000*int(dy))+',',incolumn=0)
+
+1. Above correction through error as ```TypeError: int() argument must be a string or a number, not 'tuple'``` when running it in script. Latter it was solved by removing the comma in initial variable supplied for dx and dy. 
+1. With this edit the program ```python lazyWRF.py -v``` was executed and it ran successfully upto met grid. Interestingly the program runs all file downloading different WPS program running routines in fraction of time otherwise do it manually could cost 15 minutes. Metgrid was failed with error saying that ``` At line 98 of file gridinfo_module.f90 (unit = 10, file = 'namelist.wps')
+Fortran runtime error: Cannot match namelist object name file```. A quick comparison with current namelist.wps and last successful run namelist.wps, it is found that the namelist entry ```fg_name``` was wrongly written by the script, it was corrected by editing line number 76 of lazyWRF.py to ```int_prefix = &quot;'FILE'&quot;```. After this edit metgrid run without any error. 
+1. To test the both functionality of WPS and WRF simulation by lazyWRF.py, domain was kept into 1 and used the last successful running of the WRF. The script lazyWRF was edited in following lines 
+1.1 line 76, from ```int_prefix = &quot;FILE&quot;``` to ```int_prefix = &quot;'FILE'&quot;```, to avoid this error ``` At line 98 of file gridinfo_module.f90 (unit = 10, file = 'namelist.wps')
+Fortran runtime error: Cannot match namelist object name file```
+1.2 line 104, def edit_namelist_input was mainted as of WPS namelist edit function, other wise the namelist.input edited mistakenly.
+1.3 line 208 was edited to consider the better file copying convention
+1.4 line 238 and 239 are edited to correct multiplication of values avoid repetition as of python convention while multiply with integer and string
+1.5 line 265 was added to give the current directory necessary for wrf executables
+1.6 line 267 was edited as of 1.3
+1.7 line 310 for remove comma after max_dom single variable entry
+1.8 line 325 and 331 was edited to run the script in normal Linux environment
+1. After above edits lazyWRF is working upto execution of wrf.exe and running t for two hours after that it hangs and error was not reported. It is diagnosed as might be a subprocess stdout problem, exceeding buffer limit above the python convention. So a new method other than subprocess or tweak of subprocess is required. 
+1. The script is required to have following improvements for WRF CHEM execution in real time
+	1. real time GFS data download for each time frame of execution
+  1. clean WPS folder for subsequent execution
+	1. create a archive folder as of pydown, a functionality of move wrf/wps products and namelist, creation of metadata
+	1. prep_chem_src and or convert_emiss.exe run based on   its required namelist
+	1. add functionality for running ndown.exe 
+	1. solve the problem of wrf.exe run and add functionality for time left for simulation completion by parsing its log file, add functionality to move wrfoutput into a safe place
+	1. get wrfoutput for variables such as U,V,Temp, Humidity, PM10 and PM2.5 using [this](https://github.com/muellermichel/pyWRF-NMM) script or modified  
+
+###Improvements on script lazyWRF.py###
+For addressing 1.1
+1. Exploring more on real time data from gfs, the files downloaded by the program is ```gfsanl```, gfs reanalysis product which is for a day old for simulation. 
+1. The real time gfs utility in null school wind map was followed but it is using customized filtered data, not to be used with wrf.
+1. Based on [this](http://www.dtcenter.org/wrf-nmm/users/downloads/input_data.php) link for gfs data was found in [this](ftp://ftpprd.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/) ftp site. The script has to be modified with its def for ```def download_data(date,initdata,pathtoinitdata):``` and has to be modified to include gfs RT also.
+1. The ftp site update every day gfs data in four quarter and its auxiliary details are tabled below. 
+
+| S.NO |Time period|File Name conv|GFS avl time period| 
+|---|---|---|---|
+| 1 | t00z  | gfs.t00z.pgrbf##.grib2 |3:20 to 4:30 AM IST ##-0 to 204 hours  |
+| 2 | t06z  | gfs.t06z.pgrbf##.grib2 |9:20 to 10:30 AM IST  ##-0 to 204 hours|
+| 3 | t12z  | gfs.t12z.pgrbf##.grib2 |3:30 to 4:30 PM IST  ##-0 to 204 hours|
+| 4 | t18z  | gfs.t18z.pgrbf##.grib2 |9:20 to 10:30 PM IST  ##-0 to 204 hours|   
+
+1. More general introduction to gfs product is [here](http://www.nco.ncep.noaa.gov/pmb/products/gfs/) showing naming convention of gfs files having 0.5 degree resolution in real time.
+1. The gfs download facility in the script is added with rea time gfs download. For this, the command with wget to download the data from sample link ```ftp://ftp.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/gfs.2014092600/gfs.t00z.pgrbf00.grib2``` functionality was added.
+1. Added codes were of, to initiate the start and end of simualtion in real time execution setup, used following commands to start simulation from now to next six hours.
+				
+				idatert=datetime.datetime.now()
+				iyrt,imrt,idrt,ihrt= idatert.year, idatert.month,  idatert.day, idatert.hour
+				fdatert=datetime.datetime.now()+datetime.timedelta(hours=6)
+				fyrt,fmrt,fdrt,fhrt= fdatert.year, fdatert.month, fdatert.day, fdatert.hour 
+
+to make the real time gfs download link for required time period, used following codes
+
+				elif initdata == 'gfstr':
+        		prefix = 'gfs'
+        		nrt=datetime.datetime.now().hour
+						if 0 &lt;= nrt &lt;= 6:
+								cc=00
+       			if 6 &lt;= nrt &lt;= 12:
+								cc=06
+        		if 12 &lt;= nrt &lt;= 18:
+                cc=12
+        		if 18 &lt;= nrt &lt;= 23.5:
+                cc=18
+    		command = ('wget &quot;ftp://ftp.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/' + prefix + '.'+date[:8]+cc+
+               '/'+prefix+'.t'+cc+'z.pgrbf'+date[9:11]+'.grib2')
+    		os.system(command)
+    		return
+
+
+For addressing Ndown.exe functionality
+
+1. A new functionality for running intelligent_run in mpi mode was added, it is as follows
+
+				def intelligent_mpirun(executable,email):
+    				# email = if you want email sent to an address, fill it here
+    				command = ' mpirun -np 3 -host localhost ./' + executable + '.exe'
+    				os.system(command)
+   				 	logfile = open(executable + '.log').readlines() 
+    				if &quot;Successful completion&quot; in logfile[-1]:
+        				print '&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; ' , executable, &quot;has completed successfully. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;
+    				else:
+        				print '!!!!!!!! ' , executable, &quot;has failed. Exiting... !!!!!!!!&quot;
+        				if email:
+            				os.system('tail '+logfile+' | mail -s &quot;lazyWRF message: error in '+executable+'.&quot; '+email)
+        				raise Exception
+    				return
+1. to test its effectiveness it was attempted to test with wrf only namelist, by removing the ```if submit_job:```, giving the real and wrf executables through ```intelligent_mpirun```. Since wrf is not compiled in parallel mode it is only option is go with wrf_chem execution. 
+1. So wrf_chem for dust only is tried by uncommenting the code for copying the prep_chem_src files and convert_emiss.exe. The custom made domain using wrf_domain.py script during last two hours is used to run this case named ```WRFCHEM_CBE_A2```. 
+1. The lazyWRFCHEM script intial running gives minor errors of wrong namelist editing (not writing ```=``` mark in some of variable, resolved by adding column=0 in edit line for each variable). Other notable errors related with script was wrong mentioning of pathWRF or pathWRFCHEM, pathWPS etc.
+1. the new function ```intelligent_mpirun``` has problem in terms of log file writing, since mpi run is automatically generate log files it is better to remove. The final running function was like below
+
+					def intelligent_mpirun(executable):
+    						# email = if you want email sent to an address, fill it here
+						    command = ' mpirun -np 3 -host localhost ./' + executable + '.exe'
+						    os.system(command)
+						    return
+1. It is also important to remove the mpi log files for real.exe to get the log files for wrf.exe. So added a line to remove the ```rsl*``` log from mpi run of real.exe as follows ```os.system('rm rsl*')```
+1. The running of this case but failed in wrf.exe with memory error such as below
+
+				*** glibc detected *** ./wrf.exe: free(): invalid next size (fast): 0x000000000ae338c0 ***
+				*** glibc detected *** ./wrf.exe: malloc(): memory corruption: 0x000000000ae338e0 ***
+
+1. With this error doubted due to domain preparation, WRF EMS dwiz tool was consulted to create a smallest of domain which can be useful for lazywrfchem script testing purpose, this case was names as ```WRFCHEM_CBE_A3``` but also failed due to memory error as of last attempt.
+1. So it is decided to stick on to the last successful simulated domain, it was of last wrf chem cbe emission inventory case, so it would be attempted to test the lazywrfchem. But the last simulation with che on is not working for dust only condition, strangely. This attempt named as ```WRFCHEM_CBE_A4``` also ends in similar above error. this was subsequently checked with wrf only condition and serial mode, but ends in similar error. A report on this error is being reported [here](http://forum.wrfforum.com/viewtopic.php?f=28&amp;t=580). 
+1. Based on this a fresh attempt is made with last successful simulation of wrf chem and its input, boundary file and emission files are added and run ```./wrf.exe``` in last known running namelist that is ```namelist.inputWRFrun03```, it was running with out any error as speified above. So it is decided to go with wrf chem simulation using lazywrfCHEM script adding the functionality for emission inventory creation and convert_emiss.exe 
+
+####Running lazyWRFCHEM for upto first doamin of wrfchem####
+1. to run first domain of wrf chem, the namelist input files as of last run and the flowchart ![WRF_CHEM_cbe_nestingA1.png] namely, 
+
+	1. ```namelist.input_DUSTONLY``` for running real.exe to  genrate requiered files for convert.exe,
+	1. ```namelist.input_CE_d01``` to run convert.exe
+	1. ```namelist.inputWRFrun03``` to run the final ```real.exe``` and ```wrf.exe``` 
+was compared using Diffuse Merge Tool.
+1. The tool Diffuse Merge Tool very hand in this situation to comapre upto three files for any difference and mosst useful for namlist comaprision. 
+1. Taking the namelist ```namelist.inputWRFrun03``` as template and edited for various former steps namelist. First edited the namelist for 1 and then run ```python lazyWRF_WRFCHEM.py```, it run upto the point 1. So now to edit the namelist for step 2 or ndown into domain 2.
+
+####Running lazyWRFCHEM for testing with pyWRFCHEMEMISS converter####
+1. A separate attempt named as WRFCHEM_CBE_A5 was tried for testing the output from pyWRFCHEMEMISS program.
+1. The code is equipped with to run parallel execution of wrf chem system.
+
+####Running lazyWRFCHEM for up to second domain of wrfchem####
+1. A new attempt named WRFCHEM_CBE_A6 in wrf chem_trails is made to run lazywrf chem for doing ndown and go upto second dynamic nesting.
+1. For this testing was planned to carry out in server. But server was not having prep_chem _src and convert_emiss.exe, these two programs hsave to be need to compiled. 
+1. To compile prep_chem_src in ubunut server 14.04
+ 1. The following comments tried
+
+export $pathlibs='/home/hoopoe/wrfchem341/lib/'
+
+ 1. for zlib compile
+   FC=gfortran CC=gcc ./configure --prefix=$pathlibs/zlib_compiled
+   make
+   make check
+   make checkinstall
+ 1. for hdf5 compile
+    FC=gfortran CC=gcc CXX=gc++ ./configure  --prefix=/$path_libs/hdf_compiled --with-zlib=$pathlibs/zlib_compiled --disable-shared --enable-fortran
+    make
+    make check
+    make install
+    make check-install
+ 1. for prep_chem_src compile
+    1. editing the configure file ```include.mk.gfortran``` and running the compile command for prep_chem_src, gives error of  ```Fatal Error: Can't open module file 'netcdf.mod' for reading at (1): No such file or directory``` later it is found that the location we are refereing in the file include.mk.gfortran doen't having hte netcdf.mod file this is was then given the error of version incompatability. As per earlier it is found that the the netcdf 4.3.2 is working perfect with this situtraiton, So compiling the netcdf4.3.2 in the server. 
+
+export DIR=/home/hoopoe/wrfchem341/lib/netcdf432
+export CC=gcc
+export CXX=g++
+export FC=gfortran
+export FCFLAGS=-m64
+export F77=gfortran
+export FFLAGS=-m64
+
+tar xzvf netcdf-4.1.3.tar.gz     #or just .tar if no .gz present
+cd netcdf-4.1.3
+./configure --prefix=$DIR/ --disable-dap \
+     --disable-netcdf-4 --disable-shared
+make
+make install
+setenv PATH $DIR/netcdf/bin:$PATH
+setenv NETCDF $DIR/netcdf
+cd .. 
+
+but above step didn't produced any mod file in it.
+1. Based on this working note [Installing_netcdf_python_in_Ubuntu12.04.md] it is found that netcdf has to compile with sepcal variables, this also more indicated by this [note](http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg11859.html) to create mod file it has to be compile in different manner as of aboe
+that stepos are as follows
+
+LDFLAGS=-L/usr/lib CPPFLAGS=-I/usr/include ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=/home/hoopoe/wrfchem341/lib/netcdf432A2
+
+but above comment returns that can't find Can't find or link to the hdf5 library. Use --disable-netcdf-4, or see config.log for errors.
+1. So based on the note and its refried link, the compiling of hdf version 1.8.14 is followed and as follows
+
+./configure --prefix=/usr/local --enable-shared --enable-hl  --with-zlib=/home/hoopoe/wrfchem341/lib/zlib_compiled --enable-fortran
+make 
+sudo checkinstall
+
+then for netcdf 
+LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=/usr/local
+make 
+make install 
+
+but ends in error of ld returned 1 exit status
+&gt; make[2]: *** [ncgen3] Error 1
+
+this error was continuing and can't be solved. The version of netcdf tried was 4.3.2. Based on [this](http://www.unidata.ucar.edu/software/netcdf/docs/netcdf-fortran-install.html), From version 4.2, netcdf compilation or its source package is differing from its earlier relaes. Major change is it won't package fortran capcability in its natve source and seprate source package has to be isntalled for that. This isntallation is seems to be complex and all the installation ends in without genration of netcdf.mod file which is related with giving fortran funcitonality and necessary for prep_chem_src and wrf systems. There is a differnece in [this](http://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html) matter is by giving prefix for conifugre as --enable-shared for make fortran linkage and disable-shared releve and completes the compilation error less. 
+1. For a turning point it is found that the prep_chem_src is not compiling with netcdf verison 3.6.3, complaining netcdf.mod is old version. Then it is refred prep_chem_src readme and found that it reuieres netcdf4.1.1 for its compilation. So as per reuierment netcdf4.1.1 was compiled along with HDF1.8.14 and Zlib1.2.7. The netcdf compilation has faced problme in its documentaion creation(finally foir this also!!) lots of tex and its related packages reuiered to install and then ends in error with one of the tex file in the source package. It was solved by follwoing [this](http://www.unidata.ucar.edu/mailing_lists/archives/netcdfgroup/2013/msg00343.html) patch codes in the erroneous documentation file. After this compilaiton and editing the prep_chem_src, configure file ```include.mk.opt.gfortran``` and giving the refrence for netcdf, hdf, zlib file as 
+
+</code></pre>
+
+<h1 id="netcdf-libraries">NETCDF libraries</h1>
+
+<p>NETCDF=/home/hoopoe/wrfchem341/lib/netcdf411
+NETCDF<em>INC=-I$(NETCDF)/include
+NETCDF</em>LIBS=-L$(NETCDF)/lib -lnetcdf</p>
+
+<h1 id="hdf-libraries">HDF libraries</h1>
+
+<p>HDF5=/usr/local
+HDF5<em>INC=-I$(HDF5)/include
+HDF5</em>LIB=-L$(HDF5)/lib -lhdf5hl<em>fortran -lhdf5</em>fortran -lhdf5<em>hl -lhdf5 -L/home/hoopoe/wrfchem341/lib/zlib</em>compiled/lib -lz
+<code>
+Then executing the command</code>make OPT=opt.gfortran CHEM=RADM<em>WRF</em>FIM
+``` retuns the exe of prep<em>chem</em>src. It has to be checked for correctness of function.</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

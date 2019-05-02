@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>D3.JS on Nishadh KA</title>
+    <link>/tags/d3.js/</link>
+    <description>Recent content in D3.JS on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Nov 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/d3.js/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Plot Aerocet sample D3JS</title>
+      <link>/working-notes/2014/wn_2014-11/plot_aerocet_sample_d3js/</link>
+      <pubDate>Sun, 16 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-11/plot_aerocet_sample_d3js/</guid>
+      <description>####Plot aerocet data with D3 JS scrip####
+ Based on this and its source code. The meteor web application is based on one index.html file and marker visualizer based on JS drawMap.js. The index.html was edited for to remove the CHART in the line 14 to 19 contains  &amp;lt;div id=&amp;quot;year-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Year of Impact&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div id=&amp;quot;mass-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Mass (g)&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt;   IN drawMap.js, following lines were removed ``` function renderAll(){ chart.</description>
+    </item>
+    
+    <item>
+      <title>Node js withAIRwindandEarthwind</title>
+      <link>/working-notes/2014/wn_2014-05/node_js_withairwindandearthwind/</link>
+      <pubDate>Fri, 23 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-05/node_js_withairwindandearthwind/</guid>
+      <description>##Node.jswithairwindandearthwindintocbe-air##
+ for addressing objective2 of web processing service for real time air pollution model, the implementation with node.jsearth or airis planned. These are perfect match for this objective in showing the grandioseness of air circulation and how air pollution effect this grandioseness in real time animation of wind As a node.js web application, node has to installed as specified in the project&amp;rsquo;s readme. for node installation followed this wonderful tutorial, it basically involves and checking with node -v and npm -v  apt-get install python-software-properties apt-add-repository ppa:chris-lea/node.</description>
+    </item>
+    
+  </channel>
+</rss>

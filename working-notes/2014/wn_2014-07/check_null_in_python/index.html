@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Check null in python - Nishadh KA</title>
+    <meta property="og:title" content="Check null in python - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##checking for null in python## - lbm1, connected with tp-link and to upload data to thinkspeak internet of things services, a script is used as follows,
+">
+      <meta property="og:description" content="##checking for null in python## - lbm1, connected with tp-link and to upload data to thinkspeak internet of things services, a script is used as follows,
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Check null in python</h1>
+
+<h3>
+  2014-07-15</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##checking for null in python##
+- lbm1, connected with tp-link and to upload data to thinkspeak internet of things services, a script is used as follows,</p>
+
+<pre><code>import sqlite3 as lite
+import logging
+import httplib, urllib
+from time import localtime, strftime
+import time
+
+logger = logging.getLogger('lbm1')
+hdlr = logging.FileHandler('/home/pi/SMS/pyts.log')
+formatter = logging.Formatter('%(asctime)s: %(levelname)s %(message)s')
+headers = {&quot;Content-type&quot;: &quot;application/x-www-form-urlencoded&quot;,&quot;Accept&quot;: &quot;text/plain&quot;}
+conn = httplib.HTTPConnection(&quot;api.thingspeak.com:80&quot;)
+
+hdlr.setFormatter(formatter)
+logger.addHandler(hdlr)
+logger.setLevel(logging.INFO)
+logger.info(&quot;tss&quot;)
+
+con = lite.connect('/home/pi/SMS/dylos.db')
+try:
+  with con:
+    cur = con.cursor()
+    cur.execute(&quot;SELECT * FROM data ORDER BY SNo DESC LIMIT 1&quot;)
+    a= [str(i[1]) for i in cur.fetchall()]
+    b = map(str.strip,a)
+    c= str(b).strip(&quot;[']&quot;)
+    d= c.split(',')
+    if d[1] is None:
+       d[1]='00'
+    if d[2] is None:
+       d[2]='00'
+    logger.info(&quot;dfdb&quot;)
+    params = urllib.urlencode({'field1': d[1], 'field2': d[2],'key':'1ACXSOW1ZFCYWGZF'})
+    conn.request(&quot;POST&quot;, &quot;/update&quot;, params, headers)
+    response = conn.getresponse()
+    conn.close()
+    logger.info('sdf')
+except:
+    logger.exception('dbyr')
+finally:
+   if con:
+      con.close()
+</code></pre>
+
+<ul>
+<li>the lbm1 has a problem it SERIAL is defunct in intial startup upto three hours, which collect data for 0.5 micrometer only and 2.5 micrometer is omitted, this makes problem to script of defunt of functions saying the error, <code>list index out of range</code>, this is can be rectified by simple null checking using if.</li>
+<li>based on <a href="http://stackoverflow.com/questions/11902458/i-want-to-exception-handle-list-index-out-of-range">this</a>, found a method to handle null exception in list outof range case, the command used was <code>gotdata = a[2] if len(a) &gt; 2 else '000'</code> and <code>['2014-07-15T09:27', '2221']</code></li>
+<li></li>
+</ul>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

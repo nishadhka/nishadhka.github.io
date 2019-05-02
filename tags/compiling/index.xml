@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Compiling on Nishadh KA</title>
+    <link>/tags/compiling/</link>
+    <description>Recent content in Compiling on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Jun 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/compiling/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compiling grib2json in AWS</title>
+      <link>/working-notes/2014/wn_2014-06/compiling_grib2json_in_aws/</link>
+      <pubDate>Fri, 06 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-06/compiling_grib2json_in_aws/</guid>
+      <description>Install latest java and jdk follow this (http://askubuntu.com/questions/117189/apt-get-install-openjdk-7-jdk-doesnt-install-javac-why) Install latest maven  wget http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz tar -zxf apache-maven-3.0.4-bin.tar.gz sudo cp -R apache-maven-3.0.4 /usr/local sudo ln -s /usr/local/apache-maven-3.0.4/bin/mvn /usr/bin/mvn  then edit .bashrc file and add this line, not working, don&amp;rsquo;t do this  nano .bashrc &amp;gt;&amp;gt;&amp;gt;JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64  check installation with mvn version and mvn package gives spurious errors Never mind the error, download the grib2json as told here No need to install git in aws, instead use https with wget and get the folder, unzip, have to install unzip, then follow the readME.</description>
+    </item>
+    
+    <item>
+      <title>Compileling WRF CHEM</title>
+      <link>/working-notes/2014/wn_2014-04/compileling_wrf_chem/</link>
+      <pubDate>Fri, 18 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-04/compileling_wrf_chem/</guid>
+      <description>Compiling WRF-CHEM
+Based on this Most exhaustive tutorial
+ in WRFV3 folder, (the &amp;lsquo;chem&amp;rsquo; folder has to copied inside of this folder) entering  $ ./configure checking for perl5... no checking for perl... found /usr/bin/perl (perl) ** WARNING: No path to NETCDF and environment variable NETCDF not set. ** would you like me to try to fix? [y] y Enter full path to NetCDF include directory on your system /usr/include Enter full path to NetCDF library directory on your system /usr/lib created new .</description>
+    </item>
+    
+    <item>
+      <title>HYSPLIT compile</title>
+      <link>/working-notes/2014/wn_2014-04/hysplit_compile/</link>
+      <pubDate>Fri, 04 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-04/hysplit_compile/</guid>
+      <description>#HYSPLIT_compile
+Compiling HYSPLIT in Ubuntu 12.04 was hurdled by a error related with netcdf.
+ Installation of netcdf is through compiling and package installation from synaptic package manager. Synaptic and latest source download compilation gives error of &amp;ldquo;no netcdf.inc&amp;rdquo; in hysplit compile. It is due to a fortran binding lapse in latest verision. So used a old version of the netcdf 3.6.3 and compiled following this&amp;ndash; http://code.google.com/p/netcdf4-python/wiki/UbuntuInstall has to give sudo in make and make install, with the first comment disable-shared LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include .</description>
+    </item>
+    
+    <item>
+      <title>EMS WRF</title>
+      <link>/working-notes/2014/wn_2014-03/ems_wrf/</link>
+      <pubDate>Thu, 06 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-03/ems_wrf/</guid>
+      <description>EMS WRF OF COIMBATORE REGION USING 4 DOMAINS :-
+Five simple steps required for the execution of EMS (Environmental modeling system) WRF.
+Step 1: Create a computational domain with the Domain Wizard(DW) GUI After the successful installation of EMS follow these steps,
+a) Start the DW by executing the command &amp;ldquo;dwiz&amp;rdquo; in terminal . b) DW window should appear and gives you an opportunity to select from creating a new domain or modifying existing domain.</description>
+    </item>
+    
+  </channel>
+</rss>

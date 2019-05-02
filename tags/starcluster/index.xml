@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>StarCluster on Nishadh KA</title>
+    <link>/tags/starcluster/</link>
+    <description>Recent content in StarCluster on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Sep 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/starcluster/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WRFCHEM CBE aOptionwithAWS StarCluster</title>
+      <link>/working-notes/2014/wn_2014-09/wrfchem_cbe_aoptionwithaws_starcluster/</link>
+      <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-09/wrfchem_cbe_aoptionwithaws_starcluster/</guid>
+      <description>####WRF-CHEM for Coimabtore: An option with AWS and starcluster####
+ Considering the huge time requirement for running wrf chem over Coimbatore with high resolution (It roughly took 8 hour 15 minutes X 7 for domain 4 alone, 6 second time steps with average 50 seconds), Amazon Web Service (AWS) t2.medium instace and StarCluster compute cluster would be a viable option to make wrf-chem run in &amp;lsquo;real time&amp;rsquo;. ####AWS charges for a typical cluster####  ####upgrading aws free tier into ubunut 14.</description>
+    </item>
+    
+  </channel>
+</rss>

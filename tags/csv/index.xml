@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSV on Nishadh KA</title>
+    <link>/tags/csv/</link>
+    <description>Recent content in CSV on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Apr 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/csv/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CSV edit by pandas</title>
+      <link>/working-notes/2014/wn_2014-04/csv_edit_by_pandas/</link>
+      <pubDate>Thu, 10 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-04/csv_edit_by_pandas/</guid>
+      <description>Modfying csv files using pandas, python
+ to import csv file into python  import pandas data = pd.read_csv(&#39;/home/hoopoe/Documents/Real_time_air_pollution_Mod_Proj-2013-2014/obj2/237.csv&#39;)   to query the specfic column in data frame  data[&#39;SamplingDate&#39;]   to specifiy the column as datetime formate column for pandas  data[&#39;SamplingDate&#39;] = pd.to_datetime(data[&#39;SamplingDate&#39;])  to avoid date and month mismatch specify the formate of date as
+data[&#39;SamplingDate&#39;] = pd.to_datetime(data[&#39;SamplingDate&#39;],format=&#39;%d/%m/%Y&#39;)   to sort the data based on date column descending  dataso=data.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>WRF EMS install and running in IBM X3100 M4 - Nishadh KA</title>
+    <meta property="og:title" content="WRF EMS install and running in IBM X3100 M4 - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##WRFEMSinstallandrunninginIBMX3100M4##
+">
+      <meta property="og:description" content="##WRFEMSinstallandrunninginIBMX3100M4##
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>WRF EMS install and running in IBM X3100 M4</h1>
+
+<h3>
+  2014-06-05</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##WRF<em>EMS</em>install<em>and</em>running<em>in</em>IBM<em>X3100</em>M4##</p>
+
+<ul>
+<li>Working in HP i5 system with quad core processor and 8GB memory, memory limit error was getting for 1km resolution domains.</li>
+<li>So made a try to make a cluster with another HP laptop with same configuration, this step also returen EXIT file9, memeory limit error.</li>
+<li>changed domain to make it 3 km resoliotn and ran in cluster steup and it took 1 hour for four doamins from 81km to 3km at 3 hour interval, so for 48 hour simurlaiotn it would be taking a 16 hour model running.</li>
+<li>without using cluster, HP desktop never completed the WRF real execution. feels use of cluster!</li>
+<li>with anticipation to reduce this time lag, a try was made with IBM server X3100 M4 system, WRF EMS was installed in this system using WRF EMS peral script, provided on request</li>
+<li>the installtion was strght forward with this command <code>perl ems_install.pl --install</code>, it took six - eight hours to complete the installtion, the insatll foder size become 21GB.</li>
+<li>After getting the install succesfful result, the testing of installion by running <code>cd $EMS</code> was a failure, not cding into EMS directory.</li>
+<li>after a short google the problem was identitifed as due to non avaialblity of <code>tcsh</code> in the server<a href="http://www.wrfems.info/viewtopic.php?f=4&amp;t=501">ref</a>, so it was installed by <code>sudo apt-get install tcsh</code> and   checked to find which shell was being used by the server by <code>echo $SHELL</code> and it returned <code>/bin/bash</code>, ascertaining usage of bash shell, EMS requieres tcsh, so doing <code>chsh -s /bin/tcsh</code> and relogin resolved this problem and now the cd $EMS was doing its job. <a href="http://wxjoe.com/2011/07/10/how-to-installing-the-wrf-ems-on-a-virtual-machine/">this</a> link is useful for correct wrf ems isntallation</li>
+<li>a test case of cbe-6 domain run in hp dekstop and hp cluster was copied into EMS runs directory and then executed ems<em>prep, but it gives error of no file in grib folder, it was looking different file name, so edited the file fnl</em>gribinfo.conf in girbinfo folder of EMS conf folder, with naming convetion as per the gfs downloaded data <code>LOCFIL = YYMMDDCC.fnl_YYYY-MM-DD_CC</code></li>
+<li>without any cluster it gives performance of 1 hour model run for four doamins from 81km to 3km at 3 hour interval, smae as of hp cluster.</li>
+<li>to view the size of file with date and time of creation
+<code>stat -c &quot;%y %s %n&quot; *</code> based on <a href="http://unix.stackexchange.com/questions/22218/linux-ls-to-show-only-filename-date-and-size">this</a></li>
+<li>without any cluster x3100, get memory full for 1km domains</li>
+<li>So tryed with chunking the doamin with 81 to 27 as one part and 27 to 1km as another part.</li>
+<li>In this the ems<em>post can be used to convert the netcdf output into grib2 and second part can be intialized with wrf</em>grib as specified in wrf_grib.conf in parent ems directory, there the time step also can be specified as one hout by 00,01,02,&hellip; so on.</li>
+<li>then in ems_prep, &ndash;dset can be spefcied as wrf</li>
+</ul>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

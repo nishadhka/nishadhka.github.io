@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Workflow docear mendely Python - Nishadh KA</title>
+    <meta property="og:title" content="Workflow docear mendely Python - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="```
+">
+      <meta property="og:description" content="```
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Workflow docear mendely Python</h1>
+
+<h3>
+  2014-07-18</h3>
+<hr>
+
+
+      </header>
+
+
+
+<ul>
+<li>creating a script to select pdf files from a bunch of folders, subfolders, html files create folders with only pdf files</li>
+<li>the code is
+```
+import os
+count = 0
+d=[]
+f=[]
+for (dirname, dirs, files) in os.walk(&lsquo;/home/swl-sacon-dst/Documents/GISE<em>2013/LAB/lab</em>notes/&lsquo;):
+#sepecifiying the directory to search for pdf files <a href="http://stackoverflow.com/questions/273192/check-if-a-directory-exists-and-create-it-if-necessary">from</a>
+for filename in files:
+   if filename.endswith(&lsquo;.pdf&rsquo;) :
+       thefile = os.path.join(dirname,filename)
+       dire = os.path.dirname(thefile)
+f.append(thefile)
+d.append(dire)
+#makung a list of ifle names and folders for copying
+#using list comphrehsnsion to change the folder path <a href="http://stackoverflow.com/questions/3136689/find-and-replace-string-values-in-python-list">from</a>
+dc = [word.replace(&lsquo;lab_notes&rsquo;,&rsquo;<br />&rsquo;) for word in d]</li>
+</ul>
+
+<p>```</p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

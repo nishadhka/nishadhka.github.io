@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>raspberry pi errors - Nishadh KA</title>
+    <meta property="og:title" content="raspberry pi errors - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="sudo hwclock --set --date &amp;quot;01/16/2014 08:33:01&amp;quot;  to set the computer time using
+https://wiki.debian.org/DateTime#Set_the_time_manually
+date &amp;ndash;set 1998-11-02 date &amp;ndash;set 21:08:00 &amp;hellip;">
+      <meta property="og:description" content="sudo hwclock --set --date &amp;quot;01/16/2014 08:33:01&amp;quot;  to set the computer time using
+https://wiki.debian.org/DateTime#Set_the_time_manually
+date &amp;ndash;set 1998-11-02 date &amp;ndash;set 21:08:00 &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>raspberry pi errors</h1>
+
+<h3>
+  2014-01-08</h3>
+<hr>
+
+
+      </header>
+
+
+
+<ol>
+<li>with GSM data card and serial to USB connected to the USB hub, after connecting GSM data card, a few minutes after the ssh is getting disconnected</li>
+<li>After dismantling the RPi with RTC, clock time become erroneous, so it was reconnected with lots of reboots and set the time manually using the command</li>
+</ol>
+
+<pre><code>sudo hwclock --set --date &quot;01/16/2014 08:33:01&quot;
+</code></pre>
+
+<p>to set the computer time using</p>
+
+<p><a href="https://wiki.debian.org/DateTime#Set_the_time_manually">https://wiki.debian.org/DateTime#Set_the_time_manually</a></p>
+
+<p>date &ndash;set 1998-11-02
+     date &ndash;set 21:08:00</p>
+
+<ol>
+<li>Now RPI is connected with data card, without connecting serial to USB wire, now the RPi is working without a problem.
+Data card is checked with SMS also, so now connecting the serial USB to RPi, by connecting the USB serial second to a data card, not showing any problem.</li>
+</ol>
+
+<p>create sqlite database by</p>
+
+<pre><code>sudo apt-get install sqlite3 libsqlite3-dev
+sqlite3 mydatabase.db
+CREATE TABLE data3 (SNo  INTEGER PRIMARY KEY, data VARCHAR(100));
+</code></pre>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Secure ubuntu SERVER 1204 - Nishadh KA</title>
+    <meta property="og:title" content="Secure ubuntu SERVER 1204 - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="For key pair login and removing the password based on
+http://ubuntuforums.org/archive/index.php/t-30709.html http://blog.nas-admin.org/?p=63 &amp;hellip;">
+      <meta property="og:description" content="For key pair login and removing the password based on
+http://ubuntuforums.org/archive/index.php/t-30709.html http://blog.nas-admin.org/?p=63 &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Secure ubuntu SERVER 1204</h1>
+
+<h3>
+  2014-01-16</h3>
+<hr>
+
+
+      </header>
+
+
+
+<ul>
+<li><p>For key pair login and removing the password based on</p>
+
+<p><a href="http://ubuntuforums.org/archive/index.php/t-30709.html">http://ubuntuforums.org/archive/index.php/t-30709.html</a> <a href="http://blog.nas-admin.org/?p=63">http://blog.nas-admin.org/?p=63</a>
+<a href="http://www.thefanclub.co.za/how-to/how-install-psad-intrusion-detection-ubuntu-1204-lts-server">http://www.thefanclub.co.za/how-to/how-install-psad-intrusion-detection-ubuntu-1204-lts-server</a> following first one</p></li>
+
+<li><p>cd .ssh/</p></li>
+
+<li><p>ssh-keygen -t dsa</p></li>
+
+<li><p>scp id<em>dsa.pub serverusername@IP:./id</em>dsa.pub</p></li>
+
+<li><p>ssh into server</p></li>
+
+<li><p>cd .ssh</p></li>
+
+<li><p>touch authorized_keys2</p></li>
+
+<li><p>chmod 600 authorized_keys2</p></li>
+
+<li><p>cat ../id<em>dsa.pub &gt;&gt; authorized</em>keys2</p></li>
+
+<li><p>rm ../id_dsa.pub</p></li>
+
+<li><p>edited the /etc/ssh/sshd_config
+for #PasswordAuthentication yes &gt;&gt;&gt; PasswordAuthentication no PermitRootLogin yes &gt;&gt;&gt; PermitRootLogin no &gt;&gt;&gt; DebianBanner no</p></li>
+
+<li><p>have to restart the ssh
+sudo /etc/init.d/ssh restart now with out key file the permission will be denied</p></li>
+
+<li><p>following this steps for security
+<a href="http://www.thefanclub.co.za/how-to/how-secure-ubuntu-1204-lts-server-part-1-basics">http://www.thefanclub.co.za/how-to/how-secure-ubuntu-1204-lts-server-part-1-basics</a>
+Firewall - UFW sudo apt-get install ufw sudo ufw allow ssh sudo ufw allow http sudo ufw enable sudo ufw status verbose</p></li>
+
+<li><p>to make into static IP address following
+<a href="http://lani78.wordpress.com/2012/07/19/change-to-static-ip-on-the-ubuntu-precise-pangolin-server/">http://lani78.wordpress.com/2012/07/19/change-to-static-ip-on-the-ubuntu-precise-pangolin-server/</a>
+For that error, made a change of IP address of public what ISP provider has given, it is wrong, given the current situation of server display problem it was a disastrous step. By doing this the ssh access which is the final method to access the server gets disrupted. It was rectified by running the live Ubuntu server cd and access the hard drive from that using a given shell script.</p></li>
+</ul>
+
+<p>Internet is accessed by, changing the NAT option in router selected. The static IP address, web server by 80 and ssh by 22 port.
+based on this
+<a href="http://askubuntu.com/questions/299572/making-websites-visible-to-outside-networks-with-ubuntu-server-12-04">http://askubuntu.com/questions/299572/making-websites-visible-to-outside-networks-with-ubuntu-server-12-04</a></p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

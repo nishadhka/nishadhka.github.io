@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Pandas JSON - Nishadh KA</title>
+    <meta property="og:title" content="Pandas JSON - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="####Pandas to JSON#### #####It is for this script /scripts/PandasJSONscript.py#####
+[&amp;hellip;] import pandas import json import pandas as pd &amp;hellip;">
+      <meta property="og:description" content="####Pandas to JSON#### #####It is for this script /scripts/PandasJSONscript.py#####
+[&amp;hellip;] import pandas import json import pandas as pd &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Pandas JSON</h1>
+
+<h3>
+  2014-11-26</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>####Pandas to JSON####
+#####It is for this script /scripts/Pandas<em>JSON</em>script.py#####</p>
+
+<ol>
+<li>To convert pandas dataframe into JSON, converted pandas dataframe into csv and then using <a href="CSV2JSON-master.zip">this</a> script to convert csv into json. But it was not giving satisfactory json file, the fields where completely shuffled.</li>
+<li>Then used pandas in built function of <code>to_json</code> but it was giving nested json file.
+<code>
+import pandas
+import pandas as pd
+d=pd.read_csv('/home/swl-sacon-dst/Documents/GISE_2013/LAB/Aerocet_DATA/Oct_sample/json/A08102014M.csv')
+db=d[['Time','long','lat','PM1(ug/m3)','PM2.5(ug/m3)','PM4(ug/m3)','PM7(ug/m3)','PM10(ug/m3)','TSP(ug/m3)']]
+db['geojson']='{\\&quot;type\\&quot;:\\&quot;Point\\&quot;,\\&quot;coordinates\\&quot;:['+db['long'].astype(str)+','+db['lat'].astype(str)+']}'
+db2=db[['Time','PM2.5(ug/m3)','PM10(ug/m3)','TSP(ug/m3)','geojson']]
+db2.to_json('testJS3.json')
+db2.reset_index().to_json('testJS4.json',orient='index')
+db2.to_json('testJS4.json',orient='index')
+</code></li>
+<li>Then found that making dictionary element is bettwer way to do json from pandas. This <a href="https://gist.github.com/mikedewar/1486027">script</a> does exactly that. Though this script ends in error as commented along with the script.</li>
+</ol>
+
+<pre><code>import pandas
+import json
+import pandas as pd
+data=pd.read_csv('/home/swl-sacon-dst/Documents/GISE_2013/LAB/Aerocet_DATA/Oct_sample/json/A08102014M.csv')
+db=data[['Time','long','lat','PM2.5(ug/m3)','PM10(ug/m3)','TSP(ug/m3)']]
+db['geojson']='{\&quot;type\&quot;:\&quot;Point\&quot;,\&quot;coordinates\&quot;:['+db['long'].astype(str)+','+db['lat'].astype(str)+']}'
+d = [
+	dict([
+		(colname, row[i])
+		for i,colname in enumerate(db.columns)
+	])
+	for row in df.values
+]
+
+#alternative to above which gives error of IndexError: index out of bounds
+d = [{colname : row[i] for i, colname in enumerate(db.columns)} for row in db.iterrows()]
+#alternative to above with error of IndexError: tuple index out of range
+d=[{k:db.values[i][v] for v,k in enumerate(db.columns)} for i in range(len(db)) ]
+#the above only is working and genrated the json as of the meteros example, based on [this](https://gist.github.com/mikedewar/1486027)
+jsonf = open('testJS7.json','w')
+dd=json.dumps(d)
+jsonf.write(dd)
+jsonf.close()
+</code></pre>
+
+<ol>
+<li>The dict creation line given as a comments with the script ends without any error. The line is as follows</li>
+</ol>
+
+<p><code>d=[{k:db.values[i][v] for v,k in enumerate(db.columns)} for i in range(len(db)) ]</code></p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

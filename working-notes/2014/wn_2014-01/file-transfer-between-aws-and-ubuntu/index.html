@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>File transfer between AWS and ubuntu - Nishadh KA</title>
+    <meta property="og:title" content="File transfer between AWS and ubuntu - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="sudo scp -i .ssh/gssa.pem ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/CORE-Ubuntu_eWRF.zip /home/fellow   Use rsync, to transfer file from local host to aws  sudo rsync -avz –stats &amp;hellip;">
+      <meta property="og:description" content="sudo scp -i .ssh/gssa.pem ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/CORE-Ubuntu_eWRF.zip /home/fellow   Use rsync, to transfer file from local host to aws  sudo rsync -avz –stats &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>File transfer between AWS and ubuntu</h1>
+
+<h3>
+  2014-01-25</h3>
+<hr>
+
+
+      </header>
+
+
+
+<ul>
+<li>Use scp</li>
+</ul>
+
+<pre><code>sudo scp -i .ssh/gssa.pem ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/CORE-Ubuntu_eWRF.zip /home/fellow
+</code></pre>
+
+<ul>
+<li>Use rsync, to transfer file from local host to aws
+<code>
+sudo rsync -avz –stats /home/fellow/sim.txt -e “ssh -i .ssh/gssa.pem” ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/
+sudo rsync -P –stats -e “ssh -i .ssh/gssa.pem” ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/CORE-Ubuntu_eWRF.zip /home/fellow/
+</code>
+to transfer file from aws to local host</li>
+</ul>
+
+<pre><code>sudo rsync -avz –stats -e “ssh -i .ssh/gssa.pem” ubuntu@ecip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/sim.txt /home/fellow/
+</code></pre>
+
+<p>to resume a download after a net connection break</p>
+
+<pre><code>sudo rsync -P –stats -e “ssh -i .ssh/gssa.pem” ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/sim.txt /home/fellow/
+</code></pre>
+
+<p>rsync is most useful for backup purpose to transfer or update file between, external hard disk and laptop
+Based on
+<a href="http://x-ian.net/2009/05/15/resume-rsync-transfer-after-ssh-connection-crash/">http://x-ian.net/2009/05/15/resume-rsync-transfer-after-ssh-connection-crash/</a></p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

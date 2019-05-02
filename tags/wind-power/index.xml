@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wind Power on Nishadh KA</title>
+    <link>/tags/wind-power/</link>
+    <description>Recent content in Wind Power on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Feb 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/wind-power/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>wind power forecasting map</title>
+      <link>/working-notes/2014/wn_2014-02/wind-power-forecasting-map/</link>
+      <pubDate>Wed, 05 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-02/wind-power-forecasting-map/</guid>
+      <description>Problem statement  In Tamil Nadu, electricity is significantly relying on wind power based renewable energy source. If much wind is there, there will be minimal power cuts and vice versa. The second-tier urban area like Coimbatore, this dependence is much visible, and so one of the simple predictors of long power cuts is lack of adequate wind power in the nearby wind park area for example. On the other hand operators of windmills or power transmission sector, if they know much early about the forecast of wind power in their area, they have many advantages in preparing for storing the surplus energy source or find alternatives in the situation of low wind power.</description>
+    </item>
+    
+  </channel>
+</rss>

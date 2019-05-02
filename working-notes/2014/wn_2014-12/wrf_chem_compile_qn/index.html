@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>WRF CHEM compile QN - Nishadh KA</title>
+    <meta property="og:title" content="WRF CHEM compile QN - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="####Compile wrf chem: QUICK NOTE####
+[&amp;hellip;] For setting up PATH for NETCDF
+export DIR=/home/ubuntu/wrf/libs/ export CC=gcc export CXX=g&#43;&#43; export FC=gfortran export FCFLAGS=-m64 export F77=gfortran &amp;hellip;">
+      <meta property="og:description" content="####Compile wrf chem: QUICK NOTE####
+[&amp;hellip;] For setting up PATH for NETCDF
+export DIR=/home/ubuntu/wrf/libs/ export CC=gcc export CXX=g&#43;&#43; export FC=gfortran export FCFLAGS=-m64 export F77=gfortran &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>WRF CHEM compile QN</h1>
+
+<h3>
+  2014-12-29</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>####Compile wrf chem: QUICK NOTE####</p>
+
+<ol>
+<li>It is based on the NCAR wrf chem compile complete process and note on wrf chem compile by <a href="http://sergioibarra.blogspot.in/2012/10/wrf-chem-compilacion-en-ubuntu-1204.html">this</a></li>
+<li>Basic environemtn testl, passes all the tests which checks libs such as, gcc, gfortran, gcc+gfortran, perl, csh.</li>
+<li>Made sure the gcc and gfortran versions are matching, current case version is 4.8.2 for both gcc and gfortran</li>
+<li>Basic library compile MPICh and NETCDF</li>
+</ol>
+
+<p>For setting up PATH for NETCDF</p>
+
+<p>export DIR=/home/ubuntu/wrf/libs/
+export CC=gcc
+export CXX=g++
+export FC=gfortran
+export FCFLAGS=-m64
+export F77=gfortran
+export FFLAGS=-m64</p>
+
+<p>./configure &ndash;prefix=$DIR/netcdf &ndash;disable-dap <br />
+     &ndash;disable-netcdf-4 &ndash;disable-shared</p>
+
+<p>make (this command ends in error related to documentation, there is a patch for this error)
+make install</p>
+
+<p>export PATH=$DIR/netcdf/bin:$PATH
+export NETCDF=$DIR/netcdf</p>
+
+<p>#setting up PATH for mpich and compileing
+tar xzvf mpich-3.0.4.tar.gz     #or just .tar if no .gz present
+cd mpich-3.0.4
+./configure &ndash;prefix=$DIR/mpich
+make
+make install
+export PATH=$DIR/mpich/bin:$PATH
+1. Remianing requiered librries were installed by normal sudo apt-get command, libs requiered were of
+        sudo apt-get install m4
+        sudo apt-get install libjasper-dev
+                sudo apt-get install libpng-dev
+                sudo apt-get install libnetcdf-dev
+                sudo apt-get install zlib1g-dev
+        sudo apt-get install build-essential
+        sudo apt-get install libcloog-ppl-dev
+        sudo apt-get install tcsh
+        sudo apt-get install libcloog-ppl0</p>
+
+<ol>
+<li>Basic library check was undergone, which checks netcdf and mpich , this test was passed good.
+######compiling WRF######</li>
+
+<li><p>Edited the file sudo nano /etc/bash.bashrc, added following lines in it</p>
+
+<pre><code>        export NETCDF=/home/ubuntu/wrf/libs/netcdf
+        export JASPERLIB=/usr/lib
+        export JASPERINC=/usr/include
+        export WRF_EM_CORE=1
+        export WRF_NMM_CORE=0
+        export WRF_CHEM=1
+        export WRF_KPP=0
+        export WRFIO_NCD_LARGE_FILE_SUPPORT=1
+</code></pre></li>
+
+<li><p>Inside the wrf chem folder in whcih the chem folder already copy pasted, run following commands</p>
+
+<pre><code>        cd /home/hoopoe/wrfchem341/WRFV3_mpichA4/WRFV3/
+./configure
+</code></pre></li>
+
+<li><p>The configure.wrf file has to be edited since the groftran and gcc used is of 4.8.2 version. The lines starting with has to be as below</p>
+
+<pre><code>            FORMAT_FIXED    =       -ffixed-form -cpp
+            FORMAT_FREE     =       -ffree-form -ffree-line-length-none -cpp
+</code></pre></li>
+
+<li><p>Then execute the command, ./compile em<em>real and ./compile emi</em>conv. This completes WRF CHEM compilation</p></li>
+
+<li><p>For compiling WPS, unzip the wps folder and run the command  <code>./configure</code> and choose serial based wps, it ends in creation of file configure.wps.</p></li>
+
+<li><p>Edit the file configure.wps and change the line starting with exactly as below</p>
+
+<pre><code>            #### Architecture specific settings ####
+
+            COMPRESSION_LIBS    = -L/usr/lib -ljasper -lpng -lz
+            COMPRESSION_INC     = -I/usr/include
+
+            #
+            #   Settings for Linux x86_64, gfortran    (serial) 
+            #
+            #
+            COMPRESSION_LIBS    = -L/usr/lib -ljasper -lpng -lz
+            COMPRESSION_INC     = -I/usr/include
+</code></pre></li>
+
+<li><p>Chnage the line in wps due to gformartn version used 4.8.2 as, <code>CPP                 = /usr/bin/cpp -P -traditional</code></p></li>
+
+<li><p>Then execute the command, ./compile, and it will generate the exe required for WPS.</p></li>
+
+<li><p>Changed the lopcation of wrf compiled folder
+######compiling PREP<em>CHEM</em>SRC######</p></li>
+
+<li><p>compiling zlib1.7.2, inside the source directory, given follwoing command,
+      FC=gfortran CC=gcc ./configure &ndash;prefix=/home/hoopoe/wrfchem341/WRFV3_mpichA3/libs/zlib
+      make
+      make install</p></li>
+
+<li><p>compiling hdf5-1.8.4, inside the source directory, given following command,</p>
+
+<pre><code>            FC=gfortran CC=gcc CXX=gc++ ./configure  \
+            --prefix=/home/hoopoe/wrfchem341/WRFV3_mpichA3/libs/hdf \
+            --with-zlib=/home/hoopoe/wrfchem341/WRFV3_mpichA3/libs/zlib  \
+            --disable-shared \
+            --enable-fortran
+  make
+  make install
+</code></pre></li>
+
+<li><p>Then editing the prep<em>chme</em>src fconfigure file, <code>include.mk.opt.gfortran</code>, with lines</p>
+
+<pre><code>            NETCDF=/home/hoopoe/wrfchem341/WRFV3_mpichA3/libs/netcdf
+            HDF5=/home/hoopoe/wrfchem341/WRFV3_mpichA3/libs/hdf
+            HDF5_LIB=-L$(HDF5)/lib -lhdf5hl_fortran -lhdf5_fortran -lhdf5_hl -lhdf5 -L/home/hoopoe/wrfchem341/WRFV3_mpichA3/libs/zlib/lib/ -lz
+</code></pre></li>
+
+<li><p>Made sure that the line contain wording for big endian memory as
+      F_OPTS=  -Xpreprocessor -D$(CHEM) -O2 -fconvert=big-endian -frecord-marker=4</p></li>
+
+<li><p>Then saved the configure file and given the command</p>
+
+<pre><code>            cd /home/hoopoe/wrfchem341/WRFV3_mpichA3/PREP-CHEM-SRC-1.4/bin/build/
+  make OPT=gfortran.wrf CHEM=RACM
+</code></pre></li>
+
+<li><p>This ends in error saying</p>
+
+<pre><code>            H5PL.c:(.text+0xa7): undefined reference to `dlclose'
+            /home/hoopoe/wrfchem341/WRFV3_mpichA3/libs/hdf/         lib/libhdf5.a(H5PL.o): In function `H5PL_load':
+            H5PL.c:(.text+0x319): undefined reference to `dlsym'
+            H5PL.c:(.text+0x45c): undefined reference to `dlopen'
+            H5PL.c:(.text+0x475): undefined reference to `dlsym'
+            H5PL.c:(.text+0x5a4): undefined reference to `dlclose'
+            H5PL.c:(.text+0x629): undefined reference to `dlerror'
+            H5PL.c:(.text+0x83c): undefined reference to `dlclose'
+            collect2: error: ld returned 1 exit status
+            make: *** [../prep_chem_sources_RACM.exe] Error 1
+</code></pre></li>
+
+<li><p>So made another attmept of compiling HDF librar alone as follows, inside the source directory of compiling hdf5-1.8.4, given following command,</p>
+
+<pre><code>            FC=gfortran CC=gcc CXX=gc++ ./configure  \
+            --prefix=/home/hoopoe/wrfchem341/WRFV3_mpichA3/libs/hdfA2 \
+            --with-zlib=/home/hoopoe/wrfchem341/WRFV3_mpichA3/libs/zlib  \
+            --enable-shared --enable-hl\
+            --enable-fortran
+  make -j 3
+  make install
+</code></pre></li>
+
+<li><p>This new location of HDF compiled by enabling shared library and hl is linked in prep<em>chem</em>src soure and it made exe without any error.</p></li>
+
+<li><p>But running the wrf chem with prep<em>chem</em>src<em>RACM ends in same end of file error. It is supected that the compilation command has to give make OPT=gfortran.wrf CHEM=RADM</em>WRF<em>FIM instead of make OPT=gfortran.wrf CHEM=RACM, for a proper run. While compileing with make OPT=gfortran.wrf CHEM=RADM</em>WRF_FIM, it ends in error of no hdf5.mod avilable in directory. It seems the disable -shared compilation does created the hdf5.mod, but ends in earlier error of undefined reference to `dlclose&rsquo;.</p></li>
+
+<li><p>So recompile the hdf with out any enable-fortran as done earlier. Inside the source directory of compiling hdf5-1.8.4, given following command,</p>
+
+<pre><code>            FC=gfortran CC=gcc CXX=gc++ ./configure  \
+            --prefix=/home/hoopoe/wrfchem341/WRFV3_mpichA3/libs/hdfA3 \
+            --with-zlib=/home/hoopoe/wrfchem341/WRFV3_mpichA3/libs/zlib  \
+            --enable-shared --enable-hl
+  make -j 3
+  make install
+</code></pre>
+
+<p>This also doesn&rsquo;t created the hdf5.mod file proving that the mod file creation is by shared library variable.</p></li>
+
+<li><p>One more trial with Inside the source directory of compiling hdf5-1.8.4, given following command,</p>
+
+<pre><code>            FC=gfortran CC=gcc CXX=gc++ ./configure  \
+            --prefix=/home/hoopoe/wrfchem341/WRFV3_mpichA3/libs/hdfAA4 \
+            --with-zlib=/home/hoopoe/wrfchem341/WRFV3_mpichA3/libs/zlib  \
+            --disable-shared --enable-fortran --enable-parallel
+</code></pre></li>
+</ol>
+
+<p>which ends in error of checking whether a simple MPI-IO program can be linked&hellip; no
+configure: error: unable to link a simple MPI-IO application
+1. Based on <a href="http://comments.gmane.org/gmane.comp.programming.hdf/5131">this</a> zlib also has to be compiled specific to enable-parallel</p>
+
+<p>FC=gfortran CC=gcc ./configure &ndash;prefix=/home/hoopoe/wrfchem341/WRFV3<em>mpichA3/libs/zlib</em>125A1
+          make
+          make install</p>
+
+<p>FC=gfortran CC=/home/hoopoe/wrfchem341/WRFV3<em>mpichA3/libs/mpich/bin/mpicc CXX=gc++ ./configure  <br />
+                    &ndash;prefix=/home/hoopoe/wrfchem341/WRFV3</em>mpichA3/libs/hdfAA5  &ndash;enable-parallel<br />
+                    &ndash;with-zlib=/home/hoopoe/wrfchem341/WRFV3<em>mpichA3/libs/zlib</em>125A1  <br />
+                    &ndash;enable-shared &ndash;enable-hl &ndash;enable-fortran</p>
+
+<ol>
+<li>So go back to the readme of the prep<em>chem</em>src, follow its version spcifications.</li>
+</ol>
+
+<p>to donwload hdf1.8.8 from <a href="http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.8/src/hdf5-1.8.8.tar.gz">http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.8/src/hdf5-1.8.8.tar.gz</a></p>
+
+<p>to downlaod zlib1.2.5 <a href="http://sourceforge.net/projects/libpng/files/zlib/1.2.5/zlib-1.2.5.tar.gz/download">http://sourceforge.net/projects/libpng/files/zlib/1.2.5/zlib-1.2.5.tar.gz/download</a></p>
+
+<p>to donwload the netcdf 4.1.1, wget <a href="ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.1.1.tar.gz">ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.1.1.tar.gz</a></p>
+
+<p>FC=gfortran CC=gcc CXX=gc++ ./configure -prefix=/home/hoopoe/wrfchem341/WRFV3<em>mpichA4/libs/hdfA1 &ndash;with-zlib=/home/hoopoe/wrfchem341/WRFV3</em>mpichA3/libs/zlib &ndash;enable-shared &ndash;enable-fortran</p>
+
+<ol>
+<li>It is found that the prep<em>chme</em>src compilaiton as <code>make OPT=gfortran.wrf CHEM=RADM_WRF_FIM.
+</code> is problamatic due to netcdf. so go for with netcdf 4.1.1 for wrf chem starting itsefl. But trying to compile hdf1.8.8 with zlib 1.2.5 ends in error of make[2]: *** [h5diff.lo] Error 1. So going with hdf1.8.14 and zlib 1.2.7.</li>
+<li>The libraries hdf1.8.14 and zlib1.2.7 was compiled smoothly and then compiled PREP<em>CHEM</em>SRC using the gfortran.wrf and removing the -lnetcdff comments in it which ends the compilaiotn of prep<em>chem</em>src also.</li>
+<li>Output from this compialtion is correctly read by wrf convert_emiss.exe system and thus ends the compilaiton of wrf chem and its auxillary compontnets.</li>
+</ol>
+
+<p>FC=gfortran CC=gcc ./configure &ndash;prefix=/home/hoopoe/wrfchem341/WRFV3_mpichA4/libs/zlib
+          make
+          make install</p>
+
+<p>FC=gfortran CC=gcc CXX=gc++ ./configure -prefix=/home/hoopoe/wrfchem341/WRFV3<em>mpichA4/libs/hdfA1 &ndash;with-zlib=/home/hoopoe/wrfchem341/WRFV3</em>mpichA4/libs/zlib &ndash;enable-shared &ndash;enable-fortran</p>
+
+<p>wget <a href="http://www2.mmm.ucar.edu/wrf/src/WRFV3.4.1.TAR.gz">http://www2.mmm.ucar.edu/wrf/src/WRFV3.4.1.TAR.gz</a>
+wget <a href="http://www2.mmm.ucar.edu/wrf/src/WPSV3.4.1.TAR.gz">http://www2.mmm.ucar.edu/wrf/src/WPSV3.4.1.TAR.gz</a>
+wget <a href="http://www2.mmm.ucar.edu/wrf/src/WRFV3-Chem-3.4.1.TAR.gz">http://www2.mmm.ucar.edu/wrf/src/WRFV3-Chem-3.4.1.TAR.gz</a></p>
+
+<p>wget <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/mpich-3.0.4.tar.gz">http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/mpich-3.0.4.tar.gz</a></p>
+
+<p>wget <a href="ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.1.1.tar.gz">ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.1.1.tar.gz</a></p>
+
+<p>tar xzvf netcdf-4.1.1.tar.gz
+cd</p>
+
+<p>wget <a href="http://zlib.net/fossils/zlib-1.2.7.tar.gz">http://zlib.net/fossils/zlib-1.2.7.tar.gz</a></p>
+
+<p>wget <a href="http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.14.tar">http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.14.tar</a></p>
+
+<p>gunzip WPSV3.4.1.TAR.gz
+tar -xf WPSV3.4.1.TAR</p>
+
+<ul>
+<li>To start a screen with name
+screen -S wrfems</li>
+<li>To view running screen
+screen -r</li>
+<li>to get into particular screen
+screen -xr pid(of the screen)</li>
+<li>to get out of screen
+CTRL+A+D</li>
+</ul>
+
+<p>chmod a+x ems<em>install.pl
+perl ems</em>install.pl &ndash;install</p>
+
+<p>ssh -i /home/swl-sacon-dst/Desktop/gssa.pem ubuntu@ec2-54-255-173-125.ap-southeast-1.compute.amazonaws.com</p>
+
+<p>ssh -i /home/swl-sacon-dst/Desktop/wrfa.pem ubuntu@ec2-54-224-94-144.compute-1.amazonaws.com</p>
+
+<p>FC=gfortran CC=gcc ./configure &ndash;prefix=/home/ubuntu/wrf/libs/zlib
+          make
+          make install</p>
+
+<p>tar xvf hdf5-1.8.14.tar
+FC=gfortran CC=gcc CXX=gc++ ./configure -prefix=/home/ubuntu/wrf/libs/hdfA1 &ndash;with-zlib=/home/ubuntu/wrf/libs/zlib &ndash;disable-shared &ndash;enable-fortran</p>
+
+<p>./configure -prefix=/home/hoopoe/wrfchem341/WRFV3_mpichA4/libs/hdfA2 &ndash;with-zlib=/home/ubuntu/wrf/libs/zlib &ndash;enable-shared &ndash;enable-fortran</p>
+
+<p>./configure &ndash;prefix=/usr/local &ndash;enable-shared &ndash;enable-hl &ndash;with-zlib=/home/ubuntu/wrf/libs/zlib &ndash;enable-fortran
+make
+sudo checkinstall</p>
+
+<p><a href="ftp://aftp.fsl.noaa.gov/divisions/taq/global_emissions/prep_chem_sources_v1.4_08aug2013.tar.gz">ftp://aftp.fsl.noaa.gov/divisions/taq/global_emissions/prep_chem_sources_v1.4_08aug2013.tar.gz</a></p>
+
+<p>tar xzvf prep<em>chem</em>sources<em>v1.4</em>08aug2013.tar.gz</p>
+
+<p>make OPT=gfortran.wrf CHEM=RADM<em>WRF</em>FIM</p>
+
+<p>dpkg -L hdf5
+sudo dpkg -r hdf5
+#addressing the issue of hdf5 file missing in prep<em>chem</em>src.exe</p>
+
+<p>./configure &ndash;prefix=/usr/local &ndash;enable-shared &ndash;enable-hl &ndash;with-zlib=/home/hoopoe/wrfchem341/WRFV3_mpichA4/libs/zlib127 &ndash;enable-fortran
+make
+sudo checkinstall</p>
+
+<p>#BIG overcome, ldconfig, solve the compile exe not found link</p>
+
+<p>make OPT=gfortran.wrf CHEM=RADM<em>WRF</em>FIM
+#no missing file was reported in this compile, indicating for prep<em>chem</em>src, the locaiton of hdf5 is hardcoded in /usr/local/, so has to be compiled for /usr/local</p>
+
+<p>For server
+export DIR=/home/hoopoe/wrfchem341/WRFV3_mpichA4/libs
+export PATH=$DIR/netcdf/bin:$PATH
+export NETCDF=$DIR/netcdf
+export PATH=$DIR/mpich/bin:$PATH</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

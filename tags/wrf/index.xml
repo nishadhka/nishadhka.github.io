@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WRF on Nishadh KA</title>
+    <link>/tags/wrf/</link>
+    <description>Recent content in WRF on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 08 Jun 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/wrf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>editing WRF logfile Python</title>
+      <link>/working-notes/2014/wn_2014-06/editing_wrf_logfile_python/</link>
+      <pubDate>Sun, 08 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-06/editing_wrf_logfile_python/</guid>
+      <description>##editingWRFlogfile_Python and pandas##
+ to get sum seconds wrf is running, the wrf.out.log was imported into python to sum the elapsed seconds in each domains to get the log file into wrf bf = open(&#39;run_wrfm.log&#39;, &#39;r&#39;) to read each lines in the file bf_lines=bf.readlines() to make the lines into list array and select only the list with particular words in it, here the word &amp;ldquo;Timing for Writing&amp;rdquo;  f=[] for line in bf_lines: if &#39;Timing for Writing&#39; in line: f.</description>
+    </item>
+    
+    <item>
+      <title>converting WRF ouput netcdf into json</title>
+      <link>/working-notes/2014/wn_2014-05/converting_wrf_ouput_netcdf_into_json/</link>
+      <pubDate>Mon, 19 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-05/converting_wrf_ouput_netcdf_into_json/</guid>
+      <description>##convertingWRFouputnetcdfinto_json## - tried with grib2json for converting netcdf into json 1 - for this netcdf has to converted into grib2 - for converting into grib2, python based iris is useful 2, but only work with cf compliant netcdf - WRF output in netcdf is not a cf compliant - So has to use a tool which convert WRF netcdf into CF compliant - Wrfncxnj.py tool 3 exactly do this with more functions such as extraction of variables etc - Wrfncxnj.</description>
+    </item>
+    
+    <item>
+      <title>EMS WRF</title>
+      <link>/working-notes/2014/wn_2014-03/ems_wrf/</link>
+      <pubDate>Thu, 06 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-03/ems_wrf/</guid>
+      <description>EMS WRF OF COIMBATORE REGION USING 4 DOMAINS :-
+Five simple steps required for the execution of EMS (Environmental modeling system) WRF.
+Step 1: Create a computational domain with the Domain Wizard(DW) GUI After the successful installation of EMS follow these steps,
+a) Start the DW by executing the command &amp;ldquo;dwiz&amp;rdquo; in terminal . b) DW window should appear and gives you an opportunity to select from creating a new domain or modifying existing domain.</description>
+    </item>
+    
+    <item>
+      <title>Python script to convert wrfout into Geotiff and some issues</title>
+      <link>/working-notes/2014/wn_2014-02/python-script-to-convert-wrfout-into-geotiff-and-some-issues/</link>
+      <pubDate>Wed, 05 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-02/python-script-to-convert-wrfout-into-geotiff-and-some-issues/</guid>
+      <description>To visualize WRF output in GIS platform so that it would have an extra hand in interactive visualization and spatial analysis out of it. Python script (modified from http://lists.osgeo.org/pipermail/gdal-dev/2013-November/037602.html and http://geoexamples.blogspot.in/2013/09/reading-wrf-netcdf-files-with-gdal.html) used to convert NetCDF into GeoTIFF format. However, the given scripts in those links are throwing an error while converting eWRF NetCDF output, saying there are multiple bands in specific variables say for example U10. Slightly changed those code to collect one band out of 24 bands in U10 (In some variables the band number goes around 650, like P) and converted into GeoTIFF without error and can visualize it in QGIS.</description>
+    </item>
+    
+  </channel>
+</rss>

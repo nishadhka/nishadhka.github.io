@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>KML on Nishadh KA</title>
+    <link>/tags/kml/</link>
+    <description>Recent content in KML on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Oct 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/kml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Aerocet sampleData KML Pandas</title>
+      <link>/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</link>
+      <pubDate>Wed, 15 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</guid>
+      <description>####Aerocet Sampling Data, using kml files and pandas####
+ The data from dust pollution monitoring in Coimbatore using Aerocet was copy paste into a csv file from miniterm.py program and command 2 given to aerocet. Seprate CSV files were made for count and mass mode sampling. The location of sampling point is made into a point feature in Google earth with name of respective sampling time. This was saved as kml file and opened in QGIS converted into shape file to add gemoetry.</description>
+    </item>
+    
+  </channel>
+</rss>

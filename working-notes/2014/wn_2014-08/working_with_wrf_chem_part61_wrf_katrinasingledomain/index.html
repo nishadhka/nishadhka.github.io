@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Working with WRF CHEM part61 WRF KatrinaSingleDomain - Nishadh KA</title>
+    <meta property="og:title" content="Working with WRF CHEM part61 WRF KatrinaSingleDomain - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##Trail for WRF-CHEM, working with WRF simulation with Katrina single domain case## 1. It is based on this to run compiled wrf in serial mode to execute the Katrina case with single domain. 2. As per &amp;hellip;">
+      <meta property="og:description" content="##Trail for WRF-CHEM, working with WRF simulation with Katrina single domain case## 1. It is based on this to run compiled wrf in serial mode to execute the Katrina case with single domain. 2. As per &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Working with WRF CHEM part61 WRF KatrinaSingleDomain</h1>
+
+<h3>
+  2014-08-12</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Trail for WRF-CHEM, working with WRF simulation with Katrina single domain case##
+1. It is based on <a href="http://www.mmm.ucar.edu/wrf/OnLineTutorial/CASES/SingleDomain/index.html">this</a> to run compiled wrf in serial mode to execute the Katrina case with single domain.
+2. As per this <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/SingleDomain/ungrib.htm">page</a>, the WPS ungrib stage was carried out</p>
+
+<p>###WPS: Ungrib###
+3. The tar file provided with the tutorial was unzipped and compiled WPS folder was copied and bothe these folders were kept under a folder named katrina.
+4. The vtable was linked inside WPS folder by <code>ln -sf ungrib/Variable_Tables/Vtable.GFS Vtable</code>.
+5. The avn/GFS files inside the tar folder is linked with WPS folder by <code>./link_grib.csh /home/swl-sacon-dst/wrf/WRF341/katrina/GFS_data/</code>, follwoing file with links were created by this step</p>
+
+<pre><code>GRIBFILE.AAA -&gt; ../DATA/Katrina/avn_050828_00_00
+GRIBFILE.AAB -&gt; ../DATA/Katrina/avn_050828_00_06
+GRIBFILE.AAC -&gt; ../DATA/Katrina/avn_050828_00_12
+GRIBFILE.AAD -&gt; ../DATA/Katrina/avn_050828_00_18
+GRIBFILE.AAE -&gt; ../DATA/Katrina/avn_050828_00_24
+GRIBFILE.AAF -&gt; ../DATA/Katrina/avn_050828_00_30
+GRIBFILE.AAG -&gt; ../DATA/Katrina/avn_050828_00_36
+GRIBFILE.AAH -&gt; ../DATA/Katrina/avn_050828_00_42
+GRIBFILE.AAI -&gt; ../DATA/Katrina/avn_050828_00_48
+</code></pre>
+
+<ol>
+<li>For ungrib part of WPS a minimal namlist.wps suggestby this <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/UNGRIB/ungrib_namelist.htm">page</a> as part of the tutorial is used. By this the namelist.wps in WPS folder was edited as
+```
+&amp;share
+start<em>date = &lsquo;2005-08-28</em>00:00:00&rsquo;,&lsquo;2007-08-15<em>00:00:00&rsquo;,
+end</em>date = &lsquo;2005-08-30<em>00:00:00&rsquo;,&lsquo;2007-08-16</em>00:00:00&rsquo;,
+interval_seconds = 21600
+/</li>
+</ol>
+
+<p>&amp;ungrib
+out_format = &lsquo;WPS&rsquo;,
+prefix = FILE,
+/</p>
+
+<pre><code>7. With this setup ungrib was run using this command ```./ungrib.exe &gt;&amp; ungrib_data.log```, the log file says successful completion of the ungrib. In tutorial the remaining steps such as of SSt data, after point 7 is not carried out.
+###WPS:Geogrid###
+8. This part of tutorial is based on the [page](http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/SingleDomain/geogrid.htm)
+9. For the geogrid part of WPS, following namelist.wps was used based on [this](http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/GEOGRID/geogrid_namelist.htm) and namelist.wps becomes
+</code></pre>
+
+<p>&amp;share
+wrf<em>core = &lsquo;ARW&rsquo;,
+max</em>dom = 1,
+io<em>form</em>geogrid = 2,
+/</p>
+
+<p>&amp;geogrid
+parent<em>id = 1, 1,
+parent</em>grid<em>ratio = 1, 3,
+i</em>parent<em>start = 1, 31,
+j</em>parent<em>start = 1, 17,
+e</em>we = 74, 112,
+e<em>sn = 61, 97,
+geog</em>data<em>res = &lsquo;10m&rsquo;,&lsquo;2m&rsquo;,
+dx = 30000,
+dy = 30000,
+map</em>proj = &lsquo;lambert&rsquo;,
+ref<em>lat = 34.83,
+ref</em>lon = -81.03,
+truelat1 = 30.0,
+truelat2 = 60.0,
+stand<em>lon = -98.0,
+geog</em>data_path = &lsquo;/home/hoopoe/ems/wrfems/data/geog/&rsquo;
+/</p>
+
+<pre><code>9. In namelist.wps, the line ```geog_data_path``` was edited with geog folder as per the EMS namlist.wps to refer the huge file required for this purpose.
+10. There is a step stating the requirement of ncl language to visualize the domain, since no ncl language was installed it was omitted.
+11. With this the geogrid was executed by ```./geogrid.exe``` and ended with successful completion as follows and a ```geo_em.d01.nc``` was created.
+</code></pre>
+
+<p>./geogrid.exe
+Parsed 22 entries in GEOGRID.TBL
+Processing domain 1 of 1
+  Processing XLAT and XLONG
+  Processing MAPFAC
+  Processing F and E
+  Processing ROTANG
+  Processing LANDUSEF
+  Calculating landmask from LANDUSEF ( WATER =  16 )
+  Processing HGT<em>M
+  Processing HGT</em>U
+  Processing HGT<em>V
+  Processing SOILTEMP
+  Processing SOILCTOP
+  Processing SCT</em>DOM
+  Processing SOILCBOT
+  Processing SCB<em>DOM
+  Processing ALBEDO12M
+  Processing GREENFRAC
+  Processing SNOALB
+  Processing SLOPECAT
+  Processing SLOPECAT
+  Processing CON
+  Processing VAR
+  Processing OA1
+  Processing OA2
+  Processing OA3
+  Processing OA4
+  Processing OL1
+  Processing OL2
+  Processing OL3
+  Processing OL4
+  Processing VAR</em>SSO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!  Successful completion of geogrid.        !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+
+<pre><code> ###WPS:Metgrid###
+12. This part of tutorial is based on the [page](http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/SingleDomain/metgrid.htm)
+13. For the metgrid part of WPS, following namelist.wps was used based on [this](http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/METGRID/metgrid_namelist.htm) and namelist.wps becomes
+</code></pre>
+
+<p>&amp;share
+max<em>dom = 2,
+start</em>date = &lsquo;2005-08-28<em>00:00:00&rsquo;,&lsquo;2005-08-28</em>00:00:00&rsquo;,
+end<em>date = &lsquo;2005-08-30</em>00:00:00&rsquo;,&lsquo;2005-08-28<em>00:00:00&rsquo;,
+interval</em>seconds = 21600,
+io<em>form</em>geogrid = 2,
+/</p>
+
+<p>&amp;metgrid
+fg<em>name = &lsquo;FILE&rsquo;
+io</em>form_metgrid = 2,
+/</p>
+
+<pre><code>14. The metgrid was executed by ```./metgrid.exe``` and it gives error 
+</code></pre>
+
+<p>Processing domain 2 of 2
+ WRF<em>DEBUG: NetCDF error: No such file or directory
+ WRF</em>DEBUG: NetCDF error in wrf<em>io.F90, line        1059
+ERROR: Couldn&rsquo;t open file ./geo</em>em.d02.nc for input.
+application called MPI<em>Abort(MPI</em>COMM_WORLD, 0) - process 0</p>
+
+<pre><code>it seems the namelist.wps is wrong by specifying ```max_dom =2``` so the namelist.wps was edited with ```max_dom =1```
+15. By above edit metgrid.exe ended successful completion with creation of nc files
+ ###WRF:real.exe and wrf.exe###
+16. This part of tutorial is based on the [page](http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/SingleDomain/wrf.htm)
+17. For making WRF run the folder content from ```WRFV3_serial/test/em_real ``` was used as such and all the met files are linked inside the em_real folder using the command ```
+ln -sf /home/swl-sacon-dst/wrf/WRF341/katrina/kWPS/met_em.d01.2005* .
+</code></pre>
+
+<ol>
+<li>For the real.exe and wrf.exe part of WRF, following namelist.input was used based on [this]<a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/WRF/namelist.input.htm)">http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/WRF/namelist.input.htm)</a> and edited to suit the katrina case and the namelsit.input becomes
+```
+&amp;time<em>control
+run</em>days = 0,
+run<em>hours = 12,
+run</em>minutes = 0,
+run<em>seconds = 0,
+start</em>year = 2005,
+start<em>month = 08,
+start</em>day = 28,
+start<em>hour = 00,
+start</em>minute = 00,
+start<em>second = 00,
+end</em>year = 2005,
+end<em>month = 08,
+end</em>day = 30,
+end<em>hour = 00,
+end</em>minute = 00,
+end<em>second = 00,
+interval</em>seconds = 21600
+input<em>from</em>file = .true.,
+history<em>interval = 180,
+frames</em>per<em>outfile = 1000,
+restart = .false.,
+restart</em>interval = 720,
+io<em>form</em>history = 2
+io<em>form</em>restart = 2
+io<em>form</em>input = 2
+io<em>form</em>boundary = 2
+debug_level = 0
+/</li>
+</ol>
+
+<p>&amp;domains
+time<em>step = 180,
+max</em>dom = 1,
+s<em>we = 1,
+e</em>we = 74,
+s<em>sn = 1,
+e</em>sn = 61,
+s<em>vert = 1,
+e</em>vert = 30,
+num<em>metgrid</em>levels = 27
+dx = 30000,
+dy = 30000,
+grid<em>id = 1,
+parent</em>id = 1,
+i<em>parent</em>start = 1,
+j<em>parent</em>start = 1,
+parent<em>grid</em>ratio = 1,
+parent<em>time</em>step_ratio = 1,
+feedback = 1,
+/</p>
+
+<p>&amp;physics
+mp<em>physics = 3,
+ra</em>lw<em>physics = 1,
+ra</em>sw<em>physics = 1,
+radt = 30,
+sf</em>sfclay<em>physics = 1,
+sf</em>surface<em>physics = 1,
+num</em>soil<em>layers = 5,
+bl</em>pbl<em>physics = 1,
+bldt = 0,
+cu</em>physics = 1,
+cudt = 5,
+/</p>
+
+<p>&amp;dynamics
+w<em>damping = 0,
+diff</em>opt = 1,
+km<em>opt = 4,
+diff</em>6th<em>opt = 0,
+diff</em>6th<em>factor = 0.12,
+base</em>temp = 290.
+damp<em>opt = 0,
+zdamp = 5000.,
+dampcoef = 0.2,
+khdif = 0,
+kvdif = 0,
+non</em>hydrostatic = .true.,
+moist<em>adv</em>opt = 1,
+scalar<em>adv</em>opt = 1,
+/</p>
+
+<p>&amp;bdy<em>control
+spec</em>bdy<em>width = 5,
+spec</em>zone = 1,
+relax_zone = 4,
+specified = .true.,
+nested = .false.,
+/</p>
+
+<pre><code>19. With this setup the real.exe was executed by ```./real.exe ``` and error was bought about missing met file, then it is found that the above namelist content was wrongly mentioning start day date and so namelist.input was edited and real.exe ends with successful completion with creation of two files ```wrfinput_d01 and wrfbdy_d01``` each around 9.0 MB and 21 MB respectively.
+20. Then real.exe was executed by ```./wrf.exe``` and it completed with out any error and successfully ends with creation of two files as per the tutorial 
+</code></pre>
+
+<p>wrfout<em>d01</em>2005-08-28<em>00:00:00
+wrfrst</em>d01<em>2005-08-28</em>12:00:00
+```
+Wondering how EMS making the WRF Coimbatore with one hour interval, have to study about namelist more. This way ends the katrina case WRF running with single domain. The em_real folder in serial compile WRF was cleaned by removing the created file left alone the namelist.input</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

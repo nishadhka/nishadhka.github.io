@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Parallella for WRF CHEM - Nishadh KA</title>
+    <meta property="og:title" content="Parallella for WRF CHEM - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="###Parallella cluster for WRF CHEM### 1. WRF-CHEM is a computationally intensive model, for example &amp;ldquo;On a typically-sized 40×40 grid with 20 horizontal layers, the meteorological part of the &amp;hellip;">
+      <meta property="og:description" content="###Parallella cluster for WRF CHEM### 1. WRF-CHEM is a computationally intensive model, for example &amp;ldquo;On a typically-sized 40×40 grid with 20 horizontal layers, the meteorological part of the &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-08/parallella_arch.png">
+    
+    
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Parallella for WRF CHEM</h1>
+
+<h3>
+  2014-08-21</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>###Parallella cluster for WRF CHEM###
+1. WRF-CHEM is a computationally intensive model, for example  &ldquo;On a typically-sized 40×40 grid with 20 horizontal layers, the meteorological part of the simulation (the WRF weather model itself) is only 160 × 106 floating point operations per time step, about 2.5% the cost of the full WRF-Chem with both chemical kinetics and aerosol&rdquo;[1].It is generally executed with parallel mode to reduce time latency of model execution time. In parallel mode it is followed to use computer cluster using MPICH or OpenMPI to utilize the available processing cores to execute the model. This process of coarse grained parallelism [2] is found to have limitations in terms of budget, energy cost and computational limitations.
+2. The alternative followed is to use fine grained parallellism using co processors such as of GPUs. The GPUs are programmed by languages like CUDA based Fortran, OPEN MP etc, to convert the certain portions of code or modules in whole model to utilize the GPUs. But in long run for a project like real time air pollution modeling for Coimbatore city the GPU based solution is costly.
+3. The solution in this situation is to use AWS based cluster service or custom build cluster using ARM based single board computers. As a service, AWS is having secondary preference for a funded project. In the case of ARM cluster, boards like raspberry pi, Beagle bone balck, RADXA can consider as option for cluster in terms of cost and energy budget. But these boards are having limitations in terms of lacking of processing power extension (limits to 3-4 GFLOPS per core of ARM processor) and 1 GB Ethernet connectivity(instead enabled with 100MB Ethernet) which can significantly hamper the efficiency of cluster.
+4. In this regard it is found that single board computer named Parallella is potential to extents with 20-25 GFLOPS EPIPHENY 3 co processor and 1GB Ethernet connectivity. Moreover the board is build for fine grained parallel computing and hardware components are tuned for server operations.</p>
+
+<p>####About Parallella board and its cluster####
+1. Parallella is a kick starter project of adapteva with aim to produce low cost, single board super computer as similar to raspberry pi. As a extension to single board computer with ARM architecture and dual core zynq processor it has EPIPHENY co processor with claimed 25 GFLOPS. Its architecture is as as <img src="https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-08/parallella_arch.png" alt="follows" title="Parallella architecture" />.
+2. It is available in three version for different uses such as from headless micro server, desktop and embedded system[3]. For creation of cluster, there are availability of cluster tool kit for the board[4] and implementation of cluster computing resource management tool is also available [4a].
+3. The epipheny is a simple MIMD computer core with ram of 32 KB with computation functionality of single floating point(32bit) addition, subtraction, and multiplication. It can&rsquo;t do operations such as divide and square root[5].
+4. This processor can be programmed with openCL and it is having use case to execute R in parallel mode[6] or simulate Quantum Simulation[7]. There is an active step taken towards implementing openMP for EPIPHENY, it was a kick starter deliverables of the project[8]. OpenCl implementation for EPIPHENY 3 can be carried out using eclipse [9].</p>
+
+<p>####Suitability and limitations of Parallella for WRF CHEM####
+1. The wrf is developed for the parallel programming on the go with heterogeneous computing infrastructures [10]. It has on the go support for OpenMP and not for OpenCL as currently supported by Parallella. WRF can be compiled for openMP (shared memory parallel for the case EPIPHENY 3) or MPICH (Distributed memory parallel).
+2. WRF is programmed with single precision <a href="32bit">10</a> and wrf chem is having double precision floating point operation along with single floating point operations as reported in this presentation and note[11,11a]. The kinetic preprocessor is to be the single most computationally intensive FP in wrf chem, it is having 110,514 FP operation compared to WRF model main components micro physics (2702 FPO) and advocation/Diffusion(301 FOP) [11].
+3. There is a project parallelizing this by KPPA [12], there is a review[13] and WRF chem implementation study is carried out on this aspect. The code for KPPA is available here [14] with publication details.
+4. WRF is ported to run with Parallella main architecure ARM [15]. There is no single study directly related with WRF is carried out for running with OpenCL instead of OpenMP.</p>
+
+<p>####Reference####
+1. Linford, J. C., Michalakes, J., Vachharajani, M., &amp; Sandu, A. Automatic Generation of Multi-Core Accelerated Chemical Kinetics for Simulation and Prediction.
+2. Michalakes, J., &amp; Vachharajani, M. (2008). GPU acceleration of numerical weather prediction. Parallel Processing Letters, 18(04), 531-548.
+3. <a href="http://www.rs-online.com/designspark/electronics/eng/blog/picking-the-right-parallella-board">http://www.rs-online.com/designspark/electronics/eng/blog/picking-the-right-parallella-board</a>
+4. <a href="http://groundelectronics.com/products/parallella-cluster-kit">http://groundelectronics.com/products/parallella-cluster-kit</a>
+4.a <a href="http://forums.parallella.org/viewtopic.php?f=32&amp;t=1632#p10145">http://forums.parallella.org/viewtopic.php?f=32&amp;t=1632#p10145</a>
+5. <a href="http://www.adapteva.com/wp-content/uploads/2011/06/adapteva_mpr.pdf">http://www.adapteva.com/wp-content/uploads/2011/06/adapteva_mpr.pdf</a>
+6. <a href="http://forums.parallella.org/viewtopic.php?f=39&amp;t=391">http://forums.parallella.org/viewtopic.php?f=39&amp;t=391</a>
+7. <a href="http://www.eetimes.com/author.asp?section_id=36&amp;doc_id=1322907">http://www.eetimes.com/author.asp?section_id=36&amp;doc_id=1322907</a>
+8. <a href="http://www.parallella.org/forums/viewtopic.php?f=19&amp;t=142">http://www.parallella.org/forums/viewtopic.php?f=19&amp;t=142</a>
+9. <a href="http://nicksparallellaideas.blogspot.com.au/2014/08/opencl-on-parallella-using-eclipse.html">http://nicksparallellaideas.blogspot.com.au/2014/08/opencl-on-parallella-using-eclipse.html</a>
+10. Michalakes, J. G., McAtee, M., &amp; Wegiel, J. (2002). Software Infrastructure for the Weather Research and Forecast Model. Proceedings of UGC 2002.
+11. <a href="http://www.arsc.edu/files/arsc/science/acceleration2010/attendees/presentations/michalakes-wrf-whpcaa.pdf">http://www.arsc.edu/files/arsc/science/acceleration2010/attendees/presentations/michalakes-wrf-whpcaa.pdf</a>
+    11a. Linford, J. C., Michalakes, J., Vachharajani, M., &amp; Sandu, A. (2009, November). Multi-core acceleration of chemical kinetics for simulation and prediction. In Proceedings of the Conference on High Performance Computing Networking, Storage and Analysis (p. 7). ACM.
+12. J.C. Linford, J. Michalakes, M. Vachharijani, and A. Sandu, &ldquo;Multi-core acceleration of chemical kinetics for modeling and simulation&rdquo;, SC&rsquo;09. Portland, OR. Nov 14-20, 2009.
+13. H. Zhang, J.C. Linford, A. Sandu, and R. Sander. Chemical Mechanism Solvers in Air Quality Models. Atmosphere. 2011; 2(3):510-532.
+14. <a href="http://www.paratools.com/Kppa">http://www.paratools.com/Kppa</a>
+15. <a href="http://www.supersmith.com/site/ARM_files/wrf_on_arm.pdf">http://www.supersmith.com/site/ARM_files/wrf_on_arm.pdf</a></p>
+
+<p>#####Notes#####
+a. Accelerating Kernels from WRF on GPUs, <a href="http://vecpar.fe.up.pt/2010/workshops-PE_abs/Michalakes-slides.pdf">http://vecpar.fe.up.pt/2010/workshops-PE_abs/Michalakes-slides.pdf</a>
+b. <a href="http://www.academia.edu/1469359/Porting_the_WRF_Model_to_EumedGrid_and_Simulation_of_Air_Quality_in_Urban_Zones">http://www.academia.edu/1469359/Porting_the_WRF_Model_to_EumedGrid_and_Simulation_of_Air_Quality_in_Urban_Zones</a>
+c. precompiled wrf virtual box, <a href="http://ronin.dgeo.udec.cl/LiveWRF/">http://ronin.dgeo.udec.cl/LiveWRF/</a>
+d. <a href="https://wiki.canterbury.ac.nz/display/BlueFern/Using+OpenMP+threads,+with+or+without+MPI">https://wiki.canterbury.ac.nz/display/BlueFern/Using+OpenMP+threads,+with+or+without+MPI</a></p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

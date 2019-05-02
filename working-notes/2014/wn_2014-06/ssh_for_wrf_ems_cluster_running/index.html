@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>SSH for WRF EMS Cluster running - Nishadh KA</title>
+    <meta property="og:title" content="SSH for WRF EMS Cluster running - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="###SSH for WRFEMS cluster running### - For executing the WRF EMS in cluster computer mode, pass wordless ssh is required, it is specified in &amp;hellip;/runs/domain/config/emsrun/run_ncpus.conf as &amp;hellip;">
+      <meta property="og:description" content="###SSH for WRFEMS cluster running### - For executing the WRF EMS in cluster computer mode, pass wordless ssh is required, it is specified in &amp;hellip;/runs/domain/config/emsrun/run_ncpus.conf as &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>SSH for WRF EMS Cluster running</h1>
+
+<h3>
+  2014-06-05</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>###SSH for WRF<em>EMS cluster running###
+- For executing the WRF EMS in cluster computer mode, pass wordless ssh is required, it is specified in &hellip;/runs/domain/config/ems</em>run/run_ncpus.conf as follows</p>
+
+<pre><code>LOG:  R.Rozumalski - NWS January 2012 - I'm still gruven
+#
+#     Running the WRF on a cluster?
+#
+#     If so, then make sure you that you have passwordless SSH on machines that
+#     you plan to use when running on multiple nodes (not necessary for single
+#     workstation runs). If you can run:
+#
+#        %  ssh &lt;machine&gt; date
+</code></pre>
+
+<ul>
+<li>so followed following steps for password less ssh into server for hoopoe desktop.</li>
+<li>I have done this earlier, it is easy, but no notes on it(memory!) it is useless, gone with the wind</li>
+<li>So fresh startup, googled for passwordless ssh, mounted on <a href="http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id/">this</a>, saying genbrate a key using
+<code>
+ssh-keygen
+ssh-copy-id -i ~/.ssh/id_wrf.pub host-name
+</code>
+gives a error <code>/sur/bin/ssd-copy-id:ERROR: No identities found</code>
+it is of due to <a href="http://ubuntuforums.org/showthread.php?t=1355416">no proper key</a> genrated and so again made <code>ssh0keygen</code> with default name for key. But after this a three password failuer and another host_name@remotreip password asked that also being wrong, it seems the ssh never worked again.</li>
+<li>earlier to find the LAN connected computer&rsquo;s ip used this command
+<code>
+nmap -sn 192.168.1.1/24
+</code></li>
+<li>Then tried a test ssh into it and going soomthly from that found the hostyname for the system</li>
+<li>To resove the problem of 3, the error given by the ssh is <code>ssh_exchange_identification: Connection closed by remote host</code></li>
+<li>following <a href="http://stackoverflow.com/questions/10127818/ssh-exchange-identification-connection-closed-by-remote-host-under-git-bash">this</a> editied the file <code>/etc/hosts.allow</code> file in the remote server and add the line <code>sshd:ALL</code> and saved.</li>
+<li>Now the test ssh is working, now the focus is to go again for password less ssh.</li>
+<li>For password less ssh, genrated ssh-keygen followed <a href="http://www.tecmint.com/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps/">this</a> than earlier one, the correct stpes are
+<code>
+ssh-keygen -t rsa
+cat .ssh/id_rsa.pub | ssh username@ip 'cat &gt;&gt; .ssh/authorized_keys'
+</code>
+made sure the id<em>rsa.pub is copied into the server .ssh/authorized</em>keys folder</li>
+<li>still the ssh into the server asks for password, any way went into resolving the host name based ssh instead of username and ip based ssh, followed <a href="http://aditya.vaidya.info/wordpress/?p=129">this</a> for making host name for speficif ip address, editied the file /etc/hosts
+<code>
+sudo nano /etc/hosts
+&lt;ipaddress&gt; &lt;hostname&gt;
+</code></li>
+<li>to know the host name of the ip address used this <code>nmblookup -A &lt;ip-address&gt;</code></li>
+<li>the step gives only acess as <code>ssh username@hostname</code></li>
+<li>to remove ip address follwoed <a href="http://stackoverflow.com/questions/20871085/ssh-usernamehostname-to-ssh-hostname">this</a> and add config file in .ssh folder of the host, and added this lin in it
+```
+nano .ssh/config</li>
+</ul>
+
+<p>Host hostname
+    HostName ip address
+    Port 22
+    User username</p>
+
+<pre><code>after this ssh can be done with out username and ip address as specified in WRF-EMS. ```ssh hostname```
+13. Still the password is asked by the ssh, to resolve this followed [this](http://kaotickreation.com/2008/05/21/disable-ssh-password-authentication-for-added-security/)
+made into the server side by ssh supplaying pasword, editied the file to 'no'
+</code></pre>
+
+<p>sudo nano /etc/ssh/sshd_config
+ChallengeResponseAuthentication no
+PasswordAuthentication no
+UsePAM no
+PubkeyAuthentication yes
+<code>
+after this there is a error of ssh from host saying</code>“agent admitted failure to sign using the key” error <code>, follwoed [this](http://baptiste-wicht.com/posts/2010/07/tip-how-to-solve-agent-admitted-failure-to-sign-using-the-key-error.html) now the ssh without password and with host name is working,</code>ssh hostname date``` returns the value.</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>WRF EMS log - Nishadh KA</title>
+    <meta property="og:title" content="WRF EMS log - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##WRFEMSlog##
+[&amp;hellip;] ###four nested domain run of wrf ems above trivandrum area###
+">
+      <meta property="og:description" content="##WRFEMSlog##
+[&amp;hellip;] ###four nested domain run of wrf ems above trivandrum area###
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>WRF EMS log</h1>
+
+<h3>
+  2014-06-05</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##WRF<em>EMS</em>log##</p>
+
+<ul>
+<li>WRF ems instaled through local file in laptop</li>
+<li>WRF ems was installed by online and script in server</li>
+<li>wrf ems was installed by online and script in server</li>
+<li>Four netsed domain is not running in desktop saying error code 9 during wrf real.exe</li>
+</ul>
+
+<p>###four nested domain run of wrf ems above trivandrum area###</p>
+
+<ul>
+<li>the domain made for trivandrum tvm-gfs4, aftre running a test, it gives hostory output for eavery 30 minitres and took some four hours to complete</li>
+<li>To check the domain is covering the trivandrum districts, after converting the wrf ouput into netcdf using wrfncxnj.py and converting this netcddf into geotiff using nctif.py and overlayed with India<em>adm2.shp file after reprojecting using shape</em>osr.py, it is found that the disctrict is not covered by wrf ems domain</li>
+<li>So the domain tvm-gfs4 is edited to include the area, with no availblity of dwiz in headless ubuntu server, it was edited in ubuntu desktop and copied into server without any grib file, grib file was latter added into this domain inserver itself</li>
+<li>the files in /conf/ems<em>run/ such as run</em>wrfout.conf, run<em>physics.conf, run</em>level.conf, run_timestpe.conf were edited.</li>
+<li>After editing the domain to include the trivandrum region it is giving the errot that, no SOILTEMP found</li>
+<li>so again the domain tvm-gfs4 domain was edited with reducing the fourth domain extent and moving. after edited it is re copied into the server and grib file was copied from  another domain in the server and rerun by <code>cd $EMS/runs/tvm-gfs6/grib</code> <code>cp * /home/hoopoe/wrfems/wrfems/runs/tvm-gfs4/grib/</code></li>
+<li>again the error SOLTEMP not found came up, so this time tryed with aim of changing fourth domain from ocean region to only land region and routine was again followed, the editing of dwiz is made sure by checking the date and time of file in static folder</li>
+<li>This time also same error was reported and so this domain was abandoned and fresh domain was created.</li>
+<li>a fresh domain created with south india as first domain and downscaling into fourth with 1km resolution, this domain also shoing the error</li>
+<li>So to ascertain the error reson, a old running domain above combatore with four nested domain was kept running and it is running ems_prep with out any error.</li>
+<li>an attempt is made to imitate the running domain cbe-gfs1<em>1, static folder file of the domain is copied and replaced witht the files in tvm-gfs8 domain and run ems</em>prep, this also gives same error. So in cbe domain went insde the static folder and copied all the files and then again pasted in the now then cleaned static folder of tvm, this also same error is coming, it seems the dwiz can&rsquo;t be edited just like that!</li>
+<li>Another attempt was made with already running domain of trivandrum, that tvm-gfs3, this domain also not bounding with trivandrum district domain, so this domain was copied in laptop using this command <code>cp -R tvm-gfs3 /home/hoopoe/ems/wrfems/runs/tvm-gfs3_copy</code> and edited this domain, in this domain only the fourth next was edited by decreasing bottom value and top value to accomdate the tvm district, this also gives error</li>
+<li>to ascertain the error, a erpeaated attempt of previous stpe is made with carefull consideration of mainitingn the domain size as of example domain while reducing or moving the fourth domain, to avod the bias, the copied domain tvm-gfs3_copy1 is made into server and run for testing, it is quit surprising, it is showing the same error, where is the error now!?, it wolud be the dwiz in laptop is in it?</li>
+<li>to ascertain this dwiz in dekstop was used this time, there is a running domain in desktop over trivandrum, tvm<em>new, so it was used by coping it into server and run, same error came, how it is?!, to ascertain it, a ems</em>prep was run in desktop itself, found the doamin is working perfectly.</li>
+<li>This gives a clue that of silly mistake, by copying the namelist variable for geog file is not changing it is still of dektop in server!. so editing the namelist.wps would have removed this error, lets try</li>
+<li>edited namelist.wps and namelist.wps.orig file in tvm-gfs8 and rerun the ems_prep, it is still showing the error!</li>
+<li>now made the dwiz work from server to avaoid copy paste, now made a domain from dwiz still showing the error! what?</li>
+<li>Now run dwiz from server using <code>ssh -X</code> and shows the window of dwiz in which the older running domain tvm-gfs3 was edited and recreated the domain, it is working without any error, very unpredictable error, supirous, actually all these running domain was copied from laptopn and pasted in this server to run, on that time no error, some time error!</li>
+<li>ok domain problem is over that way, wrf -ems is running and time step also edited with other files such as run<em>wrfout.conf, run</em>physics.conf, run_level.conf to reflect the netxet four domains above trivandrum</li>
+</ul>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

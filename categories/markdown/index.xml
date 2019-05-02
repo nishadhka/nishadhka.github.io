@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Markdown on Nishadh KA</title>
+    <link>/categories/markdown/</link>
+    <description>Recent content in Markdown on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 03 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/markdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Markdown Syntax</title>
+      <link>/working-notes/2019/markdown-syntax/</link>
+      <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2019/markdown-syntax/</guid>
+      <description>Markdown: Syntax Main Basics Syntax License Dingus   Overview  Philosophy Inline HTML Automatic Escaping for Special Characters  Block Elements  Paragraphs and Line Breaks Headers Blockquotes Lists Code Blocks Horizontal Rules  Span Elements  Links Emphasis Code Images  Miscellaneous  Backslash Escapes Automatic Links   Note: This document is itself written using Markdown; you can see the source for it by adding &amp;lsquo;.text&amp;rsquo; to the URL.</description>
+    </item>
+    
+  </channel>
+</rss>

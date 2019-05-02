@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>WRF CHEM compile QN AWS - Nishadh KA</title>
+    <meta property="og:title" content="WRF CHEM compile QN AWS - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="#####Compile wrf chem in AWS: QUICK NOTE#####
+[&amp;hellip;] ./configure &amp;ndash;prefix=$DIR/netcdf &amp;ndash;disable-dap &amp;ndash;disable-netcdf-4 &amp;ndash;disable-shared
+make (this command ends in error related &amp;hellip;">
+      <meta property="og:description" content="#####Compile wrf chem in AWS: QUICK NOTE#####
+[&amp;hellip;] ./configure &amp;ndash;prefix=$DIR/netcdf &amp;ndash;disable-dap &amp;ndash;disable-netcdf-4 &amp;ndash;disable-shared
+make (this command ends in error related &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>WRF CHEM compile QN AWS</h1>
+
+<h3>
+  2014-12-29</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>#####Compile wrf chem in AWS: QUICK NOTE#####</p>
+
+<ol>
+<li>It is based on the NCAR wrf chem compile complete process and note on wrf chem compile by <a href="http://sergioibarra.blogspot.in/2012/10/wrf-chem-compilacion-en-ubuntu-1204.html">this</a></li>
+<li>Create a ubuntu trusty based image. Make a small elastic block storage 8GB, it will be permanent even if the instance is kept stop. There will be storage space in /mnt for upto 300GB based on instance, for example c3.large has it. This storage gets erased while stopping the instance but not the /home folder where the small 8GB EBS is being mounted/</li>
+<li>Install basic required libs
+            sudo apt-get install g++
+    sudo apt-get install gfortran
+    sudo apt-get install gcc</li>
+<li>Basic environment test, make sure the test passes all good for libs checks such as, gcc, gfortran, gcc+gfortran, perl, csh.</li>
+<li>Made sure the gcc and gfortran versions are matching, current case version is 4.8.2 for both gcc and gfortran</li>
+<li>To get the required libraries and other program source code run following command in the console
+                wget <a href="http://www2.mmm.ucar.edu/wrf/src/WRFV3.4.1.TAR.gz">http://www2.mmm.ucar.edu/wrf/src/WRFV3.4.1.TAR.gz</a>
+                wget <a href="http://www2.mmm.ucar.edu/wrf/src/WPSV3.4.1.TAR.gz">http://www2.mmm.ucar.edu/wrf/src/WPSV3.4.1.TAR.gz</a>
+                wget <a href="http://www2.mmm.ucar.edu/wrf/src/WRFV3-Chem-3.4.1.TAR.gz">http://www2.mmm.ucar.edu/wrf/src/WRFV3-Chem-3.4.1.TAR.gz</a>
+                wget <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/mpich-3.0.4.tar.gz">http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/mpich-3.0.4.tar.gz</a>
+                wget <a href="ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.1.1.tar.gz">ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.1.1.tar.gz</a></li>
+<li>For basic library compile MPICH and NETCDF
+For setting up PATH for NETCDF v4.1.1
+tar xzvf netcdf-4.1.1.tar.gz
+cd netcdf-4.1.1
+export DIR=/home/ubuntu/wrf2/libsw/
+export CC=gcc
+export CXX=g++
+export FC=gfortran
+export FCFLAGS=-m64
+export F77=gfortran
+export FFLAGS=-m64</li>
+</ol>
+
+<p>./configure &ndash;prefix=$DIR/netcdf &ndash;disable-dap <br />
+     &ndash;disable-netcdf-4 &ndash;disable-shared</p>
+
+<p>make (this command ends in error related to documentation, there is a patch for this error)
+make install</p>
+
+<p>export PATH=$DIR/netcdf/bin:$PATH
+export NETCDF=$DIR/netcdf</p>
+
+<p>#setting up PATH for mpich and compiling
+tar xzvf mpich-3.0.4.tar.gz<br />
+cd mpich-3.0.4
+./configure &ndash;prefix=$DIR/mpich
+make
+make install
+export PATH=$DIR/mpich/bin:$PATH
+1. Remaining required libraries were installed by normal sudo apt-get command, libs required were of</p>
+
+<pre><code>    sudo apt-get install m4
+    sudo apt-get install libjasper-dev
+            sudo apt-get install libpng-dev
+            sudo apt-get install libnetcdf-dev
+            sudo apt-get install zlib1g-dev
+    sudo apt-get install build-essential
+    sudo apt-get install libcloog-ppl-dev
+    sudo apt-get install tcsh
+    sudo apt-get install libcloog-ppl0
+</code></pre>
+
+<ol>
+<li>Basic library check was undergone, which checks netcdf and mpich , this test has to pass good.
+######compiling WRF######</li>
+
+<li><p>Edited the file sudo nano /etc/bash.bashrc, added following lines in it</p>
+
+<pre><code>        export NETCDF=/home/ubuntu/wrf2/libsw/netcdf
+        export JASPERLIB=/usr/lib
+        export JASPERINC=/usr/include
+        export WRF_EM_CORE=1
+        export WRF_NMM_CORE=0
+        export WRF_CHEM=1
+        export WRF_KPP=0
+        export WRFIO_NCD_LARGE_FILE_SUPPORT=1
+</code></pre></li>
+
+<li><p>Inside the wrf chem folder in whcih the chem folder already copy pasted, run following commands</p>
+
+<pre><code>        cd /home/hoopoe/wrfchem341/WRFV3_mpichA4/WRFV3/
+./configure
+</code></pre></li>
+
+<li><p>The configure.wrf file has to be edited since the groftran and gcc used is of 4.8.2 version. The lines starting with has to be as below</p>
+
+<pre><code>            FORMAT_FIXED    =       -ffixed-form -cpp
+            FORMAT_FREE     =       -ffree-form -ffree-line-length-none -cpp
+</code></pre></li>
+
+<li><p>Then execute the command, ./compile em<em>real and ./compile emi</em>conv. This completes WRF CHEM compilation</p></li>
+
+<li><p>For compiling WPS, unzip the wps folder and run the command  <code>./configure</code> and choose serial based wps, it ends in creation of file configure.wps.</p></li>
+
+<li><p>Edit the file configure.wps and change the line starting with exactly as below</p>
+
+<pre><code>            #### Architecture specific settings ####
+
+            COMPRESSION_LIBS    = -L/usr/lib -ljasper -lpng -lz
+            COMPRESSION_INC     = -I/usr/include
+
+            #
+            #   Settings for Linux x86_64, gfortran    (serial) 
+            #
+            #
+            COMPRESSION_LIBS    = -L/usr/lib -ljasper -lpng -lz
+            COMPRESSION_INC     = -I/usr/include
+</code></pre></li>
+
+<li><p>Change the line in wps due to gfortran version used 4.8.2 as, <code>CPP                 = /usr/bin/cpp -P -traditional</code></p></li>
+
+<li><p>Check the location mentioned in configure.wps for configure WRFV3.</p></li>
+
+<li><p>Then execute the command, ./compile, and it will generate the exe required for WPS.</p></li>
+</ol>
+
+<p>######compiling PREP<em>CHEM</em>SRC######
+1. Faced lots of error in compiling and running this program, the program requires netcdf version 4.1.1 and HDF1.8.4, zlib 1.2.7, other versions will generate error. More over the lib hdf5 has to be compiled in the folder /usr/local/. After compiling, it has to run command <code>ldconfig</code> to make the links correct for the compiled exe. It can be checked by the command <code>lddd prep_chem_sources_RADM_WRF_FIM.exe</code>, if any dependent library is broken it will show as not found.
+1. The source file for program and package can be downloaded by following commands</p>
+
+<pre><code>                wget http://zlib.net/fossils/zlib-1.2.7.tar.gz
+      tar xzvf zlib-1.2.7.tar.gz
+                https://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.14/src/hdf5-1.8.14.tar.gz
+      tar xzvf hdf5-1.8.14.tar.gz
+      ftp://aftp.fsl.noaa.gov/divisions/taq/global_emissions/prep_chem_sources_v1.4_08aug2013.tar.gz
+</code></pre>
+
+<ol>
+<li>compiling zlib1.7.2, inside the source directory, given following command,
+      FC=gfortran CC=gcc ./configure &ndash;prefix=/home/ubuntu/wrf2/libsw/zlib
+      make
+      make install</li>
+
+<li><p>compiling hdf5-1.8.4, inside the source directory, given following command,</p>
+
+<pre><code>        ./configure --prefix=/usr/local --enable-shared --enable-hl --with-zlib=/home/ubuntu/wrf2/libsw/zlib --enable-fortran
+make
+sudo apt-get install checkinstall
+sudo checkinstall
+</code></pre></li>
+
+<li><p>Then editing the prep<em>chme</em>src configure file, <code>include.mk.gfortran.wrf</code>, with lines</p></li>
+</ol>
+
+<p>tar xzvf prep<em>chem</em>sources<em>v1.4</em>08aug2013.tar.gz
+cd /home/ubuntu/wrf2/wrfchem/PREP-CHEM-SRC-1.4/bin/build/
+nano include.mk.gfortran.wrf
+                    NETCDF=/home/ubuntu/wrf2/libsw/netcdf
+                    HDF5=/usr/local
+                    HDF5<em>LIB=-L$(HDF5)/lib -lhdf5hl</em>fortran -lhdf5<em>fortran -lhdf5</em>hl -lhdf5 -L/home/ubuntu/wrf2/libsw/zlib/lib/ -lz</p>
+
+<ol>
+<li>Made sure that the line containing wording for big endian memory as
+      F_OPTS=  -Xpreprocessor -D$(CHEM) -O2 -fconvert=big-endian -frecord-marker=4</li>
+
+<li><p>Then saved the configure file and give the command</p>
+
+<pre><code>  make OPT=gfortran.wrf CHEM=RADM_WRF_FIM
+  ldconfig
+</code></pre></li>
+
+<li><p>This will generate the exe and check the exe using the command, <code>ldd prep_chem_sources_RADM_WRF_FIM.exe</code></p></li>
+</ol>
+
+<p>#########Running WRFCHEM in AWS##########
+1. To get the geog data necessary for geogrid.exe, it is huge file of size nearing 16 GB, used the script of wrfems, <code>ems_install.pl</code>, for get the geog folder to go as like the currently used geog folder. The c3.large of aws instance is providing 300 GB of SSD which is useful for add this much size files folder. The SSD is mounted in /mnt and the perl script was transfered to the folder aftre giving permission on the folder /mnt by <code>sudo chmod -R ugo+rw /mnt</code> based on <a href="http://stackoverflow.com/questions/11917786/change-read-write-access-of-a-folder-in-ubuntu-linux">this</a>, which give all the permission for any user on the system to copy or edit files in the /mnt like system folder. The script transfer operation was made using FILEZILLA and connected following <a href="http://stackoverflow.com/questions/16744863/connect-to-amazon-ec2-file-directory-using-filezilla-and-sftp">this</a>. After this the script was made into executables by <code>cd /mnt; chmod a+x ems_install.pl</code> and the script was run by the command <code>perl ems_install.pl --install</code>. While the script execution it asks for location to download, specified /mnt and the files are saving in this folder, the geog folder location is as follows, <code>/mnt/wrfems/data/geog</code>.
+1. To get the GLOBAL emission files necessary for <code>prep_chem_src.exe</code> is downloaded by this command</p>
+
+<pre><code>      wget ftp://aftp.fsl.noaa.gov/divisions/taq/global_emissions/global_emissions_v3_02aug2012.tar.gz
+      tar xzvf global_emissions_v3_02aug2012.tar.gz
+</code></pre>
+
+<ol>
+<li>The global<em>emissions folder is not located files as per the requirement of prep</em>chem_src, following copy past  has to be made to avoid the error of files not found error.</li>
+</ol>
+
+<p>cp /home/ubuntu/wrfout/Global<em>emissions</em>v3/Emission<em>data/GOCART/emissions/OC</em>anthro<em>noship</em>2006.nc /home/ubuntu/wrfout/Global<em>emissions</em>v3/Emission<em>data/GOCART/gocart</em>bg/</p>
+
+<p>cp /home/ubuntu/wrfout/Global<em>emissions</em>v3/Emission<em>data/GOCART/emissions/OC</em>anthro<em>noship</em>2006.nc /home/ubuntu/wrfout/Global<em>emissions</em>v3/Emission<em>data/GOCART/gocart</em>bg/</p>
+
+<p>cp /home/ubuntu/wrfout/Global<em>emissions</em>v3/Emission<em>data/GOCART/emissions/BC</em>anthro<em>noship</em>2006.nc /home/ubuntu/wrfout/Global<em>emissions</em>v3/Emission<em>data/GOCART/gocart</em>bg/</p>
+
+<p>cp /home/ubuntu/wrfout/Global<em>emissions</em>v3/Emission<em>data/GOCART/emissions/SO2</em>anthro<em>noship</em>2006.nc /home/ubuntu/wrfout/Global<em>emissions</em>v3/Emission<em>data/GOCART/gocart</em>bg/</p>
+
+<p>cp /home/ubuntu/wrfout/Global<em>emissions</em>v3/Emission<em>data/GOCART/dms</em>data/dms<em>1x1.25.nc /home/ubuntu/wrfout/Global</em>emissions<em>v3/Emission</em>data/GOCART/gocart_bg/</p>
+
+<p>cp -r /home/ubuntu/wrfout/Global<em>emissions</em>v3/Emission<em>data/GOCART/erod /home/ubuntu/wrfout/Global</em>emissions<em>v3/Emission</em>data/GOCART/gocart_bg/</p>
+
+<p>cp -r /home/ubuntu/wrfout/Global<em>emissions</em>v3/Emission<em>data/GOCART/dms</em>data /home/ubuntu/wrfout/Global<em>emissions</em>v3/Emission<em>data/GOCART/gocart</em>bg/</p>
+
+<p>cd /home/ubuntu/wrfout/Global<em>emissions</em>v3/Emission<em>data/GOCART/gocart</em>bg/
+mkdir gocart_bg</p>
+
+<p>cp -r * /home/ubuntu/wrfout/Global<em>emissions</em>v3/Emission<em>data/GOCART/gocart</em>bg/</p>
+
+<p>cp gmi* gocart_bg/</p>
+
+<ol>
+<li>The folder is having 5 GB size and it also must kept in the folder /mnt.</li>
+<li>Based on the above folder location the variables has to be edited for namelist.wps and prep<em>chem</em>sources.inp.</li>
+
+<li><p>A keep in mind fact is the aws volume here 8GB magnetic volume has to be in same zone to be detached and attached with another aws instances.</p></li>
+
+<li><p>spot instance is better way to save the cost
+and making the inatnce withpout terminating the root akes the intance to retian as like taking a AMI of the insatnce it is just copying the inatnce with all root system can be used next time.</p></li>
+
+<li><p>sssh innto aws is as follows</p></li>
+</ol>
+
+<p>ssh -i /home/swl-sacon-dst/Desktop/wrfa.pem ubuntu@ec2-54-198-57-249.compute-1.amazonaws.com</p>
+
+<ol>
+<li>mounting the volume to aws is based on simple mount command
+based on <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">this</a></li>
+</ol>
+
+<p>lsblk to list the attached volumes</p>
+
+<p>du -hs * to list the directory with its size</p>
+
+<p>sudo file -s /dev/xvda1 to check the file system in the drive</p>
+
+<p>sudo mkdir mount_point</p>
+
+<p>sudo mkdir mount_point</p>
+
+<ol>
+<li>star cluster another helpful think to do</li>
+</ol>
+
+<p>home/wrf2/wrfchem/WRFV3/test/em_real/rsl.error.0000</p>
+
+<p>ssh -i /home/swl-sacon-dst/Desktop/wrfa.pem ubuntu@ec2-54-88-7-150.compute-1.amazonaws.com</p>
+
+<h1 id="added-by-anaconda-2-0-1-installer">added by Anaconda 2.0.1 installer</h1>
+
+<p>export PATH=&ldquo;/home/wrf/anaconda/bin:$PATH&rdquo;</p>
+
+<p>#editing the fstab of wrfchem AMI
+#to knwo the file system in the device
+sudo file -s /dev/xvdf</p>
+
+<p>sudo nano /etc/fstab
+/dev/xvdf       /home/ubuntu/wrf2   ext4    defaults,nofail,nobootwait        0       2</p>
+
+<p>/dev/xvdg       /home/ubuntu/wrf   ext4    defaults,nofail,nobootwait        0       2</p>
+
+<p>/dev/xvdh       /home/ubuntu/wrfout   ext4    defaults,nofail,nobootwait        0       2</p>
+
+<p>#after editing</p>
+
+<p>sudo mount -a</p>
+
+<p>#processing the EDGAR file in AWS, refer the ncks.py file for more info
+#a new run in r3.4xlarge
+1. took 2.03 hours for six hour compilation</p>
+
+<p>#compiling the anthro_emiss in aws
+1. setting the gfortran
+export FC=gfortran
+export NETCDF=/home/ubuntu/wrf2/libsw/netcdf
+2. then given the command
+<code>make_anthro</code></p>
+
+<p>#a new run in c3.8xlarge ec2</p>
+
+<ol>
+<li>attached a 50 GB magnetic harddisk to the computer</li>
+</ol>
+
+<p>sudo mkfs -t ext4 /dev/xvdi, never use this for used harddisk
+mkdir wrfout1
+sudo mount /dev/xvdi /home/ubuntu/wrfout1
+sudo chown -R ubuntu:ubuntu wrfout1
+sudo chmod a+x wrfout1</p>
+
+<p>export DIR=/home/ubuntu/wrf2/libsw/
+export PATH=$DIR/netcdf/bin:$PATH
+export NETCDF=$DIR/netcdf
+export PATH=$DIR/mpich/bin:$PATH</p>
+
+<p>anthro<em>emis &lt; anthro</em>emisA4.inp</p>
+
+<ol>
+<li>Now using screen for 18 hour simulatin in c3.8xlarge</li>
+</ol>
+
+<p>screen -S &ldquo;name without mark&rdquo;</p>
+
+<p>To start a screen with name
+screen -S &ldquo;name without mark&rdquo;
+* To view running screen
+screen -r
+* to get into particular screen
+screen -xr pid(of the screen)
+* to get out of screen
+CTRL+A+D</p>
+
+<ol>
+<li>it is required to add erod directory in geog/data folder for dust emission inclusion in simulation and copy the old GEOGRID.TBL with as follwos</li>
+</ol>
+
+<p>cp GEOGRID.TBL GEOGRID.TBL<em>OLD
+cp GEOGRID.TBL.ARW</em>CHEM GEOGRID.TBL</p>
+
+<ol>
+<li>./util/g2print.exe /home/ubuntu/wrf2/wrfchem/gfs/grib1/gfsanl<em>3</em>20150113<em>1200</em>000.grb</li>
+</ol>
+
+<p>####errors and issues</p>
+
+<ol>
+<li>&mdash;&mdash;&mdash;&mdash;&mdash;&ndash; ERROR &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+namelist : num<em>metgrid</em>soil<em>levels = 4
+input files : NUM</em>METGRID<em>SOIL</em>LEVELS = 0 (from met_em files).
+&mdash;&mdash;&mdash;&mdash;&ndash; FATAL CALLED &mdash;&mdash;&mdash;&mdash;&mdash;</li>
+</ol>
+
+<p>sol:<a href="http://www.researchgate.net/profile/Hector_Sepulveda2/topics">http://www.researchgate.net/profile/Hector_Sepulveda2/topics</a>
+2. FATAL CALLED FROM FILE: <stdin> LINE: 597
+Mismatch between namelist and global attribute NUM<em>METGRID</em>SOIL_LEVELS</p>
+
+<ol>
+<li><p>WARNING: Couldn&rsquo;t open file NARI:2006-12-19_12 for input.
+ERROR: The mandatory field TT was not found in any input data.</p></li>
+
+<li><p>Problem with GFS 0.5</p></li>
+</ol>
+
+<p>sol: <a href="http://forum.wrfforum.com/viewtopic.php?f=12&amp;t=8494">http://forum.wrfforum.com/viewtopic.php?f=12&amp;t=8494</a>
+sol:<a href="http://forum.wrfforum.com/viewtopic.php?f=6&amp;t=8539&amp;start=10">http://forum.wrfforum.com/viewtopic.php?f=6&amp;t=8539&amp;start=10</a>
+sol:<a href="http://forum.wrfforum.com/viewtopic.php?f=22&amp;t=50">http://forum.wrfforum.com/viewtopic.php?f=22&amp;t=50</a></p>
+
+<ol>
+<li>findsing the bug in wrf run <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Class/cases/find_the_bugs.php#">http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Class/cases/find_the_bugs.php#</a></li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

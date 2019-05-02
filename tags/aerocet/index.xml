@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aerocet on Nishadh KA</title>
+    <link>/tags/aerocet/</link>
+    <description>Recent content in Aerocet on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Nov 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/aerocet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Plot Aerocet sample D3JS</title>
+      <link>/working-notes/2014/wn_2014-11/plot_aerocet_sample_d3js/</link>
+      <pubDate>Sun, 16 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-11/plot_aerocet_sample_d3js/</guid>
+      <description>####Plot aerocet data with D3 JS scrip####
+ Based on this and its source code. The meteor web application is based on one index.html file and marker visualizer based on JS drawMap.js. The index.html was edited for to remove the CHART in the line 14 to 19 contains  &amp;lt;div id=&amp;quot;year-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Year of Impact&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div id=&amp;quot;mass-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Mass (g)&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt;   IN drawMap.js, following lines were removed ``` function renderAll(){ chart.</description>
+    </item>
+    
+    <item>
+      <title>Aerocet sampleData KML Pandas</title>
+      <link>/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</link>
+      <pubDate>Wed, 15 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</guid>
+      <description>####Aerocet Sampling Data, using kml files and pandas####
+ The data from dust pollution monitoring in Coimbatore using Aerocet was copy paste into a csv file from miniterm.py program and command 2 given to aerocet. Seprate CSV files were made for count and mass mode sampling. The location of sampling point is made into a point feature in Google earth with name of respective sampling time. This was saved as kml file and opened in QGIS converted into shape file to add gemoetry.</description>
+    </item>
+    
+    <item>
+      <title>Aerocet531S serial read</title>
+      <link>/working-notes/2014/wn_2014-09/aerocet531s_serial_read/</link>
+      <pubDate>Wed, 10 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-09/aerocet531s_serial_read/</guid>
+      <description>####Serial read from Aerocet 531S###
+ Aerocet 531S(A531S) has serial communication and commanding interface through USB connection. By connecting USB to Linux ubunut 12.04, running the program serial port terminal and giving the command such as S starts the A531S. These commands are elaborated in its user manual. There number of other commands to view the data and get more about the A531S operation as per its user manual. To make the process of running the machine and entering the command in Python to start the machine or read output is the aim of this note.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Matplotlib on Nishadh KA</title>
+    <link>/tags/matplotlib/</link>
+    <description>Recent content in Matplotlib on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 17 Dec 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/matplotlib/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Print map shape file python</title>
+      <link>/working-notes/2014/wn_2014-12/print_map_shape_file_python/</link>
+      <pubDate>Wed, 17 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-12/print_map_shape_file_python/</guid>
+      <description>####Create and print map using pandas in python from SHAPE file#####
+ Based on this note to print map from shape file, a sort of scripting map creation and printing without using qgis kind GUI. The above note uses fiona lib. Intsallation of fiona is super easy with anaconda. Command conda install fiona does all the jobs of installing with all its depndancy starting from gdal. Native installtion of gdal and linkingit with python libs are super hard.</description>
+    </item>
+    
+  </channel>
+</rss>

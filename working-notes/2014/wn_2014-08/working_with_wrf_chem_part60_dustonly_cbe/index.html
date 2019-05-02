@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Working with WRF CHEM part60 dustonly CBE - Nishadh KA</title>
+    <meta property="og:title" content="Working with WRF CHEM part60 dustonly CBE - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##WRF CHEM for Coimbatore domain with dust only##
+[&amp;hellip;] &amp;amp;geogrid parentid = 1, 1, 2, 3 parentgridratio = 1, 3, 3, 3 iparentstart = 1, 26, 22, 22 jparentstart = 1, 7, 15, 32 ewe = 90, 76, 97, &amp;hellip;">
+      <meta property="og:description" content="##WRF CHEM for Coimbatore domain with dust only##
+[&amp;hellip;] &amp;amp;geogrid parentid = 1, 1, 2, 3 parentgridratio = 1, 3, 3, 3 iparentstart = 1, 26, 22, 22 jparentstart = 1, 7, 15, 32 ewe = 90, 76, 97, &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Working with WRF CHEM part60 dustonly CBE</h1>
+
+<h3>
+  2014-08-12</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##WRF CHEM for Coimbatore domain with dust only##</p>
+
+<ol>
+<li>Made a copy of WPS folder and WRFv3, parallel compiled folder test/real<em>em* into a new folder of cbe</em>domain. By doing mere copy paste, the link was broken and no correct files were copied. Instead of this a try was made as per the m2lab tutorial and copied the files from em_real as like this <code>cp /home/swl-sacon-dst/wrf/WRF341/WRFV3_par/test/em_real/* .</code>, this time the link was not made but the executables was copied, it has to checked weather it is working</li>
+<li>For starting WPS of WRF with geogrid, used the namelist.wps from Coimbatore domain created using wrf ems and dwiz, this file was used to edit the already available namelist.wps in WPS folder. Only used <code>&amp;share, &amp;geogrid, &amp;ungrib, &amp;metgrid</code> from the ems namelist.wps. the edited namelist.wps is as follows
+```
+&amp;share
+wrf<em>core                   = &lsquo;ARW&rsquo;
+max</em>dom                    = 4
+start<em>date                 = &lsquo;2014-03-01</em>00:00:00&rsquo;, &lsquo;2014-03-01<em>00:00:00&rsquo;, &lsquo;2014-03-01</em>00:00:00&rsquo;, &lsquo;2014-03-01<em>00:00:00&rsquo;
+end</em>date                   = &lsquo;2014-03-01<em>06:00:00&rsquo;, &lsquo;2014-03-01</em>00:00:00&rsquo;, &lsquo;2014-03-01<em>00:00:00&rsquo;, &lsquo;2014-03-01</em>00:00:00&rsquo;
+interval<em>seconds           = 21600
+io</em>form<em>geogrid            = 2
+opt</em>output<em>from</em>geogrid<em>path = &lsquo;/home/swl-sacon-dst/wrf/WRF341/TEST/WPS/static/&rsquo;
+debug</em>level                = 0
+/</li>
+</ol>
+
+<p>&amp;geogrid
+ parent<em>id                  = 1, 1, 2, 3
+ parent</em>grid<em>ratio          = 1, 3, 3, 3
+ i</em>parent<em>start             = 1, 26, 22, 22
+ j</em>parent<em>start             = 1, 7, 15, 32
+ e</em>we                       = 90, 76, 97, 136
+ e<em>sn                       = 85, 73, 106, 157
+ geog</em>data<em>res              = &lsquo;10m&rsquo;, &lsquo;5m&rsquo;, &lsquo;30s&rsquo;, &lsquo;30s&rsquo;
+ dx                         = 27000
+ dy                         = 27000
+ map</em>proj                   = &lsquo;lambert&rsquo;
+ ref<em>lat                    = 18.363
+ ref</em>lon                    = 78.925
+ truelat1                   = 18.363
+ truelat2                   = 18.363
+ stand<em>lon                  = 78.925
+ ref</em>x                      = 45
+ ref<em>y                      = 42.5
+ geog</em>data_path             = &lsquo;/home/hoopoe/ems/wrfems/data/geog/&rsquo;
+/</p>
+
+<p>&amp;ungrib
+ out_format = &lsquo;WPS&rsquo;,
+ prefix = &lsquo;FILE&rsquo;,
+/</p>
+
+<p>&amp;metgrid
+ fg<em>name = &lsquo;FILE&rsquo;
+ io</em>form_metgrid = 2,
+/</p>
+
+<pre><code>3. Then run the geogrid using the command ```./geogrid.exe```, it run for each domain and ended with successful completion of geogrid.
+4. For next step in WPS for ungrib.exe, executed the command with link for fnl data availability folder, 
+5. Copied the vatable for reference the variables in fnl data by ```cp ungrib/Variable_Tables/Vtable.GFS Vtable``` and run ```./ungrib.exe```
+6. To assess the correctness of ungrib step, executed 
+</code></pre>
+
+<p>cd util
+g2print.exe /home/swl-sacon-dst/wrf/WRF341/TEST/WPS/GRIBFILE.AAA</p>
+
+<pre><code>it gives list of variables in the file
+then executed 
+</code></pre>
+
+<p>./rd<em>intermediate.exe /home/swl-sacon-dst/wrf/WRF341/TEST/WPS/FILE:2014-03-01</em>00</p>
+
+<pre><code>it also gives details about the FILE:2014-03-01_00 file formed by ungrib.
+7. As per the WRF_CHEM tutorial1, to link the GEOGRID.TBL.ARW_CHEM file to your GEOGRID.TBL. The file  GEOGRID is in WPS/geogrid folder it is already linked by GEOGRID.TBL.
+8. After these step, run ```./metgrid.exe```, it ended with successful completion of metgrid.
+9. But as per the checking of wrf chem tutorial 1, metgrid and geogrid doens't processed EROD instead it processed out VAR_SSO, it seems problem. The TBL link was checked and another TBL link with ARW as available in the folder of last WPS running where EORD proceeed (WPS_SUC) was also made, but it doesn't produced EROD in further attempt.
+10. Further check was made to ascertain the last WPS_SUC, met and other files in the folder was deleted and re run was made. This time was also there is EROD processing in geogrid and ungrib. It was tested again with the namelist.wps of Coimbatore domain that also positive test.
+11. So decided that not go further on EROD intsead run remaining real.exe and wrf.exe with this setup. 
+12. For running real.exe in WRF compiled in parallel mode and copied its ems_real folder content, in this folder all met files were copied by running the command ```cp /home/swl-sacon-dst/wrf/WRF341/cbe_domain/WPS_te/met_em* .
+``` then run the command of running real.exe in parallel mode by ```mpirun -np 2 -host localhost ./real.exe```, it gives error in files such as ```rsl.error.0000``` saying ```Error reading namelist &amp;logging from namelist.input.  Using default logging config```. This error file was not even made in running the real.exe in copied folder from real_em folder separately.
+13. Same test was made with serial compiled wrfv3 in which the met file was copied and run the command ```./real.exe``` it gives the error saying 
+</code></pre>
+
+<p>Error reading namelist &amp;logging from namelist.input.  Using default logging config.
+ Error reading namelist &amp;logging from namelist.input.  Using default logging config.
+ Namelist dfi<em>control not found in namelist.input. Using registry defaults for variables in dfi</em>control
+ Namelist tc not found in namelist.input. Using registry defaults for variables in tc
+ Namelist noah<em>mp not found in namelist.input. Using registry defaults for variables in noah</em>mp
+ Namelist scm not found in namelist.input. Using registry defaults for variables in scm
+ Namelist chem not found in namelist.input. Using registry defaults for variables in chem
+ Namelist fire not found in namelist.input. Using registry defaults for variables in fire
+ Namelist diags not found in namelist.input. Using registry defaults for variables in diags</p>
+
+<pre><code>and saying some problem in files such as
+</code></pre>
+
+<p>&mdash;&mdash;&mdash;&mdash;&ndash; FATAL CALLED &mdash;&mdash;&mdash;&mdash;&mdash;
+ FATAL CALLED FROM FILE:  <stdin>  LINE:     435
+ error opening met<em>em.d01.2000-01-24</em>12:00:00.nc for input; bad date in namelist or file not in directory</p>
+
+<hr />
+
+<p>&mdash;&mdash;&mdash;&mdash;&ndash; FATAL CALLED &mdash;&mdash;&mdash;&mdash;&mdash;
+ FATAL CALLED FROM FILE:  <stdin>  LINE:     435
+ error opening met<em>em.d01.2000-01-24</em>12:00:00.nc for input; bad date in namelist or file not in directory</p>
+
+<hr />
+
+<pre><code>14. for running real.exe in second time it gives error of nature
+</code></pre>
+
+<p>Error reading namelist &amp;logging from namelist.input.  Using default logging config.
+ Error reading namelist &amp;logging from namelist.input.  Using default logging config.
+   &mdash;&mdash; ERROR while reading namelist scm &mdash;&mdash;
+ Namelist diags not found in namelist.input. Using registry defaults for variables in diags
+ &mdash;&mdash;&mdash;&mdash;&ndash; FATAL CALLED &mdash;&mdash;&mdash;&mdash;&mdash;
+ FATAL CALLED FROM FILE:  <stdin>  LINE:    9895
+ ERRORS while reading one or more namelists from namelist.input.</p>
+
+<hr />
+
+<p>&mdash;&mdash;&mdash;&mdash;&ndash; FATAL CALLED &mdash;&mdash;&mdash;&mdash;&mdash;
+ FATAL CALLED FROM FILE:  <stdin>  LINE:    9895
+ ERRORS while reading one or more namelists from namelist.input.</p>
+
+<hr />
+
+<pre><code>15. So concluded some problem in namelist.input file, so decided to run the real.exe with ems namelist.real without any changes of chem etc, this file was renamed into namelist.input and run ```./real.exe``` but ended with same ealier error compliing no chem or scm in namelist. This gives indication that chem compiled wrf requires namleist populated with chem component
+16. so option is to go with normal wrf and run there with available namelsit and found what happening, so need now is compile wrf with out chem
+###Compile WRF without CHEM###
+17. for compiling wrf followed the [tutorial](http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php) first executed ```./configure``` selected 23 for serial and 1 for simple nesting, after this execute ```./compile em_real``` but ends in error saying ```You need to download and untar the chem code, or
+unset the WRF_CHEM env variable.```. so edited the configre.wrf file and set WRF_CHEM=0 instead of 1 in line
+198.
+18. Changing the configure.wrf was ineffective and it seems the environment variable has to be changed so followed this [tutorial](http://sergioibarra.blogspot.com/2012/10/wrf-chem-compilacion-en-ubuntu-1204.html) on wrf-chem compilation saying the environment has to set in file ```/etc/bash.bashrc``` and changed the ```export WRF_CHEM =1``` into ```export WRF_CHEM =0```. 
+19. Now started again the wrf compile and this time it finished compilation without any visible error reporting but no production of exe files. After scrolling up and there are error reported like this ```track_driver.f90:(.text+0x1c1a): undefined reference to `nf_create_'
+```, from this [note](https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-06/Working_with_WRF_CHEM_part3-compile_wrf_exe.md). So edited the configure.wrf file created after executing ```./configure``` in line number 192-193 and added the reference for lib netcdf for updated version of netcdf. The line 192-193 in file configure.wrf becomes, 
+</code></pre>
+
+<p>LIB<em>EXTERNAL    = <br />
+                      -L$(WRF</em>SRC<em>ROOT</em>DIR)/external/io<em>netcdf -lwrfio</em>nf -L/usr/local/lib  -lnetcdf  -lnetcdff
+<code>
+20. With this the compile was carried out and this time exe files are created. The chosen fields are no chem, serial and basic nesting.
+21. so now ready for running the wrf for the namelist from ems
+###Run WRF without CHEM but with namelist.real from WRF EMS###
+22. To copy the em_real folder content into a separate domain specific folder to execute the real.exe with met file created in WPS step, copied the folder content by</code>cp /home/swl-sacon-dst/wrf/WRF341/WRFV3<em>serial/test/em</em>real/* .<code>then copied all met files in wps folder into this folder by</code>cp /home/swl-sacon-dst/wrf/WRF341/cbe<em>domain/WPS</em>te/met<em>em* .<code>. Then copied and renamed the namelist.real from wrf ems as namelist.input. Then executed</code>./real.exe<code>. It gives same error as of wrf-chem, so namelist has to be edited for solution.
+23. A namelist editing tools for fortran specifically for WRF is available from [here](http://www.meteo.unican.es/wiki/cordexwrf/SoftwareTools/FortNml), it is a python tools with all specification to find mistakes in namelist.input for real.exe and wrf.exe, using this tool found the mistakes in namelsit.input by</code>./fortnml -f /home/swl-sacon-dst/wrf/WRF341/cbe</em>domain/WRFser/namelist.input -t<code>, it gives error saying that radt has to be edited with correct ratio, using this command removes the checking caution of radt</code>./fortnml -f namelist.input -m radt 27<code>. Based  on this information namelist.input entry under &amp;physics, radt was edited and changed into 27 instead of 6.
+24. After this edit also the</code>./real.exe<code>exited with error saying that in start</code>Error reading namelist &amp;logging from namelist.input.  Using default logging config.<code>
+and in end</code>DX and DY do not match comparing namelist to the input file<code>. Google search gives indication that either problem with namelist or wrf compilation for this error to cause.
+25. So resolve with this problem is to go from basics of running wrf from tutorials and its data. For this a search is made to get nesting based tutorial, it is found that for do nesting in wrf it involves more step than earlier learnt (using WRF ems and m2lab tutorial) a separate application</code>ndown.exe``` has to be executed for nesting in wrf.
+26. Basic steps needed for learn and trail WRF with tutorials are of
+    1. Single domain Katrina case
+    2. Nested Katrina case
+    3. Nested Coimbatore domain
+    4. WRF chem HKH case
+then run the WRF chem with dust ony for Coimbatore domain</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

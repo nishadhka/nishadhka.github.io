@@ -1,0 +1,227 @@
+sno,filename,status,year,tags0,tags1,tags2,categories,archives
+1,2013-08-31-Bluetoothshield-Arduino-and-Android.md,2013-08-31,2013,Bluetooth,Arduino,Android,Hardware,2013
+2,2013-09-10-Scale-images-using-python-script.md,2013-09-10,2013,Image,Scaling,,Code snippet,2013
+3,2013-10-07-Xvfb-Virtual-FrameBuffer-error-for-Ubuntu-server-1204.md,2013-10-07,2013,Ubuntu,Error,,Operating System,2013
+4,2013-10-08-Installing-maven-in-Ubuntu-1204.md,2013-10-08,2013,Ubuntu,Maven,,Software,2013
+5,2013-10-16-Python-for-data-frame-editing-using-pandas.md,2013-10-16,2013,Python,Pandas,,Code snippet,2013
+6,2013-10-28-Store-json-data-into-Mysql-using-python.md,2013-10-28,2013,Json,MySQL,,Code snippet,2013
+7,2013-10-29-Giving-Raspberry-pi-net-connection.md,2013-10-29,2013,Raspberry Pi,Setup,Internet,Hardware,2013
+8,2013-11-01-Python-pandas-cont.md,2013-11-01,2013,Python,Pandas,,Code snippet,2013
+9,2013-11-01-Notes-on-selenium.md,2013-11-01,2013,Selenium,Data Scraping,,Software,2013
+10,2013-11-05-AWS-postgresql-remote-host-connection.md,2013-11-05,2013,AWS,PostgreSQL,,Cloud computing,2013
+11,2013-11-05-Notes-on-Geoserver.md,2013-11-05,2013,Geoserver,Geospatial,,Software,2013
+12,2013-11-05-PostGresql-table-edit-in-command-line.md,2013-11-05,2013,PostgreSQL,Remote access,,Software,2013
+13,2013-11-05-Screen-for-remote-head-less-sever.md,2013-11-05,2013,Screen,Ubuntu,Remote access,Software,2013
+14,2013-11-05-Notes-on-AWS.md,2013-11-05,2013,AWS,,,Cloud computing,2013
+15,2013-11-05-SMS-management-web-application.md,2013-11-05,2013,SMS,Web Application,,Software,2013
+16,2013-11-11-DYLOS-raspberry-pi-experiment.md,2013-11-11,2013,Raspberry Pi,Dylos Monitor,Setup,Hardware,2013
+17,2013-12-04-AWS-instances-and-more-tips.md,2013-12-04,2013,AWS,,,Cloud computing,2013
+18,2013-12-04-Adding-font-in-Ubuntu-1204.md,2013-12-04,2013,Ubuntu,Fonts,,Software,2013
+19,2013-12-16-Script-for-json-to-csv-for-weather-underground-API-fetching-historical-data.md,2013-12-16,2013,Python,API,Weather Underground,Software,2013
+20,2013-12-16-DYLOS-raspberry-pi-and-xively.md,2013-12-16,2013,Raspberry Pi,Dylos Monitor,Xively,Hardware,2013
+1,2014-01-06-removing-PIN-in-android.md,2014-01-06,2014,Android,,,Software,2014
+2,2014-01-08-Testing-the-RPi-with-usb-hub-usb-serial-and-data-card.md,2014-01-08,2014,Raspberry Pi,USB,,Hardware,2014
+3,2014-01-08-Udev-rules-for-USB-attached-to-RPi.md,2014-01-08,2014,Raspberry Pi,USB,,Hardware,2014
+4,2014-01-08-GSM-INTERNET-connection-for-RPi.md,2014-01-08,2014,Raspberry Pi,USB,Internet,Hardware,2014
+5,2014-01-08-How-to-BRICK-Beagle-Bone-Black.md,2014-01-08,2014,Beagle Bone Black board,,,Hardware,2014
+6,2014-01-08-raspberry-pi-errors.md,2014-01-08,2014,Raspberry Pi,Error,,Hardware,2014
+7,2014-01-08-Daemon-service-for-RPI-for-running-python-script.md,2014-01-08,2014,Raspberry Pi,Python,,Hardware,2014
+8,2014-01-16-USB-DATA-card-for-ubuntu-1204.md,2014-01-16,2014,Ubuntu,USB,,Software,2014
+9,2014-01-16-SCREEN-usage.md,2014-01-16,2014,Screen,Ubuntu,Remote access,Software,2014
+10,2014-01-16-Secure-ubuntu-SERVER-1204.md,2014-01-16,2014,Ubuntu,Security,,Software,2014
+11,2014-01-16-Ubuntu-SERVER-black-screen-problem.md,2014-01-16,2014,Ubuntu,Error,,Operating System,2014
+12,2014-01-17-Installing-Munin-for-ubuntu-server.md,2014-01-17,2014,Ubuntu,Munin,,Software,2014
+13,2014-01-17-more-with-SMS-gateway-for-ubuntu-1204.md,2014-01-17,2014,Ubuntu,SMS,,Software,2014
+14,2014-01-25-recover-password-for-postgresql.md,2014-01-25,2014,PostgreSQL,,,Software,2014
+15,2014-01-25-File-transfer-between-AWS-and-ubuntu.md,2014-01-25,2014,AWS,Ubuntu,,Cloud computing,2014
+16,2014-01-25-python-script-for-inserting-SOS.md,2014-01-25,2014,Python,Standards,SOS,Software,2014
+17,2014-02-05-Python-script-to-convert-wrfout-into-Geotiff-and-some-issues.md,2014-02-05,2014,Python,WRF,Geotiff,Script,2014
+18,2014-02-05-wind-power-forecasting-map.md,2014-02-05,2014,Python,Geospatial,Wind Power,Software,2014
+19,2014-02-18-Python-for-fetching-Mysql-table.md,2014-02-18,2014,Python,MySQL,,Software,2014
+20,2014-02-21-Installing-55north-SOS-with-tomcat7.md,2014-02-21,2014,SOS,tomcat7,Ubuntu,Software,2014
+21,2014-02-25-trisquel-60-installation-in-nvidia-geforce-card-bearing-laptop.md,2014-02-25,2014,Ubuntu,,,Operating System,2014
+22,2014-03-04-data-communication-between-arduino-and-android.md,2014-03-04,2014,,Arduino,Android,Hardware,2014
+23,2014-03-05-Unbricking-BBB.md,2014-03-05,2014,Beagle Bone Black board,,,Hardware,2014
+24,2014-03-05-Server-stuck-at-GRUB-menu-after-1204-update-upgrade.md,2014-03-05,2014,Ubuntu,,,Operating System,2014
+25,2014-03-06-EMS-WRF.md,2014-03-06,2014,WRF,WRF-EMS,Compiling,Software,2014
+26,2014-03-25-usb-modeswitch-on-reboot.md,2014-03-25,2014,Ubuntu,USB,,Software,2014
+27,2014-03-25-gammu-and-mysql.md,2014-03-25,2014,SMS,MySQL,,Software,2014
+28,2014-03-25-Sending-SMS-with-Beagle-bone-black.md,2014-03-25,2014,Beagle Bone Black board,SMS,,Software,2014
+29,2014-04-04-HYSPLIT-compile.md,2014-04-04,2014,HYSPLIT,Compiling,,Software,2014
+30,2014-04-08-Sending-SMS-with-AT-and-python.md,2014-04-08,2014,SMS,Python,,Software,2014
+31,2014-04-10-CSV-edit-by-pandas.md,2014-04-10,2014,Pandas ,Python,CSV,Software,2014
+32,2014-04-10-Dylos-monitor-setup-full-with-log.md,2014-04-10,2014,Raspberry Pi,Dylos Monitor,,Software,2014
+33,2014-04-18-Compileling-WRF-CHEM.md,2014-04-18,2014,WRF-CHEM,,Compiling,Software,2014
+34,2014-04-21-Gammu-smsd-shared-memeory-error-for-Huwaei-E303F.md,2014-04-21,2014,SMS,USB,Error,Software,2014
+35,2014-04-21-Shared-memory-ERROR-MORE.md,2014-04-21,2014,Error,,,Software,2014
+36,2014-04-21-usbreset-Program.md,2014-04-21,2014,USB,,,Software,2014
+37,2014-04-24-IRIS-install.md,2014-04-24,2014,IRIS,Python,,Software,2014
+38,2014-04-24-package-using-maven.md,2014-04-24,2014,Maven,,,Software,2014
+39,2014-04-24-File-system-based-SOS-using-github-AJAX.md,2014-04-24,2014,SOS,,,Software,2014
+40,2014-04-30-Cross-Origin-Resource-Sharing.md,2014-04-30,2014,Error,,,Software,2014
+41,2014-05-05-gammu-compile-BBB.md,2014-05-05,2014,SMS,Beagle Bone Black board,,Hardware,2014
+42,2014-05-06-Mount-SDcard-with-BBB.md,2014-05-06,2014,Beagle Bone Black board,,,Hardware,2014
+43,2014-05-06-mysql-BBB.md,2014-05-06,2014,Beagle Bone Black board,MySQL,,Hardware,2014
+44,2014-05-10-OnPython.md,2014-05-10,2014,Python,,,Software,2014
+45,2014-05-10-pandas-dataframe-into-LATEX-PDF.md,2014-05-10,2014,Python,Latex,Pandas,Software,2014
+46,2014-05-12-postgresql.md,2014-05-12,2014,PostgreSQL,,,Software,2014
+47,2014-05-15-QualitySCHU-to-cbe-air.md,2014-05-15,2014,Web Application,JavaScript,,Software,2014
+48,2014-05-16-gammu-MYSQL.md,2014-05-16,2014,SMS,MySQL,,Software,2014
+49,2014-05-19-converting-WRF-ouput-netcdf-into-json.md,2014-05-19,2014,NetCDF,WRF,Json,Software,2014
+50,2014-05-20-Installing-netcdf-python-in-Ubuntu1204.md,2014-05-20,2014,Ubuntu,Python,NetCDF,Software,2014
+51,2014-05-21-Querying-netcdf-with-python_kdtree.md,2014-05-21,2014,NetCDF,Python,,Software,2014
+52,2014-05-23-Node-js-withAIRwindandEarthwind.md,2014-05-23,2014,Web Application,JavaScript,D3.JS,Software,2014
+53,2014-05-23-json-data-into-SQLinsert-with-python.md,2014-05-23,2014,Python,Json,,Software,2014
+54,2014-05-24-Merge-geojsons-into-one.md,2014-05-24,2014,Python,Geospatial,GeoJson,Software,2014
+55,2014-05-28-python_querying_and_editing_json.md,2014-05-28,2014,Python,Json,,Software,2014
+56,2014-06-05-SSH-for-WRF-EMS-Cluster-running.md,2014-06-05,2014,SSH,WRF-EMS,,Cloud computing,2014
+57,2014-06-05-running-WRF-EMS.md,2014-06-05,2014,WRF-EMS,,,Software,2014
+58,2014-06-05-Localinstall-WRFEMS.md,2014-06-05,2014,WRF-EMS,,,Software,2014
+59,2014-06-05-WRF-EMS-install-and-running-in-IBM-X3100-M4.md,2014-06-05,2014,WRF-EMS,,,Software,2014
+60,2014-06-05-WRF-EMS-log.md,2014-06-05,2014,WRF-EMS,,,Software,2014
+61,2014-06-05-Bewolf-cluster-for-WRF-EMS.md,2014-06-05,2014,WRF-EMS,,,Software,2014
+62,2014-06-06-compiling-grib2json-in-AWS.md,2014-06-06,2014,AWS,grib2json,Compiling,Cloud computing,2014
+63,2014-06-08-editing-WRF-logfile-Python.md,2014-06-08,2014,Python,WRF,,Software,2014
+64,2014-06-17-Installing-R-and-Openair-in-Ubuntu1204.md,2014-06-17,2014,R,OpenAir,Ubuntu,Software,2014
+65,2014-06-17-data-editing-with-pandas.md,2014-06-17,2014,Python,Pandas,,Software,2014
+66,2014-06-18-Installing-GDAL-with-Python-in-Ubunut1204.md,2014-06-18,2014,GDAL,Python,,Software,2014
+67,2014-06-18-Shapefile-edit-QGIS.md,2014-06-18,2014,QGIS,Shapefile,Geospatial,Software,2014
+68,2014-06-18-Reprojecting-SHAPE-file-python.md,2014-06-18,2014,Python,Geospatial,,Software,2014
+69,2014-06-26-Working-with-WRF-CHEM-part1-PrepChemSrc.md,2014-06-26,2014,WRF-CHEM,,,Software,2014
+70,2014-06-26-Working-with-WRF-CHEM-part3-compile-wrf-exe.md,2014-06-26,2014,WRF-CHEM,,,Software,2014
+71,2014-06-26-Working-with-WRF-CHEM-part2-WPS.md,2014-06-26,2014,WRF-CHEM,,,Software,2014
+72,2014-06-27-Latex-into-HTML.md,2014-06-27,2014,Latex,,,Software,2014
+73,2014-06-28-Textfile-from-WRFoutput-pythonic.md,2014-06-28,2014,Python,WRF-CHEM,,Software,2014
+74,2014-07-02-LAN-based-Internet-problem-and-solutionforRaspberry.md,2014-07-02,2014,Raspberry Pi,,,Hardware,2014
+75,2014-07-13-Working-with-WRF-CHEM-part4-cbe-domain-run.md,2014-07-13,2014,WRF-CHEM,,,Software,2014
+76,2014-07-13-Serial-port-problem-lbm1-knmr.md,2014-07-13,2014,Dylos,Python,,Software,2014
+77,2014-07-13-Working-with-WRF-CHEM-part5-prep-emis.md,2014-07-13,2014,WRF-CHEM,,,Software,2014
+78,2014-07-15-Check-null-in-python.md,2014-07-15,2014,Python,,,Script,2014
+79,2014-07-18-Workflow-docear-mendely-Python.md,2014-07-18,2014,Python,Bibtex,,Software,2014
+80,2014-07-18-Latex-beamer-based-pdf-presntation.md,2014-07-18,2014,Latex,,,Software,2014
+81,2014-07-29-gh-pages-HTML-css-js.md,2014-07-29,2014,Web Application,,,Software,2014
+82,2014-08-01-English-Grammer-checker.md,2014-08-01,2014,NLTK,,,Software,2014
+83,2014-08-06-python-script-InsertObservation-istSOS-xml.md,2014-08-06,2014,Python,SOS,,Software,2014
+84,2014-08-12-Working-with-WRF-CHEM-part61-WRF-KatrinaSingleDomain.md,2014-08-12,2014,WRF-CHEM,,,Software,2014
+85,2014-08-12-Working-with-WRF-CHEM-part62-WRF-KatrinaNesting.md,2014-08-12,2014,WRF-CHEM,,,Software,2014
+86,2014-08-12-Working-with-WRF-CHEM-part60-dustonly-CBE.md,2014-08-12,2014,WRF-CHEM,,,Software,2014
+87,2014-08-19-Working-with-WRF-CHEM-part63-WRF-CoimbatoreNesting.md,2014-08-19,2014,WRF-CHEM,,,Software,2014
+88,2014-08-19-Working-with-WRF-CHEM-part64-DustOnlyTutorial.md,2014-08-19,2014,WRF-CHEM,,,Software,2014
+89,2014-08-21-Parallella-for-WRF-CHEM.md,2014-08-21,2014,WRF-CHEM,Parallella,,Hardware,2014
+90,2014-08-23-WRF-CHEM-compilingInARM-BeagleBoneBlack.md,2014-08-23,2014,Beagle Bone Black board,WRF-CHEM,,Hardware,2014
+91,2014-08-30-SOSforWRFCHEM-output.md,2014-08-30,2014,WRF-CHEM,SOS,,Software,2014
+92,2014-08-30-GSI-assimilation-PM25PM10-WRFCHEM.md,2014-08-30,2014,WRF-CHEM,GSI,,Software,2014
+93,2014-09-04-WRFCHEM-domain-view-python.md,2014-09-04,2014,WRF-CHEM,Python,Plot,Script,2014
+94,2014-09-04-Working-with-WRF-CHEM-part65-EmissionInventoryTut.md,2014-09-04,2014,WRF-CHEM,,,Software,2014
+95,2014-09-06-Working-with-WRF-CHEM-part70-CBE-DustOnlyTutorial.md,2014-09-06,2014,WRF-CHEM,,,Software,2014
+96,2014-09-06-Working-with-WRF-CHEM-part71-emission-inventory-CBE-Ndown.md,2014-09-06,2014,WRF-CHEM,,,Software,2014
+97,2014-09-08-WRFCHEM-CBE-A1.md,2014-09-08,2014,WRF-CHEM,,,Software,2014
+98,2014-09-08-ubuntu1204to1404.md,2014-09-08,2014,Ubuntu,,,Operating System,2014
+99,2014-09-09-PM-Emission-Inventory-CBE-SD.md,2014-09-09,2014,WRF-CHEM,Emission Inventory,,Study,2014
+100,2014-09-09-forumpost.md,2014-09-09,2014,Python,,,Software,2014
+101,2014-09-09-WRFCHEM-CBE-aOptionwithAWS-StarCluster.md,2014-09-09,2014,AWS,StarCluster,WRF-CHEM,Cloud computing,2014
+102,2014-09-10-Aerocet531S-serial-read.md,2014-09-10,2014,Aerocet,,,Hardware,2014
+103,2014-09-10-WRF-CHEM-Compile-completenote-SERVER.md,2014-09-10,2014,WRF-CHEM,,,Software,2014
+104,2014-09-14-EmisInv-REAS-Pandas.md,2014-09-14,2014,WRF-CHEM,Emission Inventory,,Study,2014
+105,2014-09-20-compileGSIonUbuntu1404.md,2014-09-20,2014,GSI,Assimilation,,Software,2014
+106,2014-09-25-WRFCHEM-CBE-lazyWRF-py.md,2014-09-25,2014,WRF-CHEM,Python,,Script,2014
+107,2014-09-29-WRFCHEM-output-python.md,2014-09-29,2014,WRF-CHEM,Python,,Script,2014
+108,2014-10-07-Dylos-RPi-Serial-problem.md,2014-10-07,2014,Dylos,Raspberry Pi,,Hardware,2014
+109,2014-10-15-Aerocet-sampleData-KML-Pandas.md,2014-10-15,2014,Aerocet,KML,Pandas,Script,2014
+110,2014-10-25-Cubietruck-cluster-WRFCHEM.md,2014-10-25,2014,Cubietruck,WRF-CHEM,Cluster,Hardware,2014
+111,2014-10-28-Timeseries-Pandas.md,2014-10-28,2014,Timeseries,Pandas,,Software,2014
+112,2014-10-28-Excel-Pandas-LATEX-PDF.md,2014-10-28,2014,Latex,Python,Pandas,Software,2014
+113,2014-10-28-PythonGDALproblem.md,2014-10-28,2014,GDAL,Python,Error,Software,2014
+114,2014-10-31-plot-NETCDF.md,2014-10-31,2014,NetCDF,Plot,,Script,2014
+115,2014-11-01-DOCX-table-into-python.md,2014-11-01,2014,Python,Scraping,Data cleanup,Script,2014
+116,2014-11-05-Redeploy-Dylos-TDM.md,2014-11-05,2014,Dylos,,,Hardware,2014
+117,2014-11-15-git-delete-routine.md,2014-11-15,2014,Git,,,Software,2014
+118,2014-11-16-Plot-Aerocet-sample-D3JS.md,2014-11-16,2014,Aerocet,D3.JS,Web application,Software,2014
+119,2014-11-20-NCL-install-ubunut1204.md,2014-11-20,2014,NCL,Ubuntu,,Software,2014
+120,2014-11-22-Ubunut1204-recovery.md,2014-11-22,2014,Ubuntu,Error,,Operating System,2014
+121,2014-11-26-WRFCHEM-output-PM25PM10.md,2014-11-26,2014,WRF-CHEM,,,Software,2014
+122,2014-11-26-Pandas-JSON.md,2014-11-26,2014,Python ,Pandas,Python,Script,2014
+123,2014-11-28-Reverse-Geocoding.md,2014-11-28,2014,Python,Geospatial,Geocoding,Script,2014
+124,2014-11-28-Geonames-Pandas-Shapefile.md,2014-11-28,2014,Geonames,Pandas,Python,Script,2014
+125,2014-12-10-Parallella-upand-run.md,2014-12-10,2014,Parallella,,,Hardware,2014
+126,2014-12-17-Print-map-shape-file-python.md,2014-12-17,2014,Python,Matplotlib,Plot,Script,2014
+127,2014-12-29-WRF-CHEM-compile-QN-PL.md,2014-12-29,2014,WRF-CHEM,,,Software,2014
+128,2014-12-29-WRF-CHEM-cluster.md,2014-12-29,2014,WRF-CHEM,,,Software,2014
+129,2014-12-29-WRF-CHEM-compile-QN-AWS.md,2014-12-29,2014,WRF-CHEM,,,Software,2014
+130,2014-12-29-WRF-CHEM-compile-QN-CT.md,2014-12-29,2014,WRF-CHEM,,,Software,2014
+131,2014-12-29-WRF-CHEM-compile-QN.md,2014-12-29,2014,WRF-CHEM,,,Software,2014
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,Point_source_emissions,Not added,,,,,,
+1,EmissionsInventoryattempt2,Not added,2015,,,,,
+2,EmissionsInventoryattempt3,Not added,2015,,,,,
+3, d3js point map and webpage static,Not added,2015,,,,,
+4, rain map python,Not added,2015,,,,,
+5, latex to kindle version,Not added,2015,,,,,
+6, swf web maping,Not added,2015,,,,,
+7, geocoding,Not added,2015,,,,,
+8, paper based questionaire survey,Not added,2015,,,,,
+9, Python maping line and background,Not added,2015,,,,,
+10, bird sound and python,Not added,2015,,,,,
+11, geojson pdf and conversion python ,Not added,2015,,,,,
+12, tikz and latex,Not added,2015,,,,,
+13, mapbox and webmapping ,Not added,2015,,,,,
+14," GTFS and bus route, TNSTC report",Not added,2015,,,,,
+15," report, GISE",Not added,2015,,,,,
+16,grid maping using python,Not added,2015,,,,,
+17, data for ocean information,Not added,2015,,,,,
+1, mangroves of palkbay,Not added,2016,,,,,
+2, questionaire survey on palkbay,Not added,2016,,,,,
+3, brickklin and geo identification,Not added,2016,,,,,
+4, SOS for air pollution data,Not added,2016,,,,,
+5," data storgae and github citation, zoneado",Not added,2016,,,,,
+6, filter based partiuclate pollutant monitor,Not added,2016,,,,,
+7,Water Pollution in River Noyyal,Not added,2016,,,,,
+8,Noise pollution and review,Not added,2016,,,,,
+9,Filter based particulate moniors,Not added,2016,,,,,
+10," land use land cover classification, with raw landsat imaergy",Not added,2016,,,,,
+1, docker and python,Not added,2017,,,,,
+2," Google APIs, maps, google drive, direction and python",Not added,2017,,,,,
+3, Fire maping and python,Not added,2017,,,,,
+4," GE and lulc, GE",Not added,2017,,,,,
+5, Python and pdf table,Not added,2017,,,,,
+6, pdf and map as svg,Not added,2017,,,,,
+7," kml read and write, point, polygon and line",Not added,2017,,,,,
+8," Python maping, basemap and matplotlib axis",Not added,2017,,,,,
+9, D3 and inset maping,Not added,2017,,,,,
+10," Javascript, bootstrap and calculatore",Not added,2017,,,,,
+11, bibtlography api,Not added,2017,,,,,
+12, write about koviapy workshop,Not added,2017,,,,,
+13, write about IIT bombay workshop,Not added,2017,,,,,
+14,Railway emissions ,Not added,2017,,,,,
+1,Flight emissions,Not added,2018,working paper,,,,
+2,SOS for openAQ,Not added,2018,working paper,,,,
+3,Metastudy and pdf text analysis,Not added,2018,working paper,,,,
+4,UE info cycle and noise sampling,Not added,2018,working paper,,,,
+5,Residential emissions from India villages,Not added,2018,working paper,,,,
+6,Rescue mapping,Not added,2018,working paper,,,,
+7,text analysis,Not added,2018,,,,,
+8,jupyter hub,Not added,2018,,,,,
+9,ODK,Not added,2018,,,,,
+10,YOLO and GPU programming,Not added,2018,,,,,
+11,holography,Not added,2018,,,,,
+12,howtotrainyourcomputer,Not added,2018,,,,,
+13,workshop notebooks,Not added,2018,,,,,
+14,Graphtool and routing-uber data,Not added,2018,,,,,
+15,node js and openaq,Not added,2018,,,,,
+16,javascript code scrape by python simfit,Not added,2018,,,,,
+1,T shape in knowleged production,Not added,2019,,,,,
+2,better pandas,Not added,2019,,,,,
+3,,,2019,,,,,

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>PostGresql table edit in command line - Nishadh KA</title>
+    <meta property="og:title" content="PostGresql table edit in command line - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="To edit the Istsos database table “measures” in PostgreSQL it is to overcome to the error in istsos import saying the Dylos reading is exceeding the digit limit of the column val_meas in the table. &amp;hellip;">
+      <meta property="og:description" content="To edit the Istsos database table “measures” in PostgreSQL it is to overcome to the error in istsos import saying the Dylos reading is exceeding the digit limit of the column val_meas in the table. &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>PostGresql table edit in command line</h1>
+
+<h3>
+  2013-11-05</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>To edit the Istsos database table “measures” in PostgreSQL
+it is to overcome to the error in istsos import saying the Dylos reading is exceeding the digit limit of the column val_meas in the table. Normally it is easy to change column digit size through pgadmin. However, for command line, it requires following commands.</p>
+
+<ol>
+<li>Get access to PostgreSQL</li>
+</ol>
+
+<p>sudo -u postres psql</p>
+
+<ol>
+<li><p>To view the database in PostgreSQL
+\dt</p></li>
+
+<li><p>To connect with a particular database
+\c istsos      here istsos is database</p></li>
+
+<li><p>To display the details of table
+\d dlyosecbe.measrues        here dlyosecbe.measrues is the table name</p></li>
+
+<li><p>To change the columns digit size use the SQl command got from pgadmin
+ALTER TABLE dyloscbe.measures k ALTER COLUMN val_msr TYPE numeric(14,6);</p></li>
+</ol>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

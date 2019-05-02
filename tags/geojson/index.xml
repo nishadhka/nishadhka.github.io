@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GeoJson on Nishadh KA</title>
+    <link>/tags/geojson/</link>
+    <description>Recent content in GeoJson on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 May 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/geojson/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Merge geojsons into one</title>
+      <link>/working-notes/2014/wn_2014-05/merge_geojsons_into_one/</link>
+      <pubDate>Sat, 24 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-05/merge_geojsons_into_one/</guid>
+      <description>##Mergegeojsonsinto_one## - For converting qs into cbe-air, map is rendered using geojson rendering capability of github - the marker was easiliy made into geojson from qgis and org2ogr as a shape file. based on this under section &amp;ldquo;getting map data&amp;rdquo;, the command is
+ogr2ogr -f GeoJSON point.json point.shp //and adding this script line in html &amp;lt;script src=&amp;quot;https://embed.github.com/view/geojson/saconswl/cbeair/gh-pages/cbe-s.json?height=530&amp;amp;width=1300&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; //under div map   To include coimbatore city limits along with point marker, adding another script line of github embed renderes another map!</description>
+    </item>
+    
+  </channel>
+</rss>

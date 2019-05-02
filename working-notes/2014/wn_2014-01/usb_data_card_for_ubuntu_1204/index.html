@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>USB DATA card for ubuntu 1204 - Nishadh KA</title>
+    <meta property="og:title" content="USB DATA card for ubuntu 1204 - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="Do dmesg |grep tty
+[&amp;hellip;] if not showing anything, solved following final answer of this question
+[&amp;hellip;] http://ubuntuforums.org/archive/index.php/t-1853306.html
+[&amp;hellip;] cd /var/log ; grep &amp;hellip;">
+      <meta property="og:description" content="Do dmesg |grep tty
+[&amp;hellip;] if not showing anything, solved following final answer of this question
+[&amp;hellip;] http://ubuntuforums.org/archive/index.php/t-1853306.html
+[&amp;hellip;] cd /var/log ; grep &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>USB DATA card for ubuntu 1204</h1>
+
+<h3>
+  2014-01-16</h3>
+<hr>
+
+
+      </header>
+
+
+
+<ul>
+<li><p>Do
+dmesg |grep tty</p></li>
+
+<li><p>if not showing anything, solved following final answer of this question</p></li>
+</ul>
+
+<p><a href="http://ubuntuforums.org/archive/index.php/t-1853306.html">http://ubuntuforums.org/archive/index.php/t-1853306.html</a></p>
+
+<ul>
+<li>&ldquo;dmesg is a ring buffer, so if many messages are being logged, will lose the initial boot messages. Try this instead:</li>
+</ul>
+
+<p>cd /var/log ; grep ttyUSB dmesg messages *log | more&rdquo;</p>
+
+<ul>
+<li>now showing</li>
+</ul>
+
+<dl>
+<dt>grep: messagesdmesg:[   23.391523] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB0</dt>
+<dd>No such file or directory
+dmesg:[   23.391604] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB1
+dmesg:[   23.391645] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB2</dd>
+</dl>
+
+<p>91645] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB2</p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

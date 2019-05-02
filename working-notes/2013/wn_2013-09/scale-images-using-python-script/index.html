@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Scale images using python script - Nishadh KA</title>
+    <meta property="og:title" content="Scale images using python script - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="For scaling jpeg image files in bulk, there is a python script from this link.
+http://united-coders.com/christian-harms/image-resizing-tips-every-coder-should-know/
+import Image, os, sys for filename &amp;hellip;">
+      <meta property="og:description" content="For scaling jpeg image files in bulk, there is a python script from this link.
+http://united-coders.com/christian-harms/image-resizing-tips-every-coder-should-know/
+import Image, os, sys for filename &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Scale images using python script</h1>
+
+<h3>
+  2013-09-10</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>For scaling jpeg image files in bulk, there is a python script from this link.</p>
+
+<p><a href="http://united-coders.com/christian-harms/image-resizing-tips-every-coder-should-know/">http://united-coders.com/christian-harms/image-resizing-tips-every-coder-should-know/</a></p>
+
+<pre><code>import Image, os, sys
+for filename in sys.argv[1:]:
+    img = Image.open(filename).resize( (200,200) )
+    out = file(os.path.splitext(filename)[0]+&quot;_thumb.jpg&quot;, &quot;w&quot;)
+    try:
+        img.save(out, &quot;JPEG&quot;)
+    finally:
+        out.close()
+</code></pre>
+
+<p>It is only some eight lines of code, but doing a tremendous job. Another essential thing to learn is the use of finding and regex to feed the files into a python script. To find and python feeder code to make the script work on all the files inside a directory.</p>
+
+<p><code>find . -regex .*jpg | xargs python resize.py</code></p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

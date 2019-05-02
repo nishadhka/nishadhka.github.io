@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Python for data frame editing using pandas - Nishadh KA</title>
+    <meta property="og:title" content="Python for data frame editing using pandas - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="Pandas is a library for a data frame manipulation and analysis; it gives the ability to python as R like functionality. It is for converting a CSV file into the form to import into istsos as a &amp;hellip;">
+      <meta property="og:description" content="Pandas is a library for a data frame manipulation and analysis; it gives the ability to python as R like functionality. It is for converting a CSV file into the form to import into istsos as a &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Python for data frame editing using pandas</h1>
+
+<h3>
+  2013-10-16</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>Pandas is a library for a data frame manipulation and analysis; it gives the ability to python as R like functionality.
+It is for converting a CSV file into the form to import into istsos as a tutorial sensor observations.
+The steps are as follows</p>
+
+<p> 1. remove the unwanted column in csv file
+ 2. filter each station’s readings
+ 3. remove duplicates
+ 4.convert the date and time format into ISO standards as demo data</p>
+
+<p>to read csv
+import pandas 
+df = read<em>csv(‘the path/CBE</em>TNAU.csv’)</p>
+
+<p>to remove duplicates
+STPT<em>ND= df.drop</em>duplicates(‘column heading’)</p>
+
+<p>To remove specific columns, first view the available columns in the data frame then call only needed columns.</p>
+
+<p>df=pa.DataFrame(df,columns=[‘needed column 1’,’needed column 2’, etc])</p>
+
+<p>To save the data frames as csv</p>
+
+<p>df.to_csv(‘path/file.csv’)</p>
+
+<p>To select rows with specific entry 
+df1 = df[df.columnname == “row entry”]</p>
+
+<p>To work with the date and time format of the istsos
+Based on the answer</p>
+
+<p><a href="http://stackoverflow.com/questions/9632336/change-string-containing-datetime-to-another-format-of-datetime">http://stackoverflow.com/questions/9632336/change-string-containing-datetime-to-another-format-of-datetime</a> <a href="http://stackoverflow.com/questions/1398674/python-display-the-time-in-a-different-time-zone">http://stackoverflow.com/questions/1398674/python-display-the-time-in-a-different-time-zone</a></p>
+
+<p>dateS = “28-08-2013 09:00” 
+from datetime import datetime 
+my<em>date = datetime.strptime(dateS, ‘%d-%m-%Y %H:%M’)
+my</em>new<em>string = my</em>date.strftime(‘%Y-%m-%dT%H:%M:%S.000000+0530’)
+&gt;&gt;&gt;‘2013-08-28T09:00:00.000000+0530’</p>
+
+<p>Another code</p>
+
+<p>from pytz import timezone
+from datetime import datetime
+India = timezone(‘Asia/Kolkata’)
+in<em>time = datetime.now(India)
+print in</em>time.strftime(‘%Y-%m-%d_%H-%M-%S’)</p>
+
+<p>Date time editing using pandas
+to know python packages version for example for pandas</p>
+
+<p>pandas.<strong>version</strong></p>
+
+<p>the to_datetime to edit whole column date and time, 
+based on
+<a href="http://stackoverflow.com/questions/17134716/convert-dataframe-column-type-from-string-to-datetime">http://stackoverflow.com/questions/17134716/convert-dataframe-column-type-from-string-to-datetime</a>
+and for strftime
+<a href="http://stackoverflow.com/questions/13999850/how-to-specify-date-format-when-using-pandas-to-csv">http://stackoverflow.com/questions/13999850/how-to-specify-date-format-when-using-pandas-to-csv</a></p>
+
+<p>Dt = pa.to_datetime(df[‘Time’], format=‘%Y-%m-%dT%H:%M:%S.000000+0530’) Dt2 = df[‘Time’].apply(lambda x: x.strftime(‘%Y-%m-%dT%H:%M:%S.000000+0530’))</p>
+
+<p>Setting index for the date time column
+df = pa.read<em>csv(‘csv file’,index</em>col=‘Time’)</p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>EmisInv REAS Pandas - Nishadh KA</title>
+    <meta property="og:title" content="EmisInv REAS Pandas - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="###Working on REAS emission inventory to feed into WRF-CHEM### 1. REAS is a emission inventory for Asia, it has files for different pollutant separated with each category of emission source. For &amp;hellip;">
+      <meta property="og:description" content="###Working on REAS emission inventory to feed into WRF-CHEM### 1. REAS is a emission inventory for Asia, it has files for different pollutant separated with each category of emission source. For &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>EmisInv REAS Pandas</h1>
+
+<h3>
+  2014-09-14</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>###Working on REAS emission inventory to feed into WRF-CHEM###
+1. REAS is a emission inventory for Asia, it has files for different pollutant separated with each category of emission source. For example, pollutant SO2 has 9 files for each emission source categories such as Aviation, Domestic, Industry etc for year 2008.<br />
+1. The files are space separated txt files having fields (columns) for longitude, latitude and monthly emission value
+1. Python library pandas is used for importing data into python environment and combining these different category emission source files (9 files) into one single file.
+1. to import the files of REAS2.1 into python as pandas dataframe</p>
+
+<pre><code>            a1 = pd.read_csv('REASv2.1_BC__AVIATION_2008_0.25x0.25',skiprows=10,delim_whitespace=True,header=None)
+    # to drop the first empty column in dataframe
+            a1f=a.drop(0,1)
+    # to name the columns of data frame
+            a1f.columns=['lon','lat','m1','m2','m3','m4','m5','m6','m7','m8','m9','m10','m11','m12']
+
+            a2 = pd.read_csv('REASv2.1_BC__DOMESTIC_2008_0.25x0.25',skiprows=10,delim_whitespace=True,header=None)
+            a2f=a2.drop(0,1)
+            a2f.columns=['lon','lat','m1','m2','m3','m4','m5','m6','m7','m8','m9','m10','m11','m12']
+
+            #to compare two dataframes for its equality 
+            (af==a2f).all()
+            # ended up in error saying two df has to equal size
+</code></pre>
+
+<p>or label/ Can only compare identically-labeled DataFrame objects</p>
+
+<p>a2 = pd.read<em>csv(&lsquo;REASv2.1</em>BC_<em>INDUSTRY</em>2008<em>0.25x0.25&rsquo;,skiprows=10,delim</em>whitespace=True,header=None)</p>
+
+<p>REASv2.1_BC<strong>INTNNV<em>2008</em>0.25x0.25
+REASv2.1_BC</strong>OTHER<em>TRANSPORT</em>2008<em>0.25x0.25
+REASv2.1</em>BC<strong>POWER<em>PLANTS</em>NON-POINT<em>2008</em>0.25x0.25
+REASv2.1_BC</strong>POWER<em>PLANTS</em>NON-POINT<em>JPN</em>2008<em>0.25x0.25
+REASv2.1</em>BC<strong>POWER<em>PLANTS</em>POINT<em>2008
+REASv2.1</em>BC</strong>ROAD<em>TRANSPORT</em>2008_0.25x0.25</p>
+
+<p>import os
+fl=os.listdir(&ldquo;/home/swl-sacon-dst/Documents/GISE<em>2013/LAB/WRF-chem/Data/REAS/BC</em>/2008/&ldquo;)
+df1=af.set<em>index(&lsquo;lon&rsquo;)
+df2=a2f.set</em>index(&lsquo;lon&rsquo;)
+for file in fl:
+        print &ldquo;a2 = pd.read<em>csv(&lsquo;%s&rsquo;,skiprows=10,delim</em>whitespace=True,header=None)&rdquo; % (file)</p>
+
+<p>def equal( df1, df2 ):
+        return df1.fillna(1).sort(axis=1).eq(df2.fillna(1).sort(axis=1)).all().all()
+equal( df1, df2 )</p>
+
+<ol>
+<li>The files for different categories of pollutant source for particular species is having different row length. These different length rows has to matched with every other category and perform addition, faced huge task and difficult in imagine the routine required for this.</li>
+<li>Unable to visualize the data in python platform and using qgis left more difficult in proceed with the above rotine&gt; this made to search for any availability fo NETCDF of REAS data, found <a href="http://mix.greenresource.cn/">this</a> and resolved the need of huge task above. More over this source has Asian emission inventory for the year 2010.</li>
+<li>Realeted to this it is found to access netcdf files without osgeo library. Based on <a href="http://www.hydro.washington.edu/~jhamman/hydro-logic/blog/2013/10/12/plot-netcdf-data/">this</a></li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

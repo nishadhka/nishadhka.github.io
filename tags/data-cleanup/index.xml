@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data cleanup on Nishadh KA</title>
+    <link>/tags/data-cleanup/</link>
+    <description>Recent content in Data cleanup on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Nov 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/data-cleanup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DOCX table into python</title>
+      <link>/working-notes/2014/wn_2014-11/docx_table_into_python/</link>
+      <pubDate>Sat, 01 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-11/docx_table_into_python/</guid>
+      <description>###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Insted of this the table can be all select, copy paste in Libre calculator and save it as csv. 1. This csv file will be having one blank line after every row as of DOCX table. To remove this row use this script, edited with considering the special delimiter used to silence the &amp;lsquo;,&amp;rsquo; in address column.</description>
+    </item>
+    
+  </channel>
+</rss>

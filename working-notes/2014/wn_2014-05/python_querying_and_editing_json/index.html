@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>python_querying_and_editing_json - Nishadh KA</title>
+    <meta property="og:title" content="python_querying_and_editing_json - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##pythonqueryingandeditingjson## - For most of the works related with this and this involves editing and querying of json and its formates such as GeoJson and Topojson - In cbe-air web application, &amp;hellip;">
+      <meta property="og:description" content="##pythonqueryingandeditingjson## - For most of the works related with this and this involves editing and querying of json and its formates such as GeoJson and Topojson - In cbe-air web application, &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>python_querying_and_editing_json</h1>
+
+<h3>
+  2014-05-28</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##python<em>querying</em>and<em>editing</em>json##
+- For most of the works related with <a href="https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-05/Node_js_withAIRwindandEarthwind.md">this</a>
+  and <a href="https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-05/QualitySCHU%20to%20cbe%20air.md">this</a>
+  involves editing and querying of json and its formates such as GeoJson and Topojson
+- In cbe-air web application, topjson is going to act as map element and its editing is required for real time map generation and for map styling
+- In node.js based web application for visualizing model output, netcdf output from WRF has to converted into geojson and made similar with the <a href="https://github.com/cambecc/earth">earth wind</a>  data formate.
+- Moreover, to convert the WRF hourly output into specified location time series data, json output has to queryied with specified location&rsquo;s latitude and longitude variables.
+- So python script to parse, query and add feture into json would be usefull.
+##Python script for json editing##
+1. json module of python is useful for editing the json files. It can be used by follwoing commands, bascially converting json elements into python object to process and query</p>
+
+<p>For a GeoJson  file to get the length of feature in it used</p>
+
+<pre><code>            print len(obj['features'])
+</code></pre>
+
+<p>Better to use firefox json viewer to know before hand the elements in json file. based on [this] to edit a json file or delete a feature in it used</p>
+
+<pre><code>                #!/usr/bin/                     python                                                               
+
+                # Load the JSON module and use it to load your JSON file.                       
+                # I'm assuming that the JSON file contains a list                   of objects.                   
+                import json
+                obj  = json.load(open(&quot;file.json&quot;))
+
+                # Iterate through the objects in the JSON and pop                   (remove)                      
+                # the obj once we fin it.                                                      
+                for i in xrange(len(obj)):
+                     if obj[i][&quot;ename&quot;] == &quot;mark&quot;:
+                    obj.pop(i)
+                    break
+
+                # Output the updated file with pretty               JSON                                      
+                open(&quot;updated-file.json&quot;, &quot;w&quot;).write(
+                        json.dumps(obj, sort_keys=True, indent=4, separators=(',', ': '))
+                            )
+                for i in xrange(len(obj['features'])):
+                            enumerate(obj['features'][i]['id']== &quot;Jammu and Kashmir&quot;)
+</code></pre>
+
+<ol>
+<li><p>it is been difficult to delete or edit the nested json files especially based on list, to query these Geojson, it has to be saved into one nest down by</p>
+
+<pre><code>            import json
+            obj  = json.load(open(&quot;Geojson.json&quot;))
+            nestD=obj['features']
+            for l in a:
+                        print l['id']
+</code></pre></li>
+</ol>
+
+<p>after this saving it gives more easy to query the nested json elements, but distorting the orginal geojson file structure
+1. One usefull tutorila in thsi context is <a href="http://www.jroller.com/evans/entry/parsing_json_with_python">this</a></p>
+
+<p><a href="http://stackoverflow.com/questions/4859071/editing-existing-json-in-python">http://stackoverflow.com/questions/4859071/editing-existing-json-in-python</a></p>
+
+<p><a href="https://github.com/arundhaj/d3js_sandbox/tree/master/maps">https://github.com/arundhaj/d3js_sandbox/tree/master/maps</a></p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

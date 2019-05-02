@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Textfile from WRFoutput pythonic - Nishadh KA</title>
+    <meta property="og:title" content="Textfile from WRFoutput pythonic - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##TextfilefromWRFoutputpythonic## - to convert wrf output into text file for the value of a specified lat long - Using the script WrfncXnj.py, convert wrf output in cf abiding nc file - the steps are &amp;hellip;">
+      <meta property="og:description" content="##TextfilefromWRFoutputpythonic## - to convert wrf output into text file for the value of a specified lat long - Using the script WrfncXnj.py, convert wrf output in cf abiding nc file - the steps are &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Textfile from WRFoutput pythonic</h1>
+
+<h3>
+  2014-06-28</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Textfile<em>from</em>WRFoutput<em>pythonic##
+- to convert wrf output into text file for the value of a specified lat long
+- Using the script <a href="http://www.meteo.unican.es/wiki/cordexwrf/SoftwareTools/WrfncXnj">WrfncXnj.py</a>, convert wrf output in cf abiding nc file
+- the steps are as follows
+- cp wrfout</em>d04* /home/hoopoe/wrfncxnj-0.1_r2120/
+- to get the list of available files in a directory</p>
+
+<pre><code>import os
+a=[]
+for file in os.listdir(&quot;/home/hoopoe/wrfncxnj-0.1_r2120/&quot;):
+    if file.startswith(&quot;wrfout_d04&quot;):
+        a.append(file)
+</code></pre>
+
+<ul>
+<li>to run a external python script from another python script,
+<code>
+import subprocess
+a= wrfout_d04_2014-06-11_00:00:00
+subprocess.call(&quot;python wrfncxnj.py --split-variables --output-pattern=ZZZG7wrfout_[varcf].nc -v 'T2,Q2,TDPS,MSLP,RAIN' &quot;+a,shell=True)
+</code></li>
+<li>to get unique output from the python execution
+<code>
+import subprocess
+a= wrfout_d04_2014-06-11_00:00:00
+subprocess.call(&quot;python wrfncxnj.py --split-variables --output-pattern=&quot;+a+&quot;_[varcf].nc -v 'T2,Q2,TDPS,MSLP,RAIN' &quot;+a,shell=True)
+</code></li>
+<li>to make a loop to get the file name from list and run the script with each file name
+<code>
+import subprocess
+import os
+a=[]
+for file in os.listdir(&quot;/home/hoopoe/wrfncxnj-0.1_r2120/&quot;):
+if file.startswith(&quot;wrfout_d04&quot;):
+    a.append(file)
+for fl in a:
+subprocess.call(&quot;python wrfncxnj.py --split-variables --output-pattern=&quot;+fl+&quot;_[varcf].nc -v 'T2,Q2,TDPS,MSLP,RAIN' &quot;+fl,shell=True)
+</code></li>
+<li>this makes nc files with five variables for each wrf output</li>
+<li>to make variable values out of nc file and make a csv file, using kd tree algortih fro [here]
+```
+import numpy as np
+import netCDF4
+from math import pi
+from numpy import cos, sin
+from scipy.spatial import cKDTree
+import os
+import csv</li>
+</ul>
+
+<p>class Kdtree_fast(object):
+    def <strong>init</strong>(self, ncfile, latvarname, lonvarname):
+        self.ncfile = ncfile
+        self.latvar = self.ncfile.variables[latvarname]
+        self.lonvar = self.ncfile.variables[lonvarname]<br />
+        # Read latitude and longitude from file into numpy arrays
+        rad<em>factor = pi/180.0 # for trignometry, need angles in radians
+        self.latvals = self.latvar[:] * rad</em>factor
+        self.lonvals = self.lonvar[:] * rad<em>factor
+        self.shape = self.latvals.shape
+        clat,clon = cos(self.latvals),cos(self.lonvals)
+        slat,slon = sin(self.latvals),sin(self.lonvals)
+        clat</em>clon = clat<em>clon
+        clat_slon = clat</em>slon
+        triples = zip(np.ravel(clat<em>clon), np.ravel(clat</em>slon), np.ravel(slat))
+        self.kdt = cKDTree(triples)</p>
+
+<pre><code>def query(self,lat0,lon0):
+    rad_factor = pi/180.0 
+    lat0_rad = lat0 * rad_factor
+    lon0_rad = lon0 * rad_factor
+    clat0,clon0 = cos(lat0_rad),cos(lon0_rad)
+    slat0,slon0 = sin(lat0_rad),sin(lon0_rad)
+    dist_sq_min, minindex_1d = self.kdt.query([clat0*clon0,clat0*slon0,slat0])
+    iy_min, ix_min = np.unravel_index(minindex_1d, self.shape)
+    return iy_min,ix_min
+</code></pre>
+
+<p>a=[]
+for file in os.listdir(&ldquo;/home/hoopoe/wrfncxnj-0.1<em>r2120/&ldquo;):
+    if file.endswith(&ldquo;huss.nc&rdquo;):
+        a.append(file)
+writer=csv.writer(open(&ldquo;/home/hoopoe/wrfncxnj-0.1</em>r2120/huss.csv&rdquo;,&lsquo;wb&rsquo;))
+for nc in a:
+	ncfile = netCDF4.Dataset(nc, &lsquo;r&rsquo;)
+	ns = Kdtree_fast(ncfile,&lsquo;lat&rsquo;,&lsquo;lon&rsquo;)
+	iy,ix = ns.query(8.4875, 76.9525)
+	tas = ncfile.variables[&lsquo;huss&rsquo;]
+	print &lsquo;Closest lat lon:&lsquo;, ns.latvar[iy,ix], ns.lonvar[iy,ix]
+	print &lsquo;Temperature:&lsquo;, tas[0, 0, iy, ix], tas.units
+        print nc,&rsquo; &lsquo;,tas[0, 0, iy, ix]
+        b= nc,tas[0, 0, iy, ix]
+        writer.writerow(b)
+	ncfile.close()</p>
+
+<p>```</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

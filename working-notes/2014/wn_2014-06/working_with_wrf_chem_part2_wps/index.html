@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Working with WRF CHEM part2 WPS - Nishadh KA</title>
+    <meta property="og:title" content="Working with WRF CHEM part2 WPS - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##working with WRF_CHEM:Running WPS##
+The steps for running WPS as per m2lab tutorial ###Geogrid### - create namelist and geogrid - copy wps folder and edit namelist for domain - use ncl program to &amp;hellip;">
+      <meta property="og:description" content="##working with WRF_CHEM:Running WPS##
+The steps for running WPS as per m2lab tutorial ###Geogrid### - create namelist and geogrid - copy wps folder and edit namelist for domain - use ncl program to &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Working with WRF CHEM part2 WPS</h1>
+
+<h3>
+  2014-06-26</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##working with WRF_CHEM:Running WPS##</p>
+
+<p>The steps for running WPS as per m2lab tutorial
+###Geogrid###
+- create namelist and geogrid
+- copy wps folder and edit namelist for domain
+- use  ncl program to view domain
+- ref<em>lat and ref</em>lon center point of domain, e<em>we, e</em>sn, number of point in x and y direction
+- edit geog file location in name list and geogrid outptut location
+- then run geogrid.exe, run geogrid after editing the name list as ./geogrid.exe, in wps folder
+###ungrib###
+- UNGRIB-STEP1 ./link<em>grib.csh /home/swl-sacon-dst/wrf/WRF341/TEST/fnl/ #to make link for ungrib ls -alth GRIB* #to view how the links are made, it seems it make links for all the fnl files available in the #folder util/g2print.exe GRIBFILE.AAA #to view the variable in the linked files
+- UNGRIB-STEP2 #have to make vtables, no vtable ending with gfs was foundi n the folder cd /WRF/MYTEST/WPS/ungrib/vtables #but latter found that form <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/DATA/FNL/">here</a> gfs vtable is same #for this also, so made cp ungrib/Variable</em>Tables/Vtable.GFS Vtable #then executed ./ungrib.exe #run for 30 seconds, then given the good nes of succefful completion of ungirb #then run this util/rd<em>intermediate.exe FILE:2008?04?25</em>00 #succefully showed the detials of the file
+###Metgrid###
+- running metgrid gives error of At line 98 of file gridinfo<em>module.f90 (unit = 10, file = &lsquo;namelist.wps&rsquo;)
+Fortran runtime error: Cannot match namelist object name gfs
+#changed namelist.wps as per the m2lab and now the error becomes RROR: Could not open file METGRID.TBL application called MPI</em>Abort(MPI<em>COMM</em>WORLD, 0) - process 0
+- so thought that it wouldb ebecause of mpi copilation of wrf-chem and so run mpirun -np 1 ./metgrid.exe
+it gives <code>mpirun: error while loading shared libraries: libopen-rte.so.4: cannot open shared object file: No such file or directory</code>, googled and found <a href="http://juniarto.blogspot.in/2012/08/mpirun-error-while-loading-shared.html">this</a> as per this run <code>sudo ldconfig</code> and now runnin gthis command gives <code>RROR: Could not open file METGRID.TBL application called MPI_Abort(MPI_COMM_WORLD, 0) - process 0</code>
+- it seems error is from two lines in namelist.wps <code>opt_output_from_metgrid_path = '/home/swl-sacon-dst/wrf/WRF341/TEST/WPS/wpsprd'
+ opt_metgrid_tbl_path       = '/home/swl-sacon-dst/wrf/WRF341/TEST/WPS/wpsprd'</code> saying location of metgrid.TBL file, so removed that and run, showing some error in fortran file <code>gridinfo_module.f90</code>
+- so in review it is found that th erog data file path is worng and there is no erod file in it. it is reflected in geogrid/log also no erod was processed as told in wrf chem tutorial
+- so added the eord folder in namelist.wps and linked the data, also made the METGRID.TBL link from CHEM.TBL as per the tutorial1 of wrf chem and rerun the ungrib.exe but the log doesn&rsquo;t showing any changes. later it is found that the geogrid.exe also has to run again so deleted the geogrid.exe optuput file and rerun geogrid.exe, this time it gives error of</p>
+
+<pre><code class="language-./geogrid.exe">Parsed 22 entries in GEOGRID.TBL
+Processing domain 1 of 4
+ERROR: Could not open /home/swl-sacon-dst/wrf/WRF341/TEST/GEOG/topo_10m/index
+application called MPI_Abort(MPI_COMM_WORLD, 0) - process 0
+</code></pre>
+
+<ul>
+<li>from wrf ems it is found that the geog folder is the largest file folder in wrf ems for making high resoltion geoplots. so made a link to this folder in namelist and rerun the geogrid and now erod was processed.  then run link script, ungrib and metgrid.exe. In runnning metgrid it exited with EOF, later it found that it is due to a typo&rsquo;missing &lsquo; &rsquo; in the wps file. Now wps is running without any errors.</li>
+<li>the metfile are made in the wps folder itself</li>
+</ul>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

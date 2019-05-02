@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>AWS postgresql remote host connection - Nishadh KA</title>
+    <meta property="og:title" content="AWS postgresql remote host connection - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="To connect and run PostgreSQL database for istsos in AWS ubuntu 12.04. As per istsos tutorial, specifying localhost in database credentials says the database is inactive and subsequent service &amp;hellip;">
+      <meta property="og:description" content="To connect and run PostgreSQL database for istsos in AWS ubuntu 12.04. As per istsos tutorial, specifying localhost in database credentials says the database is inactive and subsequent service &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>AWS postgresql remote host connection</h1>
+
+<h3>
+  2013-11-05</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>To connect and run PostgreSQL database for istsos in AWS ubuntu 12.04. As per istsos tutorial, specifying localhost in database credentials says the database is inactive and subsequent service creation will end up in error, saying the wrong database
+the PostgreSQL TCP/IP connection and access credentials has to change.</p>
+
+<ul>
+<li>have to edit</li>
+</ul>
+
+<p>sudo nano /etc/postgresql/9.1/main/postgresql.conf</p>
+
+<p>file line listen<em>addresses ‘localhost’ to listen</em>addresses ‘*’
+and</p>
+
+<ul>
+<li>sudo nano /etc/postgresql/9.1/main/pg_hba.conf</li>
+</ul>
+
+<p>file ipv4 section IP address to</p>
+
+<p>host    all      all        0.0.0.0/0            md5</p>
+
+<p>the line</p>
+
+<p>#host    all     all       127.0.0.1/32            md5</p>
+
+<p>has to be uncomment as above.</p>
+
+<ul>
+<li><p>then PostgreSQL has to be restarted by this comment
+/etc/init.d/postgresql Restart the aws security group also has to be changed for a credential for port number 5432 with allowable ip address. and the port for PostgreSQL is the AWS instance name given by AWS</p></li>
+
+<li><p>based on</p>
+
+<p><a href="https://github.com/snowplow/snowplow/wiki/Setting-up-PostgreSQL">https://github.com/snowplow/snowplow/wiki/Setting-up-PostgreSQL</a>
+<a href="http://hackgeo.com/cloud-computing/amazon-web-services/configuring-postgresql-9-1-and-postgis-2-on-ubuntu-12-04-in-amazon-aws">http://hackgeo.com/cloud-computing/amazon-web-services/configuring-postgresql-9-1-and-postgis-2-on-ubuntu-12-04-in-amazon-aws</a>
+<a href="http://askubuntu.com/questions/50621/cannot-connect-to-postgresql-on-port-5432">http://askubuntu.com/questions/50621/cannot-connect-to-postgresql-on-port-5432</a>
+<a href="http://www.cyberciti.biz/faq/postgresql-remote-access-or-connection/">http://www.cyberciti.biz/faq/postgresql-remote-access-or-connection/</a></p></li>
+</ul>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

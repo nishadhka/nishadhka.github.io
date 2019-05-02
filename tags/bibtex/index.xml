@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bibtex on Nishadh KA</title>
+    <link>/tags/bibtex/</link>
+    <description>Recent content in Bibtex on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Jul 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/bibtex/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Workflow docear mendely Python</title>
+      <link>/working-notes/2014/wn_2014-07/workflow_docear_mendely_python/</link>
+      <pubDate>Fri, 18 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-07/workflow_docear_mendely_python/</guid>
+      <description>creating a script to select pdf files from a bunch of folders, subfolders, html files create folders with only pdf files the code is ``` import os count = 0 d=[] f=[] for (dirname, dirs, files) in os.walk(&amp;lsquo;/home/swl-sacon-dst/Documents/GISE2013/LAB/labnotes/&amp;lsquo;): #sepecifiying the directory to search for pdf files from for filename in files: if filename.endswith(&amp;lsquo;.pdf&amp;rsquo;) : thefile = os.path.join(dirname,filename) dire = os.path.dirname(thefile) f.append(thefile) d.append(dire) #makung a list of ifle names and folders for copying #using list comphrehsnsion to change the folder path from dc = [word.</description>
+    </item>
+    
+  </channel>
+</rss>

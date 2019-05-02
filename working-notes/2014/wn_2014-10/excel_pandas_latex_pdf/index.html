@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Excel Pandas LATEX PDF - Nishadh KA</title>
+    <meta property="og:title" content="Excel Pandas LATEX PDF - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="###CSV data into pandas and LATEX then into PDF and then print!###
+[&amp;hellip;] dateparse = lambda x: pd.datetime.strptime(x, &amp;lsquo;%d/%m/%y&amp;rsquo;) &amp;hellip;">
+      <meta property="og:description" content="###CSV data into pandas and LATEX then into PDF and then print!###
+[&amp;hellip;] dateparse = lambda x: pd.datetime.strptime(x, &amp;lsquo;%d/%m/%y&amp;rsquo;) &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Excel Pandas LATEX PDF</h1>
+
+<h3>
+  2014-10-28</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>###CSV data into pandas and LATEX then into PDF and then print!###</p>
+
+<ol>
+<li>To import csv file with date into pandas dataframe. Pands can parse date column, but it won&rsquo;t be correct. The date column formate has top be mentiod and parsed for this, like below based on [this], then this can be imported into pandas datafrem emntioing the dateparse.</li>
+</ol>
+
+<p>dateparse = lambda x: pd.datetime.strptime(x, &lsquo;%d/%m/%y&rsquo;)
+pro=pd.read<em>csv(&lsquo;PROJECT</em>EXPNDTR<em>1.csv&rsquo;,parse</em>dates=[1],date_parser=dateparse)</p>
+
+<p>dateparse = lambda x: pd.datetime.strptime(x, &lsquo;%m/%d/%y&rsquo;)
+pro=pd.read<em>csv(&lsquo;PROJECT</em>EXPNDTR<em>1.csv&rsquo;,parse</em>dates=[1],date_parser=dateparse)</p>
+
+<ol>
+<li>To concat two pandas dataframe as row wise</li>
+</ol>
+
+<p>pro0=pandas.concat([pro,pro1],axis=0)</p>
+
+<ol>
+<li>To fill empty cells in pandas dataframe with zero values.</li>
+</ol>
+
+<p>pro2=pro0.fillna(0)</p>
+
+<ol>
+<li>To drop unwanted columns</li>
+</ol>
+
+<p>pro3=pro2.drop([&lsquo;Total&rsquo;,&lsquo;Unnamed: 10&rsquo;],axis=1)</p>
+
+<ol>
+<li>To create new column with values summed over different columns</li>
+</ol>
+
+<p>pro3[&lsquo;Total&rsquo;]=pro3[&lsquo;Permanent Equipment&rsquo;]+pro3[&lsquo;Consumables&rsquo;]+pro3[&lsquo;Travel &lsquo;]+pro3[&lsquo;Remote Deployment&rsquo;]+pro3[&lsquo;Site Preparation&rsquo;]+pro3[&lsquo;Other Project Works&rsquo;]</p>
+
+<ol>
+<li>To sort the dataframe with date wise</li>
+</ol>
+
+<p>pro4=pro3.sort([&lsquo;Date&rsquo;])</p>
+
+<ol>
+<li>To set the date column as index and remove unwanted seconds values in date column</li>
+</ol>
+
+<p>pro5=pro4.set_index([&lsquo;Date&rsquo;])</p>
+
+<ol>
+<li>To give a s.no column to dataframe, first has to create a numpy array with length of dataframe as</li>
+</ol>
+
+<p>import numpy
+count =  numpy.arange(1,149,1)</p>
+
+<p>then attached this array into datafarem as s.no</p>
+
+<p>pro6[&rsquo;S.no&rsquo;] = count</p>
+
+<ol>
+<li>To reorder the dataframe and kept s.no oclumn as first column abased on <a href="http://stackoverflow.com/questions/13148429/how-to-change-the-order-of-dataframe-columns">this</a></li>
+</ol>
+
+<p>cols = list(pro6.columns.values)</p>
+
+<p>pro6=pro6[[&rsquo;S.no&rsquo;,&lsquo;Particulars&rsquo;, &lsquo;Permanent Equipment&rsquo;, &lsquo;Consumables&rsquo;, &lsquo;Travel &lsquo;, &lsquo;Remote Deployment&rsquo;, &lsquo;Site Preparation&rsquo;, &lsquo;Other Project Works&rsquo;, &lsquo;Total&rsquo;]]</p>
+
+<ol>
+<li>To get a total row for values, there is a way with sepcficying margin in pandas pivot table, but it is giving error. Based on <a href="http://stackoverflow.com/questions/20804673/appending-column-totals-to-a-pandas-dataframe">this</a> done that
+sum all the row  in datafraem by</li>
+</ol>
+
+<p>sum_row = {col: pro6[col].sum() for col in pro6}</p>
+
+<p>convert the resultant dict into dataframe</p>
+
+<p>sum<em>df = pd.DataFrame(sum</em>row, index=[&ldquo;Total&rdquo;])</p>
+
+<p>drop unwanted columns from the dataframe</p>
+
+<p>sum<em>row1=sum</em>df.drop([&lsquo;Particulars&rsquo;,&rsquo;S.no&rsquo;],axis=1)</p>
+
+<p>Then append the dataframe with olde dataframe</p>
+
+<p>pro7=pro6.append(sum_row1)</p>
+
+<p>reorder the datfarme</p>
+
+<p>pro8=pro7[[&rsquo;S.no&rsquo;,&lsquo;Date&rsquo;,&lsquo;Particulars&rsquo;, &lsquo;Permanent Equipment&rsquo;, &lsquo;Consumables&rsquo;, &lsquo;Travel &lsquo;, &lsquo;Remote Deployment&rsquo;, &lsquo;Site Preparation&rsquo;, &lsquo;Other Project Works&rsquo;, &lsquo;Total&rsquo;]]</p>
+
+<ol>
+<li>To convert the pandas dataframe into latex table formate based on earlier not on this topic</li>
+</ol>
+
+<p>with open(&ldquo;pro_expnd.tex&rdquo;, &ldquo;w&rdquo;) as f:
+    f.write(&rdquo;\begin{tabular}{&rdquo; + &ldquo; | &ldquo;.join([&ldquo;l&rdquo;] * len(pro8.columns)) + &ldquo;}\n&rdquo;)
+    columnLabels = [&rdquo;\textbf{%s}&rdquo; % label for label in pro8.columns]
+    f.write (&ldquo;%s\\\hline\n&rdquo; % &ldquo; &amp; &ldquo;.join(columnLabels))
+    for i, row in pro8.iterrows():
+        f.write(&rdquo; &amp; &ldquo;.join([str(x) for x in row.values]) + &ldquo; \\\n&rdquo;)
+    f.write(&rdquo;\end{tabular}&ldquo;)
+    f.close()</p>
+
+<ol>
+<li>To convert this table into pdf as latex documnet,</li>
+</ol>
+
+<pre><code>\documentclass{article}
+\usepackage[a4paper,margin=1in,landscape]{geometry}
+\usepackage{longtable}
+\usepackage{tabulary}
+\usepackage{blindtext}
+\begin{document}
+%% for adjust columns size\begin{longtable}{l | c | p{5cm} | p{2cm}| p{2cm} |p{2cm}| p{2cm}| p{2cm} |p{2cm} | p{2cm} | p{2cm}}%%
+%%%python gernated tex file content column heading%%
+\endhead
+%%%python gernated tex file content rows%%
+\end{longtable}
+\end{document}
+</code></pre>
+
+<ol>
+<li>Final table doesn&rsquo;t contain Date column, it is due to it is a index in pandas dataframe</li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

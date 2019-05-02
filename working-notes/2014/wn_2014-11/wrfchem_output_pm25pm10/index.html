@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>WRFCHEM output PM25PM10 - Nishadh KA</title>
+    <meta property="og:title" content="WRFCHEM output PM25PM10 - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="####WRF CHEM output into PM25 and PM10####
+[&amp;hellip;] from netCDF4 import Dataset import numpy as np wrfoutput = &#39;wrfout_d01_2014-06-05_05:00:00_D03&#39; fh = Dataset(wrfoutput, mode=&#39;r&#39;) #to view all the &amp;hellip;">
+      <meta property="og:description" content="####WRF CHEM output into PM25 and PM10####
+[&amp;hellip;] from netCDF4 import Dataset import numpy as np wrfoutput = &#39;wrfout_d01_2014-06-05_05:00:00_D03&#39; fh = Dataset(wrfoutput, mode=&#39;r&#39;) #to view all the &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>WRFCHEM output PM25PM10</h1>
+
+<h3>
+  2014-11-26</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>####WRF CHEM output into PM25 and PM10####</p>
+
+<ol>
+<li>To get various variables from WRF OUTPUT following python codes and references were used
+#####to get WRF output NETCDF into python#####
+The below code import netcdf file into python and subset the data based on Coimbatore domain of</li>
+</ol>
+
+<pre><code>from netCDF4 import Dataset
+import numpy as np
+wrfoutput = 'wrfout_d01_2014-06-05_05:00:00_D03'
+fh = Dataset(wrfoutput, mode='r')
+#to view all the variables in imported wrf output netcdf
+vars = fh.variables
+for v in vars:
+	print v
+</code></pre>
+
+<ol>
+<li>To subset the output into Coimbatore domain of Left-down corner (76.7900,10.8614), left up corner (76.7900, 11.2300), right down corner(76.1600,10.8614) right up corner (76.1600,11.2300).
+```
+lons = fh.variables[&lsquo;XLONG&rsquo;][:]
+lats = fh.variables[&lsquo;XLAT&rsquo;][:]
+#to print variable names with its shape
+vars = fh.variables
+for v in vars:
+	lons = fh.variables[v][:]
+	d=lons.shape
+	print str(v)+&rsquo;:&lsquo;+str(d)</li>
+</ol>
+
+<p>#to reshape the numpy array from one dimension to another
+lats.shape
+(1,72,75)
+x = lats.reshape((72,75))
+#to get the index of array values
+y=np.where(x==76.1600)</p>
+
+<pre><code>1. The complete code of script to convert the wrf output into pandas dataframe with subset into Coimbatore domain
+
+</code></pre>
+
+<p>from netCDF4 import Dataset
+import numpy as np
+wrfoutput = &lsquo;wrfout<em>d01</em>2014-06-05<em>05:00:00</em>D03&rsquo;
+fh = Dataset(wrfoutput, mode=&lsquo;r&rsquo;)
+lons = fh.variables[&lsquo;XLONG&rsquo;][:]
+lats = fh.variables[&lsquo;XLAT&rsquo;][:]
+lons.shape
+lonsX0=lons.reshape((105,96))
+lonsX=lonsX0.reshape((10080))
+cbeX=lonsX[333:1666]
+#the above value is from the all lat and long
+#values was converted into pandas dataframe and then csv # #and viewed for location of bounding box lat long
+#(76.16,10.86) and (76.79, 11.23), it is in located in the #index beween 333:1666
+latsX0=lats.reshape((105,96))
+latsX=latsX0.reshape((10080))
+cbeY=latsX[333:1666]</p>
+
+<pre><code>
+####Temperature at 2 m height###
+
+1. to get the temperrature at 2m variable from wrf out put based on [this](http://www.meteo.unican.es/wiki/cordexwrf/OutputVariables) regarding the variable name in netcdf. To get the variable in 
+
+Temp =  fh.variables['T2'][:]
+Temp0=Temp.reshape((105,96))
+Temp1=Temp0.reshape((10080))
+cbeT = Temp1[333:1666]
+
+####Relative Humidity at 2 m Height####
+
+Based on [this](http://mailman.ucar.edu/pipermail/wrf-users/2012/002546.html)
+
+</code></pre>
+
+<p>psfc = fh.variables[&lsquo;PSFC&rsquo;][:]
+psfc0=psfc.reshape((105,96))
+psfc1=psfc.reshape((10080))
+cbePSFC = psfc1[333:1666]
+q2=fh.variables[&lsquo;Q2&rsquo;][:]
+q20=q2.reshape((105,96))
+q21=q20.reshape((10080))
+cbeQ2 = q21[333:1666]
+pq0 = 379.90516
+a2 = 17.2693882
+a3 = 273.16
+a4 = 35.86
+#The formula [f_rh2 = q2 / ( (pq0 / psfc) * exp(a2 * (t2 - #a3) / (t2 - a4)) )]
+d=cbeQ2/((379.90516/cbePSFC)<em>(np.exp(17.2693882</em>(cbeT-273.16/cbeT-35.86)))</p>
+
+<pre><code>This was diffcult to do and found a easier method using ncl script to get not only RH but also Temp, WS, WD.
+
+####NCL script to convert the wrf output to get the variables, TEMP, RH, WS, WD####
+Based on [this](http://foehn.colorado.edu/wrfout_to_cf/variables.html)
+1. to run the script used following command
+
+```ncl 'file_in=&quot;wrfout_d01_2014-06-05_00:00:00_D03&quot;' 'file_out=&quot;wrfpost.nc&quot;' wrfout_to_cf.ncl```
+
+from netCDF4 import Dataset
+import numpy as np
+wrfoutput = 'wrfpost.nc'
+fh = Dataset(wrfoutput, mode='r')
+temp = fh.variables['T_2m'][:]
+Temp0=temp.reshape((105,96))
+Temp1=Temp0.reshape((10080))
+cbeT = Temp1[333:1666]
+
+hum = fh.variables['rh_2m'][:]
+hum0=hum.reshape((105,96))
+hum1=hum0.reshape((10080))
+cbeRH = hum1[333:1666]
+
+ws = fh.variables['ws_10m'][:]
+ws0=ws.reshape((105,96))
+ws1=ws0.reshape((10080))
+cbeWS = ws1[333:1666]
+
+wd = fh.variables['wd_10m'][:]
+wd0=wd.reshape((105,96))
+wd1=wd0.reshape((10080))
+cbeWD = wd1[333:1666]
+
+####PM25 and PM10 from wrf output####
+1. Based on this [paper](http://www.geosci-model-dev.net/7/1621/2014/gmd-7-1621-2014.pdf)
+for PM2.5
+
+PM25= pd[p25+1.375S+BC1+BC2+1.8(OC1+OC2)+D1+0.286D2+SS1+0.942SS2]
+
+PM10=pd[p25+1.375S+BC1+BC2+1.8(OC1+OC2)+D1+D2+D3+0.87D4+SS1+SS2+SS3]
+
+</code></pre>
+
+<p>wrfoutput = &lsquo;wrfout<em>d01</em>2014-06-05<em>05:00:00</em>D03&rsquo;
+fh = Dataset(wrfoutput, mode=&lsquo;r&rsquo;)
+for v in vars:
+    lons = fh.variables[v][:]
+    d=lons.shape
+    print str(v)+&rsquo;:&lsquo;+str(d)</p>
+
+<p>BC1 =  fh.variables[&lsquo;BC1&rsquo;][:]
+BC1=BC1[:,0]
+BC1r=BC1.reshape((105,96))
+BC1d=BC1r.reshape((10080))
+cbeBC1 = BC1d[333:1666]</p>
+
+<p>BC2 =  fh.variables[&lsquo;BC2&rsquo;][:]
+BC2=BC2[:,0]
+BC2r=BC2.reshape((105,96))
+BC2d=BC2r.reshape((10080))
+cbeBC2 = BC2d[333:1666]</p>
+
+<p>OC1 =  fh.variables[&lsquo;OC1&rsquo;][:]
+OC1=OC1[:,0]
+OC1r=OC1.reshape((105,96))
+OC1d=OC1r.reshape((10080))
+cbeOC1 = OC1d[333:1666]</p>
+
+<p>OC2 =  fh.variables[&lsquo;OC2&rsquo;][:]
+OC2=OC2[:,0]
+OC2r=OC2.reshape((105,96))
+OC2d=OC2r.reshape((10080))
+cbeOC2 = OC2d[333:1666]</p>
+
+<p>DUST<em>1 =  fh.variables[&lsquo;DUST<em>1&rsquo;][:]
+DUST</em>1=DUST_1[:,0]
+DUST</em>1r=DUST<em>1.reshape((105,96))
+DUST</em>1d=DUST<em>1r.reshape((10080))
+cbeD1 = DUST</em>1d[333:1666]</p>
+
+<p>DUST<em>2 =  fh.variables[&lsquo;DUST<em>2&rsquo;][:]
+DUST</em>2=DUST_2[:,0]
+DUST</em>2r=DUST<em>2.reshape((105,96))
+DUST</em>2d=DUST<em>2r.reshape((10080))
+cbeD2 = DUST</em>2d[333:1666]</p>
+
+<p>DUST<em>3 =  fh.variables[&lsquo;DUST<em>3&rsquo;][:]
+DUST</em>3=DUST_3[:,0]
+DUST</em>3r=DUST<em>3.reshape((105,96))
+DUST</em>3d=DUST<em>3r.reshape((10080))
+cbeD3 = DUST</em>3d[333:1666]</p>
+
+<p>DUST<em>4 =  fh.variables[&lsquo;DUST<em>4&rsquo;][:]
+DUST</em>4=DUST_4[:,0]
+DUST</em>4r=DUST<em>4.reshape((105,96))
+DUST</em>4d=DUST<em>4r.reshape((10080))
+cbeD4 = DUST</em>4d[333:1666]</p>
+
+<p>SEAS<em>1 =  fh.variables[&lsquo;SEAS<em>1&rsquo;][:]
+SEAS</em>1=SEAS_1[:,0]
+SEAS</em>1r=SEAS<em>1.reshape((105,96))
+SEAS</em>1d=SEAS<em>1r.reshape((10080))
+cbeSS1 = SEAS</em>1d[333:1666]</p>
+
+<p>SEAS<em>2 =  fh.variables[&lsquo;SEAS<em>2&rsquo;][:]
+SEAS</em>2=SEAS_2[:,0]
+SEAS</em>2r=SEAS<em>2.reshape((105,96))
+SEAS</em>2d=SEAS<em>2r.reshape((10080))
+cbeSS2 = SEAS</em>2d[333:1666]</p>
+
+<p>SEAS<em>3 =  fh.variables[&lsquo;SEAS<em>3&rsquo;][:]
+SEAS</em>3=SEAS_3[:,0]
+SEAS</em>3r=SEAS<em>3.reshape((105,96))
+SEAS</em>3d=SEAS<em>3r.reshape((10080))
+cbeSS3 = SEAS</em>3d[333:1666]</p>
+
+<p>Temp =  fh.variables[&lsquo;T2&rsquo;][:]
+#Temp=Temp[:,0]
+Temp0=Temp.reshape((105,96))
+Temp1=Temp0.reshape((10080))
+cbeT = Temp1[333:1666]</p>
+
+<p>PSFC =  fh.variables[&lsquo;PSFC&rsquo;][:]
+PSFC=PSFC.reshape((105,96))
+PSFC=PSFC.reshape((10080))
+cbePSFC = PSFC[333:1666]</p>
+
+<p>a=287.05*cbeT
+pd= cbePSFC/a</p>
+
+<p>P25 =  fh.variables[&lsquo;P25&rsquo;][:]
+P25=P25[:,0]
+P25=P25.reshape((105,96))
+P25=P25.reshape((10080))
+cbeP25 = P25[333:1666]</p>
+
+<p>sulf =  fh.variables[&lsquo;sulf&rsquo;][:]
+sulf=sulf[:,0]
+sulf=sulf.reshape((105,96))
+sulf=sulf.reshape((10080))
+cbeS = sulf[333:1666]</p>
+
+<p>PM25= pd<em>(cbeP25+1.375</em>cbeS+cbeBC1+cbeBC2+1.8<em>(cbeOC1+cbeOC2)+beD1+0.286</em>cbeD2+cbeSS1+0.0942*cbeSS2)</p>
+
+<p>PM10= pd<em>(cbeP25+(1.375</em>cbeS)+cbeBC1+cbeBC2+(1.8<em>(cbeOC1+cbeOC2))+cbeD1+cbeD2+cbeD3+(0.87</em>cbeD4)+cbeSS1+cbeSS2+cbeSS3)</p>
+
+<p>P10 =  fh.variables[&lsquo;P10&rsquo;][:]
+P10=P10[:,0]
+P10=P10.reshape((105,96))
+P10=P10.reshape((10080))
+cbeP10 = P10[333:1666]</p>
+
+<p>data1=pd.DataFrame(cbeX)
+data1[&lsquo;cbeY&rsquo;]=pd.DataFrame(cbeY)
+data1[&lsquo;cbeT&rsquo;]=pd.DataFrame(cbeT)
+data1[&lsquo;cbeRH&rsquo;]=pd.DataFrame(cbeRH)
+data1[&lsquo;cbeWS&rsquo;]=pd.DataFrame(cbeWS)
+data1[&lsquo;cbeWD&rsquo;]=pd.DataFrame(cbeWD)
+data1[&lsquo;cbeP25&rsquo;]=pd.DataFrame(PM25)
+data1[&lsquo;cbeP10&rsquo;]=pd.DataFrame(PM10)</p>
+
+<p>WIND DIRECTION based on this</p>
+
+<p><a href="https://www.eol.ucar.edu/content/wind-direction-quick-reference">https://www.eol.ucar.edu/content/wind-direction-quick-reference</a></p>
+
+<p>Dirmet = atan2(-Umet,-Vmet) * DperR = 270 - ( atan2(Vmet,Umet) * DperR )
+Spd = sqrt(Umet2 + Vmet2)
+Umet = -Spd * sin(Dirmet * RperD)
+Vmet = -Spd * cos(Dirmet * RperD)</p>
+
+<p>wind earth rotation</p>
+
+<p>Uearth = U<em>cosalpha + V</em>sinalpha,
+Vearth = V<em>cosalpha - U</em>sinalpha.</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

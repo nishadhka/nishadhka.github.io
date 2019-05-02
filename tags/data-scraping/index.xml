@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Scraping on Nishadh KA</title>
+    <link>/tags/data-scraping/</link>
+    <description>Recent content in Data Scraping on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Nov 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/data-scraping/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Notes on selenium</title>
+      <link>/working-notes/2013/wn_2013-11/notes-on-selenium/</link>
+      <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-11/notes-on-selenium/</guid>
+      <description>Selenium installation is based on http://www.pererikstrandberg.se/blog/index.cgi?page=InstallingSelenium</description>
+    </item>
+    
+  </channel>
+</rss>

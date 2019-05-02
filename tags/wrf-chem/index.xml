@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WRF-CHEM on Nishadh KA</title>
+    <link>/tags/wrf-chem/</link>
+    <description>Recent content in WRF-CHEM on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 Dec 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/wrf-chem/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WRF CHEM cluster</title>
+      <link>/working-notes/2014/wn_2014-12/wrf_chem_cluster/</link>
+      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-12/wrf_chem_cluster/</guid>
+      <description>####WRFCHEMsimluation by cluster####
+#to Do 1. write the script, lazywrfchem 1. draw computational inventory of the cluster comparision experiment, and libnrary program needed 1. compile the library 1. do the experiment
+#single computer HP laptop, parallell execution, three cores
+Domain four: onehour=12:16 to 08:43, 8.5 hours so for 6 hours simulation= 48+24=72 hours Domain Three: one hour=01:24 to 02:24, 1 hour so for 6 hours simulation= 6 hours Domain two: onehour=9:10 to 9:23, 13 minutes so for 6 hours simulation=13minx6=1.</description>
+    </item>
+    
+    <item>
+      <title>WRF CHEM compile QN</title>
+      <link>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn/</link>
+      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn/</guid>
+      <description>####Compile wrf chem: QUICK NOTE####
+ It is based on the NCAR wrf chem compile complete process and note on wrf chem compile by this Basic environemtn testl, passes all the tests which checks libs such as, gcc, gfortran, gcc+gfortran, perl, csh. Made sure the gcc and gfortran versions are matching, current case version is 4.8.2 for both gcc and gfortran Basic library compile MPICh and NETCDF  For setting up PATH for NETCDF</description>
+    </item>
+    
+    <item>
+      <title>WRF CHEM compile QN AWS</title>
+      <link>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_aws/</link>
+      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_aws/</guid>
+      <description>#####Compile wrf chem in AWS: QUICK NOTE#####
+ It is based on the NCAR wrf chem compile complete process and note on wrf chem compile by this Create a ubuntu trusty based image. Make a small elastic block storage 8GB, it will be permanent even if the instance is kept stop. There will be storage space in /mnt for upto 300GB based on instance, for example c3.large has it. This storage gets erased while stopping the instance but not the /home folder where the small 8GB EBS is being mounted/ Install basic required libs sudo apt-get install g++ sudo apt-get install gfortran sudo apt-get install gcc Basic environment test, make sure the test passes all good for libs checks such as, gcc, gfortran, gcc+gfortran, perl, csh.</description>
+    </item>
+    
+    <item>
+      <title>WRF CHEM compile QN CT</title>
+      <link>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_ct/</link>
+      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_ct/</guid>
+      <description>####Compile wrf chem in CubieTruck CT: QUICK NOTE####
+ It is based on the NCAR wrf chem compile complete process and note on wrf chem compile by this Loaded a ubuntu trusty based image from here. Solved the issue of no Internet in CT by editing the interfaces file as follows
+ # interfaces(5) file used by ifup(8) and ifdown(8) # Include files from /etc/network/interfaces.d: source-directory /etc/network/interfaces.d auto lo eth0 iface lo inet loopback auto eth0 iface eth0 inet static address 192.</description>
+    </item>
+    
+    <item>
+      <title>WRF CHEM compile QN PL</title>
+      <link>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_pl/</link>
+      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_pl/</guid>
+      <description>####Compile wrf chem in Parallella PL: QUICK NOTE####
+ It is based on the NCAR wrf chem compile complete process and note on wrf chem compile by this Loaded a ubuntu trusty based image from here. Solved the issue of no Internet in PL by editing the interfaces file as follows and changing the files networkmanager.onf and remove net rules as stated in Parallella up and run note.
+ # interfaces(5) file used by ifup(8) and ifdown(8) # Include files from /etc/network/interfaces.</description>
+    </item>
+    
+    <item>
+      <title>WRFCHEM output PM25PM10</title>
+      <link>/working-notes/2014/wn_2014-11/wrfchem_output_pm25pm10/</link>
+      <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-11/wrfchem_output_pm25pm10/</guid>
+      <description>####WRF CHEM output into PM25 and PM10####
+ To get various variables from WRF OUTPUT following python codes and references were used #####to get WRF output NETCDF into python##### The below code import netcdf file into python and subset the data based on Coimbatore domain of  from netCDF4 import Dataset import numpy as np wrfoutput = &#39;wrfout_d01_2014-06-05_05:00:00_D03&#39; fh = Dataset(wrfoutput, mode=&#39;r&#39;) #to view all the variables in imported wrf output netcdf vars = fh.</description>
+    </item>
+    
+    <item>
+      <title>Cubietruck cluster WRFCHEM</title>
+      <link>/working-notes/2014/wn_2014-10/cubietruck_cluster_wrfchem/</link>
+      <pubDate>Sat, 25 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-10/cubietruck_cluster_wrfchem/</guid>
+      <description>####cubie truck cluster for WRF CHEM####
+This note explains the steps in creating cubietruck cluster for WRF CHEM modeling.
+#####Installing debian##### 1. cubietruck is preinstalled with Android as its main os for its inbuilt nand storage of 8 GB harddisk. To chane this into debian os follwoing steps were followed. 1. More number of attempts was made for running debain or ubunut os image in cubietruck, Later found a tweaked image from here aat first sight shows promising for WRF CHEM.</description>
+    </item>
+    
+    <item>
+      <title>WRFCHEM output python</title>
+      <link>/working-notes/2014/wn_2014-09/wrfchem_output_python/</link>
+      <pubDate>Mon, 29 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-09/wrfchem_output_python/</guid>
+      <description>###WRFCHEM_output pythonic####
+ Related to the last note on getting txt time series data from wrf output here. This note details getting numpy array from wrf output and plotting data in python. The variables requiered from wrfoutput are Temperature, Realtive humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for quick view of the wrf output.</description>
+    </item>
+    
+    <item>
+      <title>WRFCHEM CBE lazyWRF py</title>
+      <link>/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</link>
+      <pubDate>Thu, 25 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</guid>
+      <description>###Use script to execute WRF CHEM CBE### 1. To run in real time and in cluster environment(AWS or ARM), various steps of WRF have to be made into script. 1. There are several python based scripts avaiable for running WRF. The script lazyWRF is a neat and simple script to run wrf from WPS stage. 1. The script has minor problem in running, it was forked from its git hub repository and edited.</description>
+    </item>
+    
+    <item>
+      <title>EmisInv REAS Pandas</title>
+      <link>/working-notes/2014/wn_2014-09/emisinv_reas_pandas/</link>
+      <pubDate>Sun, 14 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-09/emisinv_reas_pandas/</guid>
+      <description>###Working on REAS emission inventory to feed into WRF-CHEM### 1. REAS is a emission inventory for Asia, it has files for different pollutant separated with each category of emission source. For example, pollutant SO2 has 9 files for each emission source categories such as Aviation, Domestic, Industry etc for year 2008.
+1. The files are space separated txt files having fields (columns) for longitude, latitude and monthly emission value 1. Python library pandas is used for importing data into python environment and combining these different category emission source files (9 files) into one single file.</description>
+    </item>
+    
+    <item>
+      <title>WRF CHEM Compile completenote SERVER</title>
+      <link>/working-notes/2014/wn_2014-09/wrf_chem_compile_completenote_server/</link>
+      <pubDate>Wed, 10 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-09/wrf_chem_compile_completenote_server/</guid>
+      <description>export DIR=/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs
+sftp://hoopoe@192.168.1.100/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs/netcdf/include
+export CC=gcc export CXX=g++ export FC=gfortran export FCFLAGS=-m64 export F77=gfortran export FFLAGS=-m64
+export PATH=$DIR/mpich/bin:$PATH
+export NETCDF=$DIR/netcdf export JASPERLIB=$DIR/grib2/lib export JASPERINC=$DIR/grib2/include export WRFEMCORE=1 export WRFNMMCORE=0 export WRFCHEM=1 export WRFKPP=0 export WRFIONCDLARGEFILESUPPORT=1
+error 1. /bin/sh: 6: mpif90: not found 1. gfortran treating comments as code baased on this 1. still no wrf.exe was formed, by seeing configure.wrf thought environemnt WRFSRCROOTDIR has to be set export WRFSRCROOTDIR=/home/hoopoe/wrfchem341/WRFV3 1. installed sudo apt-get install libcloog-ppl1 1.</description>
+    </item>
+    
+    <item>
+      <title>PM Emission Inventory CBE SD</title>
+      <link>/working-notes/2014/wn_2014-09/pm_emission_inventory_cbe_sd/</link>
+      <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-09/pm_emission_inventory_cbe_sd/</guid>
+      <description>####PMEmissionInventoryCoimbatoreStudy design####
+Particulate pollution level and vehicular count sample 1. A sample consist of 3 minutes PM pollution monitoring(1 minute particle count mode, 2 minute mass mode) and 2 minute video recording. 1. Sampling carried on a CNG auto rickshaw, equipped with hand held PM monitor and a web camera based video recorder attached to right side at 0.75 meter from ground of Auto rickshaw.
+1. Sixty random points in Coimbatore urban limits, sampling every 4th day for 20 sampling days.</description>
+    </item>
+    
+    <item>
+      <title>WRFCHEM CBE aOptionwithAWS StarCluster</title>
+      <link>/working-notes/2014/wn_2014-09/wrfchem_cbe_aoptionwithaws_starcluster/</link>
+      <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-09/wrfchem_cbe_aoptionwithaws_starcluster/</guid>
+      <description>####WRF-CHEM for Coimabtore: An option with AWS and starcluster####
+ Considering the huge time requirement for running wrf chem over Coimbatore with high resolution (It roughly took 8 hour 15 minutes X 7 for domain 4 alone, 6 second time steps with average 50 seconds), Amazon Web Service (AWS) t2.medium instace and StarCluster compute cluster would be a viable option to make wrf-chem run in &amp;lsquo;real time&amp;rsquo;. ####AWS charges for a typical cluster####  ####upgrading aws free tier into ubunut 14.</description>
+    </item>
+    
+    <item>
+      <title>WRFCHEM CBE A1</title>
+      <link>/working-notes/2014/wn_2014-09/wrfchem_cbe_a1/</link>
+      <pubDate>Mon, 08 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-09/wrfchem_cbe_a1/</guid>
+      <description>###WRF CHEM for Coimbatore A1 using ndown.exe###
+####WPS#### 1. The WPS components geogrid.exe, ungrib.exe and metgrid.exe was from the output of last run on detailed in this
+####real.exe#### 1. Real.exe also from the last run output. The output comprised of files namely wrfbdyd01, wrfinputd01, wrfinputd02, wrfinputd03, wrfinputd04 were used as such for convertemiss.exe run.
+####PrepChemSrc.exe#### 1. It was executed as per the tutorial and PrepChemSrc.exe was executed by following point 3 in that tutorial.</description>
+    </item>
+    
+    <item>
+      <title>Working with WRF CHEM part70 CBE DustOnlyTutorial</title>
+      <link>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part70_cbe_dustonlytutorial/</link>
+      <pubDate>Sat, 06 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part70_cbe_dustonlytutorial/</guid>
+      <description>##Trail for WRF-CHEM, WRF CHEM simulation with dust only for Coimbatore using TWO WAY NESTING TWO files method## 1. It is based on this to run compiled wrf chem in serial mode with only dust.
+###WPS:Geogrid### 9. As per this point 7, file GEOGRID.TBL.ARW_CHEM in WPS geogrid directory was linked as GEOGRID.TBL using GUI of Ubuntu 12.04. 10. The namelist.wps used was as follows,
+ &amp;amp;share max_dom = 4, start_date =&#39;2014-06-05_00:00:00&#39;,&#39;2014-06-05_00:00:00&#39;,&#39;2014-06-05_00:00:00&#39;,&#39;2014-06-05_00:00:00&#39; end_date =&#39;2014-06-05_06:00:00&#39;,&#39;2014-06-05_06:00:00&#39;,&#39;2014-06-05_06:00:00&#39;,&#39;2014-06-05_06:00:00&#39; interval_seconds = 10800, io_form_geogrid = 2, / &amp;amp;geogrid parent_id = 1, 1, 2, 3 parent_grid_ratio = 1, 3, 3, 3 i_parent_start = 1, 26, 22, 22 j_parent_start = 1, 7, 15, 32 e_we = 90, 76, 97, 136 e_sn = 85, 73, 106, 157 geog_data_res = &#39;10m&#39;, &#39;5m&#39;, &#39;30s&#39;, &#39;30s&#39; dx = 27000 dy = 27000 map_proj = &#39;lambert&#39; ref_lat = 18.</description>
+    </item>
+    
+    <item>
+      <title>Working with WRF CHEM part71 emission inventory CBE Ndown</title>
+      <link>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part71_emission_inventory_cbe_ndown/</link>
+      <pubDate>Sat, 06 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part71_emission_inventory_cbe_ndown/</guid>
+      <description>###WRF CHEM for Coimbatore domain with emission inventory and one way nesting using ndown.exe###
+####WPS#### 1. The WPS components geogrid.exe, ungrib.exe and metgrid.exe was from the output of last run on detailed in this
+####real.exe#### 1. Real.exe also from the last run output. The output comprised of files namely wrfbdyd01, wrfinputd01, wrfinputd02, wrfinputd03, wrfinputd04 were used as such for convertemiss.exe run.
+####PrepChemSrc.exe#### 1. It was executed as per the tutorial and PrepChemSrc.</description>
+    </item>
+    
+    <item>
+      <title>WRFCHEM domain view python</title>
+      <link>/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</link>
+      <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</guid>
+      <description>####WRF_CHEM domain view by python script####
+ WRF CHEM domain in nested has to be visulaised to correct the nesting and for domain size adjustment. There are few tools availble to do that such as dwiz of wrf ems and plotgrid.ncl. There is an alternative with python based on this, it is a wrf script tools for visualizing and nesting based simulation. Set of scripts available has a function to visualize the namelist.</description>
+    </item>
+    
+    <item>
+      <title>Working with WRF CHEM part65 EmissionInventoryTut</title>
+      <link>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part65_emissioninventorytut/</link>
+      <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part65_emissioninventorytut/</guid>
+      <description>##Trail for WRF-CHEM, WRF CHEM simulation with dust only tutorial## 1. It is based on this to run compiled wrf chem in serial mode with only dust.
+###WPS### 1. WPS components ungrib.exe,geogrid.exe and metgrid.exe was from former dust only run&amp;rsquo;s output based on the note of . ###PrepChemSrc### 1. Prep chem src used was of compiled as per the note. This was ran as per the tutorial point4, the namelist used is this.</description>
+    </item>
+    
+    <item>
+      <title>GSI assimilation PM25PM10 WRFCHEM</title>
+      <link>/working-notes/2014/wn_2014-08/gsi_assimilation_pm25pm10_wrfchem/</link>
+      <pubDate>Sat, 30 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-08/gsi_assimilation_pm25pm10_wrfchem/</guid>
+      <description>###PM10,PM2.5 observation assimilation for WRF CHEM based on GSI###
+based on this paper Implementation of aerosol assimilation in Gridpoint Statistical Interpolation (v. 3.2) and WRF-Chem (v. 3.4.1)
+http://www.geosci-model-dev.net/7/1621/2014/gmd-7-1621-2014.pdf</description>
+    </item>
+    
+    <item>
+      <title>SOSforWRFCHEM output</title>
+      <link>/working-notes/2014/wn_2014-08/sosforwrfchem_output/</link>
+      <pubDate>Sat, 30 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-08/sosforwrfchem_output/</guid>
+      <description>###Sensor Observation service for WRF CHEM output###</description>
+    </item>
+    
+    <item>
+      <title>WRF CHEM compilingInARM BeagleBoneBlack</title>
+      <link>/working-notes/2014/wn_2014-08/wrf_chem_compilinginarm_beagleboneblack/</link>
+      <pubDate>Sat, 23 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-08/wrf_chem_compilinginarm_beagleboneblack/</guid>
+      <description>###WRF CHEM compiling in ARM architecture, Beagle Bone Black###
+This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compiler test#### went successful, except in test4 using 64 bit ###libraries### ####Netcdf compiling#### 1. Environment has to be properly setup, following was correct for ARM arch, clarified based on this
+ export DIR=/media/card/wrf/lib export CC=gcc export CXX=g++ export FC=gfortran export FCFLAGS=-g export F77=gfortran export FFLAGS=-g export CXXFLAGS=-g   Faced error in make after configure command of .</description>
+    </item>
+    
+    <item>
+      <title>Parallella for WRF CHEM</title>
+      <link>/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</link>
+      <pubDate>Thu, 21 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</guid>
+      <description>###Parallella cluster for WRF CHEM### 1. WRF-CHEM is a computationally intensive model, for example &amp;ldquo;On a typically-sized 40×40 grid with 20 horizontal layers, the meteorological part of the simulation (the WRF weather model itself) is only 160 × 106 floating point operations per time step, about 2.5% the cost of the full WRF-Chem with both chemical kinetics and aerosol&amp;rdquo;[1].It is generally executed with parallel mode to reduce time latency of model execution time.</description>
+    </item>
+    
+    <item>
+      <title>Working with WRF CHEM part63 WRF CoimbatoreNesting</title>
+      <link>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part63_wrf_coimbatorenesting/</link>
+      <pubDate>Tue, 19 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part63_wrf_coimbatorenesting/</guid>
+      <description>##Trail for WRF-CHEM, WRF simulation with domain for Coimbatore and one way Nesting-Ndown.exe## 1. It is based on this to run compiled wrf in serial mode to execute domain over Coimbatore with nested model run by Ndown.exe based one way nesting.
+###WPS: Ungrib###
+ As per this page, the WPS ungrib stage was carried out. The gfs files downloaded was used, average size around 45MB for each files. The files for time peroid 00,03, 06 was kept under a folder gfs.</description>
+    </item>
+    
+    <item>
+      <title>Working with WRF CHEM part64 DustOnlyTutorial</title>
+      <link>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part64_dustonlytutorial/</link>
+      <pubDate>Tue, 19 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part64_dustonlytutorial/</guid>
+      <description>##Trail for WRF-CHEM, WRF CHEM simulation with dust only tutorial## 1. It is based on this to run compiled wrf chem in serial mode with only dust.
+###WPS:Geogrid### 9. As per this point 7, file GEOGRID.TBL.ARW_CHEM in WPS geogrid directory was linked as GEOGRID.TBL using GUI of ubuntu 12.04. 10. The namelist.wps from the page was used. The namelist.wps is as follows,
+ &amp;amp;share wrf_core = &#39;ARW&#39;, max_dom = 1, start_date = &#39;2010-07-14_00:00:00&#39;,&#39;2010-07-14_00:00:00&#39;, end_date = &#39;2010-07-19_00:00:00&#39;,&#39;2010-07-19_00:00:00&#39;, interval_seconds = 10800, io_form_geogrid = 2, / &amp;amp;geogrid parent_id = 1, 1, 1, parent_grid_ratio = 1, 5, 5, i_parent_start = 1, 6, 105, j_parent_start = 1, 65, 25, e_we = 41, 201, 226, e_sn = 41, 311, 231, geog_data_res = &#39;10m&#39;, &#39;2m&#39;, &#39;30s&#39; dx = 100000, dy = 100000, map_proj = &#39;lambert&#39;, ref_lat = 35.</description>
+    </item>
+    
+    <item>
+      <title>Working with WRF CHEM part60 dustonly CBE</title>
+      <link>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part60_dustonly_cbe/</link>
+      <pubDate>Tue, 12 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part60_dustonly_cbe/</guid>
+      <description>##WRF CHEM for Coimbatore domain with dust only##
+ Made a copy of WPS folder and WRFv3, parallel compiled folder test/realem* into a new folder of cbedomain. By doing mere copy paste, the link was broken and no correct files were copied. Instead of this a try was made as per the m2lab tutorial and copied the files from em_real as like this cp /home/swl-sacon-dst/wrf/WRF341/WRFV3_par/test/em_real/* ., this time the link was not made but the executables was copied, it has to checked weather it is working For starting WPS of WRF with geogrid, used the namelist.</description>
+    </item>
+    
+    <item>
+      <title>Working with WRF CHEM part61 WRF KatrinaSingleDomain</title>
+      <link>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part61_wrf_katrinasingledomain/</link>
+      <pubDate>Tue, 12 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part61_wrf_katrinasingledomain/</guid>
+      <description>##Trail for WRF-CHEM, working with WRF simulation with Katrina single domain case## 1. It is based on this to run compiled wrf in serial mode to execute the Katrina case with single domain. 2. As per this page, the WPS ungrib stage was carried out
+###WPS: Ungrib### 3. The tar file provided with the tutorial was unzipped and compiled WPS folder was copied and bothe these folders were kept under a folder named katrina.</description>
+    </item>
+    
+    <item>
+      <title>Working with WRF CHEM part62 WRF KatrinaNesting</title>
+      <link>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part62_wrf_katrinanesting/</link>
+      <pubDate>Tue, 12 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part62_wrf_katrinanesting/</guid>
+      <description>##Trail for WRF-CHEM, WRF simulation with Katrina case and one way Nesting-Ndown.exe## 1. It is based on this to run compiled wrf in serial mode to execute the Katrina case with nested model run by Ndown.exe based one way nesting.
+###WPS: Ungrib###
+ As per this page, the WPS ungrib stage was carried out. The tar file provided with the tutorial was unzipped and compiled WPS folder was copied and both these folders were kept under a folder named katrina as katrina_nesting.</description>
+    </item>
+    
+    <item>
+      <title>Working with WRF CHEM part4 cbe domain run</title>
+      <link>/working-notes/2014/wn_2014-07/working_with_wrf_chem_part4_cbe_domain_run/</link>
+      <pubDate>Sun, 13 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-07/working_with_wrf_chem_part4_cbe_domain_run/</guid>
+      <description>##Running WRF-CHEM for Coimbatore domain## - After doing wps with wrf-chem and problem faced to run wrf.exe, recompilation then decided to run the wrf-chem for Coimbatore domain - Coimbatore domain made with four nested domain feature has been run with wrf ems with resolution starting from 100&amp;gt;27&amp;gt;9&amp;gt;3&amp;gt;1km, this was made with dwiz application in wrf ems. - However to test the domain above the Coimbatore region the output was subject for wrfncxnj.</description>
+    </item>
+    
+    <item>
+      <title>Working with WRF CHEM part5 prep emis</title>
+      <link>/working-notes/2014/wn_2014-07/working_with_wrf_chem_part5_prep_emis/</link>
+      <pubDate>Sun, 13 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-07/working_with_wrf_chem_part5_prep_emis/</guid>
+      <description>##Running prepchemsrc## - based on part 1 prepchemSRC was compiled and ready to executed for emission inventory creation. - Following WRF-chem nepal tutorial and PREPCHEMSRC, README edited prep_chem_sources.inp. - then run the preogram by executing ./prep_chem_sources_RADM_WRF_FIM.exe, it ran for some steps but exited with error of Warning! ***HDF5 library version mismatched error*** saying the HDF5 version used in compiling is 1.8.8 and version for running PREPCHEMSRC is 1.8.12 - to check what hdf5 is used by prepchesrc, run a command h5dump -V which gives h5dump: Version 1.</description>
+    </item>
+    
+    <item>
+      <title>Textfile from WRFoutput pythonic</title>
+      <link>/working-notes/2014/wn_2014-06/textfile_from_wrfoutput_pythonic/</link>
+      <pubDate>Sat, 28 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-06/textfile_from_wrfoutput_pythonic/</guid>
+      <description>##TextfilefromWRFoutputpythonic## - to convert wrf output into text file for the value of a specified lat long - Using the script WrfncXnj.py, convert wrf output in cf abiding nc file - the steps are as follows - cp wrfoutd04* /home/hoopoe/wrfncxnj-0.1_r2120/ - to get the list of available files in a directory
+import os a=[] for file in os.listdir(&amp;quot;/home/hoopoe/wrfncxnj-0.1_r2120/&amp;quot;): if file.startswith(&amp;quot;wrfout_d04&amp;quot;): a.append(file)   to run a external python script from another python script,  import subprocess a= wrfout_d04_2014-06-11_00:00:00 subprocess.</description>
+    </item>
+    
+    <item>
+      <title>Working with WRF CHEM part1 PrepChemSrc</title>
+      <link>/working-notes/2014/wn_2014-06/working_with_wrf_chem_part1_prepchemsrc/</link>
+      <pubDate>Thu, 26 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-06/working_with_wrf_chem_part1_prepchemsrc/</guid>
+      <description>##working with WRF_CHEM:compiling and install prep-chem-src##
+ to isntall prep-chem-src, it requiers to install HDF5,ZLIB and NETCDF based on the readme of PREPCHEMSRC as follows ```
+Third Party Software Requirements  ZLIB 1.2.5(libz.a) or later distribution. You may download the software from the http://www.zlib.net/ site.
+ HDF5-1.8.8(libhdf5fortran.a, libhdf5hlfortran.a) or later distribution. You may download the software from http://www.hdfgroup.org/HDF5/release/obtain5.html.
+ NetCDF 4.1.1 (libnetcdf.a). You may download the software from http://www.unidata.ucar.edu/downloads/netcdf/netcdf-4_0_1/index.jsp</description>
+    </item>
+    
+    <item>
+      <title>Working with WRF CHEM part2 WPS</title>
+      <link>/working-notes/2014/wn_2014-06/working_with_wrf_chem_part2_wps/</link>
+      <pubDate>Thu, 26 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-06/working_with_wrf_chem_part2_wps/</guid>
+      <description>##working with WRF_CHEM:Running WPS##
+The steps for running WPS as per m2lab tutorial ###Geogrid### - create namelist and geogrid - copy wps folder and edit namelist for domain - use ncl program to view domain - reflat and reflon center point of domain, ewe, esn, number of point in x and y direction - edit geog file location in name list and geogrid outptut location - then run geogrid.exe, run geogrid after editing the name list as .</description>
+    </item>
+    
+    <item>
+      <title>Working with WRF CHEM part3 compile wrf exe</title>
+      <link>/working-notes/2014/wn_2014-06/working_with_wrf_chem_part3_compile_wrf_exe/</link>
+      <pubDate>Thu, 26 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-06/working_with_wrf_chem_part3_compile_wrf_exe/</guid>
+      <description>##WorkingwithWRFCHEMpart3-compilewrfexe## - for running wrf.exe after wps, it is found that no link for wrf.exe and real.exe was made during the compilation of wrf-chem. - so now need of fresh compilation of wrf alone to make it work - the compilation involves only setting environment, installing dependent packages and running,  ./configure then ./compile em_real and ./compile emi_conv - the first step of .configure ended with error saying can&amp;rsquo;t find netcdf in the path, the path specified is wrong one.</description>
+    </item>
+    
+    <item>
+      <title>Compileling WRF CHEM</title>
+      <link>/working-notes/2014/wn_2014-04/compileling_wrf_chem/</link>
+      <pubDate>Fri, 18 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-04/compileling_wrf_chem/</guid>
+      <description>Compiling WRF-CHEM
+Based on this Most exhaustive tutorial
+ in WRFV3 folder, (the &amp;lsquo;chem&amp;rsquo; folder has to copied inside of this folder) entering  $ ./configure checking for perl5... no checking for perl... found /usr/bin/perl (perl) ** WARNING: No path to NETCDF and environment variable NETCDF not set. ** would you like me to try to fix? [y] y Enter full path to NetCDF include directory on your system /usr/include Enter full path to NetCDF library directory on your system /usr/lib created new .</description>
+    </item>
+    
+  </channel>
+</rss>

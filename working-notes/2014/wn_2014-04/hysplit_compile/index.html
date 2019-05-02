@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>HYSPLIT compile - Nishadh KA</title>
+    <meta property="og:title" content="HYSPLIT compile - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="#HYSPLIT_compile
+Compiling HYSPLIT in Ubuntu 12.04 was hurdled by a error related with netcdf.
+">
+      <meta property="og:description" content="#HYSPLIT_compile
+Compiling HYSPLIT in Ubuntu 12.04 was hurdled by a error related with netcdf.
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>HYSPLIT compile</h1>
+
+<h3>
+  2014-04-04</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>#<strong>HYSPLIT_compile</strong></p>
+
+<p>Compiling HYSPLIT in Ubuntu 12.04 was hurdled by a error related with netcdf.</p>
+
+<ul>
+<li>Installation of netcdf is through compiling and package installation from synaptic package manager.</li>
+<li>Synaptic and latest source download compilation gives error of &ldquo;no netcdf.inc&rdquo; in hysplit compile.</li>
+<li>It is due to a fortran binding lapse in latest verision.</li>
+<li>So used a old version of the netcdf 3.6.3 and compiled following this&ndash; <a href="http://code.google.com/p/netcdf4-python/wiki/UbuntuInstall">http://code.google.com/p/netcdf4-python/wiki/UbuntuInstall</a></li>
+<li>has to give sudo in make and make install, with the first comment disable-shared
+LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include ./configure &ndash;enable-netcdf-4 &ndash;enable-dap &ndash;disable-shared &ndash;prefix=/usr/local</li>
+<li>with enable-shared (as given in python-netcdf instalation) gives error of shared libraries for example using version view command for netcdf
+<code>
+ncdump --version
+</code>
+gives error.</li>
+<li>Now the comiplation of HYSPLIT complted without any error and tcl (it is GUI) is working fine.</li>
+</ul>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

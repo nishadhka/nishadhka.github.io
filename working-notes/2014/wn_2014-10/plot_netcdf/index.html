@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>plot NETCDF - Nishadh KA</title>
+    <meta property="og:title" content="plot NETCDF - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="###Plot NETCDF and create xlsx file for pyWRFChemEmiss####
+[&amp;hellip;] #####Plotting netcdf file##### 1. Below script is used for a start on plotting netcdf file. Earlier not on plotting netcdf with &amp;hellip;">
+      <meta property="og:description" content="###Plot NETCDF and create xlsx file for pyWRFChemEmiss####
+[&amp;hellip;] #####Plotting netcdf file##### 1. Below script is used for a start on plotting netcdf file. Earlier not on plotting netcdf with &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>plot NETCDF</h1>
+
+<h3>
+  2014-10-31</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>###Plot NETCDF and create xlsx file for pyWRFChemEmiss####</p>
+
+<ol>
+<li>The 2010 anthropogenic emission file of Asian region is <a href="http://mix.greenresource.cn/">available</a> in netcdf format. To use it with WRF CHEM, PREP<em>CHEM</em>SRC is limited use mainy because the emission source has to specify and it&rsquo;s conversion factor might not be correct. Complexity/understandability is case for similar emission converter program such as <a href="https://bitbucket.org/ctessum/aep/">Air Emissions Processor program</a> and <a href="http://www.cmascenter.org/smoke/">SMOKE</a>.</li>
+<li>In this regard <a href="https://github.com/arifwn/pyWRFChemEmiss">pyWRFChemEmiss</a> give more modular and easy interface to convert emission file to be used with wrf chem. This program requires emission file to be in xlsx formate as specified <a href="https://github.com/arifwn/pyWRFChemEmiss/issues/1">here</a>.</li>
+<li>So a shopping is made for visualizing and convert netcdf file. Available option  is one using R based on library ncdf and another with python netcdf4. The attempt with ncdf was not fruitful due to gdal library conflict. The library python-netcdf4 is vaible otion is with lots of examples and use case.</li>
+</ol>
+
+<p>#####Plotting netcdf file#####
+1. Below script is used for a start on plotting netcdf file. Earlier not on plotting netcdf with gdal is not working now due to soime gdal library conflict. The below prgram is from <a href="http://waterprogramming.wordpress.com/2014/04/30/plotting-a-map-of-netcdf-data-with-matplotlibbasemap/">here</a></p>
+
+<pre><code>            import matplotlib.pyplot as plt
+            from mpl_toolkits.basemap import Basemap
+
+            my_example_nc_file = '/home/swl-sacon-dst/Documents/GISE_2013/LAB/WRF-chem/Data/2010/MICS_Asia_BC_2010_0.25x0.25.nc'
+            fh = Dataset(my_example_nc_file, mode='r')
+            fh.variables
+            lons = fh.variables['lon'][:]
+            lats = fh.variables['lat'][:]
+            tmax = fh.variables['BC_POWER'][:]
+            fh.close()
+            tmax_units = fh.variables['Tmax'].units
+            for i,j in xrange(0, lats.size):
+                ilat = int(lats[i] + 90.0)
+                ilon = int(lons[i] - 0.5)
+                if ilon &lt; 179 or ilon &gt; 181: # HACK: to avoid               date-line wraparound problem
+    array[ilat,ilon] = tmax[i,j]
+</code></pre>
+
+<ol>
+<li><p>Another working script to plot the netcdf file</p>
+
+<pre><code>        import matplotlib.pyplot as plt
+        from mpl_toolkits.basemap import Basemap
+        from netCDF4 import Dataset
+        import numpy as np
+        my_example_nc_file = '/home/swl-sacon-dst/Documents/GISE_2013/LAB/WRF-chem/Data/2010/   MICS_Asia_BC_2010_0.25x0.25.nc'
+        fh = Dataset(my_example_nc_file, mode='r')
+        print fh.variables.keys()
+        print fh.variables['BC_POWER']
+        tmax = fh.variables['BC_POWER']
+        tmax_units = fh.variables['BC_POWER'].units
+        tmax.shape
+        #this rerurns (12, 441, 560) indicating the shape of netcdf #files with gridded data each point is respected to lat #long, but given with value for BC, and 12 indicate each #month data, so the data is 3D. 
+        #So to get single month data, which return into (441,560)
+        tmaxA=tmax[0]
+        fh.close()
+        lon_0 = lons.mean()
+        lat_0 = lats.mean()
+        m = Basemap(width=11000000,height=7500000,
+     resolution='l',projection='lcc',\
+     lat_ts=20,lat_0=lat_0,lon_0=lon_0)
+        #cs = m.pcolor(tmaxA)
+        #above command retunrs error of ```TypeError: pcolor() takes at least 4 arguments (2 given)```
+        cs = m.imshow(tmaxA)
+        m.drawparallels(np.arange(-80., 81., 10.),  labels= [1,0,0,0], fontsize=10)
+        m.drawmeridians(np.arange(-180., 181., 10.), labels=[0,0,0,1], fontsize=10)
+        m.drawcoastlines()
+        cbar = m.colorbar(cs, location='bottom', pad=&quot;10%&quot;)
+        plt.title('DJF Maximum Temperature')
+        plt.show()
+</code></pre></li>
+</ol>
+
+<p>This script is based on a answer <a href="http://stackoverflow.com/questions/8864599/convert-netcdf-to-image">here</a> and <a href="http://www.hydro.washington.edu/~jhamman/hydro-logic/blog/2013/10/12/plot-netcdf-data/">this</a>
+####To convert netcdf file into xlsx formate####
+1. to create a 1D array from 2D array netcdf value of emission inventory is <code>tmax1DA1 = np.ravel(tmaxA)</code> based on <a href="http://stackoverflow.com/questions/11739796/turn-2d-numpy-array-into-1d-array-for-plotting-a-histogram">this</a>.
+1. to convert list of lat and long into a lat long pair <code>a=list(itertools.product(lons,lats))</code> based on <a href="http://stackoverflow.com/questions/3034014/in-python-how-to-apply-itertools-product-to-elements-of-a-list-of-lists">this</a>
+1. to lat long pair into UTM project of meters is based on <a href="http://stackoverflow.com/questions/6778288/lat-lon-to-utm-to-lat-lon-is-extremely-flawed-how-come">this</a>. using the wonder library UTM</p>
+
+<pre><code>                for i in a:
+                         c=utm.from_latlon(i[1],i[0])
+                         b.append(c)
+</code></pre>
+
+<ol>
+<li><p>The library utm requires lat long in specified range, for this the emission netcdf file has to be subset, it is based on <a href="http://gis.stackexchange.com/questions/112595/gdal-for-python-extracting-subdomains-from-netcdf-file">this</a> and <a href="http://netcdf4-python.googlecode.com/svn/trunk/docs/netCDF4-module.html">this</a> more comprehensive page on netcdf4. Based on this it is found that the netcdf can be converted into numpy array and it can be subset by calling the position based numpy array query. The method followed is to view the lat or loin value is netcdf file and creat and dump array based on the lat long values from this it cna be count the likely position of required lat long to be subset, that way the emission concentration also can be subset</p>
+
+<pre><code>        count =  numpy.arange(40.125,110.125,0.25)
+        len(count)
+        lon1 = ncv['lon'][0:281]
+        count2 =  numpy.arange(-10.125,75.125,0.25)
+        len(count2)
+        lat1 = ncv['lat'][40:382]
+        tair = ncv['BC_RESIDENTIAL'][itime,0:281,40:382]
+        tmax1DA1 = numpy.ravel(tair)
+        a=list(itertools.product(lon1,lat1))
+        here len(tmax1DA1) and len(a) will be equal, in this case it is  96102, this value is exceeds MS excel row limtation of 65,536 as per [this](http://office.microsoft.com/en-in/excel-help/excel-specifications-and-limits-HP005199291.aspx), so has to reduce the size of domain.
+</code></pre></li>
+
+<li><p>this way the arrays such as lat lon value, UTM convert x and y values, emission concentration can be retrieved. This values are required by the program pyWRFChemEmiss. Now the job is to make csv or xlsx file from these arrays.</p></li>
+
+<li><p>Pandas is helpful to convert these numpy array or list into a dataframe and thus into csv or xlsx.</p>
+
+<pre><code>        a1=pandas.DataFrame(a) #based on [this](http://stackoverflow.com/questions/11415701/efficiently-construct-pandas-dataframe-from-large-list-of-tuples-rows)
+        b1=pandas.DataFrame(b)
+        c1=pandas.DataFrame(tmax1DA1)
+        d1=pandas.concat([a1,b1,c1],axis=1) #based on [this](http://stackoverflow.com/questions/23891575/in-python-pandas-how-to-merge-two-frames-side-by-side)
+d1.to_csv('data.csv')
+</code></pre></li>
+
+<li><p>Though the datframe can be directly converted into xlsx, due to some issue with pyxls it can&rsquo;t be done, any way the csv is opened in xls and converted into xlsx formate.</p></li>
+
+<li><p>This xlsx file was opened in pywrfemiss program and mentioned its variable as per specifed and it created two file <code>wrfem_00to12z_d01</code> and <code>wrfem_12to24z_d01</code>. SOme minor problem due to not correct conversion of netcdf file into xlsx by python is faced but it was solved and reported in program issue.</p></li>
+
+<li><p>Attmept to creat PM2.5 and PM10 emission for cbe domain 2</p></li>
+</ol>
+
+<p>from netCDF4 import Dataset
+import numpy
+import pandas
+import itertools
+import utm
+my<em>example</em>nc<em>file = &lsquo;/home/swl-sacon-dst/Documents/GISE</em>2013/LAB/WRF-chem/Data/2010/MICS<em>Asia</em>PM10<em>2010</em>0.25x0.25.nc&rsquo;
+fh = Dataset(my<em>example</em>nc_file, mode=&lsquo;r&rsquo;)
+print fh.variables.keys()
+lons = fh.variables[&lsquo;lon&rsquo;][:]
+count0=np.arange(40.125,73.125,0.25)
+count1=np.arange(73.125,82.125,0.25)
+slo=len(count0)
+dlo=len(count1)
+elo=slo+dlo
+cbeDom2lon = fh.variables[&lsquo;lon&rsquo;][slo:elo]</p>
+
+<p>lats = fh.variables[&lsquo;lat&rsquo;][:]
+count0=np.arange(-20.125,8.125,0.25)
+count1=np.arange(8.125,16.125,0.25)
+sla=len(count0)
+dla=len(count1)
+ela=sla+dla
+cbeDom2lat = fh.variables[&lsquo;lat&rsquo;][sla:ela]
+itime=0
+pm10r = fh.variables[&lsquo;PM10<em>RESIDENTIAL&rsquo;][itime,slo:elo,sla:ela]
+pm10ri = numpy.ravel(pm10r)
+pm10i = fh.variables[&lsquo;PM10_INDUSTRY&rsquo;][itime,slo:elo,sla:ela]
+pm10ii = numpy.ravel(pm10i)
+pm10p = fh.variables[&lsquo;PM10</em>POWER&rsquo;][itime,slo:elo,sla:ela]
+pm10pi = numpy.ravel(pm10p)
+pm10t = fh.variables[&lsquo;PM10<em>TRANSPORT&rsquo;][itime,slo:elo,sla:ela]
+pm10ti = numpy.ravel(pm10t)
+a=list(itertools.product(cbeDom2lon,cbeDom2lat))
+b=[]
+for i in a:
+        c=utm.from</em>latlon(i[1],i[0])
+        b.append&copy;
+a1=pandas.DataFrame(a)
+b1=pandas.DataFrame(b)
+c1=pandas.DataFrame(pm10ri)
+c2=pandas.DataFrame(pm10ii)
+c3=pandas.DataFrame(pm10pi)
+c4=pandas.DataFrame(pm10ti)
+c5=c1+c2+c3+c4
+d1=pandas.concat([a1,b1,c1],axis=1)
+d1.to_csv(&lsquo;pm25A2.csv&rsquo;)</p>
+
+<p>count0=np.arange(40.125,72.625,0.25)
+count1=np.arange(72.625,85.375,0.25)
+slo=len(count0)
+dlo=len(count1)
+elo=slo+dlo
+cbeDom2lon = fh.variables[&lsquo;lon&rsquo;][slo:elo]</p>
+
+<p>lats = fh.variables[&lsquo;lat&rsquo;][:]
+count0=np.arange(-20.125,5.125,0.25)
+count1=np.arange(5.125,22.875,0.25)
+sla=len(count0)
+dla=len(count1)
+ela=sla+dla
+cbeDom2lat = fh.variables[&lsquo;lat&rsquo;][sla:ela]
+a=list(itertools.product(cbeDom2lon,cbeDom2lat))</p>
+
+<p>####FOR LOOP for taking 10 chemcial variable and create monthly xlsx data####
+1. MICS asia data gives emission invneoptry for 10 pollutant sepcies arranged in monthly wise values. To convert this into a single file for each month is required to have for loop in above script. For this the script was modified follwoing parts.
+1. To open 10 netcdf files for each pollutant sepcies is carried out by collecting array list(ncf) of nc ending file in the folder by</p>
+
+<p>path = &lsquo;/home/swl-sacon-dst/Documents/GISE<em>2013/LAB/WRF-chem/Data/2010/&rsquo;
+ncf = [f for f in os.listdir(path) if f.endswith(&lsquo;.nc&rsquo;)]
+var=[]
+for i in ncf:
+    var.append(re.findall(r&rsquo;Asia</em>(.*?)_2010&rsquo;, i))
+    break</p>
+
+<ol>
+<li><p>To open these netcdf files into python Netcdf4 library system and query its variable made a netsed for loop, in this indentation of each forloop is unnecessary and ends in error below.</p>
+
+<pre><code>      ^
+</code></pre>
+
+<p>IndentationError: unindent does not match any outer indentation level
+instead it is made as below to remove the error.</p></li>
+</ol>
+
+<p>pct = []
+for i in ncf:
+    fh = Dataset(i, mode=&lsquo;r&rsquo;)
+    var = re.findall(r&rsquo;Asia<em>(.*?)</em>2010&rsquo;, i)
+    print fh.variables.keys()
+    for m in range(12):
+        ###for loop for months
+        pm10r = fh.variables[str(var[0])+&rsquo;<em>RESIDENTIAL&rsquo;][m,slo:elo,sla:ela]
+    pm10ri = numpy.ravel(pm10r)
+        pm10i = fh.variables[str(var[0])+&rsquo;</em>INDUSTRY&rsquo;][m,slo:elo,sla:ela]
+        pm10ii = numpy.ravel(pm10i)
+        pm10p = fh.variables[str(var[0])+&rsquo;<em>POWER&rsquo;][m,slo:elo,sla:ela]
+        pm10pi = numpy.ravel(pm10p)
+        pm10t = fh.variables[str(var[0])+&rsquo;</em>TRANSPORT&rsquo;][m,slo:elo,sla:ela]
+        pm10ti = numpy.ravel(pm10t)
+        c1=pandas.DataFrame(pm10ri)
+        c2=pandas.DataFrame(pm10ii)
+        c3=pandas.DataFrame(pm10pi)
+        c4=pandas.DataFrame(pm10ti)
+        c5=c1+c2+c3+c4
+        c5.columns = [str(var[0])+&rsquo;_&lsquo;+str(m)]
+        pct.append(c5)
+X = numpy.array(pct)</p>
+
+<ol>
+<li>The above nested for loop, open a nc file in ncf array list, query with its variables and four emission sources(RESIDENTIAL, INDUSTRY, POWER and TRANSPORT), convert into numpy array, then convert into pandas datframe column, summed into a single column from four emission source cateogary column then dumped into list of numpy array of array. The array named here as <code>pct</code> appended with all the pollution specicies summed columns with each month values.</li>
+<li>While doing this faced error of</li>
+</ol>
+
+<p>Traceback (most recent call last):
+  File &ldquo;<stdin>&rdquo;, line 6, in <module>
+TypeError: can only concatenate list (not &ldquo;str&rdquo;) to list</p>
+
+<p>related with the for loop list has to be converted into strings to be looped to use with naming the bvariable and months in the netcdf file.
+1. But doing with above method ends in creation of structured list with only last column values.
+1. For this problem made a rewriting to work only with numpy array. In one instance it is learnt that pandas is a extension of numpy array so to use numpy only is better.
+1. The code written in this aspect is to join multiple emission source categories into four column array and then sum the array into single column by doing</p>
+
+<p>c3=np.column_stack((pm10ri,pm10ii,pm10pi,pm10ti))
+c4=c3.sum(axis=1)</p>
+
+<p>Majore search on join or concat in this reagrd is not turned fuitfull, only column stack made the <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.column_stack.html#numpy.column_stack">trick</a>. Summing array is based on <a href="http://stackoverflow.com/questions/13567345/how-to-calculate-the-sum-of-all-columns-of-a-2d-numpy-array-efficiently">this</a>
+1. This result in creation of numpy array with correct rows and columns but without any column headres. So to add the name of the array used below code based on <a href="http://stackoverflow.com/questions/5795748/store-numpy-row-and-column-headers">this</a></p>
+
+<p>c5=np.array(c4,dtype=[(str(var[0])+&rsquo;_&lsquo;+str(m),&rsquo;&lt;f8&rsquo;)])</p>
+
+<ol>
+<li>But it can&rsquo;t be retianined in for loop array append. Another major search is made on this, indecated that doing this way of numpy array loop into normal list appaned is best way but thghou it created structed list but woth all column namming it can&rsquo;t retained in converted the for loop into numpy array again. It needs to be put up asa question in SO.<br /></li>
+</ol>
+
+<p>pct = []
+for i in ncf:
+    fh = Dataset(i, mode=&lsquo;r&rsquo;)
+    var = re.findall(r&rsquo;Asia<em>(.*?)</em>2010&rsquo;, i)
+    print fh.variables.keys()
+    for m in range(12):
+        ###for loop for months
+        pm10r = fh.variables[str(var[0])+&rsquo;<em>RESIDENTIAL&rsquo;][m,slo:elo,sla:ela]
+    pm10ri = np.ravel(pm10r)
+        pm10i = fh.variables[str(var[0])+&rsquo;</em>INDUSTRY&rsquo;][m,slo:elo,sla:ela]
+        pm10ii = np.ravel(pm10i)
+        pm10p = fh.variables[str(var[0])+&rsquo;<em>POWER&rsquo;][m,slo:elo,sla:ela]
+        pm10pi = np.ravel(pm10p)
+        pm10t = fh.variables[str(var[0])+&rsquo;</em>TRANSPORT&rsquo;][m,slo:elo,sla:ela]
+        pm10ti = np.ravel(pm10t)
+        c3=np.column<em>stack((pm10ri,pm10ii,pm10pi,pm10ti))
+        c4=c3.sum(axis=1)
+        c5=np.array(c4,dtype=[(str(var[0])+&rsquo;</em>&rsquo;+str(m),&rsquo;&lt;f8&rsquo;)])
+        #c5=pandas.DataFrame(pm10ti)
+        #c5.columns = [str(var[0])+&rsquo;_&lsquo;+str(m)]
+        pct.append(c5)</p>
+
+<ol>
+<li>A possible solution of converting the pct as <code>numpy.asarray</code> also not working</li>
+<li>This forced to make the numpy array without column head and has to make it in excel the column head of 120 rows and attached to the dataframe of pandas by</li>
+</ol>
+
+<p>data=pandas.DataFrame(pct)
+data2=pandas.DataFrame.transpose(data)
+var=pandas.DataFrame.from<em>csv(&lsquo;variables.csv&rsquo;, header=0, index</em>col=[0])
+varL=var[&lsquo;variables&rsquo;].tolist()
+data2.columns=varL
+aV=[&lsquo;long&rsquo;,&lsquo;lat&rsquo;]
+uV=[&lsquo;X&rsquo;,&lsquo;Y&rsquo;,&lsquo;Zone&rsquo;,&lsquo;a&rsquo;]
+a1.columns=aV
+b1.columns=uV
+data3=pandas.concat([a1,b1,data2],axis=1)
+data3.ix[:5, :10]</p>
+
+<ol>
+<li>Simlarly made a attempt to make list of variable name in pure python using string mulitplicaiotn and join but ailed and turned to excel. following code is based on [this]</li>
+</ol>
+
+<p>strs = [&ldquo;CO_&rdquo; for x in range(12)]
+e=np.array(strs)
+c=np.arange(0,12,1)
+c2=pandas.DataFrame&copy;
+c3=pandas.DataFrame(e)
+c4 = c3[0].str.cat(c2[0].values.astype(str), sep=&rsquo; is &lsquo;)
+c4 = c3.map(str) + &ldquo; is &rdquo; + c2</p>
+
+<ol>
+<li><p>To get the name of array
+myData.dtype.names</p></li>
+
+<li><p>to convert the dataframe column name into list</p></li>
+</ol>
+
+<p><a href="http://stackoverflow.com/questions/19482970/python-get-list-from-pandas-dataframe-column-headers">http://stackoverflow.com/questions/19482970/python-get-list-from-pandas-dataframe-column-headers</a>
+1. Has to convert from Mg/month into mol/km2/hour</p>
+
+<p>First to convert Mg/month
+The MICS data is for 0.25 degree, so it is 28 km so the value gives as by giving command</p>
+
+<p><code>print fh.variables['PM10_POWER']</code>
+<type 'netCDF4.Variable'>
+float32 PM10<em>POWER(time, lat, lon)
+    long</em>name: PM10<em>POWER
+    short</em>name: MICS<em>Asia</em>PM10<em>POW
+    units: Mg/month
+    gamap</em>category: ANTHSRCE
+unlimited dimensions:
+current shape = (12, 441, 560)
+filling on, default _FillValue of 9.96920996839e+36 used</p>
+
+<p>as Mg/mnoth, megagram per month can be taken as megagram/28km2/month, it is equal to meagram/km2/month. So the Mg/month has to be convert into mols/hour by convert first into g/hour and the into mols/hour,</p>
+
+<p>to convert into g/hour, multiply it with (1000000/730.484) then to convert into mol/hour divided that with molar mass of the compound. For example to convert CO_0 into MD/month into mol/hour, use</p>
+
+<p>a=(MICS<em>m1.CO</em>0*(1000000/731.484))/28.01</p>
+
+<p>So for other variables, NH3, SO2, PM2.5, PM10 has to to be converted. For PM2.5 and PM10 it is not possible to convert into mol unit. For this it is decided to go upto gram per hour value</p>
+
+<p>MICS<em>m1[&lsquo;CO</em>0<em>c&rsquo;]=(MICS</em>m1.CO<em>0*(1000000/731.484))/28.01
+MICS</em>m1[&lsquo;NH3<em>0</em>c&rsquo;]=(MICS<em>m1.NH3</em>0<em>(1000000/731.484))/17.031
+MICS<em>m1[&lsquo;SO2</em>0<em>c&rsquo;]=(MICS</em>m1.SO2_0</em>(1000000/731.484))/64.066
+MICS<em>m1[&lsquo;PM25</em>0<em>c&rsquo;]=MICS</em>m1[&lsquo;PM2.5<em>0&rsquo;]*(1000000/731.484)
+MICS</em>m1[&lsquo;PM10<em>0</em>c&rsquo;]=MICS<em>m1.PM10</em>0*(1000000/731.484)
+1. While doing this it is found that the code early used for  adding variable name into numpy array is wrong.</p>
+
+<p>c5=np.array(c4,dtype=[(str(var[0])+&rsquo;_&lsquo;+str(m),&rsquo;&lt;f8&rsquo;)])</p>
+
+<p>Also this code is a redundant where numpy array is declaring for an already a numpy array. Numpy array is a single data type array not a excel kind thing as noted <a href="http://stackoverflow.com/questions/10742406/programmatically-add-column-names-to-numpy-ndarray">here</a>. This is also the problem for a situation where the ( ,) was forced to deleted in EXCEL sheet.</p>
+
+<ol>
+<li>With this script below it was run and get the row of 3622 and saved lst file with four variables and ready to input into wrf chem.</li>
+<li>With this data of 3622 rows, it took four hours from 13:14PM to 17:14PM to complete the simulation.</li>
+</ol>
+
+<p>SO query</p>
+
+<p><a href="http://stackoverflow.com/questions/19646726/unsuccessful-append-to-an-empty-numpy-array">http://stackoverflow.com/questions/19646726/unsuccessful-append-to-an-empty-numpy-array</a></p>
+
+<p><a href="http://stackoverflow.com/questions/2641691/building-up-an-array-in-numpy-scipy-by-iteration-in-python">http://stackoverflow.com/questions/2641691/building-up-an-array-in-numpy-scipy-by-iteration-in-python</a></p>
+
+<p>here for <a href="http://docs.scipy.org/doc/numpy/user/basics.rec.html">http://docs.scipy.org/doc/numpy/user/basics.rec.html</a> basic of strcutre list</p>
+
+<p><a href="http://stackoverflow.com/questions/13693751/how-can-we-join-two-columns-of-a-numpy-array-into-a-single-column-separating-th">http://stackoverflow.com/questions/13693751/how-can-we-join-two-columns-of-a-numpy-array-into-a-single-column-separating-th</a></p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

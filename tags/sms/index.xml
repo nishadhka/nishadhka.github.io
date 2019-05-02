@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SMS on Nishadh KA</title>
+    <link>/tags/sms/</link>
+    <description>Recent content in SMS on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 May 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/sms/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>gammu MYSQL</title>
+      <link>/working-notes/2014/wn_2014-05/gammu_mysql/</link>
+      <pubDate>Fri, 16 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-05/gammu_mysql/</guid>
+      <description>gammu_mysql
+ followed this,this the running, file based gammu-smsd backend configuration file is as follows    nano /etc/gammu-smsdrc # Configuration file for Gammu SMS Daemon # Gammu library configuration, see gammurc(5) [gammu] # Please configure this! port = /dev/ttyUSB2 model = connection = at synchronizetime = yes #logfile = /home/debian/gammulog #logformat = textalldate use_locking = gammuloc = # SMSD configuration, see gammu-smsdrc(5) [smsd] #debuglevel = 255 #Service = sql #Driver = sqlite3 #database = kalkun.</description>
+    </item>
+    
+    <item>
+      <title>gammu compile BBB</title>
+      <link>/working-notes/2014/wn_2014-05/gammu_compile_bbb/</link>
+      <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-05/gammu_compile_bbb/</guid>
+      <description>Gammu_compile-in-BBB
+ Gammu was compiled in BBB follwoing this The dependacnies was intaalled using this command  apt-get install cmake python-dev pkg-config libmysqlclient-dev libpq-dev \ libcurl4-gnutls-dev libusb-1.0-0-dev libdbi0-dev libbluetooth-dev \ libgudev-1.0-dev libglib2.0-dev unixodbc-dev  the command ./configure gives error of CMake Error: CMake was unable to find a build program corresponding to &amp;quot;Unix Makefiles&amp;quot;. based on this installed make by apt-get install make after this the error goes away executed this command cmake .</description>
+    </item>
+    
+    <item>
+      <title>Gammu smsd shared memeory error for Huwaei E303F</title>
+      <link>/working-notes/2014/wn_2014-04/gammu_smsd_shared_memeory_error_for_huwaei_e303f/</link>
+      <pubDate>Mon, 21 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-04/gammu_smsd_shared_memeory_error_for_huwaei_e303f/</guid>
+      <description>I am running gammu and gammu-smsd backed by Mysql in Ubuntu 12.04, All these setup was running with out error using Huwaei E173 data card. But upgraded model of this, Huwaei E303F, working fine with gammu, but starting gammu-smsd collapsing gammu. for example gammu &amp;ndash;identify says phone not connected
+gammurc ~/.gammurc  port = /dev/ttyUSB0 model = auto connection = at synchronizetime = yes logfile = /home/user/gammu.log logformat = textalldate use_locking = gammuloc =</description>
+    </item>
+    
+    <item>
+      <title>Sending SMS with AT and python</title>
+      <link>/working-notes/2014/wn_2014-04/sending_sms_with_at_and_python/</link>
+      <pubDate>Tue, 08 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-04/sending_sms_with_at_and_python/</guid>
+      <description>SendingSMSwithATand_PYTHON
+This is related with issue recorded here. Huwaei E303F is not working with Gammu, especially in RPi. So found a method to send SMS using this data card with out using gammu but using simple AT commands.
+ primarly based on this 1 and this 2
+ the code written for sending SMS from dylos serial is as follows
+  #!/usr/bin/python import serial import time from curses import ascii import sqlite3 as lite import logging logger = logging.</description>
+    </item>
+    
+    <item>
+      <title>Sending SMS with Beagle bone black</title>
+      <link>/working-notes/2014/wn_2014-03/sending_sms_with_beagle_bone_black/</link>
+      <pubDate>Tue, 25 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-03/sending_sms_with_beagle_bone_black/</guid>
+      <description>Sending SMS in Beagle bone black
+It is an angstrom linux BBB, first connected to Ubuntu lap using usb wire from BBB, then a USB was connected to the powered USB hub, in which a serial USB connector and a Huwaei e 173 data (This was tested for Huwaei E303F also, it worked) card was connected. * ssh&amp;rsquo;s into it using ssh 192.168.7.2 -l root and password blank (a enter) * Now lsusb showing Huwaei with modem and serial usb.</description>
+    </item>
+    
+    <item>
+      <title>gammu and mysql</title>
+      <link>/working-notes/2014/wn_2014-03/gammu_and_mysql/</link>
+      <pubDate>Tue, 25 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-03/gammu_and_mysql/</guid>
+      <description>gammuandmysql</description>
+    </item>
+    
+    <item>
+      <title>more with SMS gateway for ubuntu 1204</title>
+      <link>/working-notes/2014/wn_2014-01/more-with-sms-gateway-for-ubuntu-1204/</link>
+      <pubDate>Fri, 17 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-01/more-with-sms-gateway-for-ubuntu-1204/</guid>
+      <description>based on this  http://blog.sleeplessbeastie.eu/2012/07/16/kalkun-how-to-setup-sms-gateway-at-home/
+http://back2arie.wordpress.com/2010/07/27/using-gammu-smsd-with-multiple-phone/
+ problem rectified by  http://askubuntu.com/questions/211739/gammu-and-device-permissions
+ steps followed are  installed
+ sudo apt-get install gammu gammu-smsd sudo cp /usr/share/doc/gammu/examples/config/gammurc /etc/gammurc the gammurc file will not be there, has to do this step, instaed of running gammu-conifg is a problem and make gammurc files in home folder now run gammu &amp;ndash;identify, it gives no phone detected or some other error
+ for this the config file gammurc has to edited as per like this</description>
+    </item>
+    
+    <item>
+      <title>SMS management web application</title>
+      <link>/working-notes/2013/wn_2013-11/sms-management-web-application/</link>
+      <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-11/sms-management-web-application/</guid>
+      <description>Use
+http://kalkun.sourceforge.net/</description>
+    </item>
+    
+  </channel>
+</rss>

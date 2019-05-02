@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Serial port problem lbm1 knmr - Nishadh KA</title>
+    <meta property="og:title" content="Serial port problem lbm1 knmr - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##Serialport and other problem, lbm1 knmr monitor## - lbm1 knmr monitor is setup with three threepin plugs extension box serially wired, it is connected with another serially connected extension box &amp;hellip;">
+      <meta property="og:description" content="##Serialport and other problem, lbm1 knmr monitor## - lbm1 knmr monitor is setup with three threepin plugs extension box serially wired, it is connected with another serially connected extension box &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Serial port problem lbm1 knmr</h1>
+
+<h3>
+  2014-07-13</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Serialport and other problem, lbm1 knmr monitor##
+- lbm1 knmr monitor is setup with three threepin plugs extension box serially wired, it is connected with  another serially connected extension box with two pin plug.
+- In which three plugs, one plug, dylos air quality monitor is connected, another 2A 7port USB hub adapter is connected and third and final pin from right to left, TP link 3G router is connected.
+- With the above setup, router LAN is connected with rapberry pi which is connected with 7hub USB, Dylos serial port is connected with rpi, RPi is accessed via wireless connectivity through router. Rpi connected with router thorugh LAN is accessed via, <code>ssh pi@192.168.0.100</code>.
+- to enable internet with rpi, Gateway has to edited with rpi, <code>netstat -nr</code> gives no gateway address in it, so executing this command <code>sudo /sbin/route add -net 0.0.0.0 gw 192.168.0.254 eth0</code>, gives gateway and now the internt is working properly.
+- with this configuration, two scripts one direct python <code>data.py</code> and one shell script <code>pyts.sh</code> which is linked to a python script <code>pyts.py</code> is enabled with crontab -e for to run every 2 minutes and 4 minutes respectively.
+- the script <code>data.py</code> is main script related with serial port and it collect the reading from dylos monitor to store the value in sqlite.
+- the script <code>pyts.py</code> is collect the lastest data (last one row) from sqlite and upload into thinkspeak services.<br />
+- crontab for pyts.py was reluctant to schduled every 4 minutes by giving it as such the python script given like data.py, it worked only by making linked with shelll script. for knowing this error, entry in crontab -e was added as <code>*/4 * * * * /home/pi/SMS/data.py  &gt;&gt; /home/pi/SMS/myscript.log 2&gt;&amp;1</code> based on <a href="http://askubuntu.com/questions/56683/where-is-the-cron-crontab-log">this</a>. this gives extra hand on checking the error in crontab.
+- With his arrnagement, the sqlite data base in where data is loaded were accessed to know the status of data collection, using the command <code>sqlite3 dylos.db</code> and sql command for las row <code>SELECT * FROM data ORDER BY SNo DESC LIMIT 1</code>. this command gives rise to a data which is single 0.5 micrometer reading and intermittently fragmented. earlier experiance shows that by running long time after five to eight hours this turns into normalcy with both values (2.5 and 0.5 reading) are colleetc by serial port.
+- this erranoues was thought to be due to crontab problem, where the log file shows that the crontab is still running per 2 minutes where it was changed into four minutes, so a demon cron is running intermittenlty. a google search was made on this, most educating pages were found some of them are <a href="http://raspberrypi.stackexchange.com/questions/13399/cron-scheduler-not-starting?rq=1">1</a> which gives a command to know what crons are working and its PID <code>pgrep cron</code>, <a href="http://raspberrypi.stackexchange.com/questions/4847/addition-to-cron-is-not-executed?rq=1">2</a> gives basics of crontab in rpi, <a href="http://superuser.com/questions/284639/how-to-get-log-of-running-cron-job">3</a> gives command to find the pid of jobs by <code>ps ax | grep jobname</code>, <a href="http://askubuntu.com/questions/56683/where-is-the-cron-crontab-log">4</a> more info on error of crontab by command <code>grep CRON /var/log/syslog</code>, <a href="http://serverfault.com/questions/175074/why-crontab-process-run-repeated-auto-at-sometimes">5</a> gives idea of demaon working about crontab and gives command to vizualise it in tree formate <code>pstree -ap</code>, <a href="http://stackoverflow.com/questions/18309263/cron-job-generate-duplicate-processess">6</a> to view the list of crontab <code>crontab -l</code>. <a href="http://superuser.com/questions/361935/will-cron-on-linux-run-the-same-job-multiple-times">7</a> gives more info on cron job.
+- after this testings crontab found be not problem in this case, then used minicom by <code>minicom -s</code>, and setup with port name and baudrate, it was tested in a laptop and it shows correct reading with both values, but it seems problem only with lbm1 setup, dylos is not having problem.
+- then made a setup in which the 7port USB is removed with 0.5mA adapter to power rpi, it is found that dylos reading is pichted to 50,000 insteaad of 5,000. this is noted that the earlier observation of exide ups in backup giving a high pitch of 50,000 is not observed in this setup of router+7USB hub+dylos, in back up in exide basttey also this is seems maintaining the normalcy. so giving more confidence that there is problem in current connection and it seems this is effecting the erroneous serial port reading.
+- so the o.5mA adapter is removed and replaced USB hub and kept for monitoring with interval of 5 minutes for data.py and 7 minutes for pyts.py, let us see what will happen.</p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

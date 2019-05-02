@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Sending SMS with Beagle bone black - Nishadh KA</title>
+    <meta property="og:title" content="Sending SMS with Beagle bone black - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="Sending SMS in Beagle bone black
+It is an angstrom linux BBB, first connected to Ubuntu lap using usb wire from BBB, then a USB was connected to the powered USB hub, in which a serial USB connector &amp;hellip;">
+      <meta property="og:description" content="Sending SMS in Beagle bone black
+It is an angstrom linux BBB, first connected to Ubuntu lap using usb wire from BBB, then a USB was connected to the powered USB hub, in which a serial USB connector &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Sending SMS with Beagle bone black</h1>
+
+<h3>
+  2014-03-25</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p><strong>Sending SMS in Beagle bone black</strong></p>
+
+<p>It is an angstrom linux BBB, first connected to Ubuntu lap using usb wire from BBB, then a USB was connected to the powered USB hub, in which a serial USB connector and a Huwaei e 173 data (This was tested for Huwaei E303F also, it worked) card was connected.
+* ssh&rsquo;s into it using ssh 192.168.7.2 -l root and password blank (a enter)
+* Now lsusb showing
+Huwaei with modem and serial usb.
+* Now the need of usb<em>modeswitch for Huwaei GSM, so need of usb</em>modeswitch in the Angstrom, downloaded ipk file (deb in angstrom) from</p>
+
+<pre><code>http://feeds.angstrom-distribution.org/feeds/unstable/ipk/glibc/armv7a/base/usbmodeswitch_1.1.3-r0.5_armv7a.ipk
+</code></pre>
+
+<p>and transfered the file into BBB using the command from lap Ubuntu</p>
+
+<pre><code>scp Downloads/usbmodeswitch_1.1.3-r0.5_armv7a.ipk root@192.168.7.2:~/Desktop/
+</code></pre>
+
+<ul>
+<li><p>To install used
+opkg install usbmodeswitch<em>1.1.3-r0.5</em>armv7a.ipk</p></li>
+
+<li><p>Edited usb_modeswitch.conf as
+##################################
+DefaultVendor= 0x12d1
+DefaultProduct=0x1446</p></li>
+</ul>
+
+<p>TargetVendor=  0x12d1
+TargetProductList=&ldquo;1001,1406,140b,140c,1412,141b,1433,14ac&rdquo;</p>
+
+<p>CheckSuccess=20</p>
+
+<p>MessageContent=&ldquo;55534243000000000000000000000011060000000000000000000000000000&rdquo;
+###################################
+following
+    <a href="http://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?p=4521">http://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?p=4521</a>
+    <a href="https://bbs.archlinux.org/viewtopic.php?id=118746">https://bbs.archlinux.org/viewtopic.php?id=118746</a></p>
+
+<ul>
+<li><p>Then fired usb<em>modeswitch as
+usb</em>modeswitch -I -W -c /etc/usb_modeswitch.conf</p></li>
+
+<li><p>it finally says good news of modem switch, based on
+<a href="http://www.tabletroms.com/forums/adam-general-development/510-success-3g-usb-modems-now-work*-adam-35.html">http://www.tabletroms.com/forums/adam-general-development/510-success-3g-usb-modems-now-work*-adam-35.html</a></p></li>
+
+<li><p>to send the SMS followed</p></li>
+</ul>
+
+<p><a href="https://groups.google.com/forum/#!msg/beagleboard/lW60u9wR-iA/ziuvODtCaZQJ">https://groups.google.com/forum/#!msg/beagleboard/lW60u9wR-iA/ziuvODtCaZQJ</a></p>
+
+<p>Made a sms.sh file copyed the contents follows</p>
+
+<p>echo -e -n &ldquo;AT+CMGF=1 \015&rdquo; &gt; /dev/ttyUSB1
+echo -e -n &ldquo;AT+CMGS=\&ldquo;your mobile number\&rdquo; \015&rdquo; &gt; /dev/ttyUSB1
+echo -e -n &ldquo;your text message \015&rdquo; &gt; /dev/ttyUSB1
+echo -e -n &ldquo;\032&rdquo; &gt; /dev/ttyUSB1
+echo &ldquo;***<strong><em>SMS was sent successfully!</em></strong>***&rdquo;</p>
+
+<p>run the file as sh sms.sh and immediately good news came SMS was sent successfully. dmesg| grep tty given the information to choose /dev/ttyUSB1</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

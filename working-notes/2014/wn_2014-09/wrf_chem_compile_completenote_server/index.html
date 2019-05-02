@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>WRF CHEM Compile completenote SERVER - Nishadh KA</title>
+    <meta property="og:title" content="WRF CHEM Compile completenote SERVER - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="export DIR=/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs
+sftp://hoopoe@192.168.1.100/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs/netcdf/include
+export CC=gcc export CXX=g&#43;&#43; export FC=gfortran export &amp;hellip;">
+      <meta property="og:description" content="export DIR=/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs
+sftp://hoopoe@192.168.1.100/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs/netcdf/include
+export CC=gcc export CXX=g&#43;&#43; export FC=gfortran export &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>WRF CHEM Compile completenote SERVER</h1>
+
+<h3>
+  2014-09-10</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>export DIR=/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs</p>
+
+<p>sftp://hoopoe@192.168.1.100/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs/netcdf/include</p>
+
+<p>export CC=gcc
+export CXX=g++
+export FC=gfortran
+export FCFLAGS=-m64
+export F77=gfortran
+export FFLAGS=-m64</p>
+
+<p>export PATH=$DIR/mpich/bin:$PATH</p>
+
+<p>export NETCDF=$DIR/netcdf
+export JASPERLIB=$DIR/grib2/lib
+export JASPERINC=$DIR/grib2/include
+export WRF<em>EM</em>CORE=1
+export WRF<em>NMM</em>CORE=0
+export WRF<em>CHEM=1
+export WRF</em>KPP=0
+export WRFIO<em>NCD</em>LARGE<em>FILE</em>SUPPORT=1</p>
+
+<p>error
+1. /bin/sh: 6: mpif90: not found
+1. gfortran treating comments as code baased on <a href="http://forum.wrfforum.com/viewtopic.php?f=5&amp;t=6086">this</a>
+1. still no wrf.exe was formed, by seeing configure.wrf thought environemnt WRF<em>SRC</em>ROOT<em>DIR has to be set
+export WRF</em>SRC<em>ROOT</em>DIR=/home/hoopoe/wrfchem341/WRFV3
+1. installed sudo apt-get install libcloog-ppl1
+1. WPS compile confgiure says inconsistent gfortran and netcdf
+1. and not forming any exe files</p>
+
+<p>problem 1 based on</p>
+
+<p><a href="http://www.tddft.org/pipermail/libxc/2013-August/000141.html">http://www.tddft.org/pipermail/libxc/2013-August/000141.html</a></p>
+
+<p>export WRF_DIR=/home/hoopoe/wrfchem341/WRFV3</p>
+
+<ol>
+<li>dpkg-query &ndash;show libpng12-dev</li>
+<li>dpkg -L libpng12-dev</li>
+<li>dpkg &ndash;get-selections | grep -v deinstall</li>
+</ol>
+
+<p>###Reinstall due to GSI netcdf tested requirement###</p>
+
+<ol>
+<li>Compiled netcdf4.2.1.1 based on the [compile.wrf] but it didn&rsquo;t generating nay netcdf.inc as needed by the wrf fortran code and so fails in netcdf gfortran testing stage.</li>
+<li>Another option is to use netcdf3.6.3, and it gets compiled and generated netcdf.inc, the codes used for compilations are,
+            export CC=gcc
+            export CXX=g++
+            export FC=gfortran
+            export FCFLAGS=-m64
+            export F77=gfortran
+            export FFLAGS=-m64<br />
+            ./configure &ndash;prefix=$DIR/netcdf36
+            make
+            make install</li>
+</ol>
+
+<p>with this netcdf version, wrfV4.3.1 and WPS4.3.1 working has to be tested
+3. Other required libraries for WRF such libpng, zlib, jasper was installed by debian package systems based on <a href="http://sergioibarra.blogspot.in/2012/10/wrf-chem-compilacion-en-ubuntu-1204.html">this</a>, the commands executed was</p>
+
+<pre><code>            sudo apt-get install libjasper-dev
+            sudo apt-get install libpng-dev
+            sudo apt-get install libnetcdf-dev
+            sudo apt-get install zlib1g-dev
+</code></pre>
+
+<p>and made sure that its PATH are <code>/usr/lib</code> by typing installed package location by following commands</p>
+
+<pre><code>            dpkg-query --show libpng12-dev
+            dpkg -L libpng12-dev
+            dpkg --get-selections | grep -v deinstall
+            whereis &lt;package name&gt;
+</code></pre>
+
+<ol>
+<li><p>Based on <a href="http://sergioibarra.blogspot.in/2012/10/wrf-chem-compilacion-en-ubuntu-1204.html">this</a>, edited the file <code>sudo nano /etc/bash.bashrc</code> and added the following envirotnemn variables</p>
+
+<pre><code>        export NETCDF=/home/hoopoe/wrfchem341/test/netcdf36
+        export JASPERLIB=/usr/lib
+        export JASPERINC=/usr/include
+        export WRF_EM_CORE=1
+        export WRF_NMM_CORE=0
+        export WRF_CHEM=1
+        export WRF_KPP=0
+        export WRFIO_NCD_LARGE_FILE_SUPPORT=1
+</code></pre></li>
+
+<li><p>Then as per <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php">this</a> enter into unzipped wrfV3 directory in which the chem folder is copied and started <code>./configure</code>, it though warning says that large netcdf files are supported and it can be enabled by <code>export WRFIO_NCD_LARGE_FILE_SUPPORT=1</code>, so it seems the bash file is not refreshed. Then made again <code>./configure</code> and edited <code>configure.wrf</code> file and line no. 127 from <code>CPP             =      /lib/cpp -C -P</code> to <code>CPP             =      /lib/cpp -P</code>. But <code>./compile</code> ends in error of <code>Fatal Error: Can't open module file 'module_configure.mod' for reading at (1): No such file or directory</code>`.</p></li>
+
+<li><p>export WRF<em>SRC</em>ROOT_DIR=/home/hoopoe/wrfchem341/test/WRFV3</p></li>
+</ol>
+
+<p>export DIR=/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs</p>
+
+<p>export PATH=/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs/mpich/bin:$PATH</p>
+
+<ol>
+<li>Error are of</li>
+</ol>
+
+<p>Can&rsquo;t open module file &lsquo;module_configure.mod&rsquo; for reading at (1): No such file or directory</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

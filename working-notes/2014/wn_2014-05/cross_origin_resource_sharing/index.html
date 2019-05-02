@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Cross Origin Resource Sharing - Nishadh KA</title>
+    <meta property="og:title" content="Cross Origin Resource Sharing - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="#Cross-OriginResourceSharing#
+">
+      <meta property="og:description" content="#Cross-OriginResourceSharing#
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Cross Origin Resource Sharing</h1>
+
+<h3>
+  2014-04-30</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>#Cross-Origin<em>Resource</em>Sharing#</p>
+
+<ul>
+<li>WHile working with qs into cbe-air, in populating table and charts with istsos json data, stucked with a error</li>
+<li>the error was not informative in firebug.firefox, a simple correct repsonse of 200 with red fonts and also not giving any console.log in JS</li>
+<li>after trying with changing jquery version, different old edited version of qs, experimenting with differneet json url no clue was found, finally
+tryed to run the aptana server in chromium and its devloper tools option gives verbal error of
+<code>No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://127.0.0.1:8020' is therefore not allowed access</code></li>
+<li>this error is caused due to Same Origin Policy of browser to check foreign API in it to process.</li>
+<li>to avoid this error is to use jsonp, proxy or CORS(Cross-Origin Resource Sharing), promising is CORS</li>
+<li>In server CORS has to be enabled based on <a href="http://enable-cors.org/server_apache.html">this</a> and <a href="http://jerome.co.za/enabling-cross-origin-resource-sharing-aka-cors-in-apache/">this</a></li>
+<li>The comments are as follows
+<code>sudo a2enmod headers</code>
+to allow heaadrs in apache2</li>
+<li>add this line to apache2.conf, inside <File>
+<code>Header set Access-Control-Allow-Origin &quot;*&quot;</code></li>
+<li>check every thing is fine by <code>apachectl -t</code> and restart apache2 by <code>sudo service apache2 reload</code></li>
+<li>Follwoing this step in aws didnt removed the error, so follwoed <a href="http://jerome.co.za/enabling-cross-origin-resource-sharing-aka-cors-in-apache/">this</a></li>
+<li>Edited dafult file in /etc/apache2/sites-available/ and the line above istsos config line,</virtual host> and restarted the apache</li>
+<li>Now the error is gone!</li>
+</ul>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

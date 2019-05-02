@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>ubuntu1204to1404 - Nishadh KA</title>
+    <meta property="og:title" content="ubuntu1204to1404 - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="####Ubuntu 12.04 to Ubunut 14.04 upgradation####
+fellow@dhcppc3:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 12.04.3 LTS Release: 12.04 Codename: precise &amp;hellip;">
+      <meta property="og:description" content="####Ubuntu 12.04 to Ubunut 14.04 upgradation####
+fellow@dhcppc3:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 12.04.3 LTS Release: 12.04 Codename: precise &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>ubuntu1204to1404</h1>
+
+<h3>
+  2014-09-08</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>####Ubuntu 12.04 to Ubunut 14.04 upgradation####</p>
+
+<p>fellow@dhcppc3:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 12.04.3 LTS
+Release:    12.04
+Codename:   precise</p>
+
+<p>fellow@dhcppc3:~$ uname -r
+3.5.0-44-generic
+1. /boot foldeer is full, free some space to continue upgrade. This isssue was solved by <a href="http://askubuntu.com/questions/142926/cant-upgrade-due-to-low-disk-space-on-boot">this</a>. Importatnly the command <code>dpkg -l 'linux-*' | sed '/^ii/!d;/'&quot;$(uname -r | sed &quot;s/\(.*\)-\([^0-9]\+\)/\1/&quot;)&quot;'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d'</code> shows the absolute kernals in /boot to be removed.</p>
+
+<ol>
+<li>There is a bug related with samba expalined <a href="https://bugs.launchpad.net/ubuntu/+source/samba/+bug/1257186">here</a></li>
+</ol>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

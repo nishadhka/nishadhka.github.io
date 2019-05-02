@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Operating System on Nishadh KA</title>
+    <link>/categories/operating-system/</link>
+    <description>Recent content in Operating System on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Nov 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/operating-system/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ubunut1204 recovery</title>
+      <link>/working-notes/2014/wn_2014-11/ubunut1204_recovery/</link>
+      <pubDate>Sat, 22 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-11/ubunut1204_recovery/</guid>
+      <description>###Ubunut 12.04 recovery###
+ It is found that changing the file /etc/environment has huge problem after reboot. Added the environment variables for ncl language in /etc/environment as export NCARG_ROOT=/usr/local/ncl-6.2.1; export PATH=$NCARG_ROOT/bin:$PATH. This was resultant in problematic reboot of the system. The system gets instead of into login page, gets flickering command log. By reboot went inside of command line and there no system command like ls or sudo was not working.</description>
+    </item>
+    
+    <item>
+      <title>ubuntu1204to1404</title>
+      <link>/working-notes/2014/wn_2014-09/ubuntu1204to1404/</link>
+      <pubDate>Mon, 08 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-09/ubuntu1204to1404/</guid>
+      <description>####Ubuntu 12.04 to Ubunut 14.04 upgradation####
+fellow@dhcppc3:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 12.04.3 LTS Release: 12.04 Codename: precise
+fellow@dhcppc3:~$ uname -r 3.5.0-44-generic 1. /boot foldeer is full, free some space to continue upgrade. This isssue was solved by this. Importatnly the command dpkg -l &#39;linux-*&#39; | sed &#39;/^ii/!d;/&#39;&amp;quot;$(uname -r | sed &amp;quot;s/\(.*\)-\([^0-9]\+\)/\1/&amp;quot;)&amp;quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39; shows the absolute kernals in /boot to be removed.</description>
+    </item>
+    
+    <item>
+      <title>Server stuck at GRUB menu after 1204 update upgrade</title>
+      <link>/working-notes/2014/wn_2014-03/server_stuck_at_grub_menu_after_1204_update_upgrade/</link>
+      <pubDate>Wed, 05 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-03/server_stuck_at_grub_menu_after_1204_update_upgrade/</guid>
+      <description>ServerstuckatGRUBmenuafter12.04_update/upgrade
+Having this problem of Ubuntu server stuck at grub menu and not going inside automatically, button enter has to pressed to get inside and also into a blank useless screen with single hyphen with no activity to view or enter command. Workaround was by pressing ENTER after few minutes of server reboot, solved!. My problem was with Ubuntu server 12.04 LTS in IBM but started same as with a clean sudo apt-get upgrade .</description>
+    </item>
+    
+    <item>
+      <title>trisquel 60 installation in nvidia geforce card laptop</title>
+      <link>/working-notes/2014/wn_2014-02/trisquel-60-installation-in-nvidia-geforce-card-laptop/</link>
+      <pubDate>Tue, 25 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-02/trisquel-60-installation-in-nvidia-geforce-card-laptop/</guid>
+      <description>There are problems in installing Trisquel 6.0 in HCL ME laptop having Nvidia GeForce graphics card. aUsed live USB created from Ubuntu 12.04 using startup disk creator, and the installation screen never turned up. It shows a blank screen with a large cursor object then get into Trisquel popular background image and stay there forever with a hopeful rotating mouse pointer for some time and then into a sad state, this is the first problem.</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu SERVER black screen problem</title>
+      <link>/working-notes/2014/wn_2014-01/ubuntu-server-black-screen-problem/</link>
+      <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-01/ubuntu-server-black-screen-problem/</guid>
+      <description>The problem is with monitor display for Ubuntu 12.04 server headless is showing a black screen, however, with this state, the SSH and all other functionality will work without any problem. Another problem is through SSH; the reboot will not work. It will be stuck on the GRUB menu after reboot; the physical machine has to be approached to start the session.
+SERVER CODE executed after this is sudo apt-get upgrade grub</description>
+    </item>
+    
+    <item>
+      <title>Xvfb Virtual FrameBuffer error for Ubuntu server 1204</title>
+      <link>/working-notes/2013/wn_2013-10/xvfb-virtual-framebuffer-error-for-ubuntu-server-1204/</link>
+      <pubDate>Mon, 07 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-10/xvfb-virtual-framebuffer-error-for-ubuntu-server-1204/</guid>
+      <description>The frame buffer is a hardware portion in memory to provide a display. X window systems are the basic display setup for computers. The display in the computer is organized as bitmap windows. In headless Ubuntu servers, virtual framebuffers are used for the application which requires display explicitly such as for Firefox or other browsers. Xvfb provides a virtual display for those applications. In Ubuntu headless server (server without any GUI) this is installed for mainly running Selenium scripts which require a browser to run.</description>
+    </item>
+    
+  </channel>
+</rss>

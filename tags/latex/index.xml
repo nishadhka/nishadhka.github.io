@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Latex on Nishadh KA</title>
+    <link>/tags/latex/</link>
+    <description>Recent content in Latex on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Oct 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/latex/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Excel Pandas LATEX PDF</title>
+      <link>/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</link>
+      <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</guid>
+      <description>###CSV data into pandas and LATEX then into PDF and then print!###
+ To import csv file with date into pandas dataframe. Pands can parse date column, but it won&amp;rsquo;t be correct. The date column formate has top be mentiod and parsed for this, like below based on [this], then this can be imported into pandas datafrem emntioing the dateparse.  dateparse = lambda x: pd.datetime.strptime(x, &amp;lsquo;%d/%m/%y&amp;rsquo;) pro=pd.readcsv(&amp;lsquo;PROJECTEXPNDTR1.csv&amp;rsquo;,parsedates=[1],date_parser=dateparse)
+dateparse = lambda x: pd.</description>
+    </item>
+    
+    <item>
+      <title>Latex beamer based pdf presntation</title>
+      <link>/working-notes/2014/wn_2014-07/latex_beamer_based_pdf_presntation/</link>
+      <pubDate>Fri, 18 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-07/latex_beamer_based_pdf_presntation/</guid>
+      <description>###Latexbeamerbasedpdfpresntation###
+ For creating a presentation with lot of images in it, a latex based presentation was preferred It is easier than ppt with tight control of formating and content referencing The presentation is based on this note and chosen Berlin theme within beamer&amp;rsquo;s n number of variety themes. Main problem faced was bibtex based referencing and it couldn&amp;rsquo;t be solved and used normal superscript referencing. Another problem faced was box and its colour choosing, it was solved follwoing this wonderful tutorial  </description>
+    </item>
+    
+    <item>
+      <title>Latex into HTML</title>
+      <link>/working-notes/2014/wn_2014-06/latex_into_html/</link>
+      <pubDate>Fri, 27 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-06/latex_into_html/</guid>
+      <description>##Latex into HTML## - For a workflow with latex and peer editing, latex in PDF has to be converted into some editieable formate can be used in texteditor - based on this, latex tex files can be directly converted into html without going for pdf. - have to use this command htlatex mydocument.tex, but asks to install the progrma sudo apt-get install tex4ht, so install tex4ht - then exectute the command of htlatex mydocument.</description>
+    </item>
+    
+    <item>
+      <title>pandas dataframe into LATEX PDF</title>
+      <link>/working-notes/2014/wn_2014-05/pandas_dataframe_into_latex_pdf/</link>
+      <pubDate>Sat, 10 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-05/pandas_dataframe_into_latex_pdf/</guid>
+      <description>##pandasdataframeinto_PDF## - Huge dataframes whihc goes for multiple A4 pages landscape is difficult to make in excel - Alternative is use python pandas and convert the pandas dataframe into pdf thorugh latex or html, latex is promising for just printing - Basically from ([1])(http://stackoverflow.com/questions/14380371/export-a-latex-table-from-pandas-dataframe) for convert dataframe into tex and this for converting tex into landscape pdf document - the python script to make table text is as follows, It is mostly from 3rd answer [1] and bold column heading write python trick from</description>
+    </item>
+    
+  </channel>
+</rss>

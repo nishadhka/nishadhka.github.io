@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Geonames on Nishadh KA</title>
+    <link>/tags/geonames/</link>
+    <description>Recent content in Geonames on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Nov 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/geonames/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Geonames Pandas Shapefile</title>
+      <link>/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</link>
+      <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</guid>
+      <description>###GEONAMESPandasintoSHape file#### ####For the scripts /script/ /scripts/csvtoshp.py, csvtoshpTEST.py, Geoname.py#### 1. The industry data for emission inventory is in address with its details. To get get the latitude and longitude value of each address has to have a database with address with its latitude and longitude. 1. One such database is Geonames, its country wise data is having smaller amount of data for Coimbatore case, but POSTAL CODE data has more than 641 postal code details with latitude and longitude information.</description>
+    </item>
+    
+  </channel>
+</rss>

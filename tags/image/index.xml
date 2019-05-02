@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>image on Nishadh KA</title>
+    <link>/tags/image/</link>
+    <description>Recent content in image on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Sep 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/image/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Scale images using python script</title>
+      <link>/working-notes/2013/wn_2013-09/scale-images-using-python-script/</link>
+      <pubDate>Tue, 10 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-09/scale-images-using-python-script/</guid>
+      <description>For scaling jpeg image files in bulk, there is a python script from this link.
+http://united-coders.com/christian-harms/image-resizing-tips-every-coder-should-know/
+import Image, os, sys for filename in sys.argv[1:]: img = Image.open(filename).resize( (200,200) ) out = file(os.path.splitext(filename)[0]+&amp;quot;_thumb.jpg&amp;quot;, &amp;quot;w&amp;quot;) try: img.save(out, &amp;quot;JPEG&amp;quot;) finally: out.close()  It is only some eight lines of code, but doing a tremendous job. Another essential thing to learn is the use of finding and regex to feed the files into a python script.</description>
+    </item>
+    
+  </channel>
+</rss>

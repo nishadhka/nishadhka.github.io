@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Cubietruck cluster WRFCHEM - Nishadh KA</title>
+    <meta property="og:title" content="Cubietruck cluster WRFCHEM - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="####cubie truck cluster for WRF CHEM####
+This note explains the steps in creating cubietruck cluster for WRF CHEM modeling.
+#####Installing debian##### 1. cubietruck is preinstalled with Android as &amp;hellip;">
+      <meta property="og:description" content="####cubie truck cluster for WRF CHEM####
+This note explains the steps in creating cubietruck cluster for WRF CHEM modeling.
+#####Installing debian##### 1. cubietruck is preinstalled with Android as &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Cubietruck cluster WRFCHEM</h1>
+
+<h3>
+  2014-10-25</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>####cubie truck cluster for WRF CHEM####</p>
+
+<p>This note explains the steps in creating cubietruck cluster for WRF CHEM modeling.</p>
+
+<p>#####Installing debian#####
+1. cubietruck is preinstalled with Android as its main os for its inbuilt nand storage of 8 GB harddisk. To chane this into debian os follwoing steps were followed.
+1. More number of attempts was made for running debain or ubunut os image in cubietruck, Later found a tweaked image from <a href="http://www.igorpecovnik.com/2013/12/24/cubietruck-debian-wheezy-sd-card-image/">here</a> aat first sight shows promising for WRF CHEM.
+1. The image from <a href="http://cubie.nobrainz.de/downloads/Cubietruck_Debian_2.8_wheezy.zip">here</a> was copied into 4GB SD card using this command <code>dd if=/home/swl-sacon-dst/Documents/GISE_2013/LAB/Cubietruck/CT_Debian_2.7_wheezy/CT_Debian_2.7_wheezy.raw of=/dev/sdb bs=4096; sync</code>. The system tool gpart was used for foramting the sd card.
+1. AFtre this wrting sd card was loaded into cubietruck(CT) and booted, by default CT is primed for SD card boot than nand, so it booted and the debian was running from the SD card. To write the SD card os into NAND flash, follwoing attempts werew made
+1. First attempt: used the provided script with sd card to flash the nand. Though the script ended without any error but failed to boot without sd card.
+1. Second attempt: based on this <a href="http://linux-sunxi.org/Cubieboard/Installing_on_NAND">page</a> the SD card os image was copied into nand flash by formating and rsync. This also ends in non bootable nand flash. Followed this <a href="http://www.cubieforums.com/index.php?topic=1134.0">note</a> also, but no positive output.
+1. Third attempt: followed as per the used os image page instruction. It is instructed to flash lubunut os on the nand image using All winner supplied tool LiveSuit, then use the nand_flash.sh script. For this live suit was used based on thsi <a href="http://linux-sunxi.org/LiveSuit">page</a> but ends in problem of not recognized by laptop for the allwinner USB of cubitruck attached to it. Later it is found that from <a href="https://groups.google.com/forum/#!topic/cubieboard/pKFduXRdeNc">here</a> it is of problem with kernal version. So started livesuit in a nother ubunut 12.04 with keranl version 3.02, it recongnized cuibitruck usb and flashed its nand with lubuntu os.
+1. In the lubuntu os, then used the sd card debian image and flashed, this time the nand was flashed and cubietruck was running without sd card os, debain wheezy in NAND flash.</p>
+
+<p>####Compile WRF CHEM####
+1. Choosing the right gcc and gfortran based on update-alternatives, and it choosed gcc 4.7 and gfortran 4.7. With different gcc and gfrotran version as of GSI compilation it ends in gcc, gfortran testing of wrf compilaiton a erroneaous. Same version of gcc and gfortran cleared the test without any error.</p>
+
+<pre><code>                sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.4 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.4 
+                sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.6 40 --slave /usr/bin/g++ g++ /usr/bin/g++-4.6 
+                sudo update-alternatives --config gcc      
+
+
+                sudo update-alternatives --install /usr/bin/gfortran gfortran   /usr/bin/gfortran-4.7 60
+                sudo update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran-4.4 10
+                sudo update-alternatives --config gfortran
+</code></pre>
+
+<ol>
+<li><p>Following GSI compilation Openmpi 1.6.1 was compiled in cubietruck debian wheezy. It was based on <a href="http://verahill.blogspot.in/2012/06/compiling-openmpi-on-debian-wheezy.html">this</a>. Earlier openmpi 1.8.1 compilation ends in failure.</p>
+
+<pre><code>        wget http://www.open-mpi.org/software/ompi/v1.6/downloads/openmpi-1.6.tar.bz2
+        tar xvf openmpi-1.6.tar.bz2
+        cd openmpi-1.6/
+
+        sudo mkdir /opt/openmpi/
+        sudo chown ${USER} /opt/openmpi/
+        ./configure --prefix=/opt/openmpi/1.6/ --with-sge
+
+        make
+        make install
+
+        export PATH=&quot;$PATH:/home/.openmpi/bin&quot;
+        export LD_LIBRARY_PATH=&quot;$LD_LIBRARY_PATH:/home/.openmpi/lib/&quot;
+</code></pre></li>
+
+<li><p>netcdf compile</p>
+
+<pre><code>        export DIR=/home/wrf_libs
+        export CC=gcc
+        export CXX=g++
+        export FC=gfortran
+        export FCFLAGS=-g
+        export F77=gfortran
+        export FFLAGS=-g
+        export CXXFLAGS=-g
+</code></pre></li>
+</ol>
+
+<p>export PATH=$DIR/netcdf363/bin:$PATH</p>
+
+<p>export NETCDF=$DIR/netcdf363</p>
+
+<p>mpif90 -c 02<em>fortran+c+netcdf+mpi</em>f.f
+mpicc -c 02<em>fortran+c+netcdf+mpi</em>c.c
+mpif90 02<em>fortran+c+netcdf+mpi</em>f.o <br />
+02<em>fortran+c+netcdf+mpi</em>c.o <br />
+     -L${NETCDF}/lib -lnetcdf
+mpirun ./a.out</p>
+
+<ol>
+<li>wrfchem compile</li>
+</ol>
+
+<p>sh nand-install.sh</p>
+
+<p>#    #   ##   #####  #    # # #    #  ####<br />
+ #    #  #  #  #    # ##   # # ##   # #    #
+ #    # #    # #    # # #  # # # #  # #<br />
+ # ## # ###### #####  #  # # # #  # # #  ###
+ ##  ## #    # #   #  #   ## # #   ## #    #
+ #    # #    # #    # #    # # #    #  ####</p>
+
+<p>This script will NUKE / erase your NAND partition and copy content of SD card to it</p>
+
+<p>Proceed (y/n)? (default: y):
+nand-install.sh: 45: [: unexpected operator
+Formatting and optimizing NAND rootfs &hellip; up to 30 sec
+mke2fs 1.42.5 (29-Jul-2012)
+e2fsck 1.42.5 (29-Jul-2012)
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+/dev/nand2: 11/468640 files (0.0% non-contiguous), 66302/1871872 blocks
+Creating NAND bootfs &hellip; few seconds
+Creating NAND rootfs &hellip; up to 5 min
+All done. Press a key to power off, then remove SD to boot from NAND</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

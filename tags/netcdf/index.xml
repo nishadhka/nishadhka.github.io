@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NetCDF on Nishadh KA</title>
+    <link>/tags/netcdf/</link>
+    <description>Recent content in NetCDF on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Oct 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/netcdf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>plot NETCDF</title>
+      <link>/working-notes/2014/wn_2014-10/plot_netcdf/</link>
+      <pubDate>Fri, 31 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-10/plot_netcdf/</guid>
+      <description>###Plot NETCDF and create xlsx file for pyWRFChemEmiss####
+ The 2010 anthropogenic emission file of Asian region is available in netcdf format. To use it with WRF CHEM, PREPCHEMSRC is limited use mainy because the emission source has to specify and it&amp;rsquo;s conversion factor might not be correct. Complexity/understandability is case for similar emission converter program such as Air Emissions Processor program and SMOKE. In this regard pyWRFChemEmiss give more modular and easy interface to convert emission file to be used with wrf chem.</description>
+    </item>
+    
+    <item>
+      <title>Querying netcdf with python_kdtree</title>
+      <link>/working-notes/2014/wn_2014-05/querying_netcdf_with_python_kdtree/</link>
+      <pubDate>Wed, 21 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-05/querying_netcdf_with_python_kdtree/</guid>
+      <description>##QueryingnetcdfwithPYTHONKDTREE## - To query a netcdf with latitude and longitude is required for objective three, in which user pointed lat long, revived as SMS from Android app has to parsed and find its model and nearest dylos monitoring station to send replay. - there is very useful tutorial on this with elaboration on different implementations advantages - In which most advanced querying was based on KDtree, this implementation was used to query netcdf generated from WRF model the code is as follows</description>
+    </item>
+    
+    <item>
+      <title>Installing netcdf python in Ubuntu1204</title>
+      <link>/working-notes/2014/wn_2014-05/installing_netcdf_python_in_ubuntu1204/</link>
+      <pubDate>Tue, 20 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-05/installing_netcdf_python_in_ubuntu1204/</guid>
+      <description>##InstallingnetcdfpythoninUbuntu12.04##
+ to install netcdf-python requiers HDF, based on this HDF isntallation from source got failed, used synaptic package manager to install HDF5 Downloaded netcdf-python, extracted and run python setup.py install Failed, saying netcdf is not found in usr/ So follwoed this, downloaded version of netcdf-4.0.1, placed in /usr/local cd into netcdf-4.0.1, and run the code LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=/usr/local then sudo make and then sudo make install seems got installed, then went into netcdf4-python as given in this and run sduo python setup.</description>
+    </item>
+    
+    <item>
+      <title>converting WRF ouput netcdf into json</title>
+      <link>/working-notes/2014/wn_2014-05/converting_wrf_ouput_netcdf_into_json/</link>
+      <pubDate>Mon, 19 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-05/converting_wrf_ouput_netcdf_into_json/</guid>
+      <description>##convertingWRFouputnetcdfinto_json## - tried with grib2json for converting netcdf into json 1 - for this netcdf has to converted into grib2 - for converting into grib2, python based iris is useful 2, but only work with cf compliant netcdf - WRF output in netcdf is not a cf compliant - So has to use a tool which convert WRF netcdf into CF compliant - Wrfncxnj.py tool 3 exactly do this with more functions such as extraction of variables etc - Wrfncxnj.</description>
+    </item>
+    
+  </channel>
+</rss>

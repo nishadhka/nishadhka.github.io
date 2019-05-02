@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Merge geojsons into one - Nishadh KA</title>
+    <meta property="og:title" content="Merge geojsons into one - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##Mergegeojsonsinto_one## - For converting qs into cbe-air, map is rendered using geojson rendering capability of github - the marker was easiliy made into geojson from qgis and org2ogr as a shape &amp;hellip;">
+      <meta property="og:description" content="##Mergegeojsonsinto_one## - For converting qs into cbe-air, map is rendered using geojson rendering capability of github - the marker was easiliy made into geojson from qgis and org2ogr as a shape &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Merge geojsons into one</h1>
+
+<h3>
+  2014-05-24</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Merge<em>geojsons</em>into_one##
+- For converting qs into cbe-air, map is rendered using geojson rendering capability of github
+- the marker was easiliy made into geojson from qgis and org2ogr as a shape file. based on <a href="https://github.com/cambecc/earth">this</a> under
+  section &ldquo;getting map data&rdquo;, the command is</p>
+
+<pre><code>ogr2ogr -f GeoJSON point.json point.shp
+//and adding this script line in html
+&lt;script src=&quot;https://embed.github.com/view/geojson/saconswl/cbeair/gh-pages/cbe-s.json?height=530&amp;width=1300&quot;&gt;&lt;/script&gt;
+//under div map
+</code></pre>
+
+<ul>
+<li>To include coimbatore city limits along with point marker, adding another script line of github embed renderes another map!</li>
+<li>so the solution is to merge point shape file and polygon shape file, since shape file doesn&rsquo;t support different feature(pooint.polygon) mergeing
+it has to done it in level of ogr or geojosn level. <a href="http://gis.stackexchange.com/questions/74627/can-we-merge-shapefiles-with-different-geometries-point-and-polygon-to-get-a-s">guide from this</a>
+to point the <a href="http://gis.stackexchange.com/questions/74175/ogr-merge-shapefiles-of-different-geom-type-into-a-single-geojson-feature-collec?rq=1">solution</a>
+in which small commant gives a <a href="https://gist.github.com/migurski/3759608">python code</a> to merge two geojson file into one</li>
+<li>Using that python script, copied bellow from <a href="https://gist.github.com/migurski/3759608">https://gist.github.com/migurski/3759608</a> merged point geojosn and polytgon geojson into one.</li>
+</ul>
+
+<pre><code class="language-python">
+</code></pre>
+
+<p>from json import load, JSONEncoder
+from optparse import OptionParser
+from re import compile</p>
+
+<p>float<em>pat = compile(r&rsquo;^-?\d+.\d+(e-?\d+)?$&lsquo;)
+charfloat</em>pat = compile(r&rsquo;<sup class="footnote-ref" id="fnref:-"><a href="#fn:-">1</a></sup>-?\d+.\d+(e-?\d+)?$&lsquo;)</p>
+
+<p>parser = OptionParser(usage=&ldquo;&rdquo;&ldquo;%prog [options]</p>
+
+<p>Group multiple GeoJSON files into one output file.</p>
+
+<p>Example:
+  python %prog -p 2 input-1.json input-2.json output.json&rdquo;&ldquo;&rdquo;)</p>
+
+<p>defaults = dict(precision=6)</p>
+
+<p>parser.set_defaults(**defaults)</p>
+
+<p>parser.add_option(&lsquo;-p&rsquo;, &lsquo;&ndash;precision&rsquo;, dest=&lsquo;precision&rsquo;,
+                  type=&lsquo;int&rsquo;, help=&lsquo;Digits of precision, default %(precision)d.&rsquo; % defaults)</p>
+
+<p>if <strong>name</strong> == &lsquo;<strong>main</strong>&lsquo;:</p>
+
+<pre><code>options, args = parser.parse_args()
+infiles, outfile = args[:-1], args[-1]
+
+outjson = dict(type='FeatureCollection', features=[])
+
+for infile in infiles:
+    injson = load(open(infile))
+
+    if injson.get('type', None) != 'FeatureCollection':
+        raise Exception('Sorry, &quot;%s&quot; does not look like GeoJSON' % infile)
+
+    if type(injson.get('features', None)) != list:
+        raise Exception('Sorry, &quot;%s&quot; does not look like GeoJSON' % infile)
+
+    outjson['features'] += injson['features']
+
+encoder = JSONEncoder(separators=(',', ':'))
+encoded = encoder.iterencode(outjson)
+
+format = '%.' + str(options.precision) + 'f'
+output = open(outfile, 'w')
+
+for token in encoded:
+    if charfloat_pat.match(token):
+        # in python 2.7, we see a character followed by a float literal
+        output.write(token[0] + format % float(token[1:]))
+
+    elif float_pat.match(token):
+        # in python 2.6, we see a simple float literal
+        output.write(format % float(token))
+
+    else:
+        output.write(token)
+</code></pre>
+
+<p>```</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:-">[,\, <a class="footnote-return" href="#fnref:-">↩</a></li>
+</ol>
+</div>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

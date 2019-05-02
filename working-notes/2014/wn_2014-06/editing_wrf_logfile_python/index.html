@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>editing WRF logfile Python - Nishadh KA</title>
+    <meta property="og:title" content="editing WRF logfile Python - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##editingWRFlogfile_Python and pandas##
+">
+      <meta property="og:description" content="##editingWRFlogfile_Python and pandas##
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>editing WRF logfile Python</h1>
+
+<h3>
+  2014-06-08</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##editing<em>WRF</em>logfile_Python and pandas##</p>
+
+<ul>
+<li>to get sum seconds wrf is running, the wrf.out.log was imported into python to sum the elapsed seconds in each domains</li>
+<li>to get the log file into wrf <code>bf = open('run_wrfm.log', 'r')</code></li>
+<li>to read each lines in the file <code>bf_lines=bf.readlines()</code></li>
+<li>to make the lines into list array and select only the list with particular words in it, here the word &ldquo;Timing for Writing&rdquo;
+<code>
+f=[]
+for line in bf_lines:
+if 'Timing for Writing' in line:
+             f.append(line)
+</code></li>
+<li>to make the list array into pandas dataframe <code>df = pd.DataFrame(f)</code></li>
+<li>to view the lines in dataframe <code>df[0]</code></li>
+<li>to split the lines based on the words in it <code>dfs=df[0].str.split('elapsed',1)</code></li>
+</ul>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

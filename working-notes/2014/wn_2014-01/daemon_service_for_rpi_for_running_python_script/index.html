@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Daemon service for RPI for running python script - Nishadh KA</title>
+    <meta property="og:title" content="Daemon service for RPI for running python script - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="To make a python script run in demon which stores serial reading into a csv file and send one serial read value into SMS.
+[&amp;hellip;] /usr/local/bin/myservice/myscript.py
+#!/usr/bin/env python import &amp;hellip;">
+      <meta property="og:description" content="To make a python script run in demon which stores serial reading into a csv file and send one serial read value into SMS.
+[&amp;hellip;] /usr/local/bin/myservice/myscript.py
+#!/usr/bin/env python import &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Daemon service for RPI for running python script</h1>
+
+<h3>
+  2014-01-08</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>To make a python script run in demon which stores serial reading into a csv file and send one serial read value into SMS.</p>
+
+<ul>
+<li>First save the python script as service inside this folder and make it executable</li>
+</ul>
+
+<p>/usr/local/bin/myservice/myscript.py</p>
+
+<pre><code>#!/usr/bin/env python
+import serial
+import time
+import gammu
+
+ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=60)
+time.sleep(60)
+
+logfile = open('DYLOS_log.csv', 'a')
+
+while 1:
+    line = ser.readline() 
+    now = time.strftime(&quot;%Y-%m-%dT%H:%M:%S:00.000000+0530&quot;, time.localtime())
+    a =  &quot;%s,%s&quot; % (now,line)
+    #print a    
+    logfile.write(a)
+        logfile.flush()    
+logfile.close()
+ser.close()
+time.sleep(180)
+SMS = {
+        'Class': 1,                            #SMS Class
+        'Text': a,     #Message
+        'SMSC': {'Location': 1},
+        'Number': &quot;&quot;,              #The phone number
+      }
+gamu_sm = gammu.StateMachine()
+gamu_sm.ReadConfig()              #Read the default config file (~/.gammurc)
+gamu_sm.Init()                    #Connect to the phone   
+gamu_sm.SendSMS(SMS)
+
+</code></pre>
+
+<ul>
+<li>then make a sh script in
+/etc/init.d/</li>
+</ul>
+
+<pre><code>#!/bin/sh
+ 
+###BEGIN INIT INFO
+#Provides: myservice
+#Required-Start: $remote_fs $syslog
+#Required-Stop: $remote_fs $syslog
+#Default-Start: 2 3 4 5
+#Default-Stop: 0 1 6
+#Short-Description: Put a short description of the service here
+#Description: Put a long description of the service here
+###END INIT INFO
+ 
+#Change the next 3 lines to suit where you install your script and what you want to call it
+DIR=/usr/local/bin/myservice
+DAEMON=$DIR/dylos_csv_ser.py
+DAEMON_NAME=dylos_csv_ser
+ 
+#This next line determines what user the script runs as.
+#Root generally not recommended but necessary if you are using the Raspberry Pi GPIO from Python.
+DAEMON_USER=root
+ 
+#The process ID of the script when it runs is stored here:
+PIDFILE=/var/run/$DAEMON_NAME.pid
+ 
+. /lib/lsb/init-functions
+ 
+do_start () {
+log_daemon_msg &quot;Starting system $DAEMON_NAME daemon&quot;
+start-stop-daemon --start --background --pidfile $PIDFILE --make-pidfile --user $DAEMON_USER --startas $DAEMON
+log_end_msg $?
+}
+do_stop () {
+log_daemon_msg &quot;Stopping system $DAEMON_NAME daemon&quot;
+start-stop-daemon --stop --pidfile $PIDFILE --retry 10
+log_end_msg $?
+}
+ 
+case &quot;$1&quot; in
+ 
+start|stop)
+do_${1}
+;;
+ 
+restart|reload|force-reload)
+do_stop
+do_start
+;;
+ 
+status)
+status_of_proc &quot;$DAEMON_NAME&quot; &quot;$DAEMON&quot; &amp;&amp; exit 0 || exit $?
+;;
+*)
+echo &quot;Usage: /etc/init.d/$DEAMON_NAME {start|stop|restart|status}&quot;
+exit 1
+;;
+ 
+esac
+exit 0
+</code></pre>
+
+<ul>
+<li>then make it executable by</li>
+</ul>
+
+<p>sudo chmod 755 /etc/init.d/NameOfYourScript</p>
+
+<ul>
+<li>then make it into startup by</li>
+</ul>
+
+<p>sudo update-rc.d NameOfYourScript defaults</p>
+
+<p>this command has to run cautiously, will be different according to the OS distribution.</p>
+
+<ul>
+<li>based on
+<a href="http://blog.scphillips.com/2013/07/getting-a-python-script-to-run-in-the-background-as-a-service-on-boot/">http://blog.scphillips.com/2013/07/getting-a-python-script-to-run-in-the-background-as-a-service-on-boot/</a></li>
+</ul>
+
+<p><a href="http://www.stuffaboutcode.com/2012/06/raspberry-pi-run-program-at-start-up.html">http://www.stuffaboutcode.com/2012/06/raspberry-pi-run-program-at-start-up.html</a></p>
+
+<ul>
+<li>RPi Email IP On Boot Debian</li>
+</ul>
+
+<p><a href="http://elinux.org/RPi_Email_IP_On_Boot_Debian">http://elinux.org/RPi_Email_IP_On_Boot_Debian</a></p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

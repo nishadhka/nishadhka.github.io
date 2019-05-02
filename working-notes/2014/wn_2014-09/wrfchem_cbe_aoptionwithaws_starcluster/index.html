@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>WRFCHEM CBE aOptionwithAWS StarCluster - Nishadh KA</title>
+    <meta property="og:title" content="WRFCHEM CBE aOptionwithAWS StarCluster - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="####WRF-CHEM for Coimabtore: An option with AWS and starcluster####
+[&amp;hellip;] ####upgrading aws free tier into ubunut 14.01#### 1. Since access to aws free tier is through SSH, doing
+, up-gradation &amp;hellip;">
+      <meta property="og:description" content="####WRF-CHEM for Coimabtore: An option with AWS and starcluster####
+[&amp;hellip;] ####upgrading aws free tier into ubunut 14.01#### 1. Since access to aws free tier is through SSH, doing
+, up-gradation &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>WRFCHEM CBE aOptionwithAWS StarCluster</h1>
+
+<h3>
+  2014-09-09</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>####WRF-CHEM for Coimabtore: An option with AWS and starcluster####</p>
+
+<ol>
+<li>Considering the huge time requirement for running wrf chem over Coimbatore with high resolution (It roughly took 8 hour 15 minutes X 7 for domain 4 alone, 6 second time steps with average 50 seconds), Amazon Web Service (AWS) <code>t2.medium</code> instace and StarCluster compute cluster would be a viable option to make wrf-chem run in &lsquo;real time&rsquo;.
+####AWS charges for a typical cluster####</li>
+</ol>
+
+<p>####upgrading aws free tier into ubunut 14.01####
+1. Since access to aws free tier is through SSH, doing<br />
+, up-gradation of current Ubuntu release into 14.04 by <code>sudo do-release-upgrade</code> warns about likely failure in ssh during process. It provide fall over by running ssh in port 1022 and asks to open port from firewall by <code>iptables -I INPUT -p tcp --dport 1022 -j ACCEPT</code></p>
+
+<p>####compile wrf chem on AWS t1.micro instance free tier####
+1. To remove sudo permission problem followed <a href="http://askubuntu.com/questions/7477/how-can-i-add-a-new-user-as-sudoer-using-the-command-line">this</a> and command <code>sudo adduser &lt;username&gt; sudo</code>
+1. Compiling WRF in a separate EBS of aws gives advantages of attaching it with EC2 cluster when ever necessary. The star cluster program behind the EC2 cluster can be dictated to do so, providing necessary re-usability of the compiled WRF CHEM program in temporary cluster environment. For a trail, 8 GB magnetic EBS was created and attached to the running free tier instance. AWS noted about potential renaming of the EBS as follows <code>Note: Newer Linux kernels may rename your devices to /dev/xvdf through /dev/xvdp internally, even when the device name entered here (and shown in the details) is /dev/sdf through /dev/sdp.</code>
+1. Based on this <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">page</a>, the created EBS was mounted with running free tier instance. The command given was</p>
+
+<pre><code>            lsblk
+            sudo file -s /dev/xvdf
+            sudo mkfs -t ext4 /dev/xvdf
+    # the above command poteinatal wipe out data if it is there in the EBS
+            sudo mkdir /home/ubunut/wrf
+    sudo mount /dev/xvdf /home/ubunut/wrf
+</code></pre>
+
+<p>###Compiler setup###
+1. The compilation is carried out as GSI compatable WRF CHEM, so maintained all the version and methods for GSI compilations. Update-alternatives is required for using versions of gcc-4.4, g++-4.4 and gfortran-4.7.
+1. So these version are installed first by
+                sudo apt-get install gcc-4.4
+        sudo apt-get install g++-4.4
+        sudo apt-get install gfortran-4.7
+1. To invoke update-alternative for these compilers used below commands,
+<em>for gcc and g++</em>
+                 sudo update-alternatives &ndash;install /usr/bin/gcc gcc /usr/bin/gcc-4.4 60 &ndash;slave /usr/bin/g++ g++ /usr/bin/g++-4.4
+                 sudo update-alternatives &ndash;install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40 &ndash;slave /usr/bin/g++ g++ /usr/bin/g++-4.8
+                 sudo update-alternatives &ndash;config gcc</p>
+
+<p><em>for gfortran</em></p>
+
+<pre><code>                which gfortran
+      # to knwo the link of current used gfortran
+                ls -lh /usr/bin/gfortran
+                ls -lh /usr/bin/gfortran*
+      #to knwo the list of links for each version
+                sudo update-alternatives --install /usr/bin/gfortran gfortran   /usr/bin/gfortran-4.8 60
+                sudo update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran-4.7 40
+                sudo update-alternatives --config gfortran
+</code></pre>
+
+<p>###Environment setup and Compiling NETCDF 3.6.3, openMPI###
+1. Environment was set up with this following commands</p>
+
+<pre><code>*environment setup* 
+
+            export DIR=/home/ubuntu/wrf
+            export CC=gcc
+            export CXX=g++
+            export FC=gfortran
+            export FCFLAGS=-m64
+            export F77=gfortran
+            export FFLAGS=-m64
+</code></pre>
+
+<ol>
+<li>Source code of NETCDF 3.6.3 was downloaded by
+<code>wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-3.6.3.tar.gz</code>, but ends in permission denied. It is found that, the mounted EBS is in root permission, so it has to made user by giving command <code>sudo chmod 777 /home/ubuntu/wrf</code>, then the compilation is done by commands</li>
+</ol>
+
+<p><em>compiling netcdf</em>
+                tar xzvf netcdf-3.6.3.tar.gz
+                cd netcdf-3.6.3
+                ./configure &ndash;prefix=$DIR/netcdf
+                make
+                make install
+                make check
+                export PATH=$DIR/netcdf/bin:$PATH
+                export NETCDF=$DIR/netcdf
+it ended without any error.</p>
+
+<p><em>Compiling openMPI</em>
+Based on <a href="http://www.sysads.co.uk/2014/05/install-open-mpi-1-8-ubuntu-14-04-13-10/">this</a></p>
+
+<pre><code>            wget https://www.open-mpi.org/software/ompi/v1.8/downloads/openmpi-1.8.1.tar.gz
+            tar -xvf openmpi-1.8.1.tar.gz
+            cd openmpi-1.8.1.tar.gz 
+            ./configure --prefix=&quot;/home/$USER/.openmpi&quot;
+            make
+            sudo make
+        export PATH=&quot;$PATH:/home/$USER/.openmpi/bin&quot;
+            export LD_LIBRARY_PATH=&quot;$LD_LIBRARY_PATH:/home/$USER/.openmpi/lib/&quot;
+</code></pre>
+
+<p>it ended without any error.</p>
+
+<p>###Compiling WRF CHEM 3.4.1###
+1. The source code of WRF 3.4.1 and WRF CHEM 3.4.1 was downloaded using wget and unzippign using <code>gunzip WRFV3.4.1.TAR.gz</code> and <code>tar -xf WRFV3.4.1.TAR</code> and copied the chem folder inside WRFV3.
+1. Environment setup for wrf chem was done based on <a href="http://sergioibarra.blogspot.in/2012/10/wrf-chem-compilacion-en-ubuntu-1204.html">this</a> and rechecked with <code>echo</code>, such as echo $WRF_CHEM etc</p>
+
+<pre><code>            export NETCDF=$DIR/netcdf
+            export JASPERLIB=/usr/lib
+            export JASPERINC=/usr/include
+            export WRF_EM_CORE=1
+            export WRF_NMM_CORE=0
+            export WRF_CHEM=1
+            export WRF_KPP=0
+            export WRFIO_NCD_LARGE_FILE_SUPPORT=1
+</code></pre>
+
+<p>Then given command of <code>./configure</code> and edited the file <code>configure.wrf</code> for the line 119 to 120 into</p>
+
+<pre><code>          FORMAT_FIXED    =       -ffixed-form -cpp
+    FORMAT_FEE     =       -ffree-form -ffree-line-length-none -cpp 
+</code></pre>
+
+<p>from</p>
+
+<pre><code>        FORMAT_FIXED    =       -ffixed-form 
+          FORMAT_FEE     =       -ffree-form -ffree-line-length-none
+</code></pre>
+
+<ol>
+<li>then given the command of <code>./compile em_real &gt;&amp; log.compileA1</code><code>, it ran for 1 hour and 30 minutes, created all the exe files, subsequent command</code>`<code>./compile emi_conv</code> also created <code>emiss_conv.exe</code> utility.
+###WPS compile###</li>
+
+<li><p>WPS compilation was started with WPS tar file unzipping, using the command,</p>
+
+<pre><code>        gunzip WPSV3.4.1.TAR.gz
+        tar -xf WPSV3.4.1.TAR
+</code></pre></li>
+</ol>
+
+<p>cd into it and running <code>configure</code>, the configure file was edited as per <a href="http://sergioibarra.blogspot.in/2012/10/wrf-chem-compilacion-en-ubuntu-1204.html">this</a> and <a href="http://forum.wrfforum.com/viewtopic.php?f=5&amp;t=6086">this</a>, and run <code>./compile &gt;&amp; AWSWPSlog.compileA6</code>, it created ungrib.exe but no metgrid.exe and geogrid.exe was created. In compilation log the error sated was this</p>
+
+<pre><code>            1 error 
+            gfortran: error: /home/ubuntu/wrf/WRFV3/frame/  module_driver_constants.o: No such file or directory
+            gfortran: error: /home/ubuntu/wrf/WRFV3/frame/module_machine.o: No such file or directory
+</code></pre>
+
+<ol>
+<li><p>This error was searched and get into <a href="http://forum.wrfforum.com/viewtopic.php?f=5&amp;t=5440">this</a> forum post in WRF forum. Indicating problem lies in WRF compilation itself. There is a error in wrf compilation which reads like below</p>
+
+<pre><code>        USE module_driver_constants
+1
+        Fatal Error: Can't open module file                 'module_driver_constants.mod' for reading at (1):               No such file or directory
+</code></pre></li>
+</ol>
+
+<p>The error showing in the WPS is related with this error. It would be problem with single core in AWS free tier, but serial compilation also ends with similar error. Unable to find a proper reason for this error, compilation in AWS is stopped temporarily.<br />
+1. This forum <a href="http://forum.wrfforum.com/viewtopic.php?f=59&amp;t=6115">post</a> worth noting that the usage of cores has limitations in WRF, which could significantly influence simulation output.</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

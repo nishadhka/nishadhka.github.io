@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>API on Nishadh KA</title>
+    <link>/tags/api/</link>
+    <description>Recent content in API on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Dec 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Script for json to csv for weather underground API fetching historical data</title>
+      <link>/working-notes/2013/wn_2013-12/script-for-json-to-csv-for-weather-underground-api-fetching-historical-data/</link>
+      <pubDate>Mon, 16 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-12/script-for-json-to-csv-for-weather-underground-api-fetching-historical-data/</guid>
+      <description>based on this https://github.com/PythonJournos/LearningPython/blob/master/tutorials/convert_json_to_csv.py a sample script  import urllib2 import json import csv outfile_path=&#39;history.csv&#39; writer = csv.writer(open(outfile_path, &#39;w&#39;)) headers = [&#39;date&#39;] writer.writerow(headers) req = urllib2.Request(&amp;quot;http://api.wunderground.com/api/YOUR_KEY/history_20131001/q/India/Coimbatore.json&amp;quot;) opener = urllib2.build_opener() f = opener.open(req) data = json.load(f) for history in data[&#39;history&#39;][&#39;observations&#39;]: row = [] row.append(str(history[&#39;date&#39;][&#39;pretty&#39;])) row.append(str(history[&#39;tempm&#39;])) writer.writerow(row)   Now the URL has to be iterated to give a range of historical data required, and most important the date range has to set.</description>
+    </item>
+    
+  </channel>
+</rss>

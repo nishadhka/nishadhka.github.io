@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Reprojecting SHAPE file python - Nishadh KA</title>
+    <meta property="og:title" content="Reprojecting SHAPE file python - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##reporjecting shape file using python##
+[&amp;hellip;] WRF output netcdf(nc) or wrfncx.py output nc files are converted into geotiff(tiff) file with coustom projections, see the codes for nc to tiff &amp;hellip;">
+      <meta property="og:description" content="##reporjecting shape file using python##
+[&amp;hellip;] WRF output netcdf(nc) or wrfncx.py output nc files are converted into geotiff(tiff) file with coustom projections, see the codes for nc to tiff &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Reprojecting SHAPE file python</h1>
+
+<h3>
+  2014-06-18</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>##reporjecting shape file using python##</p>
+
+<ul>
+<li><p>WRF output netcdf(nc) or wrfncx.py output nc files are converted into geotiff(tiff) file with coustom projections, see the codes for nc to
+tiff conversion.</p>
+
+<pre><code>from osgeo import gdal
+from osgeo import osr
+import numpy
+import numpy.ma as ma
+datafile = 'ZZZG3wrfout_psl.nc'
+proj_out = osr.SpatialReference()
+proj_out.SetMercator(0.0, 115.02, 0.98931892612652, 0.0, 0.0)
+ds_in = gdal.Open(datafile)
+#subdatasets = ds_in.GetSubDatasets()
+#variables = []
+#for subdataset in subdatasets:
+#     variables.append(subdataset[1].split(&quot; &quot;)[1])
+ds_lon = gdal.Open('NETCDF:&quot;ZZZG3wrfout_psl.nc&quot;:lon')
+ds_lat = gdal.Open('NETCDF:&quot;ZZZG3wrfout_psl.nc&quot;:lat')
+longs = ds_lon.GetRasterBand(1).ReadAsArray()
+lats = ds_lat.GetRasterBand(1).ReadAsArray()
+ds_lon = None
+ds_lat = None
+proj_gcp = osr.SpatialReference()
+proj_gcp.ImportFromEPSG(4326)
+transf = osr.CoordinateTransformation(proj_gcp, proj_out)
+ul = transf.TransformPoint(float(longs[0][0]), float(lats[0][0]))
+lr = transf.TransformPoint(float(longs[len(longs)-1][len(longs[0])-1]),
+float(lats[len(longs)-1][len(longs[0])-1]))
+ur = transf.TransformPoint(float(longs[0][len(longs[0])-1]),
+float(lats[0][len(longs[0])-1]))
+ll = transf.TransformPoint(float(longs[len(longs)-1][0]),
+float(lats[len(longs)-1][0]))
+gt0 = ul[0]
+gt1 = (ur[0] - gt0) / len(longs[0])
+gt2 = (lr[0] - gt0 - gt1*len(longs[0])) / len(longs)
+gt3 = ul[1]
+gt5 = (ll[1] - gt3) / len(longs)
+gt4 = (lr[1] - gt3 - gt5*len(longs) ) / len(longs[0])
+gt = (gt0,gt1,gt2,gt3,gt4,gt5)
+ds_u10 = gdal.Open('NETCDF:&quot;'+datafile+'&quot;:psl')
+#i=23
+#num_bands = ds_u10.RasterCount
+x_size = ds_u10.RasterXSize
+y_size = ds_u10.RasterYSize
+ds_p_b = ds_u10.GetRasterBand(1).ReadAsArray()
+driver = gdal.GetDriverByName( 'GTiff' )
+ds_out = driver.Create( 'G3tas.tiff', x_size, y_size, 1, gdal.GDT_Float32 )
+ds_out.SetGeoTransform( gt )
+ds_out.SetProjection(proj_out.ExportToWkt())
+ds_out.GetRasterBand(1).WriteArray( ds_p_b )
+</code></pre></li>
+
+<li><p>to make a shape file to overlay on this geotiff files, shape file has to converted into the same projection as of geotiff, the code is
+based on <a href="http://www.gis.usu.edu/~chrisg/python/2009/lectures/ospy_hw2b.py">this</a>
+and <a href="http://geoinformaticstutorial.blogspot.in/2012/10/reprojecting-shapefile-with-gdalogr-and.html">this</a>, the code is as follows
+```</p>
+
+<h1 id="import-modules">import modules</h1>
+
+<p>import ogr, osr, os, sys</p></li>
+</ul>
+
+<h1 id="set-the-working-directory">set the working directory</h1>
+
+<p>os.chdir(&lsquo;/home/swl-sacon-dst/Documents/GISE<em>2013/LAB/GRIBJSON</em>inst/wrfncxnj-0.1<em>r2120</em>old/&lsquo;)</p>
+
+<h1 id="get-the-shapefile-driver">get the shapefile driver</h1>
+
+<p>driver = ogr.GetDriverByName(&lsquo;ESRI Shapefile&rsquo;)</p>
+
+<h1 id="create-the-input-spatialreference">create the input SpatialReference</h1>
+
+<p>inSpatialRef = osr.SpatialReference()
+inSpatialRef.ImportFromEPSG(4326)</p>
+
+<p>outSpatialRef = osr.SpatialReference()
+outSpatialRef.SetMercator(0.0, 115.02, 0.98931892612652, 0.0, 0.0)</p>
+
+<h1 id="create-the-coordinatetransformation">create the CoordinateTransformation</h1>
+
+<p>coordTrans = osr.CoordinateTransformation(inSpatialRef, outSpatialRef)</p>
+
+<h1 id="open-the-input-data-source-and-get-the-layer">open the input data source and get the layer</h1>
+
+<p>inDS = driver.Open(&lsquo;CBE_Boundary.shp&rsquo;, 0)
+if inDS is None:
+  print &lsquo;Could not open file&rsquo;
+  sys.exit(1)
+inLayer = inDS.GetLayer()</p>
+
+<h1 id="create-a-new-data-source-and-layer">create a new data source and layer</h1>
+
+<p>fn = &lsquo;hw2b.shp&rsquo;
+if os.path.exists(fn):
+  driver.DeleteDataSource(fn)
+outDS = driver.CreateDataSource(fn)
+if outDS is None:
+  print &lsquo;Could not create file&rsquo;
+  sys.exit(1)
+outLayer = outDS.CreateLayer(&lsquo;hw2b&rsquo;, geom_type=ogr.wkbPolygon)</p>
+
+<h1 id="get-the-fielddefn-for-the-county-name-field">get the FieldDefn for the county name field</h1>
+
+<p>feature = inLayer.GetFeature(0)
+fieldDefn = feature.GetFieldDefnRef(&lsquo;id&rsquo;)</p>
+
+<h1 id="add-the-field-to-the-output-shapefile">add the field to the output shapefile</h1>
+
+<p>outLayer.CreateField(fieldDefn)</p>
+
+<h1 id="get-the-featuredefn-for-the-output-shapefile">get the FeatureDefn for the output shapefile</h1>
+
+<p>featureDefn = outLayer.GetLayerDefn()</p>
+
+<h1 id="loop-through-the-input-features">loop through the input features</h1>
+
+<p>inFeature = inLayer.GetNextFeature()
+while inFeature:</p>
+
+<p># get the input geometry
+  geom = inFeature.GetGeometryRef()</p>
+
+<p># reproject the geometry
+  geom.Transform(coordTrans)</p>
+
+<p># create a new feature
+  outFeature = ogr.Feature(featureDefn)</p>
+
+<p># set the geometry and attribute
+  outFeature.SetGeometry(geom)
+  outFeature.SetField(&lsquo;id&rsquo;, inFeature.GetField(&lsquo;id&rsquo;))</p>
+
+<p># add the feature to the shapefile
+  outLayer.CreateFeature(outFeature)</p>
+
+<p># destroy the features and get the next input feature
+  outFeature.Destroy
+  inFeature.Destroy
+  inFeature = inLayer.GetNextFeature()</p>
+
+<h1 id="close-the-shapefiles">close the shapefiles</h1>
+
+<p>inDS.Destroy()
+outDS.Destroy()</p>
+
+<h1 id="create-the-prj-file">create the *.prj file</h1>
+
+<p>outSpatialRef.MorphToESRI()
+file = open(&lsquo;hw2b.prj&rsquo;, &lsquo;w&rsquo;)
+file.write(outSpatialRef.ExportToWkt())
+file.close()
+```
+- this reprojection also results in UTM conversion, there by provide the shape file attributes such as area and length in meter or km.</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

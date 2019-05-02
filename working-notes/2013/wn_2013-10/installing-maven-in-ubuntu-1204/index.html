@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Installing maven in Ubuntu 1204 - Nishadh KA</title>
+    <meta property="og:title" content="Installing maven in Ubuntu 1204 - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="Based on links http://docs.geotools.org/latest/userguide/build/install/mvn.html http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/ &amp;hellip;">
+      <meta property="og:description" content="Based on links http://docs.geotools.org/latest/userguide/build/install/mvn.html http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/ &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Installing maven in Ubuntu 1204</h1>
+
+<h3>
+  2013-10-08</h3>
+<hr>
+
+
+      </header>
+
+
+
+<ul>
+<li><p>Based on links
+<a href="http://docs.geotools.org/latest/userguide/build/install/mvn.html">http://docs.geotools.org/latest/userguide/build/install/mvn.html</a> <a href="http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/">http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/</a> <a href="http://lukieb.wordpress.com/2011/02/15/installing-maven-3-on-ubuntu-10-04-lts-server/">http://lukieb.wordpress.com/2011/02/15/installing-maven-3-on-ubuntu-10-04-lts-server/</a></p></li>
+
+<li><p>Download, untar and copy maven in /usr/local/</p></li>
+</ul>
+
+<p>wget <a href="http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz">http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz</a>
+tar -zxf apache-maven-3.0.4-bin.tar.gz
+sudo cp -R apache-maven-3.0.4 /usr/local</p>
+
+<ul>
+<li>then link with bin folder</li>
+</ul>
+
+<p>sudo ln -s /usr/local/apache-maven-3.0.4/bin/mvn /usr/bin/mvn</p>
+
+<ul>
+<li>Then add java home link in the .bashrc
+sudo nano .bashrc
+&mdash;JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64 Thats it maven is installed Test it</li>
+</ul>
+
+<p>mvn –version</p>
+
+<ul>
+<li>Seems every think ok but there will be an issue while mvn install, the error of
+javac&rdquo;: java.io.IOException: error=2, No such file or directory javac not found</li>
+</ul>
+
+<p>type
+javac – version in terminal it will say no javac in computer</p>
+
+<p>javac &ndash;version</p>
+
+<p>The program &lsquo;javac&rsquo; can be found in the following packages:
+ * default-jdk
+ * ecj
+ * gcj-4.6-jdk
+ * openjdk-6-jdk
+ * gcj-4.5-jdk
+ * openjdk-7-jdk</p>
+
+<p>So do sudo apt-get install default-jdk
+the error goes away</p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

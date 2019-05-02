@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>WRFCHEM CBE A1 - Nishadh KA</title>
+    <meta property="og:title" content="WRFCHEM CBE A1 - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="###WRF CHEM for Coimbatore A1 using ndown.exe###
+####WPS#### 1. The WPS components geogrid.exe, ungrib.exe and metgrid.exe was from the output of last run on detailed in this
+####real.exe#### 1. &amp;hellip;">
+      <meta property="og:description" content="###WRF CHEM for Coimbatore A1 using ndown.exe###
+####WPS#### 1. The WPS components geogrid.exe, ungrib.exe and metgrid.exe was from the output of last run on detailed in this
+####real.exe#### 1. &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>WRFCHEM CBE A1</h1>
+
+<h3>
+  2014-09-08</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>###WRF CHEM for Coimbatore A1 using ndown.exe###</p>
+
+<p>####WPS####
+1. The WPS components geogrid.exe, ungrib.exe and metgrid.exe was from the output of last run on detailed in <a href="Working_with_WRF_CHEM_part7.0_CBE_DustOnlyTutorial.md">this</a></p>
+
+<p>####real.exe####
+1. Real.exe also from the last run <a href="Working_with_WRF_CHEM_part7.0_CBE_DustOnlyTutorial.md">output</a>. The output comprised of files namely wrfbdy<em>d01, wrfinput</em>d01, wrfinput<em>d02, wrfinput</em>d03, wrfinput<em>d04 were used as such for convert</em>emiss.exe run.</p>
+
+<p>####Prep<em>Chem</em>Src.exe####
+1. It was executed as per the <a href="http://ruc.noaa.gov/wrf/WG11/wrf_tutorial_nepal/exercise_2.html">tutorial</a> and Prep<em>Chem</em>Src.exe was executed by following point 3 in that tutorial.
+2. The input file for Prep<em>Chem</em>Src.exe named as Prep<em>Chem</em>Src.inp is edited following namelist.wps last run based on <a href="http://ruc.noaa.gov/wrf/WG11/Emission_guide.pdf">emission<em>inventory</em>guide</a>, it has option for nesting also by choosing number of grids and for CBE case by entering four grids. The used inp file is <a href="prep_chem_sources.inp_CBE_4domain">this</a>. After editing inp file Prep<em>Chem</em>Src.exe was run by <code>./Prep_Chem_Src.exe</code> command in its bin folder. It run successfully as specified in the tutorial and it created seven files with three bin files for each grid as per the <a href="http://ruc.noaa.gov/wrf/WG11/wrf_tutorial_nepal/exercise_2.html">tutorial</a>. Earlier attempt failed by an un recognized error message and it was then resolved by editing a mistake in the inp file with two dots in variables such as <code>POLELAT</code>.
+3. The created bin files are linked inside the em<em>real folder of wrf serial compile is made by the commands as per the [emission</em>inventory<em>guide](<a href="http://ruc.noaa.gov/wrf/WG11/Emission">http://ruc.noaa.gov/wrf/WG11/Emission</a></em>guide.pdf). But the command creates broken link, the command has to changed as per below and executed from real_em folder</p>
+
+<pre><code>            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g1-ab.bin emissopt3_d01
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g1-bb.bin emissfire_d01
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g1-gocartBG.bin wrf_gocart_backg_d01
+
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g2-ab.bin emissopt3_d02
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g2-bb.bin emissfire_d02
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g2-gocartBG.bin wrf_gocart_backg_d02
+
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g3-ab.bin emissopt3_d03
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g3-bb.bin emissfire_d03
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g3-gocartBG.bin wrf_gocart_backg_d03
+
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g4-ab.bin emissopt3_d04
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g4-bb.bin emissfire_d04
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g4-gocartBG.bin wrf_gocart_backg_d04
+</code></pre>
+
+<p>As different from emiss<em>guide wrf</em>gocart<em>backg was given domain identifier for maintaining convention of executing convert</em>emiss.exe as wrf<em>gocart</em>backg_d01.</p>
+
+<p>####convert<em>emiss.exe####
+1. Nesting is not enabled with convert</em>emiss.exe as per <a href="http://ruc.noaa.gov/wrf/WG11/wrf_tutorial_2012_brazil/wrf-chem_tutorial_nesting.pdf">this</a>. So each nesting has to be run by changing the namelist.input and considering as single domain. So the namelist.input used in last DUSTONLY simulation was edited based on <a href="http://ruc.noaa.gov/wrf/WG11/Emission_guide.pdf">emission<em>inventory</em>guide</a> page number 8 and 9. The namelist was renamed as <code>namelist.input_CE_do1</code> for distinguishing domains. File name for wrf<em>gocart</em>backg_<em>d01 was renamed into wrf</em>gocart<em>backg and then executed convert</em>emiss.exe by <code>./convert_emiss.exe</code>
+1. Convert_emiss.exe run for sometime end abruptly with following lines,</p>
+
+<pre><code>            Number of fire emissions:         37
+        FIRE EMISSIONS INPUT FILE TIME PERIOD (GMT):       -1 TO        0
+        NOW OPEN FILE FOR WRITE: wrffirechemi_d01
+        FIRE EMISSIONS OUTPUT file name: wrffirechemi_d01
+        EMISSIONS CONVERSION : end of program
+</code></pre>
+
+<p>but it created three files as specified in the tutorial. It was rechecked with m2lab ncview and made sure that some emission inventory are there. Some doubts in fire emiss other than all are normal, firechemi all variables are blank it seems.</p>
+
+<p>####real.exe####
+1. After convert<em>emiss.exe again real.exe was executed with the same namelist.input and end with succeful completion and creation of wrfinput and wrfbdy files.
+####wrf.exe for D01####
+1. With this the wrf.exe was run using this [namelist](namelist.input</em>CE_d01) and it ends with error saying that</p>
+
+<pre><code>             FATAL CALLED FROM FILE:  &lt;stdin&gt;  LINE:     826
+            ... Could not find matching time in input file wrfchemi_gocart_bg_d01
+                -------------------------------------------
+</code></pre>
+
+<p>this error problem was latter solved by correcting the namelist as per the earlier emission inventory tutorial namelist. the used namelsit was <a href="namelist.input_WRFrun01">this</a> and all former steps real.exe, convert_emiss.exe, and rea.exe was rerun for requiered input files for wrf.exe . Using that namelist solved the last error on wrf.exe but it ends with new error as below</p>
+
+<pre><code>            Timing for processing lateral boundary for  domain        1:    0.14533 elapsed seconds
+            WRF TILE   1 IS      1 IE     90 JS      1 JE     85
+            WRF NUMBER OF TILES =   1
+       1          40
+            Segmentation fault (core dumped)
+</code></pre>
+
+<ol>
+<li>The error segmentation fault seems to be a error due to large domain size as compared to last successful emission inventory tutorial. So the domain two of the current namelist is executed to check the last assumption.</li>
+
+<li><p>Made soft link for prep<em>chem</em>src outputs for grid 2 that is for domain 2.</p>
+
+<pre><code>        ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g2-ab.bin emissopt3_d01
+        ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g2-bb.bin emissfire_d01
+        ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g2-gocartBG.bin wrf_gocart_backg
+</code></pre></li>
+
+<li><p>Edited namelist for moving the second domain as main first domain and run real.exe and it ends with error indicating mismatch with met<em>em domain size. So the domain 2 met</em>em file was soft linked and its name was changed as of domain one</p>
+
+<pre><code>        ln -sf /home/swl-sacon-dst/wrf/WRF341/WRF_CHEM_trails/CBE_dustonly/WPS/met_em.d02.2014-06-05_03:00:00.nc .
+        ln -sf /home/swl-sacon-dst/wrf/WRF341/WRF_CHEM_trails/CBE_dustonly/WPS/met_em.d02.2014-06-05_06:00:00.nc .
+</code></pre></li>
+
+<li><p>Then run the real.exe with this <a href="namelist.inputWRFrun02">namelist</a> making chem<em>opt=0 and resolution into 9000 as of met</em>em file. it ran and created input and bdy file, with this convert<em>emiss.exe was run with this [namelist](namelist.input</em>CE_03), using real.exe namelist ends in creation of only wrfchemi no other chemi files. But used this <a href="namelist.inputWRFrun02">namelist</a>, it created all chemi files.</p></li>
+
+<li><p>Reused the last used namelist and edited chem_opt=301 and run real.exe, it created bdy and input file, then wrf.exe it worked without memroy error, making certain thaat problem is with large domain running wrf.exe.</p></li>
+
+<li><p>Based on this <a href="http://forum.wrfforum.com/viewtopic.php?f=6&amp;t=104">page</a>, it is expected that the error might be due to difference in namelist.input, so the current namelist.input was edited to consider this by comapring it with emissTut namelist. The edited namelist was <a href="namelist.inputWRFrun03">this</a>. But running wrf.exe return error of</p>
+
+<pre><code>         FATAL CALLED FROM FILE:  &lt;stdin&gt;  LINE:     780
+          input_wrf.F: SIZE MISMATCH:  namelist             ide,jde,kde=          90          85          31 ; input                        data ide,jde,kde=          90          85          36
+             -------------------------------------------
+</code></pre>
+
+<p>Indicating staring from real.exe has to run again.</p></li>
+
+<li><p>Emiss files are linked by this command</p>
+
+<pre><code>        ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g1-ab.bin emissopt3_d01
+        ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g1-bb.bin emissfire_d01
+        ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g1-gocartBG.bin wrf_gocart_backg
+</code></pre></li>
+</ol>
+
+<p>Used this <a href="namelist.inputWRFrun03">namelist</a> for real.exe and this <a href="namelist.input_CE_04">namelist</a> for convert_emiss.exe. It created input and bdy condition files without any error.
+1. With <a href="namelist.inputWRFrun03">namelist</a> wrf.exe was run and it was running without any error, it took 3:15 hours to simulated do1 for 6 hours.</p>
+
+<p>####Ndown for DO2####
+1. Pre step for Ndown.exe is to have wrfinput file named as wrfndi<em>d02 for domain 02. So has to run the real.exe with all emiss input file and create wrfinput01 and wrfbdy01. For this the namelist was edited and used this [namelist](namelist.input</em>D02). The prep<em>chem</em>src link was made and run real.exe.</p>
+
+<pre><code>            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g2-ab.bin emissopt3_d01
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g2-bb.bin emissfire_d01
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g2-gocartBG.bin wrf_gocart_backg
+</code></pre>
+
+<ol>
+<li>Then executed real.exe with chem<em>opt=0 in the namelist.input for wrfinput</em>d01 and wrfbdy_d01, the metfiles for doiman d02 was changed into d01 for this. It created files as required.</li>
+<li>These files are used for running convert<em>emiss.exe, by using this [namelist.input](namelist.input</em>CE<em>D02) file for specifically to create three chmei files created by the program. This resulted in creation of required files such as wrffirechemi</em>d01, wrfchemi<em>gocart</em>bg<em>d01 and wrfchemi</em>d01.</li>
+<li>Then executed the real.exe using this <a href="namelist.input_D02">namelist.input</a> and it created two files of wrfinput<em>d01 and wrfbdy</em>d01 with files size 59.4MB and 54.6MB respectively. The files were renamed into wrfndi<em>d02 and wrfbdy</em>d01_D02 respectively.<br /></li>
+<li>Using max<em>dom=2 [namelist](namelist.inputNdown</em>D01D02) for d01 and do2, then executed the ndown.exe. It created two files namely wrfinput<em>d02 and wrfbdy</em>d02 with files size of 15.7MB and 7.9MB respectively. The files makes to worry about the correctness of this procedure, since the input files are 50MB in range.</li>
+<li>Then executed the wrf.exe using this <a href="namelist.input_D02">namelist.input</a>. it was succeffully intiatied. But forget to rename the wrf output of domain 01, the 00:00:00 file was replaced. It took 1 hour 20 minutes to run a single hour simulation. Considering this huge time requirement, the files are transfered to parallel compiled wrf and executed with 3 cores by tis command <code>mpirun -np 3 -host localhost ./wrf.exe
+</code>, it considerably reduced the simulation time from 1 hour 20 minutes to 14 minutes for single hour simulation, this stands as astonishing achievement of parallel programming experienced by me.<br /></li>
+</ol>
+
+<p>####Ndown for DO3####
+1. Edited the last used <a href="namelist.input_D03">namelist</a> for single domain D02 for current domain D03. Changed chem<em>opt=301 into chem</em>opt=0 and renamed the metfiles into d01 domain from d03
+and made link for non available time metfiles as follows</p>
+
+<pre><code>            ln -sf /home/swl-sacon-dst/wrf/WRF341/WRF_CHEM_trails/CBE_dustonly/WPS/met_em.d03.2014-06-05_03:00:00.nc .
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/WRF_CHEM_trails/CBE_dustonly/WPS/met_em.d03.2014-06-05_06:00:00.nc .
+</code></pre>
+
+<ol>
+<li>Then executed real.exe and created wrfinput<em>d01 and wrfbdy</em>d01 with file size of 31MB and 11MB respectively.</li>
+
+<li><p>The prep<em>chem</em>src files are linked  by</p>
+
+<pre><code>        ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g3-ab.bin emissopt3_d01
+        ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g3-bb.bin emissfire_d01
+        ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g3-gocartBG.bin wrf_gocart_backg
+</code></pre></li>
+
+<li><p>These files are used for running convert<em>emiss.exe, by using this [namelist.input](namelist.input</em>CE<em>D03) file for specifically to create three chmei files created by the program. This resulted in creation of required files such as wrffirechemi</em>d01, wrfchemi<em>gocart</em>bg<em>d01 and wrfchemi</em>d01.</p></li>
+
+<li><p>Then executed the real.exe using this <a href="namelist.input_D03">namelist.input</a> with chem<em>opt=301 and it created two files of wrfinput</em>d01 and wrfbdy<em>d01 with files size 110MB and 75MB respectively. The files were renamed into wrfndi</em>d03 and wrfbdy<em>d01</em>D03 respectively.</p></li>
+
+<li><p>Using max<em>dom=2 [namelist](namelist.inputNdown</em>D02D03
+) for d02 and do3, then executed the ndown.exe. It created two files namely wrfinput<em>d02 and wrfbdy</em>d02 with files size of 29MB and 10MB respectively.</p></li>
+
+<li><p>Then executed the wrf.exe using this <a href="namelist.input_D03">namelist.input</a> by changing chem<em>opt into 301 and changing into wrfinput</em>d01, wrfbdy_d01. it was successfully initiated. It took whooping 8 hours to simulate (from 11:43PM to 7:45 PM) with 3 core parallel processing for a six hour simulation. it create 112MB files for each hour wrfoutput.</p></li>
+</ol>
+
+<p>####Ndown for DO4####
+1. Edited the last used <a href="namelist.input_D04">namelist</a> for single domain D03 for current domain D04. Changed chem<em>opt=301 into chem</em>opt=0 and renamed the metfiles into d01 domain from d03
+and made link for non available time metfiles as follows</p>
+
+<pre><code>            ln -sf /home/swl-sacon-dst/wrf/WRF341/WRF_CHEM_trails/CBE_dustonly/WPS/met_em.d04.2014-06-05_03:00:00.nc .
+            ln -sf /home/swl-sacon-dst/wrf/WRF341/WRF_CHEM_trails/CBE_dustonly/WPS/met_em.d04.2014-06-05_06:00:00.nc .
+</code></pre>
+
+<ol>
+<li>Then executed real.exe and created wrfinput<em>d01 and wrfbdy</em>d01 with file size of 64.6MB and 15.6MB respectively.</li>
+
+<li><p>The prep<em>chem</em>src files are linked  by</p>
+
+<pre><code>        ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g4-ab.bin emissopt3_d01
+        ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g4-bb.bin emissfire_d01
+        ln -sf /home/swl-sacon-dst/wrf/WRF341/PREP-CHEM-SRC-1.4_1/bin/FIRE-RRCH-T-2014-06-05-000000-g4-gocartBG.bin wrf_gocart_backg
+</code></pre></li>
+
+<li><p>These files are used for running convert<em>emiss.exe, by using this [namelist.input](namelist.input</em>CE<em>D04) file for specifically to create three chmei files created by the program. This resulted in creation of required files such as wrffirechemi</em>d01, wrfchemi<em>gocart</em>bg<em>d01 and wrfchemi</em>d01.</p></li>
+
+<li><ol>
+<li>Then executed the real.exe using this <a href="namelist.input_D03">namelist.input</a> with chem<em>opt=301 and it created two files of wrfinput</em>d01 and wrfbdy<em>d01 with files size 231MB and 107MB respectively. The files were renamed into wrfndi</em>d02 and wrfbdy<em>d01</em>D03 respectively.<br /></li>
+</ol></li>
+
+<li><p>Using max<em>dom=2 [namelist](namelist.inputNdown</em>D02D03
+) for d02 and do3, then executed the ndown.exe. It created two files namely wrfinput<em>d02 and wrfbdy</em>d02 with files size of 61MB and 15MB respectively.</p></li>
+
+<li><p>Then executed the wrf.exe using this <a href="namelist.input_D03">namelist.input</a> by changing chem<em>opt into 301 and changing into wrfinput</em>d01, wrfbdy<em>d01. Files such as wrfinput</em>d01, wrfbdy<em>d01, wrffirechemi</em>d01, wrfchemi<em>gocart</em>bg<em>d01, wrfchemi</em>d01 and namelist was copied inside parallel compiled wrf test/em_real folder</p></li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

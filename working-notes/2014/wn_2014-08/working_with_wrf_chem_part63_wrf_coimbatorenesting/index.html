@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Working with WRF CHEM part63 WRF CoimbatoreNesting - Nishadh KA</title>
+    <meta property="og:title" content="Working with WRF CHEM part63 WRF CoimbatoreNesting - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##Trail for WRF-CHEM, WRF simulation with domain for Coimbatore and one way Nesting-Ndown.exe## 1. It is based on this to run compiled wrf in serial mode to execute domain over Coimbatore with nested &amp;hellip;">
+      <meta property="og:description" content="##Trail for WRF-CHEM, WRF simulation with domain for Coimbatore and one way Nesting-Ndown.exe## 1. It is based on this to run compiled wrf in serial mode to execute domain over Coimbatore with nested &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-07/cbe_domain.png">
+    
+    
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Working with WRF CHEM part63 WRF CoimbatoreNesting</h1>
+
+<h3>
+  2014-08-19</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Trail for WRF-CHEM, WRF simulation with domain for Coimbatore and one way Nesting-Ndown.exe##
+1. It is based on <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/NestRuns/ndown.htm">this</a> to run compiled wrf in serial mode to execute domain over Coimbatore with nested model run by Ndown.exe based one way nesting.</p>
+
+<p>###WPS: Ungrib###</p>
+
+<ol>
+<li>As per this <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/SingleDomain/ungrib.htm">page</a>, the WPS ungrib stage was carried out.</li>
+<li>The gfs files downloaded was used, average size around 45MB for each files. The files for time peroid 00,03, 06 was kept under a folder gfs.</li>
+<li>The vtable was linked inside WPS folder by <code>ln -sf ungrib/Variable_Tables/Vtable.GFS Vtable</code>.</li>
+
+<li><p>The GFS files inside the gfs folder is linked with WPS folder by <code>./link_grib.csh /home/swl-sacon-dst/wrf/WRF341/coimbatore/gfs/</code>, by this following file with links were created by this step inside WPS folder.</p>
+
+<pre><code>GRIBFILE.AAA -&gt; /home/swl-sacon-dst/wrf/WRF341/coimbatore/gfs/14060500.gfs.t00z.pgrb2f00 
+GRIBFILE.AAB -&gt; /home/swl-sacon-dst/wrf/WRF341/coimbatore/gfs/14060500.gfs.t00z.pgrb2f03
+GRIBFILE.AAC -&gt; /home/swl-sacon-dst/wrf/WRF341/coimbatore/gfs/14060500.gfs.t00z.pgrb2f06
+</code></pre></li>
+
+<li><p>The namelist.wps in WPS folder was edited and the file become</p>
+
+<pre><code>&amp;share
+max_dom = 4,
+start_date =
+</code></pre>
+
+<p>&lsquo;2014-06-05<em>00:00:00&rsquo;,&lsquo;2014-06-05</em>00:00:00&rsquo;,&lsquo;2014-06-05<em>00:00:00&rsquo;,&lsquo;2014-06-05</em>00:00:00&rsquo;
+    end<em>date = &lsquo;2014-06-05</em>06:00:00&rsquo;,&lsquo;2014-06-05<em>06:00:00&rsquo;,&lsquo;2014-06-05</em>06:00:00&rsquo;,&lsquo;2014-06-05<em>06:00:00&rsquo;
+    interval</em>seconds = 10800,
+    io<em>form</em>geogrid = 2,
+    /
+    &amp;metgrid
+    fg<em>name = &lsquo;FILE&rsquo;
+    io</em>form_metgrid = 2,
+    /</p></li>
+
+<li><p>The ungrib.exe was run using this command <code>./ungrib.exe &gt;&amp; ungrib_data.log</code>, the log file says successful completion of the ungrib.</p></li>
+</ol>
+
+<p>###WPS:Geogrid###</p>
+
+<ol>
+<li>This part of tutorial is based on the <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/NestRuns/ndown1-2.htm">page</a></li>
+
+<li><p>For the geogrid part of WPS, geogrid section from namelist.wps EMS run was used. The namelist.wps becomes</p>
+
+<pre><code>&amp;share
+        max_dom = 4,
+        start_date          ='2014-06-05_00:00:00','2014-06-05_00:00:00','2014-06-05_00:00:00','2014-06-05_00:00:00'
+        end_date =
+</code></pre>
+
+<p>&lsquo;2014-06-05<em>06:00:00&rsquo;,&lsquo;2014-06-05</em>06:00:00&rsquo;,&lsquo;2014-06-05<em>06:00:00&rsquo;,&lsquo;2014-06-05</em>06:00:00&rsquo;
+            interval<em>seconds = 10800,
+            io</em>form_geogrid = 2,
+            /</p>
+
+<pre><code>        &amp;geogrid
+        parent_id                  = 1, 1, 2, 3
+        parent_grid_ratio          = 1, 3, 3, 3
+        i_parent_start             = 1, 26, 22, 22
+        j_parent_start             = 1, 7, 15, 32
+        e_we                       = 90, 76, 97, 136
+        e_sn                       = 85, 73, 106, 157
+        geog_data_res              = '10m', '5m', '30s', '30s'
+        dx                         = 27000
+        dy                         = 27000
+        map_proj                   = 'lambert'
+        ref_lat                    = 18.363
+        ref_lon                    = 78.925
+        truelat1                   = 18.363
+        truelat2                   = 18.363
+        stand_lon                  = 78.925
+        ref_x                      = 45
+        ref_y                      = 42.5
+        geog_data_path             = '/home/hoopoe/ems/wrfems/data/geog'
+        /
+
+        &amp;metgrid
+        fg_name = 'FILE'
+        io_form_metgrid = 2,
+</code></pre>
+
+<p>/
+star/end date, max<em>dom, interval</em>seconds were edited to suite the coimbatore domian. The coimbatore domain was visualised using <code>ncdump -h</code> and it is as <img src="https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-07/cbe_domain.png" alt="follows" title="Steps in WRF katrina run with ndown based nesting" />.</p></li>
+
+<li><p>With this the geogrid was executed by <code>./geogrid.exe</code> and ended with successful completion and following files   was created.</p>
+
+<pre><code>geo_em.d01.nc
+geo_em.d02.nc
+geo_em.d03.nc
+geo_em.d04.nc
+</code></pre></li>
+</ol>
+
+<p>###WPS:Metgrid###
+14. This part of trail is based on the <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/NestRuns/ndown1-3.htm">page</a>
+15. For the metgrid part of WPS, as per the turial page the content was checked for namelist.wps and kept as such of geogrid.exe namelist.
+16. Then the metgrid was executed by <code>./metgrid.exe</code> and it ended with successful completion and creation of following nc files for domains 1 to 4 as per the tutorial page.
+   met<em>em.d01.2014-06-05</em>00:00:00.nc
+   met<em>em.d01.2014-06-05</em>03:00:00.nc
+   met<em>em.d01.2014-06-05</em>06:00:00.nc
+     met<em>em.d02.2014-06-05</em>00:00:00.nc
+   met<em>em.d02.2014-06-05</em>03:00:00.nc
+   met<em>em.d02.2014-06-05</em>06:00:00.nc
+   met<em>em.d03.2014-06-05</em>00:00:00.nc
+   met<em>em.d03.2014-06-05</em>03:00:00.nc
+   met<em>em.d03.2014-06-05</em>06:00:00.nc
+     met<em>em.d04.2014-06-05</em>00:00:00.nc
+   met<em>em.d04.2014-06-05</em>03:00:00.nc
+   met<em>em.d04.2014-06-05</em>06:00:00.nc</p>
+
+<p>###WRF:real.exe for first domain 01###</p>
+
+<ol>
+<li>This part of tutorial is based on the <a href="http://www2.mmm.ucar.edu/wrf/users/wrfv2/runwrf.html">page</a></li>
+
+<li><p>For making WRF run the folder content from <code>WRFV3_serial/test/em_real</code> was used as such and all the met files are linked inside the em_real folder using the command</p>
+
+<pre><code>ln -sf /home/swl-sacon-dst/wrf/WRF341/coimbatore/WPS/met_em* .
+</code></pre></li>
+
+<li><p>For the real.exe part of WRF WITH NESTING NDOWN, following namelist.input was used based on WRF ems namelist.real and edited as per the tutorial page to suit the domain of Coimbatore case with first Do1 domain and the namelsit.input is this [file](</p></li>
+
+<li><p>The namelist of wrf EMS was suited with tutorial page namelist.input and what ever variables not available in the namelist.input was removed and matched as much as with later. Changes or addition made specifically on variable was on &amp;dynamics:base<em>temp, non</em>hydrostatic , on &amp;bdy_control:specified, nested. The namelist.input based on WRF EMS with 230 lines was cut short into 109 lines with this editing.</p></li>
+
+<li><p>Resultant [namelist] was used to run the first domain and it run with successful completion and creation of files <code>
+wrfinput_d01, wrfbdy_d01</code>With file size of 20.6MB, and 10.8 MB respectively.</p></li>
+</ol>
+
+<p>###WRF:wrf.exe for DO1###</p>
+
+<ol>
+<li>Then run <code>./wrf.exe</code> and it was executed correctly and produced one file with file name of <code>wrfout_d01_2014-06-05_00:00:00</code> with file size of 1.2GB.</li>
+</ol>
+
+<p>###WRF:ndown.exe:making temporary fine grid initial condition- Domain 02###
+14. This part of trail is based on the <a href="http://www2.mmm.ucar.edu/wrf/users/wrfv2/runwrf.html">page</a>
+15. The metfiles created in inital WPS was renamed to consider do2 as do1<br />
+20. For fresh real.exe to run, the namelist.input dO2 details was kept and all other details are nullified by making max_dom=1. The final namelist for domain 02 is this [file]
+21. The real.exe was run and it produced two files <code>
+wrfinput_d01, wrfbdy_d01</code>, contrary to one file <code>wrfinput_d01</code> as specified in the <a href="http://www2.mmm.ucar.edu/wrf/users/wrfv2/runwrf.html">page</a>.</p>
+
+<p>###WRF:NDOWN.exe FOR DO2###
+22. the file <code>wrfinput_d01</code> was renamed into <code>wrfndi_d02</code> and used the namelist.input as of coarse domain and changed into max<em>dom into 2 and the file is this namelist.input</em>DO1DO2. Then the ndown.exe was executed and it ends in error saying that.</p>
+
+<pre><code>            FATAL CALLED FROM FILE:  &lt;stdin&gt;  LINE:     515
+            Nest start locations do not match: namelist.input vs gridded input file
+            -------------------------------------------
+            -------------- FATAL CALLED ---------------
+            FATAL CALLED FROM FILE:  &lt;stdin&gt;  LINE:     515
+            Nest start locations do not match: namelist.input vs gridded input file
+</code></pre>
+
+<ol>
+<li>Based on the error, the real.exe was redone with edited namelist.input the file is <a href="namelist.input_DO2">this</a> and run <code>./real.exe</code> and crearted new files of <code>
+wrfinput_d01, wrfbdy_d01</code>, in which <code>
+wrfinput_d01</code> was renamed into <code>
+wrfndi_d02</code>.</li>
+<li>Again <code>./ndown.exe</code> was executed and this time ends with error of
+    &mdash;&mdash;&mdash;&mdash;&ndash; FATAL CALLED &mdash;&mdash;&mdash;&mdash;&mdash;
+             FATAL CALLED FROM FILE:  <stdin>  LINE:     371
+             Found 2014-06-05<em>03:00:54 before I found   2014-06-05</em>03:00:00.
+            &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+It is found in wrf.exe in former case where wrfoutput was returned in residual timings such as this <code>Timing for Writing wrfout_d01_2014-06-05_05:56:24 for domain        1:    0.50122 elapsed seconds</code>, the error is suspected to realted with this writing. So amde a serach to output the wrf in every hour rather than sigle file as produced in former wrf.exe for coimbatore nesting. Foun this <a href="http://www.dtcenter.org/wrf-nmm/users/OnLinePractical/boston_nest.htm">page</a> indiating the naelist input variable to be changed into make wrf output in every hour. As per the page the variables under &amp;time<em>control such as history</em>interval = 60, 60, [Outputs every hour] and frames<em>per</em>output = 1, 1, [Outputs one file per hour - desired for UPP] was edited in the namelist.input. surprisingly the varibles for frames<em>per</em>output was arround 1000 in the former running namelist.input. So the namelist.input was edited and the file is <a href="namelist.input_DO1_v2">this</a>. The created files in later run was deleted and rerun the real.exe and wrf.exe for domain DO1.</li>
+<li>The editing of namelist.input variabel such as history<em>interval and frames</em>per_output are making wrf to output in per hour but it didn&rsquo;t changed the problem of rounding the time in nearest hour ending, the problem faced by ndow.exe. Searched with this and found no information regarding this error and followed the referred page namelist in which the time step is rounded to 180 seconds that way it produces wrf out put in rounded hours, other way as per the wrf ems namelist.real and the pref‏ered method for choosing time step with 6x dx where dx is grid resolution in km is not able to follow, if it is given for 27 km resolution with time step of 6x27=162, it create wrf output in residual timings for example, first hour in wrfout*01:02:21.</li>
+<li>Using the formed wrf ouput in rounded hour, it is moved further to nesting for second domain DO2, followed the <code>making temporary fine grid initial condition- Domain 02</code>, renamed the met<em>em* files and edited the namelist.input for domain DO2 [the file](namelist.input</em>DO2<em>v2). Run ./real.exe and it created the files <code>wrfinput_d01, wrfbdy_d01</code>, in which <code>
+wrfinput_d01</code> was renamed into wrfndi</em>d02 and  <code>wrfbdy_d01</code> was renamed into wrfbdy<em>d01</em>realexe. The namelist was edited for ndown.exe and used this <a href="namelist.input_DO1DO2_v2">file</a> as namelist.input. This time <code>./ndown.exe</code> was run with success and created two files <code>wrfinput_d02, wrfbdy_d02</code> with file size of 14.5MB and 27.5MB.</li>
+</ol>
+
+<p>###WRF:wrf.exe for DO2###</p>
+
+<ol>
+<li>Again changed the namelist.input for considering only the DO2 and so the namelist.input file used in the step of  last ./real.exe, namelist.input<em>DO2</em>v2 was used as such. The wrfoutput also renamed and last ndown.exe output was renamed into DO1. Then ./wrf.exe was executed and it run with SUCCESS COMPLETE WRF and produces the wrfoutput files for DO2.</li>
+</ol>
+
+<p>###WRF:ndown.exe:making temporary fine grid initial condition- Domain 03###
+15. The metfiles created in initial WPS was renamed to consider do3 as do1<br />
+20. For fresh real.exe to run, the namelist.input dO3 details was kept and all other details are nullified by making max<em>dom=1. The final namelist for domain 03 is this [file](CBE</em>namelist.input<em>DO3</em>v1)
+21. The real.exe was run and it produced two files <code>
+wrfinput_d01, wrfbdy_d01</code>, with file size of 25.8 MB and 12.5 MB.</p>
+
+<p>###WRF:NDOWN.exe FOR DO3###
+22. the file <code>wrfinput_d01</code> was renamed into <code>wrfndi_d02</code> and used the namelist.input as of domain 2 and 3. The max<em>dom is changed into 2 and namelist used is this [file](CBE</em>namelist.input<em>DO2DO3</em>v1). One change was made on the namelist that the variable <code>interval_seconds =10800</code> was changed into <code>interval_seconds =3600</code>, considering hourly output of domain DO1. The time step also edited with resoltion of coarser domain that is DO3 in this case. The ndown.exe was executed and it ends <code>SUCCESS COMPLETE NDOWN_EM INIT</code>. It produced two files <code>wrfinput_d02, wrfbdy</code>.</p>
+
+<p>###WRF:wrf.exe for DO3###</p>
+
+<ol>
+<li>Again changed the namelist.input for considering only the DO3 and so the namelist.input file used in the step of  last ./real.exe, <a href="CBE_namelist.input_DO3_v1">CBE<em>namelist.input</em>DO3_v1</a> was used as such.  The wrfoutput also renamed and last ndown.exe output was renamed from <code>wrfinput_d02, wrfbdy_d02</code> into <code>wrfinput_d01, wrfbdy_d01</code>. Then ./wrf.exe was executed and it run with SUCCESS COMPLETE WRF and produces the wrfoutput for DO3.</li>
+</ol>
+
+<p>###WRF:ndown.exe:making temporary fine grid initial condition- Domain 04###
+15. The metfiles created in initial WPS was renamed to consider do4 as do1<br />
+20. For fresh real.exe to run, the namelist.input dO4 details was kept and all other details are nullified by making max<em>dom=1. The final namelist for domain 04 is this [file](CBE</em>namelist.input_DO4  _v1)
+21. The real.exe was run and it produced two files <code>
+wrfinput_d01, wrfbdy_d01</code>, with file size of 58.0 MB and 18.1 MB.</p>
+
+<p>####WRF:NDOWN.exe FOR DO4####
+22. the file <code>wrfinput_d01</code> was renamed into <code>wrfndi_d02</code> and used the namelist.input as of domain 3 and 4. The max<em>dom is changed into 2 and namelist used is this [file](CBE</em>namelist.input<em>DO3DO4</em>v1). Change made on the namelist that the variable <code>interval_seconds =10800</code> was changed into <code>interval_seconds =3600</code>, considering hourly output of domain DO1. Then the ndown.exe was executed and it ends <code>SUCCESS COMPLETE NDOWN_EM INIT</code>. It produced two files <code>wrfinput_d02, wrfbdy_d02</code> with file size of 58.0 MB and 54.4MB.</p>
+
+<p>###WRF:wrf.exe for DO4###</p>
+
+<ol>
+<li>Again changed the namelist.input for considering only the DO4 and so the namelist.input file used in the step of  last ./real.exe, <a href="CBE_namelist.input_DO3_v1">CBE<em>namelist.input</em>DO4_v1</a> was used as such.  The wrfoutput of domain DO3 also renamed and last ndown.exe output was renamed from <code>wrfinput_d02, wrfbdy_d02</code> into <code>wrfinput_d01, wrfbdy_d01</code>. Then ./wrf.exe was executed and it run with SUCCESS COMPLETE WRF and produces the wrfoutput for DO3. For creationg one hour of output it tooks 40 minuts so DO4 will tke 2.30 hours to complete. Along with other domins it can conclude it tooks 5 hours to run 6 hour simulation for four nested domain. The overall nesting process is depicted in figure. <img src="https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-07/WRF_cbe_nesting.png" alt="wrf cbe nesting" title="Steps in WRF cbe run with ndown based nesting" /></li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

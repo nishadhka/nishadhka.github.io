@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>package using maven - Nishadh KA</title>
+    <meta property="og:title" content="package using maven - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="PackageusingMavenforGRIB2JSON
+">
+      <meta property="og:description" content="PackageusingMavenforGRIB2JSON
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>package using maven</h1>
+
+<h3>
+  2014-04-24</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p><em>Package<em>using</em>Maven<em>for</em>GRIB2JSON</em></p>
+
+<ul>
+<li>Java based tools such as grib2json has to compiled with maven</li>
+<li>latest maven is installed, following as per this note (<a href="https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2013-10/Installing_maven_in_Ubuntu_12.04.md">https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2013-10/Installing_maven_in_Ubuntu_12.04.md</a>)</li>
+<li>the tool grib2json requieres java 1.7</li>
+<li>made huge search due to error while trying for
+<code>
+mvn package
+</code>
+it gives error of</li>
+</ul>
+
+<pre><code>Error: JAVA_HOME is not defined correctly.   We cannot execute
+”/usr/lib/jvm/jdk1.7.0”/bin/java
+</code></pre>
+
+<ul>
+<li>later found that, the system doesn&rsquo;t containing jdk1.7.0</li>
+<li>installed jdk1.7.0 follwoing
+(<a href="http://askubuntu.com/questions/117189/apt-get-install-openjdk-7-jdk-doesnt-install-javac-why">http://askubuntu.com/questions/117189/apt-get-install-openjdk-7-jdk-doesnt-install-javac-why</a>)</li>
+<li>now providing
+<code>
+sudo mvn
+</code>
+gives details of mvn installation without error.</li>
+<li>now the grib2json as told in its documentation works without error</li>
+<li>it makes a folder named grib2json-0.8.0-SNAPSHOT.tar.gz</li>
+<li>unziping of it contain grib2json file inside bin foldeer</li>
+<li>executing this file as
+<code>
+sh grib2json
+</code>
+givies indication of its working!</li>
+</ul>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Store json data into Mysql using python - Nishadh KA</title>
+    <meta property="og:title" content="Store json data into Mysql using python - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="Web services APIs such as weather underground data provided in json format is stored in Mysql table using this python script.
+Based on stack overflow answers &amp;hellip;">
+      <meta property="og:description" content="Web services APIs such as weather underground data provided in json format is stored in Mysql table using this python script.
+Based on stack overflow answers &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Store json data into Mysql using python</h1>
+
+<h3>
+  2013-10-28</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>Web services APIs such as weather underground data provided in json format is stored in Mysql table using this python script.</p>
+
+<p>Based on stack overflow answers
+<a href="http://stackoverflow.com/questions/1640715/get-json-data-via-url-and-use-in-python-simplejson">http://stackoverflow.com/questions/1640715/get-json-data-via-url-and-use-in-python-simplejson</a>
+ <a href="http://stackoverflow.com/questions/5687718/python-mysql-insert-data">http://stackoverflow.com/questions/5687718/python-mysql-insert-data</a></p>
+
+<p>import urllib2
+import json
+import MySQLdb</p>
+
+<p>req = urllib2.Request(&ldquo;<a href="http://api.wunderground.com/api/YOUR">http://api.wunderground.com/api/YOUR</a> API key/conditions/q/country/town.json&rdquo;)
+opener = urllib2.build<em>opener()
+f = opener.open(req)
+data = json.load(f)
+print data[&lsquo;current_observation&rsquo;][&lsquo;observation_location&rsquo;][&lsquo;city&rsquo;],data[&lsquo;current</em>observation&rsquo;][&lsquo;observation<em>time</em>rfc822&rsquo;]</p>
+
+<p>conn = MySQLdb.connect(host= &ldquo;localhost&rdquo;,
+                  user=&ldquo;YOUR username&rdquo;,
+                  passwd=&ldquo;YOUR password&rdquo;,
+                  db=&ldquo;database&rdquo;)
+x = conn.cursor()</p>
+
+<p>try:
+   x.execute(
+   &ldquo;INSERT INTO CBE<em>meterology (Station, DateAP)&rdquo;
+   &ldquo;VALUES (%s,%s)&rdquo;,(data[&lsquo;current_observation&rsquo;][&lsquo;observation_location&rsquo;][&lsquo;city&rsquo;],data[&lsquo;current</em>observation&rsquo;][&lsquo;observation<em>time</em>rfc822&rsquo;]))
+   conn.commit()
+except:
+   conn.rollback()</p>
+
+<p>conn.close()</p>
+
+<p>the script collects json from URL and then convert into a python object and feed into MySQL table using SQL command.</p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

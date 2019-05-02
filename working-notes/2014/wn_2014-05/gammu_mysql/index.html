@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>gammu MYSQL - Nishadh KA</title>
+    <meta property="og:title" content="gammu MYSQL - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="gammu_mysql
+[&amp;hellip;]  nano /etc/gammu-smsdrc # Configuration file for Gammu SMS Daemon # Gammu library configuration, see gammurc(5) [gammu] # Please configure this! port = /dev/ttyUSB2 model = &amp;hellip;">
+      <meta property="og:description" content="gammu_mysql
+[&amp;hellip;]  nano /etc/gammu-smsdrc # Configuration file for Gammu SMS Daemon # Gammu library configuration, see gammurc(5) [gammu] # Please configure this! port = /dev/ttyUSB2 model = &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>gammu MYSQL</h1>
+
+<h3>
+  2014-05-16</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p><strong>gammu_mysql</strong></p>
+
+<ul>
+<li>followed <a href="http://wammu.eu/docs/manual/smsd/mysql.html">this</a>,<a href="http://wammu.eu/docs/manual/smsd/config.html#gammu-smsdrc">this</a></li>
+<li>the running, file based gammu-smsd backend configuration file is as follows
+<br /></li>
+</ul>
+
+<pre><code>  nano /etc/gammu-smsdrc
+  # Configuration file for Gammu SMS Daemon
+
+  # Gammu library configuration, see gammurc(5)
+  [gammu]
+  # Please configure this!
+  port = /dev/ttyUSB2
+  model =
+  connection = at
+  synchronizetime = yes
+  #logfile = /home/debian/gammulog
+  #logformat = textalldate
+  use_locking =
+  gammuloc =
+
+  # SMSD configuration, see gammu-smsdrc(5)
+  [smsd]
+  #debuglevel = 255
+  #Service = sql
+  #Driver = sqlite3
+  #database = kalkun.sqlite
+  #PIN = 1234
+  #DriversPath = /usr/bin/sqlite3
+  #DBDir = /usr/bin/sqlite3
+  #Database = /home/Debian/gammu.db
+  #logformat = textall
+  #Logfile = /home/debian/gammu-smsd.log
+
+  # Increase for debugging information
+  #debuglevel =
+  
+  # Paths where messages are stored
+  Service = files
+  PIN = 1234
+  Logfile = /home/debian/gammu-smsd.log
+  inboxpath = /home/debian/gammu/inbox/
+  outboxpath = /home/debian/gammu/outbox/
+</code></pre>
+
+<ul>
+<li>the configureation file is changed to make gammu backend with mysql
+```</li>
+</ul>
+
+<p>nano /etc/gammu-smsdrc
+  # Configuration file for Gammu SMS Daemon</p>
+
+<p># Gammu library configuration, see gammurc(5)
+  [gammu]
+  # Please configure this!
+  port = /dev/ttyUSB2
+  model =
+  connection = at
+  synchronizetime = yes
+  #logfile = /home/debian/gammusmsdlog
+  #logformat = textalldate
+  use_locking =
+  gammuloc =</p>
+
+<p># SMSD configuration, see gammu-smsdrc(5)
+  [smsd]
+  Service = sql
+  Driver = native_mysql
+  PIN = 1234
+  #LogFile = syslog
+  User = root
+  Password = smsd
+  PC = localhost
+  Database = gammu</p>
+
+<p><code>
+- to stop or restart gammu-smsd</code>/etc/init.d/gammu-smsd stop<code>
+- to start gammu-smsd with deamon</code>gammu-smsd -d```</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

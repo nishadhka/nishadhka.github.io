@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>DYLOS raspberry pi and xively - Nishadh KA</title>
+    <meta property="og:title" content="DYLOS raspberry pi and xively - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="To connect the raspberry pi with Dylos serial to xively IOT, based on https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley
+the written code was this
+#!/usr/bin/env python from &amp;hellip;">
+      <meta property="og:description" content="To connect the raspberry pi with Dylos serial to xively IOT, based on https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley
+the written code was this
+#!/usr/bin/env python from &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>DYLOS raspberry pi and xively</h1>
+
+<h3>
+  2013-12-16</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>To connect the raspberry pi with Dylos serial to xively IOT, based on
+<a href="https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley">https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley</a></p>
+
+<p>the written code was this</p>
+
+<pre><code>#!/usr/bin/env python
+from __future__ import division
+import time
+import os
+import eeml
+import sys
+import syslog
+import json
+import serial
+import subprocess
+import re
+
+a = 0.02832
+ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=60)
+def getCPUtemperature():
+    res = os.popen('vcgencmd measure_temp').readline()
+    return(res.replace(&quot;temp=&quot;,&quot;&quot;).replace(&quot;'C\n&quot;,&quot;&quot;))
+
+def getDiskSpace():
+    p = os.popen(&quot;df -h /&quot;)
+    i = 0
+    while 1:
+        i = i +1
+        line = p.readline()
+        if i==2:
+            return(line.split()[1:5])
+
+def getRAMinfo():
+    p = os.popen('free')
+    i = 0
+    while 1:
+        i = i + 1
+        line = p.readline()
+        if i==2:
+            return(line.split()[1:4])
+
+var = 1
+while var ==1:
+   output = subprocess.check_output([&quot;./Adafruit_DHT&quot;, &quot;11&quot;, &quot;4&quot;]);
+   matches = re.search(&quot;Temp =\s+([0-9.]+)&quot;, output)
+   if (not matches):
+         time.sleep(3)
+         continue
+   temp = float(matches.group(1))
+   matches = re.search(&quot;Hum =\s+([0-9.]+)&quot;, output)
+   if (not matches):
+         time.sleep(3)
+         continue
+   humidity = float(matches.group(1))
+   break  
+
+def dylos_ser():
+     dylos = ser.readline() 
+     return dylos
+
+
+API_KEY = 'YgMnMSPFIiAIf8ATTVMC3eUUb4CTrc5adT7pwvopZfbFB976'
+FEED = 62987336
+API_URL = '/v2/feeds/{feednum}.xml'.format(feednum = FEED)
+
+CPU_temp = getCPUtemperature()
+DISK_stats = getDiskSpace()
+DISK_total = DISK_stats[0]
+DISK_free  = DISK_stats[1]
+DISK_perc  = DISK_stats[3]
+RAM_stats = getRAMinfo()
+RAM_total = round(int(RAM_stats[0]) / 1000,1)
+RAM_used  = round(int(RAM_stats[1]) / 1000,1)
+RAM_free  = round(int(RAM_stats[2]) / 1000,1)
+dylos_red = dylos_ser()
+dylos_red1 = dylos_red.split(&quot;,&quot;)
+dylos_red11 = dylos_red1[0]
+dylos_red22 = dylos_red1[1]
+dylos_05l =float(dylos_red11) / a
+dylos_25l =float(dylos_red22) / a
+dylos_05ls = str(round(dylos_25l))
+dylos_25ls = str(round(dylos_05l))
+tempS = str(temp)
+HumS = str(humidity)
+
+# open up your feed
+pac = eeml.Pachube(API_URL, API_KEY)
+
+#compile dataunit=eeml.NoOfPm3())])
+
+pac.update([eeml.Data(&quot;CPU_Temperature&quot;, CPU_temp, unit=eeml.Celsius())])
+pac.update([eeml.Data(&quot;Disk_free&quot;, DISK_free, unit=eeml.Celsius())])
+pac.update([eeml.Data(&quot;RAM__Used&quot;, RAM_used, unit=eeml.Celsius())])
+pac.update([eeml.Data(&quot;RAM_Free&quot;, RAM_free, unit=eeml.Celsius())])
+pac.update([eeml.Data(&quot;Dylos_2.5l&quot;, dylos_05ls, unit=eeml.NoOfPm3())])
+pac.update([eeml.Data(&quot;Dylos_0.5l&quot;, dylos_25ls, unit=eeml.NoOfPm3())])
+pac.update([eeml.Data(&quot;Humidity&quot;, HumS, unit=eeml.RH())])
+pac.update([eeml.Data(&quot;Temperature&quot;, tempS, unit=eeml.Celsius())])
+
+#print dylos_red
+#print dylos_red1
+print dylos_25ls
+print dylos_05ls
+print dylos_red11
+print dylos_red22
+print humidity
+print temp
+# send data to cosm
+pac.put()
+</code></pre>
+
+<p>The raspberry pi connected with Dylos and DHT11 temperature-humidity sensor
+DHT11 is managed based on Adafruit tutorial, and the code is using subprocess to get the Tempa and RH value from raspberry pi GPIO.
+The xively code based on the EEML, a framework for real-time sensor management, in which the units for each parameter has to be edited to called in xively, So that the EEML code was specifying the unit for DYLOS reading edited. The code of EEML for python, installed as python package, the source has to be edited for including the customized units of Dylos.</p>
+
+<p>this file need to be edited is</p>
+
+<p>/usr/local/lib/python2.7/dist-packages/Python_EEML-0.1-py2.7.egg/eeml/<strong>init</strong>.py</p>
+
+<p>the added code was</p>
+
+<pre><code>class NoOfPm3(Unit):
+    &quot;&quot;&quot;
+    NoOfPm3 unit class.
+    &quot;&quot;&quot;
+
+    def __init__(self):
+        &quot;&quot;&quot;
+        Initialize the `Unit` parameters with NoOfPm3.
+        &quot;&quot;&quot;
+        Unit.__init__(self, 'NoOfPm3', 'contextDependentUnits', 'No.Of.particle/m3')
+class NoOfPo1cuf(Unit):
+    &quot;&quot;&quot;
+    NoofP01cuf unit class.
+    &quot;&quot;&quot;
+
+    def __init__(self):
+        &quot;&quot;&quot;
+        Initialize the `Unit` parameters with NoOfP01cuf.
+        &quot;&quot;&quot;
+        Unit.__init__(self, 'NoofP01cuf', 'contextDependentUnits', 'No.Of.particleper01cuf')
+
+</code></pre>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

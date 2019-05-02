@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Working with WRF CHEM part1 PrepChemSrc - Nishadh KA</title>
+    <meta property="og:title" content="Working with WRF CHEM part1 PrepChemSrc - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##working with WRF_CHEM:compiling and install prep-chem-src##
+[&amp;hellip;] based on the readme of PREPCHEMSRC as follows ```
+[&amp;hellip;] ZLIB 1.2.5(libz.a) or later distribution. You may download the &amp;hellip;">
+      <meta property="og:description" content="##working with WRF_CHEM:compiling and install prep-chem-src##
+[&amp;hellip;] based on the readme of PREPCHEMSRC as follows ```
+[&amp;hellip;] ZLIB 1.2.5(libz.a) or later distribution. You may download the &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Working with WRF CHEM part1 PrepChemSrc</h1>
+
+<h3>
+  2014-06-26</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>##working with WRF_CHEM:compiling and install prep-chem-src##</p>
+
+<ul>
+<li>to isntall prep-chem-src, it requiers to install HDF5,ZLIB and NETCDF</li>
+
+<li><p>based on the readme of PREP<em>CHEM</em>SRC as follows
+```</p>
+
+<h2 id="third-party-software-requirements">Third Party Software Requirements</h2>
+
+<ol>
+<li><p>ZLIB 1.2.5(libz.a) or later  distribution.  You may download the software
+from the <a href="http://www.zlib.net/">http://www.zlib.net/</a> site.</p></li>
+
+<li><p>HDF5-1.8.8(libhdf5<em>fortran.a, libhdf5hl</em>fortran.a) or later  distribution.  You may download the software
+from <a href="http://www.hdfgroup.org/HDF5/release/obtain5.html">http://www.hdfgroup.org/HDF5/release/obtain5.html</a>.</p></li>
+
+<li><p>NetCDF 4.1.1 (libnetcdf.a).  You may download the software
+from <a href="http://www.unidata.ucar.edu/downloads/netcdf/netcdf-4_0_1/index.jsp">http://www.unidata.ucar.edu/downloads/netcdf/netcdf-4_0_1/index.jsp</a></p></li>
+</ol></li>
+</ul>
+
+<h2 id="configuring-installing-hdf-5">Configuring/Installing HDF 5</h2>
+
+<p>When compiling PREP-CHEM-SRC codes on a Linux system using the PGI (Intel)
+compiler, make sure the netCDF and HDF* library has been installed using the same PGI (Intel) compiler.</p>
+
+<p>FC=pgf90 CC=pgcc CXX=pgc++ ./configure  <br />
+	&ndash;prefix=/path<em>libs/hdf5-1.8.8 <br />
+	&ndash;with-zlib=/path</em>libs/zlib-1.2.5  <br />
+	&ndash;disable-shared <br />
+	&ndash;enable-fortran</p>
+
+<p>make
+make check
+make install
+make check-install
+INSTALL NETCDF</p>
+
+<p>FC=pgf90 CC=pgcc CXX=pgc++ ./configure &ndash;prefix=/path-netcdf-4.1.1</p>
+
+<p>make
+make check
+make install</p>
+
+<pre><code>- so first step installing HDF5, checked current coputer and tryed to run ```dpkg-query --show hdf5``` gives nill
+- so has to compile from source, it is downloaded from [here](http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.8/src/hdf5-1.8.8.tar.gz)
+- after unzipping, went inside the dicertoty and done the stpe as told in the README, 
+</code></pre>
+
+<p>FC=pgf90 CC=pgcc CXX=pgc++ ./configure  <br />
+	&ndash;prefix=/path<em>libs/hdf5-1.8.8 <br />
+	&ndash;with-zlib=/path</em>libs/zlib-1.2.5  <br />
+	&ndash;disable-shared <br />
+	&ndash;enable-fortran</p>
+
+<pre><code>but this tep exited with errors
+- then found out that the pgf90 is a commercial compiler and so used the gfortran available in the ubuntu 12.04 machine so the comamnd becomes
+</code></pre>
+
+<p>FC=gfortran CC=gcc CXX=gc++ ./configure  &ndash;prefix=/path<em>libs/hdf5-1.8.8 &ndash;with-zlib=/path</em>libs/zlib-1.2.5  &ndash;disable-shared &ndash;enable-fortran</p>
+
+<pre><code>- after running it shows something something and went to next step ```make```, it gives and run for sioometimes with some words and then next step
+- in doing ```make chekc``` it gives three errors, and it was negletced and went for next step
+- in this instead of doing ```make install```, made a change of routing, make isntall delivbratley add new files where were it do so and for removing
+  it is impossible taks to read and remove the file, more details [here](http://superuser.com/questions/264601/removing-installations-done-by-make-install)
+- so followed and executed this ```checkinstall``` but asks to uisnatll checkinstall ```sudo apt-get isntall checkimnstall```
+- aftyer sthis follwoed ```sudo checkinstall``` and it asks some questions aenetered all and findlly ti gives godd news of 
+</code></pre>
+
+<p>Done. The new package has been installed and saved to</p>
+
+<p>/home/swl-sacon-dst/wrf/WRF341/Emission/hdf5-1.8.8/hdf5<em>1.8.8-1</em>amd64.deb</p>
+
+<p>You can remove it from your system anytime using:</p>
+
+<pre><code>  dpkg -r hdf5
+</code></pre>
+
+<pre><code>- so now trying the comment ``` dpkg-query --show hdf5``` giives ```hdf5    1.8.8-1```
+###insall zlib 1.2.5###
+- followed as per the README but with gfortran and checkinstall
+</code></pre>
+
+<p>FC=gfortran CC=gcc ./configure &ndash;prefix=/path-zlib-1.2.5
+make
+make check
+make checkinstall</p>
+
+<pre><code>- retunred as quickly the good news of isntallation success
+###intsall netcdf4.1.1###
+- downloaded netcdf4.1.1 and went and run as per the README but with gfortran and checkinstall but returned wrror saying ```undefined open_mpi_char```
+- so installing openmpi1.6.5, openmpi currently is 1.5 and retired it seems, so trying with source compilation as per [this](http://www.open-mpi.org/community/lists/users/2012/07/19813.php)
+- the code followed is
+</code></pre>
+
+<p>FC=gfortran CC=gcc CXX=gc++ ./configure &ndash;enable-fortran</p>
+
+<pre><code>- but gives error of ```configure: error: C and C++ compilers are not link compatible.  Can not continue.```
+- so run the ```./configure``` with pretext, let it take waht ever availble in computer! and it completet with out any error
+-  next made netcdf install with 
+</code></pre>
+
+<p>FC=gfortran CC=gcc CXX=gc++ ./configure &ndash;prefix=/path-netcdf-4.1.1
+make</p>
+
+<pre><code class="language-but">- googling shows this [page](http://www.unidata.ucar.edu/mailing_lists/archives/netcdfgroup/2010/msg00455.html) saying HDF5 has to be installed with ```--enable parallell```
+- so removing HDF5 earlier made, ```sudo dpkg -r hdf5```
+- redoing it with ```FC=gfortran CC=gcc CXX=gc++ ./configure  --prefix=/path_libs/hdf5-1.8.8 --enable-parallel --with-zlib=/path_libs/zlib-1.2.5  --disable-shared --enable-fortran
+make
+</code></pre>
+
+<ul>
+<li>but netcdf still giving the same error of <code>undefined reference to `ompi_mpi_char'</code></li>
+<li>so doing configure without any options, it also giving the same error</li>
+<li>so with the available netcdf(I am figuring out how this netcdf was installed) in the computer, used the location of netcdf and run prep-chem-src, but it giving huge chunk of error starting with non availability of hdf.</li>
+<li>In this way as told in README, it gets installed in <code>/path_libs</code></li>
+<li>some useful comments, to view the location of installed packages <code>dpkg -L netcdf</code>, to view the compilers in the computer <code>dpkg --list | grep compiler</code>, to view environemtn realted with netcdf <code>printenv  | grep NETCDF</code></li>
+<li>A fresh try was made after a cipule of days, in which googleing was made with compilation error given, one such error is <code>undefined reference to `__netcdf_MOD_nf90_open'
+</code>, this search fetched to view the nc-config to know about the lib forlder and include folder of installed compiled netcdf, it seems, for installing IRIS python package, netcdf 4.3.2 was isnatlled and it was located in /usr/local ptth, the command <code>nc-config --all</code> gives all like this info.</li>
+<li>so the file in prpe<em>chem</em>src folder bin/build <code>include.mk.opt.gfortran</code> is edited to change this new info, but compilation failed with similar error. more search on this regard saying that one needs to include a new netcdff with double f has to be include, this clue is given in <a href="http://www.yambo-code.org/forum/viewtopic.php?f=1&amp;t=755">this</a> , <a href="https://www.myroms.org/forum/viewtopic.php?f=31&amp;t=1414">this</a> and <a href="http://ubuntuforums.org/archive/index.php/t-1033570.html">this</a>, more over directly solving this problem for prep chem src, there is an arabic language web page showing that the file <code>include.mk.opt.gfortran</code> has to be edited and the line asking for netcdf library has to be <code>NETCDF_LIBS=-L$(NETCDF)/lib -lnetcdf -lnetcdff</code> instead of <code>NETCDF_LIBS=-L$(NETCDF)/lib -lnetcdf</code>. later it is found the the tutorial for nepal WRF-CHEM aslo saying this to be changed, hrrr. &ldquo;half a hour wrf manual reading is better than one week google search&rdquo;</li>
+<li>with this changes the prep<em>chem</em>src is get compiled with good news of <code>Finished building === ../prep_chem_sources_RADM_WRF_FIM.exe
+</code>, but with warnings of <code>/usr/bin/ld: warning: libhdf5.so.6, needed by /usr/lib/libnetcdf.so.6, may conflict with libhdf5.so.8</code>.</li>
+</ul>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

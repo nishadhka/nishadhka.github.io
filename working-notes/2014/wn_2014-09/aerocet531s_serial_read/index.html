@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Aerocet531S serial read - Nishadh KA</title>
+    <meta property="og:title" content="Aerocet531S serial read - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="####Serial read from Aerocet 531S###
+[&amp;hellip;] Using this code import pexpect command = &amp;quot;python miniterm3.py -p &#39;/dev/ttyUSB0&#39; -b 9600&amp;quot; child=pexpect.spawn(command) child.expect(&#39;\r\n&#39;) &amp;hellip;">
+      <meta property="og:description" content="####Serial read from Aerocet 531S###
+[&amp;hellip;] Using this code import pexpect command = &amp;quot;python miniterm3.py -p &#39;/dev/ttyUSB0&#39; -b 9600&amp;quot; child=pexpect.spawn(command) child.expect(&#39;\r\n&#39;) &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Aerocet531S serial read</h1>
+
+<h3>
+  2014-09-10</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>####Serial read from Aerocet 531S###</p>
+
+<ol>
+<li>Aerocet 531S(A531S) has serial communication and commanding interface through USB connection. By connecting USB to Linux ubunut 12.04, running the <a href="https://apps.ubuntu.com/cat/applications/oneiric/gtkterm/">program</a> serial port terminal and giving the command such as S starts the A531S. These commands are elaborated in its user manual.</li>
+<li>There number of other commands to view the data and get more about the A531S operation as per its user manual.</li>
+<li>To make the process of running the machine and entering the command in Python to start the machine or read output is the aim of this note.</li>
+<li>A simple google search resulted in <a href="http://www.varesano.net/blog/fabio/serial%20rs232%20connections%20python">this</a> and the program was tested with A531S, <a href="scripts/aerocet1.py">this</a> is the edited code considering the options for A531S. This program was returning nothing from A531S, but editing the line no. 30 into <code>ser.write(input + '\r')</code> return some charter by sending the provided command in its user manual.</li>
+<li>So made a searching for the source code behind the <a href="https://apps.ubuntu.com/cat/applications/oneiric/gtkterm/">program</a> serial port terminal. It ended in the example <a href="http://pyserial.sourceforge.net/examples.html">page</a> of pyserial a library for python based serial communication, the program named as miniterm.py</li>
+<li>The program miniterm.py was downloaded and it was run as per its instruction by entering the command     <code>python miniterm.py -p '/dev/ttyUSB0' -b 9600 --parity=N</code>, it gives welcome message and by entering <code>ENTER</code> and typing the command in the line starts with <code>*</code> controls the A531S such as starting smaple etc.</li>
+<li>Based on this, new search was made to Scriptify this program and interface of A531S command entering to start sample etc. Based on <a href="http://stackoverflow.com/questions/3781851/run-a-python-script-from-another-python-script-passing-in-args">this</a> it is found that the python module subprocess is good way to start another python script and made <a href="scripts/aerocet2.py">this</a> script to run that and it could make upto the point of starting the miniterm.py program not enabling the Command entering interface.</li>
+<li>Then made a search to know sequential command entering by python and found that subprocess module PIPE is requiered for that explained <a href="http://stackoverflow.com/questions/10363853/reading-writing-to-a-popen-subprocess">here1</a> ,<a href="http://stackoverflow.com/questions/17411966/printing-stdout-in-realtime-from-a-subprocess-that-requires-stdin">here2</a>. Based on this a <a href="scripts/aerocet3.py">script</a> was made with different iterative command in it to run this but ends with error saying <code>termios.error: (25, 'Inappropriate ioctl for device')</code> and it goes to several other errors of input/ouput kind.</li>
+<li>Then made a search to resolve above issues and learn that, serial communcation is very vast subject and requiees the idea of how the machine is programmed to accept the serial command, this siwhy the simple serial command ios failing with A531S. While doing it in Arduino the arduion side also programmed to accpet the command. Any way the working of miniterm is indicative that the conversin can be understood to scriptfy the control of A531S. More info i avilable form <a href="http://en.wikibooks.org/wiki/Serial_Programming/Serial_Linux">here</a></li>
+<li>Later found a simplified version for miniterm.py, as this <a href="scripts/aerocet2.py">file</a>. This script can be run by this command <code>python miniterm2.py -p '/dev/ttyUSB0' -b 9600</code>, controlling the device works fine. This script is easily understandable, the lines 17 to 30 is addressing windows implementation and lines 32 to 49 addresses Linux implementation. In Linux implementation, the function <code>getkey</code> play major role in generating the command interface and line 68 to 82 function <code>writer</code> communicate the commands with the device for control, such as by entering <code>S</code> getkey converts to some form and function writer communicate it with device to start the sampling. the lines 152 to 163 execute these functions.</li>
+<li>So it seems, executing this program in subprocess could attain the objective. But it gives error as of last complex miniterm. But is is learnt that the lines from 34-41 necessitate the command entering in the program.
+it is also worth noting this from <a href="http://www.diveintopython.net/scripts_and_streams/stdin_stdout_stderr.html">here</a> &ldquo;Standard output and standard error (commonly abbreviated stdout and stderr) are pipes that are built into every UNIX system. When you print something, it goes to the stdout pipe; when your program crashes and prints out debugging information (like a traceback in Python), it goes to the stderr pipe. Both of these pipes are ordinarily just connected to the terminal window where you are working, so when a program prints, you see the output, and when a program crashes, you see the debugging information. (If you&rsquo;re working on a system with a window-based Python IDE, stdout and stderr default to your “Interactive Window”.) &ldquo;</li>
+<li>It is found that subprocess is not suitable for the process of interactive shell script, the miniterm is a interactive shell script. This inference is based on <a href="http://stackoverflow.com/questions/18107541/detecting-when-a-child-process-is-waiting-for-input">this</a> for non suitablity of subprocess and <a href="http://stackoverflow.com/questions/8710829/send-command-and-exit-using-python-pty-pseudo-terminal-process">this</a> for intro to pexepct.</li>
+
+<li><p>Using this code
+<code>import pexpect
+command = &quot;python miniterm3.py -p '/dev/ttyUSB0' -b 9600&quot;
+child=pexpect.spawn(command)
+child.expect('\r\n')
+print child.before
+child.sendline ('S')</code>
+it is able to run the A531S sampling routine automatically, it takes iteratuive(some time it works some time not) so try has to made in code, or other wise A531S has to refreshed with empty lines in mintierm by <code>child.sendline ('')</code>. Have to do for logging the output from the sample</p></li>
+
+<li><p>to iterate the empty line in pexepct, <a href="http://stackoverflow.com/questions/2970780/pythonic-way-to-do-something-n-times">from</a></p>
+
+<pre><code>        for _ in itertools.repeat(None, 3):
+                child.sendline ('')
+</code></pre></li>
+
+<li><p>To change the sample mode from count to mass or wise versa, for mass mode <code>child.sendline ('MM 1')</code>, for count mode <code>child.sendline ('MM 0')</code>.</p></li>
+
+<li><p>The pexepct is a tool which exactly simulate the terminal behavior of the tool, in our case the program myterm.py. So knowing the behvious of myterm.py is requiered to scriptfy that by pexpect. the program myterm.py needs atleast two RETURNS for get into <code>*</code> line, where it accepts the command. Typing S and RETURN(press enter) starts the machine by giving response <code>start sample</code>. The A531S samples for 1 minutes and write the values in new * line and it stays there arbitaraly. Pressing another two to three RETURN only get into new line of * and then only the program accpts next commands. Here the empty line of pexpect has to be iterate for three times. For to get the sample results it has to be mentioned about the line <code>*</code> by  <code>child.expect('*')</code> but this ends in error of</p>
+
+<pre><code>        raise error, v # invalid expression
+        sre_constants.error: nothing to repeat
+</code></pre>
+
+<p>So tried <code>child.expect (['%',pexpect.EOF])</code> this ends in unresponsive terminal line.</p></li>
+
+<li><p>So made a wild attempt of doing <code>print child.before</code> it gets the sample result in this state <code>22:40:43,01237800,00103470,00023920,00000340,00000060,+029,052,001,060,000,*04203</code> with out any date files contained in the output. So it has to be adjusted programmatic.</p></li>
+
+<li><p>The normal routine of comamnds are</p>
+
+<pre><code>        import pexpect
+import itertools
+        command = &quot;python miniterm3.py -p '/dev/ttyUSB0' -b 9600&quot;
+        child=pexpect.spawn(command)
+        child.expect('\r\n')
+        for _ in itertools.repeat(None, 3):
+                child.sendline ('')
+        child.sendline ('MM 0')
+        child.sendline ('S')
+ctO = child.before
+for _ in itertools.repeat(None, 3):
+                child.sendline ('')
+time.sleep(30)
+child.sendline ('MM 1')
+        child.sendline ('S')
+masO = child.before 
+</code></pre></li>
+
+<li><p>It is found that the command <code>ctO = child.before and masO=chile.before</code> is not working and after a large iteration, it is understood that the <code>child.before</code> only showing just oneline above the terminal. So based on the number of line executed in the terminal inculding iterative loops command, it has to count and looped to execute this command to reach the most updated sample output line. It was devised by using the below command to loop through commands and make cursor to reach the most updated sample output.</p>
+
+<pre><code>    for _ in itertools.repeat(None, 5):
+         child.expect('\r\n')
+         print child.before
+</code></pre></li>
+
+<li><p>Based on this, program is rewritten as follows</p>
+
+<pre><code>        import pexpect
+import itertools
+        command = &quot;python miniterm3.py -p '/dev/ttyUSB0' -b 9600&quot;
+        child=pexpect.spawn(command)
+#For Count mode
+        for _ in itertools.repeat(None, 5):
+                child.sendline ('')
+        child.sendline ('MM 0')
+        child.sendline ('S')
+        for _ in itertools.repeat(None, 8):
+         child.expect('\r\n')
+         print child.before
+child.expect('\r\n')
+ctO=child.before
+        #For Mass mode
+        for _ in itertools.repeat(None, 5):
+                child.sendline ('')
+        child.sendline ('MM 1')
+        child.sendline ('S')
+        for _ in itertools.repeat(None, 9):
+         child.expect('\r\n')
+         print child.before
+        child.expect('\r\n')
+masO=child.before
+        child.close() 
+</code></pre></li>
+
+<li><p>To make the above script more useful especially by having colocation sampling with Dylos air quality monitor it is better to make the proragm as def(). It made to def() as below</p>
+
+<pre><code>        def a531s():
+                        command = &quot;python miniterm3.py -p '/dev/ttyUSB2' -b 9600&quot;
+                        child=pexpect.spawn(command)
+                #For Count mode
+                        for _ in itertools.repeat(None, 5):
+                            child.sendline ('')
+                                child.sendline ('MM 0')
+            -----------------------------
+            -----------------------------
+        a531s()
+</code></pre></li>
+</ol>
+
+<p>Initially had error of port can&rsquo;t be open in Raspberry pi. RPi was having already connected two Dylos air quality mointor. The ls /dev has to be checked for port and, if it is given <code>/dev/ttyUSB2</code> it has to be trailed for its correctness. With this the script run and the sample was taken for both count and mass mode. But faced problem in getting the data read by serial into print or save it in csv out of def a531S. Based on <a href="http://stackoverflow.com/questions/3052793/python-output-from-functions">this</a> for naming global variable and its non pythonic nature, <a href="http://stackoverflow.com/questions/19326004/access-a-function-variable-outside-the-function-in-python-without-using-global">this</a> for pythonic way of getting variable out of def.
+Based on that a simple python test code was written and it is working,</p>
+
+<pre><code>             def areo():
+                     x='abc'
+                     y='cba'
+                     reads = {'a':x,'b':y}
+                     return reads
+            df=areo()
+          print df['a']
+</code></pre>
+
+<ol>
+<li>So the script was modified as per the above test, but failed to get any values in the variables assigned. It was become a prolonged problem, various methods such as <code>child.logfile</code> as by <a href="http://pexpect.readthedocs.org/en/latest/api/pexpect.html#spawn-class">here</a> didn&rsquo;t given any way out. As far as the script, the function running and taking sample in different mode one after one and saving data into the A351S internal storage is working but the sample output can&rsquo;t be accessed if it is in script. Surprisingly the data can be written out in executing the command one by one but never happen in complete script method, that is saving whole command in a file and executing it.<br /></li>
+<li>Based on the experience of getting data out of a531S, for time being, attempt for real time monitoring with it is stopped for time being. The data has to be collected manually by entering the command in miniuterm.py. There is an attempt also made to edit the miniterm.py to be bare metal script to control and receive data it also didn&rsquo;t turn working the script is <a href="miniterm4.py">here</a>.</li>
+<li>With the minimal functionality of the written script in controlling a531s is used for collocated sampling of dylos and a531s, the script was modified to run simultaneous using threading based on <a href="http://stackoverflow.com/questions/20498469/python-and-multiprocessing-example">this</a> and the script used is <a href="sampler.py">this</a> and crontab was setup to run this script every 10 minutes.</li>
+<li>Trying to run the script sampler.py in crontab -e, it was unresponsive, so made a search about this issue and find <a href="http://stackoverflow.com/questions/12534135/crontab-not-running-my-python-script">this</a> and tryed to execute the command using <code>/home/pi/aerocet/sampler.py</code> ends with this error <code>-bash: /home/pi/aerocet/sampler.py: /usr/bin/python^M: bad interpreter: No such file or directory</code>, this error was searched and found <a href="http://www.raspberrypi.org/forums/viewtopic.php?t=62150&amp;p=462107">this</a> and asks to execute this command <code>perl -pi~ -e's/\r$//' sampler.py</code>, this solved the last error and now it is working with the attempted code, the serial read from dylos is erroneous.</li>
+
+<li><p>Other issue faced was non working of crontab. Tried <a href="http://serverfault.com/questions/449651/why-is-my-crontab-not-working-and-how-can-i-troubleshoot-it">this</a> note and it seems the cron daemon is working but no log is written. Made a shell script as like below and tried instead of directly running the python script</p>
+
+<pre><code>        #!/bin/sh
+        cd /home/pi/aerocet
+        sudo python sampler.py
+</code></pre></li>
+</ol>
+
+<p>finally set the date of the Rpi, suddenly crontab started to work. It was setup in <code>sudo crontab -e</code> with this command <code>*/10 * * * * /home/pi/aerocet/run.sh  &amp;&gt;/home/pi/aerocet/cron.log</code>
+1. Another issue faced was erroneous serial read from dylos monitor. Using miniter.py it was mostly erroneous, using the written script, for first 20 samples (data reading every 120 seconds) it was reading first serial read data(&lt;0.5 um paticles) only. This was getting improved when I connected the dylos serial USB directly tot the RPI instead of routing it through USB hub.</p>
+
+<p>####usefull links####</p>
+
+<ol>
+<li>to install pexpect, <a href="http://www.pythonforbeginners.com/systems-programming/how-to-use-the-pexpect-module-in-python">http://www.pythonforbeginners.com/systems-programming/how-to-use-the-pexpect-module-in-python</a></li>
+<li>to delay a python script, <a href="http://stackoverflow.com/questions/510348/how-can-i-make-a-time-delay-in-python">http://stackoverflow.com/questions/510348/how-can-i-make-a-time-delay-in-python</a></li>
+<li>to save the terminal output into file and sys.stdout in console in simulatneously, <a href="http://www.dtcenter.org/HurrWRF/users/tutorial/2014_tutorial/tutorialpractical2014/compile_exercise.htm">http://www.dtcenter.org/HurrWRF/users/tutorial/2014_tutorial/tutorialpractical2014/compile_exercise.htm</a>, sample <code>./compile nmm_real 2&gt;&amp;1 | tee compile_nmm.log</code></li>
+<li>notes on pexpect,
+<a href="http://stackoverflow.com/questions/15316914/reading-output-from-pexpect-sendline">http://stackoverflow.com/questions/15316914/reading-output-from-pexpect-sendline</a>
+<a href="http://stackoverflow.com/questions/13590578/print-and-pexpect-logging">http://stackoverflow.com/questions/13590578/print-and-pexpect-logging</a>
+<a href="http://stackoverflow.com/questions/9370886/pexpect-if-else-statement">http://stackoverflow.com/questions/9370886/pexpect-if-else-statement</a>
+<a href="http://stackoverflow.com/questions/15211011/python-pexpect-returning-the-command-and-the-output-from-the-command">http://stackoverflow.com/questions/15211011/python-pexpect-returning-the-command-and-the-output-from-the-command</a>
+<a href="http://pexpect.readthedocs.org/en/latest/api/pexpect.html#spawn-class">http://pexpect.readthedocs.org/en/latest/api/pexpect.html#spawn-class</a>
+<a href="http://stackoverflow.com/questions/19433046/python-pexpect-spawn-object-flush">http://stackoverflow.com/questions/19433046/python-pexpect-spawn-object-flush</a>
+<a href="http://stackoverflow.com/questions/19143360/python-writing-to-and-reading-from-serial-port">http://stackoverflow.com/questions/19143360/python-writing-to-and-reading-from-serial-port</a>
+<a href="http://stackoverflow.com/questions/419163/what-does-if-name-main-do">http://stackoverflow.com/questions/419163/what-does-if-name-main-do</a>
+<a href="http://pexpect.readthedocs.org/en/latest/commonissues.html">http://pexpect.readthedocs.org/en/latest/commonissues.html</a>
+<a href="http://pexpect.sourceforge.net/doc/">http://pexpect.sourceforge.net/doc/</a></li>
+<li>mulitple deivce serial into single computer note, <a href="http://stackoverflow.com/questions/16949369/serial-communication-one-to-one">http://stackoverflow.com/questions/16949369/serial-communication-one-to-one</a></li>
+<li>notes on stdout, <a href="http://stackoverflow.com/questions/1218933/can-i-redirect-the-stdout-in-python-into-some-sort-of-string-buffer">http://stackoverflow.com/questions/1218933/can-i-redirect-the-stdout-in-python-into-some-sort-of-string-buffer</a>
+<a href="http://stackoverflow.com/questions/2513479/redirect-prints-to-log-file">http://stackoverflow.com/questions/2513479/redirect-prints-to-log-file</a></li>
+<li>more insight into sys.stdout.flush(), <a href="http://stackoverflow.com/questions/10019456/usage-of-sys-stdout-flush-method">http://stackoverflow.com/questions/10019456/usage-of-sys-stdout-flush-method</a></li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

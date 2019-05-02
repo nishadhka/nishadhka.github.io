@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>WRFCHEM domain view python - Nishadh KA</title>
+    <meta property="og:title" content="WRFCHEM domain view python - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="####WRF_CHEM domain view by python script####
+">
+      <meta property="og:description" content="####WRF_CHEM domain view by python script####
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>WRFCHEM domain view python</h1>
+
+<h3>
+  2014-09-04</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>####WRF_CHEM domain view by python script####</p>
+
+<ol>
+<li>WRF CHEM domain in nested has to be visulaised to correct the nesting and for domain size adjustment. There are few tools availble to do that such as dwiz of wrf ems and plotgrid.ncl.</li>
+<li>There is an alternative with python based on <a href="https://code.google.com/p/pywrf/">this</a>, it is a wrf script tools for visualizing and nesting based simulation. Set of scripts available has a function to visualize the namelist.wps as grid using python matplotlib.</li>
+<li>The <code>def</code> function named as <code>wrf_grid_wrapper</code> is included with wrfutil.py script and it is module like function for pydown.py a main script in pywrf program. In order to use the funcitionality of <code>wrf_grid_wrapper</code>, which rea the namelist.wps and p[lot the grids as per like plotgrid.ncl, the def funciotn and its requiered functions are copied and pasted in a seprate file named <code>wrf_domain.py</code>.</li>
+<li>In the separate file, following def functions are added <code>wrf2latlon, read_namelist, set_default_basemap, plot_grid</code> along with main  <code>wrf_grid_wrapper</code> function and it was called by adding a line  <code>wrf_grid_wrapper()</code> in the end of script. Some of the axuillary def functions are copied from <code>viz/utils.py</code> file which is imported by the wrfutils.py script.</li>
+<li>The running of script requires following libraries to import and faced problem related to that.
+
+<ol>
+<li>to import <code>from mpl_toolkits.basemap import Basemap</code> got error of <code>usr/lib/pymodules/python2.7/mpl_toolkits/__init__.py:2: UserWarning: Module dap was already imported from None, but /usr/lib/python2.7/dist-packages is being added to sys.path
+__import__('pkg_resources').declare_namespace(__name__)</code> this error was solved by editing following file <code>/usr/lib/python2.7/dist-packages/dap-2.2.6.7.egg-info/namespace_packages.txt</code> and add a line <code>dap</code> as the first line, based on <a href="http://jhshi.me/2013/04/13/userwarning-module-dap-was-already-imported-from-none/">this</a></li>
+<li>have to import <code>import numpy as n</code></li>
+<li>have to import <code>from matplotlib.numerix import ma</code> but based on <a href="http://matplotlib.org/api/api_changes.html">this</a> import was changed into <code>from numpy import ma</code></li>
+<li>have to import <code>from pyproj import Proj</code> this module was installed by downloading it source file from <a href="https://pypi.python.org/pypi/pyproj?">here</a> and installed following its readme as by <code>python setup.py build, sudo python setup.py install</code></li>
+<li>Some minor edits was made on this and also needed to add more functions into the program from main program. Finally the edit fetches to correctness with ploting of outer domain in the background map such as <img src="wrf_domain.png" alt="this" />. Having limitation of viewing only one domain per time.</li>
+</ol></li>
+</ol>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

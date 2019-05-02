@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Xvfb Virtual FrameBuffer error for Ubuntu server 1204 - Nishadh KA</title>
+    <meta property="og:title" content="Xvfb Virtual FrameBuffer error for Ubuntu server 1204 - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="The frame buffer is a hardware portion in memory to provide a display. X window systems are the basic display setup for computers. The display in the computer is organized as bitmap windows. In &amp;hellip;">
+      <meta property="og:description" content="The frame buffer is a hardware portion in memory to provide a display. X window systems are the basic display setup for computers. The display in the computer is organized as bitmap windows. In &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Xvfb Virtual FrameBuffer error for Ubuntu server 1204</h1>
+
+<h3>
+  2013-10-07</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>The frame buffer is a hardware portion in memory to provide a display. X window systems are the basic display setup for computers. The display in the computer is organized as bitmap windows. In headless Ubuntu servers, virtual framebuffers are used for the application which requires display explicitly such as for Firefox or other browsers.
+Xvfb provides a virtual display for those applications. In Ubuntu headless server (server without any GUI) this is installed for mainly running Selenium scripts which require a browser to run. Installation in Ubuntu 12.04 is following this
+<a href="http://www.installationpage.com/selenium/how-to-run-selenium-headless-firefox-in-ubuntu/">http://www.installationpage.com/selenium/how-to-run-selenium-headless-firefox-in-ubuntu/</a>
+and followed the commands</p>
+
+<p>sudo apt-get install xvfb</p>
+
+<p>sudo Xvfb :10 -ac
+firefox
+export DISPLAY=:10</p>
+
+<p>However, somehow after a reboot, it shows error.</p>
+
+<p>[dix] Could not init font path element /usr/share/fonts/X11/misc, removing from</p>
+
+<p>list!
+Could not init font path element /usr/share/fonts/X11/cyrillic, removing from</p>
+
+<p>[dix]
+ list!
+[dix] Could not init font path element /usr/share/fonts/X11/100dpi/:unscaled,
+/:unscaled, removin</p>
+
+<p>removing from list!
+[dix] Could not init font path element /usr/share/fonts/X11/75dp
+ig from list!
+[dix] Could not init font path element /usr/share/fonts/X11/Type1, removing
+from list!
+ot init font path element /usr/share/fonts/X11/75dpi, removing from list!</p>
+
+<p>[dix] Could not init font path element /usr/share/fonts/X11/100dpi, removing
+from list!
+[dix] Could</p>
+
+<p>Thought it is not working but after waiting for some time, it seems starting the display, anyhow I move forward to the error and installed the following package to resolve the error based on</p>
+
+<p><a href="http://blog.martin-lyness.com/tag/xvfb">http://blog.martin-lyness.com/tag/xvfb</a></p>
+
+<p>sudo apt-get install xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic</p>
+
+<p>sudo apt-get install xserver-xorg-core</p>
+
+<p>moreover, followed this for final touch up
+<a href="http://www.guguncube.com/2733/python-spynner-installation-in-ubuntu">http://www.guguncube.com/2733/python-spynner-installation-in-ubuntu</a>
+so installed</p>
+
+<p>sudo apt-get install -y x11-xkb-utils</p>
+
+<p>sudo apt-get install -y xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic</p>
+
+<p>sudo apt-get install -y x-ttcidfont-conf cabextract ttf-mscorefonts-installer</p>
+
+<p>sudo dpkg-reconfigure &ndash;default-priority x-ttcidfont-conf</p>
+
+<p>Then in different terminal ssh’d to run the display and then the Firefox, now it working nice, otherwise, it gets much error.
+Like RAND is not working.
+Another tip:
+to show the hidden file by cmd, use</p>
+
+<p>ls -a</p>
+
+<p>References
+<a href="http://stackoverflow.com/questions/17944234/xlib-extension-randr-missing-on-display-21-trying-to-run-headless-googl">http://stackoverflow.com/questions/17944234/xlib-extension-randr-missing-on-display-21-trying-to-run-headless-googl</a>
+<a href="http://askubuntu.com/questions/131051/how-to-kill-and-to-start-the-x-server">http://askubuntu.com/questions/131051/how-to-kill-and-to-start-the-x-server</a>
+<a href="http://permalink.gmane.org/gmane.comp.multimedia.puredata.general/88691">http://permalink.gmane.org/gmane.comp.multimedia.puredata.general/88691</a>
+<a href="http://www.guguncube.com/2733/python-spynner-installation-in-ubuntu">http://www.guguncube.com/2733/python-spynner-installation-in-ubuntu</a>
+<a href="http://veeraramkumar.blogspot.in/2011_06_01_archive.html">http://veeraramkumar.blogspot.in/2011_06_01_archive.html</a>
+<a href="https://github.com/daneroo/phantom-test">https://github.com/daneroo/phantom-test</a>
+<a href="http://serverfault.com/questions/239597/xvfb-error-on-ubuntu">http://serverfault.com/questions/239597/xvfb-error-on-ubuntu</a>
+<a href="http://ubuntuforums.org/archive/index.php/t-1956577.html">http://ubuntuforums.org/archive/index.php/t-1956577.html</a>
+<a href="http://ivanvillareal.com/linux/xvfb-and-firefox-headles-screenshot-generator/">http://ivanvillareal.com/linux/xvfb-and-firefox-headles-screenshot-generator/</a>
+<a href="http://blog.martin-lyness.com/tag/xvfb">http://blog.martin-lyness.com/tag/xvfb</a>
+<a href="http://www.installationpage.com/selenium/how-to-run-selenium-headless-firefox-in-ubuntu/">http://www.installationpage.com/selenium/how-to-run-selenium-headless-firefox-in-ubuntu/</a></p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

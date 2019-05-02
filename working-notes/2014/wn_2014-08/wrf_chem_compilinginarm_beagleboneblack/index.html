@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>WRF CHEM compilingInARM BeagleBoneBlack - Nishadh KA</title>
+    <meta property="og:title" content="WRF CHEM compilingInARM BeagleBoneBlack - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="###WRF CHEM compiling in ARM architecture, Beagle Bone Black###
+This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compiler test#### went successful, except in test4 using 64 &amp;hellip;">
+      <meta property="og:description" content="###WRF CHEM compiling in ARM architecture, Beagle Bone Black###
+This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compiler test#### went successful, except in test4 using 64 &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>WRF CHEM compilingInARM BeagleBoneBlack</h1>
+
+<h3>
+  2014-08-23</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>###WRF CHEM compiling in ARM architecture, Beagle Bone Black###</p>
+
+<p>This is based on <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php">http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php</a>
+####compiler test####
+went successful, except in test4 using 64 bit
+###libraries###
+####Netcdf compiling####
+1. Environment has to be properly setup, following was correct for ARM arch, clarified based on <a href="http://www.unidata.ucar.edu/software/netcdf/docs/netcdf-install/Environment.html#Environment">this</a></p>
+
+<pre><code>            export DIR=/media/card/wrf/lib
+            export CC=gcc
+            export CXX=g++
+            export FC=gfortran
+            export FCFLAGS=-g
+            export F77=gfortran
+            export FFLAGS=-g
+            export CXXFLAGS=-g
+</code></pre>
+
+<ol>
+<li><p>Faced error in <code>make</code> after configure command of <code>./configure --prefix=$DIR/netcdf --disable-dap \
+ --disable-netcdf-4 --disable-shared</code>. The errors are like <code>./libtool: line 1133: g++: command not found</code>, <code>libtool: link: unsupported hardcode properties</code>( solved by sudo apt-get install g++-mingw-w64-i686), with blocking in folder CXX <code>ar: libnetcdf_c___la-netcdf.o: No such file or directory</code> (solved by specifying correct environment variables as above). Following packages were also forced to install by errors and for searches while making.</p>
+
+<pre><code>        sudo apt-get install g++-mingw-w64-i686
+        sudo apt-get install build-essential
+        sudo apt-get install csh
+        sudo apt-get install gfortran
+</code></pre></li>
+
+<li><p>Finally after making correct environment, the command <code>make</code> finished without error and so the <code>make install</code>, a folder named netcdf was created and executables are in the folders. As per the <a href="http://www.unidata.ucar.edu/software/netcdf/docs/netcdf-install/Environment.html#Environment">page</a>, environments were again made for <code>export PATH=$DIR/netcdf/bin:$PATH</code> and <code>export NETCDF=$DIR/netcdf</code>. After this environments set up, the netcdf compiling test was made using <code>nc-config --version</code> and <code>nc-config --prefix</code>, it given the correct answers.</p></li>
+
+<li><p>After reboot of BBB, all the environment setup is removed. it was returning blank line for <code>echo $DIR</code>. For instance, the libraries are compiled in sd card of the BBB. The sd card is mounted to BBB using the command <code>sudo mount -t ext4 /dev/mmcblk0p2 /media/card</code> based on <a href="http://unix.stackexchange.com/questions/118090/mounting-mmcblk0p1-failed-with-invalid-argument">this</a>. Then again all the environment set up is executed only nc-config worked properly, notably command like <code>export DIR=/media/card/wrf/lib, export PATH=$DIR/netcdf/bin:$PATH, export NETCDF=$DIR/netcdf</code>
+####compiling mpich####</p></li>
+
+<li><p>Even if the ssh made with BBB is broken, the environment set up was removed, it was pretend to re apply the export command as specified above. MPICH for cluster parallel execution was compiled as per the <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php">page</a> .</p></li>
+
+<li><p>There were a error saying <code>mpich type_get_attr.lo is not a valid libtool object</code>, while <code>make</code> after configure by executing the command <code>./configure --prefix=$DIR/mpich</code>.</p></li>
+
+<li><p>Based on <a href="http://stackoverflow.com/questions/21642600/libtool-did-not-generate-a-lo-file-when-everything-is-there">this</a> latest libtool in Debian package was <code>dpkg -i</code> installed by removing the older version available with BBB.</p></li>
+
+<li><p>After this, <code>make</code> ended without any error and as well the <code>make install</code>. A environment is setup for mpich by <code>export PATH=$DIR/mpich/bin:$PATH</code>.
+####libraries for WPS: zlib,libpng,JasPer####</p></li>
+
+<li><p>These libraries were installed without any error as per the <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php">page</a></p></li>
+</ol>
+
+<p>####Library Compatibility Tests####
+1. compatibility test such as Fortran + C + NetCDF and Fortran + C + NetCDF + MPI was carried out and it is executed without any error.</p>
+
+<p>####compiling WRFV3.6####
+1. As per the <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php">page</a>, the source folder of WRFV3 was unzipped and cd into it and run <code>./configure</code> but ends with blank list of platform to chosen, that way the conifugre script has to be ends with abruptly.
+2. Based on <a href="http://supersmith.com/site/ARM_files/wrf_on_arm.pdf">this</a> work of porting WRF for ARM, it is found that file <code>configure_new.defaults</code> in arch folder of source has to be edited to replace word x86<em>64 with armv7l for gfortran compiler section. Note the word x86</em>64 has to be replaced only along with gfortran, other wise it will be problematic.
+3. With this edit the problem of blank platform list was solved and now the <code>./configure</code>ends with warning saying that <code>W A R N I N G There are some Fortran 2003 features in WRF that your compiler does not recognize. The IEEE signaling call has been removed.  That may not be enough</code>. This was referred in this forum <a href="http://forum.wrfforum.com/viewtopic.php?f=5&amp;t=5703">post</a> indicating a minimal error due to compiler version. The current version of gfortran is 4.7 (from <a href="https://packages.debian.org/wheezy/armhf/gfortran-4.7/download">here</a>)and BBB is having 4.6.3 version.
+4. New version deb file of gfortran is downloaded for armhf and dpkg on this deb gives rise to a error saying that gcc also older version of 4.6.3. But faced problem in updating the gcc and gfortran, update was end with error saying update was expired. The error was resolved using this command based on this <a href="http://unix.stackexchange.com/questions/2544/how-to-work-around-apts-release-file-expired-problem-on-a-local-mirror">page</a>. To list installed pages in debian used <code>dpkg-query -l</code>. After a failed attempt for installing gfortran 4.7 and gcc, it is felt to stick to the wrf compile by neglecting the latter warning as said in this <a href="http://forum.wrfforum.com/viewtopic.php?f=5&amp;t=5703">page</a>
+5. wrf compile restarted after rectifying the earlier error of no installation of libcloog-ppl while compilation of WRF. In current attempt it was followed the notes of this <a href="http://sergioibarra.blogspot.in/2012/10/wrf-chem-compilacion-en-ubuntu-1204.html">page</a> for compiling WRF CHEM by adding environment in /etc/bash.bashrc file. This page is reference of installing libcloog-ppl is used for solving the error.
+6. This attempt of compiling wrf also has the problem of errors such as <code>Fatal Error: Can't open module file 'module_configure.mod' for reading at (1): No such file or directory</code>, this error is continuousness for multiple module. This typical error is referred in this <a href="http://forum.wrfforum.com/viewtopic.php?f=5&amp;t=897">page</a> indicating due to mismatch of compiler versions. An attempt is made with WRFV 3.4.1 and chem code as done for HP laptop also ending with this similar error. The attempt to compile WRF CHEM in BBB is abruptly ending here due to time constraints.
+####Conclusion####
+It can be concluded that WRF-CHEM most possibly would compile in ARM cores as noted <a href="www.supersmith.com/site/ARM_files/wrf_on_arm.pdf">here</a>. The compilers version (gcc, gfrotran, cpp), version of WRF and Debian distribution will be the major bottle neck for that.</p>
+
+<p>Based on
+1. <a href="http://forums.debian.net/viewtopic.php?f=10&amp;t=2425">http://forums.debian.net/viewtopic.php?f=10&amp;t=2425</a>
+2. <a href="http://ubuntuforums.org/showthread.php?t=1422476">http://ubuntuforums.org/showthread.php?t=1422476</a>
+3. <a href="https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-05/Installing_netcdf_python_in_Ubuntu12.04.md">https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-05/Installing_netcdf_python_in_Ubuntu12.04.md</a>
+4. <a href="http://ubuntuforums.org/showthread.php?t=1464768">http://ubuntuforums.org/showthread.php?t=1464768</a>
+5. <a href="http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg10293.html">http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg10293.html</a></p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>mysql BBB - Nishadh KA</title>
+    <meta property="og:title" content="mysql BBB - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="installing mysql and phpmyadmin in BBB.md
+">
+      <meta property="og:description" content="installing mysql and phpmyadmin in BBB.md
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>mysql BBB</h1>
+
+<h3>
+  2014-05-06</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p><strong>installing mysql and phpmyadmin in BBB.md</strong></p>
+
+<ul>
+<li>Based on <a href="http://www.debianhelp.co.uk/phpmyadmin.htm">this</a> and <a href="https://wiki.debian.org/LaMp#MySQL">this</a></li>
+<li><code>apt-get install mysql-server</code></li>
+<li><code>apt-get install phpmyadmin</code></li>
+<li>phpmyadmin not showing up, so wokring with mysql command line followed <a href="http://www.rackspace.com/knowledge_center/article/installing-mysql-server-on-debian">this</a> to get into mysql shell
+<code>/usr/bin/mysql -u root -p</code></li>
+<li>to create new data base followed <a href="http://www.wikihow.com/Create-a-Database-in-MySQL">this</a> by <code>create database gammu</code> in mysql shell</li>
+<li>to excute gammu mysql.sql file to create tables for gammu backend, used this <code>mysql -u root -p'passwd' gammu &lt; /home/debian/gammu-1.33.0/docs/sql/mysql.sql</code> following <a href="http://www.cyberciti.biz/faq/how-do-i-access-mysql-server-from-the-shell-prompt-command-line/">this</a> and <a href="http://stackoverflow.com/questions/6091077/what-is-the-correct-syntax-for-executing-sql-script-in-mysql-command-line">this</a></li>
+<li>to get into a sepcific data base, <code>use gammu</code> in mysql shell</li>
+<li>to view tables in the database, <code>SHOW tables</code>.</li>
+</ul>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Working with WRF CHEM part70 CBE DustOnlyTutorial - Nishadh KA</title>
+    <meta property="og:title" content="Working with WRF CHEM part70 CBE DustOnlyTutorial - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##Trail for WRF-CHEM, WRF CHEM simulation with dust only for Coimbatore using TWO WAY NESTING TWO files method## 1. It is based on this to run compiled wrf chem in serial mode with only dust. &amp;hellip;">
+      <meta property="og:description" content="##Trail for WRF-CHEM, WRF CHEM simulation with dust only for Coimbatore using TWO WAY NESTING TWO files method## 1. It is based on this to run compiled wrf chem in serial mode with only dust. &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Working with WRF CHEM part70 CBE DustOnlyTutorial</h1>
+
+<h3>
+  2014-09-06</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Trail for WRF-CHEM, WRF CHEM simulation with dust only for Coimbatore using TWO WAY NESTING TWO files method##
+1. It is based on <a href="http://ruc.noaa.gov/wrf/WG11/wrf_tutorial_exercises_v35/exercise_1.html">this</a> to run compiled wrf chem in serial mode with only dust.</p>
+
+<p>###WPS:Geogrid###
+9. As per <a href="http://ruc.noaa.gov/wrf/WG11/wrf_tutorial_exercises_v35/exercise_1.html">this</a> point 7, file <code>GEOGRID.TBL.ARW_CHEM</code> in WPS geogrid directory was linked as GEOGRID.TBL using GUI of Ubuntu 12.04.
+10. The namelist.wps used was as follows,</p>
+
+<pre><code>    &amp;share
+            max_dom = 4,
+            start_date              ='2014-06-05_00:00:00','2014-06-05_00:00:00','2014-06-05_00:00:00','2014-06-05_00:00:00'
+            end_date ='2014-06-05_06:00:00','2014-06-05_06:00:00','2014-06-05_06:00:00','2014-06-05_06:00:00'
+            interval_seconds = 10800,
+            io_form_geogrid = 2,
+            /
+
+            &amp;geogrid
+            parent_id                  = 1, 1, 2, 3
+            parent_grid_ratio          = 1, 3, 3, 3
+            i_parent_start             = 1, 26, 22, 22
+            j_parent_start             = 1, 7, 15, 32
+            e_we                       = 90, 76, 97, 136
+            e_sn                       = 85, 73, 106, 157
+            geog_data_res              = '10m', '5m', '30s', '30s'
+            dx                         = 27000
+            dy                         = 27000
+            map_proj                   = 'lambert'
+            ref_lat                    = 18.363
+            ref_lon                    = 78.925
+            truelat1                   = 18.363
+            truelat2                   = 18.363
+            stand_lon                  = 78.925
+            ref_x                      = 45
+            ref_y                      = 42.5
+            geog_data_path             = '/home/hoopoe/ems/wrfems/data/geog'
+            /
+
+            &amp;metgrid
+            fg_name = 'FILE'
+            io_form_metgrid = 2,
+            /
+</code></pre>
+
+<ol>
+<li>With this the geogrid was executed by <code>./geogrid.exe</code> and ended with successful completion and following files <code>
+,geo_em.d02.nc,geo_em.d03.nc,geo_em.d04.nc</code> was created. During geogrid.exe, as per the <a href="http://ruc.noaa.gov/wrf/WG11/wrf_tutorial_exercises_v35/exercise_1.html">page</a> point 10, EORD was processed but no processing was happen for CLAYFRAC and SANDFRAC as said in the page.</li>
+</ol>
+
+<p>###WPS: Ungrib###</p>
+
+<ol>
+<li>The gfs files downloaded was used, average size around 45MB for each files. The files for time period 00,03, 06 was kept under a folder gfs.</li>
+<li>The vtable was linked inside WPS folder by <code>ln -sf ungrib/Variable_Tables/Vtable.GFS Vtable</code>.</li>
+<li>The GFS files inside the gfs folder is linked with WPS folder by <code>./link_grib.csh /home/swl-sacon-dst/wrf/WRF341/WRF_CHEM_trails/coimbatore_nesting/gfs/</code>, by this following file with links were created by this step inside WPS folder.</li>
+</ol>
+
+<p>GRIBFILE.AAA -&gt; /home/swl-sacon-dst/wrf/WRF341/WRF<em>CHEM</em>trails/coimbatore<em>nesting/gfs/14060500.gfs.t00z.pgrb2f00
+GRIBFILE.AAB -&gt; /home/swl-sacon-dst/wrf/WRF341/WRF</em>CHEM<em>trails/coimbatore</em>nesting/gfs/14060500.gfs.t00z.pgrb2f03
+GRIBFILE.AAC -&gt; /home/swl-sacon-dst/wrf/WRF341/WRF<em>CHEM</em>trails/coimbatore_nesting/gfs/14060500.gfs.t00z.pgrb2f06</p>
+
+<ol>
+<li>The ungrib.exe was run using this command <code>./ungrib.exe &gt;&amp; ungrib_data.log</code>, the log file says successful completion of the ungrib and run for about 1 minutes. It created a 3 files such as this FILE:2010-07-14_00.</li>
+</ol>
+
+<p>###WPS:Metgrid###</p>
+
+<ol>
+<li>For the metgrid part of WPS, as per the tutorial page the content was checked for namelist.wps and kept as such of geogrid.exe namelist.</li>
+<li>Then the metgrid was executed by <code>./metgrid.exe</code> and it ended with successful completion and creation of nc files for each domain named from <code>met_em.d01.2014-06-05_00:00:00.nc</code> to <code>met_em.d04.2014-06-05_00:00:00.nc</code></li>
+<li>The metgrid.log was reviewed and it is found message saying the EROD field has been read in and written to file.</li>
+</ol>
+
+<p>###WRF:real.exe###
+18. For make a two way nested domain, more idea about nesting is required, so made a visit to WRF EMS user guide chapter 5 and it explains namelist as follows
+<code>&quot;For the uninitiated, 2-way nesting allows for information from a higher resolution child domain to be fed back to its parent domain. The parent domain provides the lateral boundary conditions to the nested domain at each time step and the nested domain is allowed to integrate forward in time with the results fed back onto the parent domain. In the case of 1-way nesting, this feedback mechanism is turned off, so while the parent domain provides the boundary conditions to the nested domain, there is no exchange of information from the nest back to the parent.  
+When running the EMS, all nesting is concurrent with the parent domain, meaning the child domain is executed while the parent domain is running. The benefit of concurrent nesting is that the boundary conditions for the child domain are provided at every parent domain time step. The limitation of this method is that it requires more physical memory on your workstation in order to run multiple domains simultaneously.
+&quot;</code> From the above note, it is found that the one way nesting using ndown is computationally less intensive while compared to two way nesting.
+19. The wrf arw online tutorial gives step by step instruction on running two way and one way nesting and its variant. In which two way nesting with two input files and using meteorological and static data were followed for current purpose.
+20. Based on this <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/NestRuns/metgrid_2way2inputs.htm">page</a> under that tutorial, it is required to change namelist.wps and run metgrid.exe to omit other HR domains (High resolution domains) to form multi temporal met files. It seems one time met files are enough for HR domains and subsequent time metfiles are useless. Considering with this, the metfiles formed are kept as such and removed extra time HR domain metfiles for real.exe.
+18. For making WRF run, the folder content from <code>WRFV3CHEM_serial1/test/em_real</code> was used as such and all the met files are linked inside the em<em>real folder using the command <code>ln -sf /home/swl-sacon-dst/wrf/WRF341/WRF_CHEM_trails/CBE_dustonly/WPS/met_em* .</code>. With this real.exe was executed and it created wrfinput and wrfbdy files, input file used was of provided with tutorial. As former point leaving HR domains first hour met files remaining links were deleted.
+19. The namelist.input was prepared by consulting with former [Coimbatore nesting](Working</em>with<em>WRF</em>CHEM<em>part6.3</em>WRF<em>CoimbatoreNesting.md), WRF ARW two way test case [page](<a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/NestRuns/wrf">http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/NestRuns/wrf</a></em>2way2inputs.htm) and wrf chem nesting <a href="http://ruc.noaa.gov/wrf/WG11/wrf_tutorial_2012_brazil/wrf-chem_tutorial_nesting.pdf">tutorial</a> and WRF EMS namelist for Coimbatore four nest domain file namelist.real.
+20. The edited namelist was <a href="namelist.input_2way_CBEDUSTONLY">this</a> and executed ./real.exe. Wrong entry in end<em>hour and interval</em>seconds under &amp;time<em>control results in running of real.exe with successful completion of only producing wrfinput</em>01 but no wrfbdy<em>01. Based on <a href="http://forum.wrfforum.com/viewtopic.php?f=10&amp;t=419">this</a> it was came to know and by editing the errors lets to create wrfbdy</em>01 in ./real.exe along with wrfinput<em>01, wrfinput</em>02, wrfinput<em>03 and wrfinput</em>04. There where no wrfbdy for nested domains as it is a separate process by ndown.exe or downscaling in two way nesting.</p>
+
+<p>####WRF:wrf.exe###</p>
+
+<ol>
+<li>The wrf.exe was executed after real.exe. It complained about non availability of wrfchemi file and it was rectified by changing the namlist &amp;time<em>control entry <code>io_form_auxinput5 =0</code> instead of 2. It also give error of cu</em>physics has to change into 5 and cu_diag into 1. Although wrf.exe ends with memory dumped error. Indicating two way nesting computational requirement is far above the running HP ProBook 4540s laptop. It was followed by running this case with parallel compiled WRF chem and it was also a memory related error.</li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

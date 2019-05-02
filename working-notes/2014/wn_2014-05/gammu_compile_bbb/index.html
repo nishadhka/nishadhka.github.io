@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>gammu compile BBB - Nishadh KA</title>
+    <meta property="og:title" content="gammu compile BBB - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="Gammu_compile-in-BBB
+">
+      <meta property="og:description" content="Gammu_compile-in-BBB
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>gammu compile BBB</h1>
+
+<h3>
+  2014-05-05</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p><strong>Gammu_compile-in-BBB</strong></p>
+
+<ul>
+<li>Gammu was compiled in BBB follwoing <a href="http://wammu.eu/docs/manual/project/install.html#compiling-on-linux-unix-systems">this</a></li>
+<li>The dependacnies was intaalled using this command
+<code>
+apt-get install cmake python-dev pkg-config libmysqlclient-dev libpq-dev \
+libcurl4-gnutls-dev libusb-1.0-0-dev libdbi0-dev libbluetooth-dev \
+libgudev-1.0-dev libglib2.0-dev unixodbc-dev
+</code></li>
+<li>the command <code>./configure</code> gives error of <code>CMake Error: CMake was unable to find a build program corresponding to &quot;Unix Makefiles&quot;.</code></li>
+<li>based on <a href="http://www.cmake.org/pipermail/cmake/2013-May/054869.html">this</a> installed make by <code>apt-get install make</code>
+after  this the error goes away</li>
+<li>executed this command <code>cmake .. -DCMAKE_INSTALL_PREFIX=&quot;/usr&quot;</code></li>
+<li>then <code>make</code>, says all build</li>
+<li>then <code>make test</code>, says failure for smsd-dbi-sqlite3 and pther sqlite3 related thinks, but other thinks are passed, test results goes like this
+<code>
+99% tests passed, 5 tests failed out of 1116
+Total Test time (real) = 609.54 sec
+The following tests FAILED:
+	444 - smsd-dbi-sqlite3 (Failed)
+	445 - smsd-inject-dbi-sqlite3 (Failed)
+	446 - smsd-inject-long-dbi-sqlite3 (Failed)
+	447 - smsd-daemon-dbi-sqlite3 (Failed)
+	1114 - py-smsd-testing (Failed)
+Errors while running CTest
+make: *** [test] Error 8
+</code></li>
+<li>then <code>sudo make install</code> gives no error! seems</li>
+<li>now comes good news
+<code>
+root@arm:/home/debian/gammu-1.33.0/build# gammu
+[Gammu version 1.33.0 built 15:03:15 on May  5 2014 using GCC 4.6]
+Usage: gammu [parameters] &lt;command&gt; [options]
+</code></li>
+<li>the usual testing comment <code>gammu --identify</code> throughs a error with unable to connect with phone
+<code>Phone does not support enabled echo, it can not work with Gammu!</code>
+As per <a href="http://stackoverflow.com/questions/19698481/gammu-cannot-detect-my-modem">this</a> changed device address
+from /dev/ttyUSB0 to /dev/ttyUSB2, now it is working and the gammu-smsd also working making txt sms file inside inbox folder.</li>
+</ul>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

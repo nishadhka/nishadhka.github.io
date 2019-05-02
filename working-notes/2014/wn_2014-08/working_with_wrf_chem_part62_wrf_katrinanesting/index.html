@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Working with WRF CHEM part62 WRF KatrinaNesting - Nishadh KA</title>
+    <meta property="og:title" content="Working with WRF CHEM part62 WRF KatrinaNesting - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##Trail for WRF-CHEM, WRF simulation with Katrina case and one way Nesting-Ndown.exe## 1. It is based on this to run compiled wrf in serial mode to execute the Katrina case with nested model run by &amp;hellip;">
+      <meta property="og:description" content="##Trail for WRF-CHEM, WRF simulation with Katrina case and one way Nesting-Ndown.exe## 1. It is based on this to run compiled wrf in serial mode to execute the Katrina case with nested model run by &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-07/WRF_Katrina_nesting.png">
+    
+    
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Working with WRF CHEM part62 WRF KatrinaNesting</h1>
+
+<h3>
+  2014-08-12</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Trail for WRF-CHEM, WRF simulation with Katrina case and one way Nesting-Ndown.exe##
+1. It is based on <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/NestRuns/ndown.htm">this</a> to run compiled wrf in serial mode to execute the Katrina case with nested model run by Ndown.exe based one way nesting.</p>
+
+<p>###WPS: Ungrib###</p>
+
+<ol>
+<li>As per this <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/SingleDomain/ungrib.htm">page</a>, the WPS ungrib stage was carried out.</li>
+<li>The tar file provided with the tutorial was unzipped and compiled WPS folder was copied and both these folders were kept under a folder named katrina as katrina_nesting.</li>
+<li>The vtable was linked inside WPS folder by <code>ln -sf ungrib/Variable_Tables/Vtable.GFS Vtable</code>.</li>
+
+<li><p>The avn/GFS files inside the tar folder is linked with WPS folder by <code>./link_grib.csh /home/swl-sacon-dst/wrf/WRF341/katrina/GFS_data/</code>, by this following file with links were created by this step inside WPS folder.</p>
+
+<pre><code>GRIBFILE.AAA -&gt; ../katrina/GFS_data/avn_050828_00_00 
+GRIBFILE.AAB -&gt; ../katrina/GFS_data/avn_050828_00_06  
+GRIBFILE.AAC -&gt; ../katrina/GFS_data/avn_050828_00_12  
+GRIBFILE.AAD -&gt; ../katrina/GFS_data/avn_050828_00_18  
+GRIBFILE.AAE -&gt; ../katrina/GFS_data/avn_050828_00_24  
+GRIBFILE.AAF -&gt; ../katrina/GFS_data/avn_050828_00_30  
+GRIBFILE.AAG -&gt; ../katrina/GFS_data/avn_050828_00_36  
+GRIBFILE.AAH -&gt; ../katrina/GFS_data/avn_050828_00_42  
+GRIBFILE.AAI -&gt; ../katrina/GFS_data/avn_050828_00_48  
+</code></pre></li>
+
+<li><p>For ungrib part of WPS a minimal namelist.wps suggested by this <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/UNGRIB/ungrib_namelist.htm">page</a> as part of the tutorial is used. By this the namelist.wps in WPS folder was edited and the file become</p>
+
+<pre><code>&amp;share
+max_dom = 1,
+start_date = '2005-08-28_00:00:00','2005-08-28_00:00:00',
+end_date = '2005-08-30_00:00:00','2005-08-28_00:00:00',
+interval_seconds = 21600,
+io_form_geogrid = 2,
+/
+&amp;metgrid
+fg_name = 'FILE'
+io_form_metgrid = 2,
+/
+</code></pre></li>
+
+<li><p>With this setup ungrib was run using this command <code>./ungrib.exe &gt;&amp; ungrib_data.log</code>, the log file says successful completion of the ungrib. With the earlier version of file ungrib, given error of namlist read and namelist was edited then ungrib run without error.</p></li>
+
+<li><p>In tutorial the remaining steps with SST data, based on <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/DATA/SST/index.html">this</a> was not carried out. SST data is only required for long simulations.</p></li>
+</ol>
+
+<p>###WPS:Geogrid###</p>
+
+<ol>
+<li>This part of tutorial is based on the <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/NestRuns/ndown1-2.htm">page</a></li>
+
+<li><p>For the geogrid part of WPS, following namelist.wps was used based on <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/GEOGRID/geogrid_namelist.htm">this</a> and edited as per the instruction in the <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/NestRuns/ndown1-2.htm">page</a>. The namelist.wps becomes</p>
+
+<pre><code>&amp;share
+max_dom = 2,
+start_date = '2005-08-28_00:00:00','2005-08-28_00:00:00',
+end_date = '2005-08-30_00:00:00','2005-08-28_00:00:00',
+interval_seconds = 21600,
+io_form_geogrid = 2,
+/
+
+&amp;geogrid
+parent_id = 1, 1,
+parent_grid_ratio = 1, 3,
+i_parent_start = 1, 35,
+j_parent_start = 1, 23,
+e_we = 98, 118,
+e_sn = 70, 103,
+geog_data_res = '10m','2m',
+dx = 30000,
+dy = 30000,
+map_proj = 'mercator',
+ref_lat = 25.00,
+ref_lon = -89.00,
+truelat1 =  0.0,
+truelat2 =  0.0,
+stand_lon = -89.0,
+geog_data_path = '/home/hoopoe/ems/wrfems/data/geog/'
+/
+
+&amp;metgrid
+fg_name = 'FILE'
+io_form_metgrid = 2,
+/
+</code></pre></li>
+
+<li><p>In namelist.wps, the line <code>geog_data_path</code> was edited with geog folder as per the EMS namlist.wps to refer the huge file required for this purpose.</p></li>
+
+<li><p>There is a step stating the requirement of ncl language to visualize the domain. For this, m2lab in virtual box ubuntu was used in which the ncl language was installed. The VM ubunut folder was shared with host computer using the command</p>
+
+<pre><code>sudo mount -t vboxsf -o uid=1000,gid=1000 share ~/host
+</code></pre>
+
+<p>The VB ubuntu gives error of wrong password, password was edited following <a href="http://www.psychocats.net/ubuntu/resetpassword">this</a>. By reentering the command, the namelist.wps was copied into VB ubuntu and from there it was copied in WRF/WPS folder in it. Then executed as per m2lab chapter 4 instruction to run the plotgrid.ncl using the command</p>
+
+<pre><code>cd WRF/MYTEST/WPS
+ncl util/plotgrids.ncl
+</code></pre>
+
+<p>it correctly visualized the domain as given in tutorial. The tutorial instruction to visulise the domain by running <code>
+./util/plotgrids.exe
+</code> was not carried out, since there is no plotgrids.exe in WPS util folder.</p></li>
+
+<li><p>With this the geogrid was executed by <code>./geogrid.exe</code> and ended with successful completion and following files   was created as per the <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/NestRuns/ndown1-2.htm">page</a></p>
+
+<pre><code>geo_em.d01.nc
+geo_em.d02.nc
+</code></pre></li>
+</ol>
+
+<p>###WPS:Metgrid###
+14. This part of trail is based on the <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/NestRuns/ndown1-3.htm">page</a>
+15. For the metgrid part of WPS, as per the turial page the content was checked for namelist.wps and kept as such of geogrid.exe namelist.
+16. Then the metgrid was executed by <code>./metgrid.exe</code> and it ended with successful completion and creation of nc both domain 1 and 2 files as pert the tutorial page.
+   met<em>em.d01.2005-08-28</em>00:00:00.nc
+   met<em>em.d01.2005-08-28</em>06:00:00.nc
+   met<em>em.d01.2005-08-28</em>12:00:00.nc
+   met<em>em.d01.2005-08-28</em>18:00:00.nc
+   met<em>em.d01.2005-08-29</em>00:00:00.nc
+   met<em>em.d02.2005-08-28</em>00:00:00.nc
+###WRF:real.exe###
+17. This part of tutorial is based on the <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/NestRuns/ndown2.htm">page</a>
+18. For making WRF run the folder content from <code>WRFV3_serial/test/em_real</code> was used as such and all the met files are linked inside the em_real folder using the command</p>
+
+<pre><code>    ln -sf /home/swl-sacon-dst/wrf/WRF341/katrina/kWPS/met_em* .
+</code></pre>
+
+<ol>
+<li>For the real.exe part of WRF WITH NESTING NDOWN, following namelist.input was used based on <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/WRF/namelist.input.htm">this</a> and edited as per the tutorial page to suit the katrina case with nesting domain and the namelsit.input becomes</li>
+</ol>
+
+<p>		&amp;time<em>control
+    	run</em>days = 0,0,
+        run<em>hours = 12,12,
+        run</em>minutes = 0,0,
+    	run<em>seconds = 0,0,
+    	start</em>year = 2005,2005,
+    	start<em>month = 08,08,
+    	start</em>day = 28,28,
+    	start<em>hour = 00,00,
+    	start</em>minute = 00,00,
+    	start<em>second = 00,00,
+    	end</em>year = 2005,2005,
+    	end<em>month = 08,08,
+    	end</em>day = 30,30,
+    	end<em>year = 2005,2005,
+    	end</em>month = 08,08,
+    	end<em>day = 30,30,
+    	end</em>hour = 00,00
+    	end<em>minute = 00,00,
+    	end</em>second = 00,00,
+    	interval<em>seconds = 21600
+    	input</em>from<em>file = .true.,.true.,
+    	history</em>interval = 180,180,
+    	frames<em>per</em>outfile = 1000,1000,
+    	restart = .false.,
+    	restart<em>interval = 720,
+    	io</em>form<em>history = 2
+    	io</em>form<em>restart = 2
+    	io</em>form<em>input = 2
+    	io</em>form<em>boundary = 2
+    	debug</em>level = 0
+    	/</p>
+
+<pre><code>	&amp;domains
+	time_step = 180,
+	max_dom = 2,
+	e_we = 98,118,
+	e_sn = 70,103,
+	e_vert = 30,30,
+	num_metgrid_levels = 27
+	dx = 30000,9000, 
+	dy = 30000, 9000,
+	grid_id = 1,
+	parent_id = 1,
+	i_parent_start = 1,35, 
+	j_parent_start = 1, 23,
+	parent_grid_ratio = 1,
+	parent_time_step_ratio = 1,
+	feedback = 1,
+	/
+
+	&amp;physics
+	mp_physics = 3,
+	ra_lw_physics = 1, 
+	ra_sw_physics = 1, 
+	radt = 30, 
+	sf_sfclay_physics = 1, 
+	sf_surface_physics = 1,
+	num_soil_layers = 5,
+	bl_pbl_physics = 1, 
+	bldt = 0, 
+	cu_physics = 1, 
+	cudt = 5, 
+	/
+
+	&amp;dynamics
+	w_damping = 0,
+	diff_opt = 1,
+	km_opt = 4,
+	diff_6th_opt = 0,
+	diff_6th_factor = 0.12,
+	base_temp = 290.
+	damp_opt = 0,
+	zdamp = 5000., 
+	dampcoef = 0.2,
+	khdif = 0, 
+	kvdif = 0, 
+	non_hydrostatic = .true., 
+	moist_adv_opt = 1,
+	scalar_adv_opt = 1,
+	/
+
+	&amp;bdy_control
+	spec_bdy_width = 5,
+	spec_zone = 1,
+	relax_zone = 4,
+	specified = .true.,
+	nested = .false., 
+	/
+
+this gives error that 
+
+    -------------- FATAL CALLED ---------------
+</code></pre>
+
+<p>		FATAL CALLED FROM FILE:  <stdin>  LINE:    9304
+ 		ERRORS while reading one or more namelists from namelist.input.
+ 		&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</p>
+
+<ol>
+<li><p>with this general error pointing, it was difficult to find the exact error in about 200 lines of namelist.input, so editing with different lines deemed to be erratic mistakes, still it was not rectified. So a search was made to collect the namelist for this tutorial case, but there is no direct namelist.input was available with the tutorial. So made a search directly with error what was given and found a forum <a href="http://mailman.ucar.edu/pipermail/wrf-users/2014/003440.html">mail</a> with direct relevance of the namelist.input for same test case. Based on this and answer provided, the namelist was edited and it found, it is working. the learning found in the iteration was namelist is not mind of formates as of python but the content is important deemed to be difficult to rectified with the provided error list. The main problem found with the provided namelist is of first few lines mentioning run days in timecontrol section of namelist in which it was single value but the name list used is giving value for each domain. Other notable pages sited in this search was <a href="http://www2.mmm.ucar.edu/wrf/users/FAQ.html#q110">this</a> for more detailed and comphrehebsive WRF installation and running, <a href="http://forum.wrfforum.com/viewtopic.php?f=10&amp;t=1133">this2</a> for namelist editing tool. The working namelist.input for nesting was as follows</p>
+
+<p>		  &amp;time<em>control
+          run</em>days                            = 0,
+          run<em>hours                           = 12,
+          run</em>minutes                         = 0,
+          run<em>seconds                         = 0,
+          start</em>year                          = 2005, 2005, 2000,
+          start<em>month                         = 08,   08,   01,
+          start</em>day                           = 28,   28,   24,
+          start<em>hour                          = 00,   00,   12,
+          start</em>minute                        = 00,   00,   00,
+          start<em>second                        = 00,   00,   00,
+          end</em>year                            = 2005, 2005, 2000,
+          end<em>month                           = 08,   08,   01,
+          end</em>day                             = 29,   29,   25,
+          end<em>hour                            = 00,   00,   12,
+          end</em>minute                          = 00,   00,   00,
+          end<em>second                          = 00,   00,   00,
+          interval</em>seconds                    = 21600
+          input<em>from</em>file                     = .true.,.true.,.true.,
+          fine<em>input</em>stream                   = 0, 0,
+          history<em>interval                    = 180,  60,   60,
+          frames</em>per<em>outfile                  = 1000, 1000, 1000,
+          restart                             = .false.,
+          restart</em>interval                    = 5000,
+          io<em>form</em>history                     = 2
+          io<em>form</em>restart                     = 2
+          io<em>form</em>input                       = 2
+          io<em>form</em>boundary                    = 2
+          debug<em>level                         = 0
+          io</em>form_auxinput4                   = 2
+          /</p>
+
+<pre><code>      &amp;domains
+      time_step                           = 180,
+      time_step_fract_num                 = 0,
+      time_step_fract_den                 = 1,
+      max_dom                             = 2,
+      e_we                                = 98,    118,   94,
+      e_sn                                = 70,    103,    91,
+      e_vert                              = 30,    30,    30,
+      p_top_requested                     = 5000,
+      num_metgrid_levels                  = 27,
+      num_metgrid_soil_levels             = 4,
+      dx                                  = 30000, 10000,  3333.33,
+      dy                                  = 30000, 10000,  3333.33,
+      grid_id                             = 1,     2,     3,
+      parent_id                           = 1,     1,     2,
+      i_parent_start                      = 1,     35,    30,
+      j_parent_start                      = 1,     23,    30,
+      parent_grid_ratio                   = 1,     3,     3,
+      parent_time_step_ratio              = 1,     3,     3,
+      feedback                            = 1,
+      smooth_option                       = 0
+      /
+
+      &amp;physics
+      mp_physics                          = 3,     3,     3,
+      ra_lw_physics                       = 1,     1,     1,
+      ra_sw_physics                       = 1,     1,     1,
+      radt                                = 30,    30,    30,
+      sf_sfclay_physics                   = 1,     1,     1,
+      sf_surface_physics                  = 2,     2,     2,
+      bl_pbl_physics                      = 1,     1,     1,
+      bldt                                = 0,     0,     0,
+      cu_physics                          = 1,     1,     0,
+      cudt                                = 5
+      isfflx                              = 1,
+      ifsnow                              = 1,
+      icloud                              = 1,
+      surface_input_source                = 1,
+      num_soil_layers                     = 4,
+      sf_urban_physics                    = 0,     0,     0,
+      /
+
+      &amp;fdda
+      /
+
+      &amp;dynamics
+      w_damping                           = 0,
+      diff_opt                            = 1,
+      km_opt                              = 4,
+      diff_6th_opt                        = 0,      0,      0,
+      diff_6th_factor                     = 0.12,   0.12,   0.12,
+      base_temp                           = 290.
+      damp_opt                            = 0,
+      zdamp                               = 5000.,  5000.,  5000.,
+      dampcoef                            = 0.2,    0.2,    0.2
+      khdif                               = 0,      0,      0,
+      kvdif                               = 0,      0,      0,
+      non_hydrostatic                     = .true., .true., .true.,
+      moist_adv_opt                       = 1,      1,      1,     
+      scalar_adv_opt                      = 1,      1,      1,     
+      /
+
+      &amp;bdy_control
+      spec_bdy_width                      = 5,
+      spec_zone                           = 1,
+      relax_zone                          = 4,
+      specified                           = .true., .false.,.false.,
+      nested                              = .false., .true., .true.,
+      /
+
+      &amp;grib2
+      /
+
+      &amp;namelist_quilt
+      nio_tasks_per_group = 0,
+      nio_groups = 1,
+      /
+</code></pre></li>
+
+<li><p>With this setup the real.exe was executed by <code>./real.exe</code> and it completed with out any error and successfully ends with creation of three files as per the tutorial. 	</p></li>
+</ol>
+
+<pre><code>wrfinput_d01
+wrfinput_d02
+wrfbdy_d01
+</code></pre>
+
+<p>With file size of 13.6MB, 24.2 MB and 12.6 MB respectively.
+###WRF:wrf.exe###</p>
+
+<ol>
+<li>The file <code>wrfinput_d02</code> was renamed into <code>wrfndi_d02</code> and executed <code>./wrf.exe</code> after editing namelist.input content <code>max_dom=2</code> into <code>max_dom=1</code>. the WRF was executed correctly and produced one file with file name of <code>wrfout_d01_2005-08-28_00:00:00</code> with file size of 67.6 MB.</li>
+</ol>
+
+<p>###WRF:ndown.exe###
+14. This part of trail is based on the <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/NestRuns/ndown4.htm">page</a>
+15. Added a following line in namelist.input under &amp;time_control section <code>io_form_auxinput2            = 2</code>.
+16. Executed <code>./ndown.exe</code> and it run for several seconds and ends in error. The error was on,</p>
+
+<pre><code>    -------------- FATAL CALLED ---------------
+            FATAL CALLED FROM FILE:  &lt;stdin&gt;  LINE:     353
+            program ndown: opening too many files
+            -------------------------------------------
+            -------------- FATAL CALLED ---------------
+          FATAL CALLED FROM FILE:  &lt;stdin&gt;  LINE:     353
+    program ndown: opening too many files
+    -------------------------------------------
+</code></pre>
+
+<p>but created the files wrfinput<em>d02 and wrfbdy</em>d02 as per the tutorial page. The created file size was 24.8 MB and 8.2 MB respectively.</p>
+
+<ol>
+<li>Made a google search with this error and found two mail list pages describing this error <a href="[Wrf-users] Problem with ndown.exe">page1</a> and <a href="http://forum.wrfforum.com/viewtopic.php?f=10&amp;t=1729&amp;sid=1d135b17e87e63e09ad0414c3de80d2d">page2</a> page 1 only described rthe eror, page2 having detailed answer for the error.</li>
+<li>Based on <a href="http://forum.wrfforum.com/viewtopic.php?f=10&amp;t=1729&amp;sid=1d135b17e87e63e09ad0414c3de80d2d">page2</a>, the error is due to the lack of necessary &lsquo;additional input&rsquo; content in  <code>wrfinput_d02</code> input file created by real.exe. The page2 suggest run real.exe for second domain separately as main domain using a fresh edited namelist.input and renamed metfiles. Thus will make real.exe to include the &lsquo;additional input&rsquo; into the file wrfndi_d02. For more clarity this <a href="http://www2.mmm.ucar.edu/wrf/users/wrfv2/runwrf.html">page</a> contains more details for one way nesting and it gives step wise explanation for the mail answered in <a href="http://forum.wrfforum.com/viewtopic.php?f=10&amp;t=1729&amp;sid=1d135b17e87e63e09ad0414c3de80d2d">page2</a>.</li>
+<li>Thus ndown.exe was rerun with additional steps explained in the point above. The metfiles created in WPS was renamed from <code>met_em.d02.2005-08-28_00:00:00.nc</code> to <code>met_em.d01.2005-08-28_00:00:00.nc</code> and the same name file for domain 01 was renamed into <code>met_em.d01.2005-08-28_00:00:00_DO1.nc</code>. The files created in last real.exe was renamed from <code>wrfinput_d01, wrfinput_d02, wrfbdy_d01</code> into <code>wrfinput_d01_DO1, wrfinput_d02_DO1, wrfbdy_d01_DO1</code> and also for the namelist.input used for real.exe run.</li>
+
+<li><p>For fresh real.exe with only higher resolution domain, coarser resolution domain entries in namelist was removed and maintained entry for higher resolution domain and changed <code>max_dom=2</code> from <code>max_dom=1</code>. Based on below namelist rea/.exe was executed.</p>
+
+<pre><code>&amp;time_control
+        run_days                            = 0,
+        run_hours                           = 0,
+        run_minutes                         = 0,
+        run_seconds                         = 0,
+        start_year                          = 2005, 2005,
+        start_month                         = 08,   08,
+        start_day                           = 28,   28,
+        start_hour                          = 00,   00,
+        start_minute                        = 00,   00,
+        start_second                        = 00,   00,
+        end_year                            = 2005, 2005,
+        end_month                           = 08,   08,
+        end_day                             = 29,   29,
+        end_hour                            = 00,   00,
+        end_minute                          = 00,   00,
+        end_second                          = 00,   00,
+        interval_seconds                    = 21600
+        input_from_file                     = .true.,.true.,
+        history_interval                    = 180,  60,
+        frames_per_outfile                  = 1000, 1000,
+        restart                             = .false.,
+        restart_interval                    = 5000,
+        io_form_history                     = 2
+        io_form_restart                     = 2
+        io_form_input                       = 2
+        io_form_boundary                    = 2
+        debug_level                         = 0
+        /
+
+        &amp;domains
+        time_step                           = 180,
+        time_step_fract_num                 = 0,
+        time_step_fract_den                 = 1,
+        max_dom                             = 1,
+        s_we                                = 1,     1,
+        e_we                                = 118,    117,
+        s_sn                                = 1,     1,
+        e_sn                                = 103,    102,
+        s_vert                              = 1,     1,
+        e_vert                              = 28,    28,
+        num_metgrid_levels                  = 27
+        dx                                  = 10000, 40000,
+        dy                                  = 10000, 10000,
+        grid_id                             = 2,     2,
+        parent_id                           = 1,     1,
+        i_parent_start                      = 35,     35,
+        j_parent_start                      = 23,     23,
+        parent_grid_ratio                   = 1,     3,
+        parent_time_step_ratio              = 3,     3,
+        feedback                            = 1,
+        smooth_option                       = 0
+        /
+
+        &amp;physics
+        mp_physics                          = 3,     3,     3,
+        ra_lw_physics                       = 1,     1,     1,
+        ra_sw_physics                       = 1,     1,     1,
+        radt                                = 30,    30,    30,
+        sf_sfclay_physics                   = 1,     1,     1,
+        sf_surface_physics                  = 2,     2,     2,
+        bl_pbl_physics                      = 1,     1,     1,
+        bldt                                = 0,     0,     0,
+        cu_physics                          = 1,     1,     0,
+        cudt                                = 5
+        isfflx                              = 1,
+        ifsnow                              = 1,
+        icloud                              = 1,
+        surface_input_source                = 1,
+        num_soil_layers                     = 4,
+        sf_urban_physics                    = 0,     0,     0,
+        /
+
+        &amp;fdda
+        /
+
+        &amp;dynamics
+        w_damping                           = 0,
+        diff_opt                            = 1,
+        km_opt                              = 4,
+        diff_6th_opt                        = 0,      0,      0,
+        diff_6th_factor                     = 0.12,   0.12,   0.12,
+        base_temp                           = 290.
+        damp_opt                            = 0,
+        zdamp                               = 5000.,  5000.,  5000.,
+        dampcoef                            = 0.2,    0.2,    0.2
+        khdif                               = 0,      0,      0,
+        kvdif                               = 0,      0,      0,
+        non_hydrostatic                     = .true., .true., .true.,
+        moist_adv_opt                       = 1,      1,      1,     
+        scalar_adv_opt                      = 1,      1,      1,     
+        /
+
+
+        &amp;bdy_control
+        spec_bdy_width                      = 5,
+        spec_zone                           = 1,
+        relax_zone                          = 4,
+        specified                                           = .true., .false.,.false.,
+        nested                              = .false., .true., .true.,
+        /
+
+        &amp;grib2
+        /
+
+        &amp;namelist_quilt
+        nio_tasks_per_group = 0,
+        nio_groups = 1,
+        /
+</code></pre>
+
+<p>ends in error saying that <code>the DX DY of the namelist is not matching with input files</code>, multiple seraches were made to find the cause of error and namelist.input was edited. The input files referred in the error was viewed to ascertain the DX and DY readings using <code>ncdump -h</code> command and found no mistake in namelist.input domain section. Finally the casue for error was found from error notification, it is because in namelist.input start day and end day was having mention of 29th August 2005 and so it was referring met01* files of domain 1, where DX and DY is wrong. So start<em>day and end</em>day was edited to same day and then run real.exe, it created a file wrfinput<em>d01 and renamed into wrfndi</em>d02, the file size is arround 22.9MB.</p></li>
+
+<li><p>With this the ndown.exe was ready to executed based on this <a href="http://www2.mmm.ucar.edu/wrf/users/wrfv2/runwrf.html">page</a>. The namelist.input was again edited and kept details to run coarser and high resolution domain. The namelist.input was</p>
+
+<pre><code>            &amp;time_control
+            run_days                            = 0, 
+            run_hours                           = 12, 
+            run_minutes                         = 0, 
+            run_seconds                         = 0, 
+            start_year                          = 2005, 2005, 2000,
+            start_month                         = 08,   08,   01,
+            start_day                           = 28,   28,   24,
+            start_hour                          = 00,   00,   12,
+            start_minute                        = 00,   00,   00,
+            start_second                        = 00,   00,   00,
+            end_year                            = 2005, 2005, 2000,
+            end_month                           = 08,   08,   01,
+            end_day                             = 28,   28,   25,
+            end_hour                            = 00,   00,   12,
+            end_minute                          = 00,   00,   00,
+            end_second                          = 00,   00,   00,
+            interval_seconds                    = 10800
+            input_from_file                     = .true.,.true.,.true.,
+            fine_input_stream                   = 0, 0, 
+            history_interval                    = 180,  60,   60,
+            frames_per_outfile                  = 1000, 1000, 1000,
+            restart                             = .false.,
+            restart_interval                    = 5000,
+            io_form_history                     = 2
+            io_form_restart                     = 2
+            io_form_input                       = 2
+            io_form_boundary                    = 2
+            debug_level                         = 0
+            io_form_auxinput4                   = 2
+            io_form_auxinput2            = 2
+            /
+
+            &amp;domains
+            time_step                           = 180,
+            time_step_fract_num                 = 0,
+            time_step_fract_den                 = 1,
+            max_dom                             = 2,
+            e_we                                = 98,    118,   94,
+            e_sn                                = 70,    103,    91,
+            e_vert                              = 30,    30,    30,
+            p_top_requested                     = 5000,
+            num_metgrid_levels                  = 27,
+            num_metgrid_soil_levels             = 4,
+            dx                                  = 30000, 10000,  3333.33,
+            dy                                  = 30000, 10000,  3333.33,
+            grid_id                             = 1,     2,     3,
+            parent_id                           = 1,     1,     2,
+            i_parent_start                      = 1,     35,    30,
+            j_parent_start                      = 1,     23,    30,
+            parent_grid_ratio                   = 1,     3,     3,
+            parent_time_step_ratio              = 1,     3,     3,
+            feedback                            = 1,
+            smooth_option                       = 0
+            /
+
+            &amp;physics
+            mp_physics                          = 3,     3,     3,
+            ra_lw_physics                       = 1,     1,     1,
+            ra_sw_physics                       = 1,     1,     1,
+            radt                                = 30,    30,    30,
+            sf_sfclay_physics                   = 1,     1,     1,
+            sf_surface_physics                  = 2,     2,     2,
+            bl_pbl_physics                      = 1,     1,     1,
+            bldt                                = 0,     0,     0,
+            cu_physics                          = 1,     1,     0,
+            cudt                                = 5
+            isfflx                              = 1,
+            ifsnow                              = 1,
+            icloud                              = 1,
+            surface_input_source                = 1,
+            num_soil_layers                     = 4,
+            sf_urban_physics                    = 0,     0,     0,
+            /
+
+            &amp;fdda
+            /
+
+            &amp;dynamics
+            w_damping                           = 0,
+            diff_opt                            = 1,
+            km_opt                              = 4,
+            diff_6th_opt                        = 0,      0,      0,
+            diff_6th_factor                     = 0.12,   0.12,   0.12,
+            base_temp                           = 290.
+            damp_opt                            = 0,
+            zdamp                               = 5000.,  5000.,  5000.,
+            dampcoef                            = 0.2,    0.2,    0.2
+            khdif                               = 0,      0,      0,
+            kvdif                               = 0,      0,      0,
+            non_hydrostatic                     = .true., .true., .true.,
+            moist_adv_opt                       = 1,      1,      1,     
+            scalar_adv_opt                      = 1,      1,      1,     
+            /
+
+            &amp;bdy_control
+            spec_bdy_width                      = 5,
+            spec_zone                           = 1,
+            relax_zone                          = 4,
+            specified                           = .true., .false.,.false.,
+            nested                              = .false., .true., .true.,
+            /
+
+            &amp;grib2
+            /
+
+            &amp;namelist_quilt
+            nio_tasks_per_group = 0,
+            nio_groups = 1,
+            / 
+</code></pre>
+
+<p>and the ndown.exe was executed by <code>./ndown.exe</code>. But it ends with error saying the earlier method error of too much files to open. In <a href="http://www2.mmm.ucar.edu/wrf/users/wrfv2/runwrf.html">page</a>, it as specifically mentioned to change the interval_seconds in namelist.input to consider the time interval between coarser grid domain. So the namelist.input was edited with <code>interval_seconds =21600</code> into <code>interval_seconds =0</code>, this time ndown.exe exited with <code>Floating point exception (core dumped)</code>. Again interval seconds was edited into <code>interval_seconds =3600</code> and run <code>./ndown.exe</code>, this time error was more understandable of this kind,</p>
+
+<pre><code>            -------------- FATAL CALLED ---------------
+            FATAL CALLED FROM FILE:  &lt;stdin&gt;  LINE:     371
+            Found 2005-08-28_03:00:00 before I found 2005-08-28_01:00:00.
+            -------------------------------------------
+            -------------- FATAL CALLED ---------------
+            FATAL CALLED FROM FILE:  &lt;stdin&gt;  LINE:     371
+            Found 2005-08-28_03:00:00 before I found    2005-08-28_01:00:00.
+            -------------------------------------------
+</code></pre>
+
+<p>indicating the interval seconds of input file is 3 hours. So edited the interval seconds into <code>interval_seconds =10800</code> and run <code>./ndown.exe</code>. This time ndown.exe was run without any error and produced wrfinput<em>d02 and wrfbdy</em>d02 files.</p></li>
+</ol>
+
+<p>###WRF:wrf.exe###
+1. This is based on this <a href="http://www2.mmm.ucar.edu/wrf/users/wrfv2/runwrf.html">page</a> and this <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/CASES/NestRuns/ndown4.htm">page</a>.
+2. The files produced in ndown.exe wrfinput<em>d02 and wrfbdy</em>d02 was renamed into wrfinput<em>d01 and wrfbdy</em>d01, respectively. The output produced in earlier wrf.exe for coarse domain  wrfout<em>d01</em><date>* also renamed into  wrfout<em>d01</em><date>*<em>DO1.
+3. The namelist.input was edited to consider only the high resolution domain and also changed the time step into 60 and max</em>dom into 1. the namelist is as follows
+        &amp;time<em>control
+                run</em>days                            = 0,
+                run<em>hours                           = 0,
+                run</em>minutes                         = 0,
+                run<em>seconds                         = 0,
+                start</em>year                          = 2005, 2005,
+                start<em>month                         = 08,   08,
+                start</em>day                           = 28,   28,
+                start<em>hour                          = 00,   00,
+                start</em>minute                        = 00,   00,
+                start<em>second                        = 00,   00,
+                end</em>year                            = 2005, 2005,
+                end<em>month                           = 08,   08,
+                end</em>day                             = 29,   29,
+                end<em>hour                            = 00,   00,
+                end</em>minute                          = 00,   00,
+                end<em>second                          = 00,   00,
+                interval</em>seconds                    = 21600
+                input<em>from</em>file                     = .true.,.true.,
+                history<em>interval                    = 180,  60,
+                frames</em>per<em>outfile                  = 1000, 1000,
+                restart                             = .false.,
+                restart</em>interval                    = 5000,
+                io<em>form</em>history                     = 2
+                io<em>form</em>restart                     = 2
+                io<em>form</em>input                       = 2
+                io<em>form</em>boundary                    = 2
+                debug_level                         = 0
+                /</p>
+
+<pre><code>            &amp;domains
+            time_step                           = 60,
+            time_step_fract_num                 = 0,
+            time_step_fract_den                 = 1,
+            max_dom                             = 1,
+            s_we                                = 1,     1,
+            e_we                                = 118,    117,
+            s_sn                                = 1,     1,
+            e_sn                                = 103,    102,
+            s_vert                              = 1,     1,
+            e_vert                              = 30,    28,
+            num_metgrid_levels                  = 27
+            dx                                  = 10000, 40000,
+            dy                                  = 10000, 10000,
+            grid_id                             = 2,     2,
+            parent_id                           = 1,     1,
+            i_parent_start                      = 35,     35,
+            j_parent_start                      = 23,     23,
+            parent_grid_ratio                   = 1,     3,
+            parent_time_step_ratio              = 3,     3,
+            feedback                            = 1,
+            smooth_option                       = 0
+            /
+
+            &amp;physics
+            mp_physics                          = 3,     3,     3,
+            ra_lw_physics                       = 1,     1,     1,
+            ra_sw_physics                       = 1,     1,     1,
+            radt                                = 30,    30,    30,
+            sf_sfclay_physics                   = 1,     1,     1,
+            sf_surface_physics                  = 2,     2,     2,
+            bl_pbl_physics                      = 1,     1,     1,
+            bldt                                = 0,     0,     0,
+            cu_physics                          = 1,     1,     0,
+            cudt                                = 5
+            isfflx                              = 1,
+            ifsnow                              = 1,
+            icloud                              = 1,
+            surface_input_source                = 1,
+            num_soil_layers                     = 4,
+            sf_urban_physics                    = 0,     0,     0,
+            /
+
+            &amp;fdda
+            /
+
+            &amp;dynamics
+            w_damping                           = 0,
+            diff_opt                            = 1,
+            km_opt                              = 4,
+            diff_6th_opt                        = 0,      0,      0,
+            diff_6th_factor                     = 0.12,   0.12,   0.12,
+            base_temp                           = 290.
+            damp_opt                            = 0,
+            zdamp                               = 5000.,  5000.,  5000.,
+            dampcoef                            = 0.2,    0.2,    0.2
+            khdif                               = 0,      0,      0,
+            kvdif                               = 0,      0,      0,
+            non_hydrostatic                     = .true., .true., .true.,
+            moist_adv_opt                       = 1,      1,      1,     
+            scalar_adv_opt                      = 1,      1,      1,     
+            /
+
+
+            &amp;bdy_control
+            spec_bdy_width                      = 5,
+            spec_zone                           = 1,
+            relax_zone                          = 4,
+            specified                           = .true., .false.,.false.,
+            nested                              = .false., .true., .true.,
+            /
+
+            &amp;grib2
+            /
+
+            &amp;namelist_quilt
+            nio_tasks_per_group = 0,
+            nio_groups = 1,
+            /
+</code></pre>
+
+<p>With this namelist, <code>wrf.exe</code> was executed and it ran for several minutes and created a  wrfout<em>d01</em><date>* with size of 120 MB but exited with</p>
+
+<pre><code>             -------------- FATAL CALLED ---------------
+                FATAL CALLED FROM FILE:  &lt;stdin&gt;  LINE:     822
+            ... May have run out of valid boundary conditions in file wrfbdy_d01
+                -------------------------------------------
+                -------------- FATAL CALLED ---------------
+                FATAL CALLED FROM FILE:  &lt;stdin&gt;  LINE:     822
+             ... May have run out of valid boundary conditions in file wrfbdy_d01
+</code></pre>
+
+<ol>
+<li>It is found that the error is related to namelist error to of start<em>day or end</em>day in wrfbdy01 in ndown.exe or real.exe. So the error was omitted to run nesting with Coimbatore domain. The various steps followed in Katrina nesting is as per this image.<img src="https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-07/WRF_Katrina_nesting.png" alt="follows" title="Steps in WRF katrina run with ndown based nesting" />.</li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Udev rules for USB attached to RPi - Nishadh KA</title>
+    <meta property="og:title" content="Udev rules for USB attached to RPi - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="It seems the /dev/tty* address for the attached USB is changing intermittently, giving a permanent rules name for each device will be the workaround.
+Based on this &amp;hellip;">
+      <meta property="og:description" content="It seems the /dev/tty* address for the attached USB is changing intermittently, giving a permanent rules name for each device will be the workaround.
+Based on this &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Udev rules for USB attached to RPi</h1>
+
+<h3>
+  2014-01-08</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>It seems the /dev/tty* address for the attached USB is changing intermittently, giving a permanent rules name for each device will be the workaround.</p>
+
+<p>Based on this
+<a href="http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/">http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/</a></p>
+
+<p>So the udev rules for cocemsd, setup is as follows.</p>
+
+<p>/etc/udev/rules.d, with file name 90-phone.rules, with this contents</p>
+
+<p>KERNEL==&ldquo;ttyUSB<em>&rdquo;, ATTRS{idVendor}==&ldquo;12d1&rdquo;, ATTRS{idProduct}==&ldquo;1436&rdquo;, NAME=&ldquo;phone&rdquo;, MODE=&ldquo;0666&rdquo;,SYMLINK+=&ldquo;phone&rdquo;
+KERNEL==&ldquo;ttyUSB</em>&rdquo;, ATTRS{idVendor}==&ldquo;067b&rdquo;, ATTRS{idProduct}==&ldquo;2303&rdquo;, NAME=&ldquo;dylos&rdquo;, MODE=&ldquo;0666&rdquo;,SYMLINK+=&ldquo;dylos&rdquo;</p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xively on Nishadh KA</title>
+    <link>/tags/xively/</link>
+    <description>Recent content in Xively on Nishadh KA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Dec 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/xively/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DYLOS raspberry pi and xively</title>
+      <link>/working-notes/2013/wn_2013-12/dylos_raspberry_pi_and_xively/</link>
+      <pubDate>Mon, 16 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2013/wn_2013-12/dylos_raspberry_pi_and_xively/</guid>
+      <description>To connect the raspberry pi with Dylos serial to xively IOT, based on https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley
+the written code was this
+#!/usr/bin/env python from __future__ import division import time import os import eeml import sys import syslog import json import serial import subprocess import re a = 0.02832 ser = serial.Serial(&#39;/dev/ttyUSB0&#39;, 9600, timeout=60) def getCPUtemperature(): res = os.popen(&#39;vcgencmd measure_temp&#39;).readline() return(res.replace(&amp;quot;temp=&amp;quot;,&amp;quot;&amp;quot;).replace(&amp;quot;&#39;C\n&amp;quot;,&amp;quot;&amp;quot;)) def getDiskSpace(): p = os.popen(&amp;quot;df -h /&amp;quot;) i = 0 while 1: i = i +1 line = p.</description>
+    </item>
+    
+  </channel>
+</rss>

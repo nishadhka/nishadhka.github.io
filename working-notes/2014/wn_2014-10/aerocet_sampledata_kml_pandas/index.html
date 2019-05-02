@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Aerocet sampleData KML Pandas - Nishadh KA</title>
+    <meta property="og:title" content="Aerocet sampleData KML Pandas - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="####Aerocet Sampling Data, using kml files and pandas####
+[&amp;hellip;] To join location file with nay of the data file, the time has to smilar fomrate. In location file only time is given, in data file &amp;hellip;">
+      <meta property="og:description" content="####Aerocet Sampling Data, using kml files and pandas####
+[&amp;hellip;] To join location file with nay of the data file, the time has to smilar fomrate. In location file only time is given, in data file &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Aerocet sampleData KML Pandas</h1>
+
+<h3>
+  2014-10-15</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>####Aerocet Sampling Data, using kml files and pandas####</p>
+
+<ol>
+<li>The data from dust pollution monitoring in Coimbatore using Aerocet was copy paste into a csv file from miniterm.py program and command <code>2</code> given to aerocet. Seprate CSV files were made for count and mass mode sampling.</li>
+<li>The location of sampling point is made into a point feature in Google earth with name of respective sampling time. This was saved as kml file and opened in QGIS converted into shape file to add gemoetry. The shape file was subject to edit by attribute calculator and added new two columns of lat and lon by x and y gemorty for respective columns, these columns were formated as STRINGS to get all decimal values of lattitue and longitude. The shape files is then converted into csv files using MMQGS plugin. Giving decimal or real number rounds the lat long values and become non usefull while converting into CSV file.</li>
+<li>The csv files two of aerocet data with time and location data (lat lon) with time have to merge into single file for storing and further analysis.</li>
+<li>An initial attempt was made with <a href="http://stackoverflow.com/questions/20414562/python-joining-csv-files-where-key-is-first-column-value">this</a> to merge the csv files as dcits, but having limitations in terms of sorting, join/merge and other sql function needed for analysis. Then found familar pandas libarary is most useful in this case.</li>
+
+<li><p>To join location file with nay of the data file, the time has to smilar fomrate. In location file only time is given, in data file it is date and time. A huge number of search and attempts were made to do text into column for data file time column having data and time seprated by sapce. Based on <a href="http://stackoverflow.com/questions/18034361/how-to-split-a-dataframe-column-into-multiple-columns">this</a>, <a href="http://stackoverflow.com/questions/14745022/pandas-dataframe-how-do-i-split-a-column-into-two">this</a> and most handy by <a href="http://stackoverflow.com/questions/17116814/pandas-how-do-i-split-text-in-a-column-into-multiple-columns">this</a>, but having problem in the commands</p>
+
+<pre><code>            # to import csv file
+            import pandas as pd
+            df = pd.read_csv(PMCount_08102014.csv)
+            df1 = pd.DataFrame(df.Time.str.split(' ',1).tolist(),columns = ['Date','Time'])
+</code></pre></li>
+</ol>
+
+<p>returns a new separate dataframe with splitter columns, the above cocmmand is based on <a href="http://stackoverflow.com/questions/12504976/get-last-column-after-str-split-operation-on-column-in-pandas-dataframe?lq=1">this</a>. It becomed difccult in join again these data frame with mother data frame. Faced problem such as <code>AssertionError: length of join_axes must not be equal to 1</code> for doing merge those data frame by merge as <code>df1 = pd.merge(df, s, on='Time', suffixes=['Time','Status']), and for doing concat by</code>df1 = pd.concat([df,s],join<em>axes=&lsquo;Time&rsquo;)<code>getting</code>ValueError: too many values to unpack<code>
+1. Then made attempt of reciprocal method that is add date to the place csf file data frame and join with other data file. For this to add date to the time data frame, used this</code>df[&lsquo;Name&rsquo;]=&lsquo;2014-10-08 &rsquo; + df[&lsquo;Name&rsquo;].astype(str)<code>, here Name was the column heading given for the time as it is given in kml file. this column heading was changed by</code>df=df.rename(columns={&lsquo;Name&rsquo;:&lsquo;Time&rsquo;})<code>
+1. With this also mergeing ends with error of</code>AssertionError: length of join</em>axes must not be equal to 1<code>from command</code> df2=pd.concat([df,df1],join<em>axes=&lsquo;Time&rsquo;)<code>. Then it is found that the error is due to lack of index in two merging data frame. Index for data farme was made by</code>df.set</em>index(&lsquo;Time&rsquo;); df1.set<em>index(&lsquo;Time&rsquo;)<code>,  then merging of the datframe ends without any any error by the command</code>df2 = pd.merge(df, df1, on=&lsquo;Time&rsquo;, suffixes=[&rsquo;</em>1&rsquo;, &lsquo;<em>2&rsquo;])<code>. Withis all the three dataframe can be merged one by one, in which suffixes gives tag to differentiate the two datframe same columns heading. 
+1. With this formed dataframe the removal of unwanted columns is tryed with</code>del df4[&lsquo;AT&copy;</em>x&rsquo;]<code>having limation of only single columns delete,</code>df4.drop([&lsquo;RH(%)<em>x&rsquo;,&lsquo;Location</em>x&rsquo;],axis=1)<code>doing multi column delte but giving unsatisfactory, poping up of droped columns in latter commnads, then it is found that make a new data frame with only requiered column list as by below command     
+</code>df5=pa.DataFrame(df,columns=[&lsquo;Time&rsquo;,&lsquo;lon&rsquo;,&lsquo;lat&rsquo;,&lsquo;0.3(CF)&rsquo;, &lsquo;0.5(CF)&rsquo;,&lsquo;1.0(CF)&rsquo;, &lsquo;5.0(CF)&rsquo;,&lsquo;10 (CF)&rsquo;,&lsquo;PM1(ug/m3)&rsquo;,&lsquo;PM2.5(ug/m3)&rsquo;, &lsquo;PM4(ug/m3)&rsquo;,&lsquo;PM7(ug/m3)&rsquo;,&lsquo;PM10(ug/m3)&rsquo;, &lsquo;TSP(ug/m3)&rsquo;, &lsquo;AT&copy;<em>y&rsquo;,&lsquo;RH(%)</em>y&rsquo;,&lsquo;Location<em>y&rsquo;,<br />
+&lsquo;Seconds</em>y&rsquo;,&lsquo;Status_y&rsquo;])<br />
+1. The full commnads are as follows</p>
+
+<pre><code>                df1 = pd.read_csv('PMCount_08102014.csv')
+                df2 = pd.read_csv('PMMass_08102014.csv')
+                df3 = pd.read_csv('08102014L.csv')
+      df3['Name']='2014-10-08 ' + df3['Name'].astype(str)
+                df3=df3.rename(columns={'Name':'Time'})
+      df1.set_index('Time')
+                df2.set_index('Time')
+                df3.set_index('Time')
+      df4 = pd.merge(df1, df2, on='Time', suffixes=['_1', '_2'])
+                df5 = pd.merge(df3, df4, on='Time')
+                df6=pd.DataFrame(df5,columns=['Time','lon','lat','0.3(CF)', '0.5(CF)','1.0(CF)', '5.0(CF)','10 (CF)','PM1(ug/m3)','PM2.5(ug/m3)', 'PM4(ug/m3)','PM7(ug/m3)','PM10(ug/m3)', 'TSP(ug/m3)', 'AT(C)_2','RH(%)_2','Location_2','Seconds_2','Status_2'])
+                 df6.to_csv('A08102014M.csv')
+</code></pre>
+
+<ol>
+<li>kml to csv file was generated by this <a href="kml-to-csv-master.zip in GITHUB">scripts</a>, it convert kml point location file into csv file with name and latitude and longitude column stitched together as a tuple. The kml file gives two coordinates one is with name tag latitude and longitude and another with coordinates. In which coordinates is current lat long as by checked its factual in google earth. below is a example of kml file point coordinates</li>
+</ol>
+
+<p><Placemark>
+            <name>07:37:03</name>
+            <LookAt>
+                <longitude>76.94981740084671</longitude>
+                <latitude>10.91510509935186</latitude>
+                <altitude>0</altitude>
+                <heading>0.008824190954161487</heading>
+                <tilt>0</tilt>
+                <range>830.3193705463046</range>
+                <a href="gx:altitudeMode">gx:altitudeMode</a>relativeToSeaFloor<a href="/gx:altitudeMode">/gx:altitudeMode</a>
+            </LookAt>
+            <styleUrl>#m_ylw-pushpin</styleUrl>
+            <Point>
+                <coordinates>76.94856689929749,10.91446297419933,0</coordinates>
+            </Point>
+</Placemark></p>
+
+<ol>
+<li>more over the kml to csv script was edited to take only coordiantes and names, this avoid the error comes from locus map point marking kml files where the name tag lot lang is absent. The modified script is as follows</li>
+</ol>
+
+<p>&rdquo;&ldquo;&rdquo;</p>
+
+<h1 id="pip-install-pykml">pip install pykml</h1>
+
+<p>pykml depends to lxml module
+this script convert only one folder to csv
+&ldquo;&rdquo;&rdquo;</p>
+
+<p>import sys, csv, codecs
+from pykml import parser as kmlParser</p>
+
+<p>def main():
+    args = sys.argv[1:]</p>
+
+<pre><code>if 1 &gt; len(args) &gt; 2: usage()
+filename = args[0]
+name, places = getdata(filename)
+lst = places_to_list(places)
+
+if filename.endswith('.kml') : filename = filename.replace('.kml','.csv')
+else: filename += '.csv'
+if len(args) == 2: filename = args[1]
+to_csv(filename, lst)
+print &quot;See {filename}\nGoodluck (^_^)!&quot;.format(filename=filename)
+</code></pre>
+
+<p>def usage():
+    print &ldquo;python parse.py input.mkl output.csv&rdquo;
+    sys.exit(2)</p>
+
+<p>def getDocumentAndTagPrefix(xml):
+    root = xml.getroot();
+    tagPrefix = root.tag.replace( &lsquo;}&rsquo; + xml.docinfo.root_name, &lsquo;}&rsquo; )
+    return root.Document, tagPrefix</p>
+
+<p>def iterFolders(folder, tagprefix):
+    lst = [ i for i in folder.iterchildren(tagprefix+&lsquo;Folder&rsquo;) ]
+    return folder if not len(lst) else iter(lst)</p>
+
+<p>def getdata(filename):
+    document, tagPrefix =getDocumentAndTagPrefix( kmlParser.parse( open(filename) ) )
+    mainFolder = document.Folder</p>
+
+<pre><code>name = None
+placemarks = None;
+for folder in iterFolders(mainFolder, tagPrefix):
+    name = folder.iterchildren(tagPrefix+&quot;name&quot;).next().text
+    placemarks = [ x for x in folder.iterchildren(tagPrefix+&quot;Placemark&quot;) ]
+    break;
+return name,placemarks;
+</code></pre>
+
+<p>def places<em>to</em>list(places):
+    lst = [[&lsquo;name&rsquo;, &lsquo;coordinates&rsquo;]]</p>
+
+<pre><code>for place in places:
+    lst.append([
+        place.name, place.Point.coordinates
+    ])
+return lst
+</code></pre>
+
+<p>def to_csv(filename, lst):
+    with codecs.open(filename, &lsquo;wb&rsquo;) as fl:
+        out = csv.writer(fl);<br />
+        out.writerows(lst)</p>
+
+<p>if <strong>name</strong> == &ldquo;<strong>main</strong>&ldquo;:
+    main()
+    sys.exit(0)</p>
+
+<ol>
+<li>The modified script gives name and coordinates as separate tuples such as below</li>
+</ol>
+
+<p>name,coordinates
+18:48:29,&ldquo;76.938598315386,10.94663518249638,0&rdquo;</p>
+
+<ol>
+<li>In Aerocet sampling locus map android application was used with a tablet phone and each point was marked in locus map tracking facility. So for duplicate point sampling the kml file was generated with the point marked with more than one time as names. So the name columns has to be attached with more than one same coordinates in coordinates columns.</li>
+<li>To do above requirements first tried with simple list split and join like below</li>
+</ol>
+
+<p>#to open csv as tuples based on <a href="http://stackoverflow.com/questions/18776370/converting-a-csv-file-into-a-list-of-tuples-with-python">this</a>
+with open(&lsquo;21102014_N.csv&rsquo;) as f:
+     data=[tuple(line) for line in csv.reader(f)]</p>
+
+<p>#for a sample name and coordinates
+location_in = &ldquo;19:10:29, 19:11:29, 19:12:29&rdquo;,&ldquo;76.96160393798016,10.9879284257414,0&rdquo;</p>
+
+<p>#to separate the time and location tuples
+time    = location<em>in[0]
+loc    = location</em>in[1]
+ts=time.split(&lsquo;, &lsquo;)</p>
+
+<p>#for loop for attaching name and location different try, #based on <a href="http://stackoverflow.com/questions/5998569/python-convert-comma-separated-string-into-reducing-string-list">this</a>, <a href="http://stackoverflow.com/questions/1720421/merge-two-lists-in-python">this</a>, <a href="http://stackoverflow.com/questions/4005796/attributeerror-str-object-has-no-attribute-append">this</a>,
+for tss in ts:
+    a2=str(ts[0])+loc
+    a.append(a2)</p>
+
+<p>#based on <a href="http://stackoverflow.com/questions/3459098/create-list-of-single-item-repeated-n-times-in-python">this</a>
+a=[]
+for tu in data:
+     ts=str(tu[0].split(&lsquo;, &lsquo;))
+     tp=ts[0+&lsquo;,&rsquo;+(len(ts[0])*tu[1])
+     a.append(tp)</p>
+
+<p>a=[]
+for tu in data:
+     ts=tu[0][0]+(len(tu[0][0])*tu[0][1])
+     a.append(ts)</p>
+
+<p>#but list based mehtod is not easy to applay, but below #pandas df based solution is doing exactly what is required #based on <a href="http://stackoverflow.com/questions/12680754/split-pandas-dataframe-string-entry-to-separate-rows">this</a>
+df23=pd.concat([Series(row[&lsquo;coordinates&rsquo;], row[&lsquo;names&rsquo;].split(&lsquo;,&rsquo;)) for <em>, row in df.iterrows()]).reset</em>index()</p>
+
+<p>#to add columns to dataframe
+df23.columns = [&lsquo;names&rsquo;, &lsquo;coordinates&rsquo;]</p>
+
+<p>#to split columns in pandas datafarme based on comma #delimiter, for comma separated values into two in #coordinates column. But it is not working
+df32 = pd.DataFrame(df3.coordinates.str.split(&lsquo;, &lsquo;,1).tolist(),columns =[&lsquo;flips&rsquo;,&lsquo;row&rsquo;])</p>
+
+<p>#to split columns in pandas dataframe, it is working, based #on <a href="http://stackoverflow.com/questions/7353353/#trying-to-split-one-list-into-multiple-lists-inside-of-a-#main-list-python">this</a>
+list=df3[&lsquo;coordinates&rsquo;].tolist()
+the<em>new</em>list = [x.split(&lsquo;,&rsquo;) for x in list]
+ab=pd.DataFrame(the<em>new</em>list)
+ab.to_csv(&lsquo;data5.csv&rsquo;)</p>
+
+<p>#to set the column as date time in pandas based on <a href="http://stackoverflow.com/questions/16852911/how-do-i-convert-dates-in-a-pandas-data-frame-to-a-date-data-type">this</a>
+df[&lsquo;time&rsquo;] = df[&lsquo;time&rsquo;].astype(&lsquo;datetime64[ns]&lsquo;)</p>
+
+<ol>
+<li>Other usefull pandas commands
+to preview dataframe based on <a href="http://stackoverflow.com/questions/15006298/how-to-preview-a-part-of-a-large-pandas-dataframe">this</a>
+<code>df.head()</code>more info on reshaping and pivoting(grouping) is from <a href="http://pandas.pydata.org/pandas-docs/stable/reshaping.html">this</a>,  <a href="http://pandas.pydata.org/pandas-docs/stable/groupby.html">this</a> and more and easy intro to pandas is <a href="http://www.gregreda.com/2013/10/26/working-with-pandas-dataframes/">this</a></li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

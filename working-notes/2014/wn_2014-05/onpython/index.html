@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>OnPython - Nishadh KA</title>
+    <meta property="og:title" content="OnPython - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##Python with sqlite, istsos dat formate and time downscaling#
+###WIth sqlite - to convert a list, for example cur.fetch from database like sqlite,
+[&#39;2014-04-30T10:25,2797,147&#39;, &amp;hellip;">
+      <meta property="og:description" content="##Python with sqlite, istsos dat formate and time downscaling#
+###WIth sqlite - to convert a list, for example cur.fetch from database like sqlite,
+[&#39;2014-04-30T10:25,2797,147&#39;, &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>OnPython</h1>
+
+<h3>
+  2014-05-10</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Python with sqlite, istsos dat formate and time downscaling#</p>
+
+<p>###WIth sqlite
+- to convert a list, for example <code>cur.fetch</code> from database like sqlite,</p>
+
+<pre><code>['2014-04-30T10:25,2797,147', '2014-04-30T10:27,2639,174', '2014-04-30T10:29,2645,158', '2014-04-30T10:31,2676,149']
+</code></pre>
+
+<ul>
+<li>use <code>print &quot;\n&quot;.join(b)</code> based on <a href="http://stackoverflow.com/questions/6167731/printing-list-elements-on-separated-lines-in-python">this</a> gives
+<code>
+&quot;2014-04-30T10:25,2797,147
+2014-04-30T10:27,2639,174
+2014-04-30T10:29,2645,158
+2014-04-30T10:31,2676,149&quot;
+</code></li>
+<li>to remove double quotes from above to write into a .DAT, tryed almost two hours then find out that the used mehtod will not do this. the full code is as follows with uncommented lines are failed attmepts. Double # are comments</li>
+</ul>
+
+<pre><code>import csv
+import sqlite3 as lite
+#import string
+#identity = string.maketrans()
+#import simplejson
+#import os
+
+
+outfile_path='GVR.DAT'
+#text_file = open(&quot;GVR.DAT&quot;, &quot;w&quot;)
+#writer = csv.writer(open(outfile_path, 'w'), quotechar='&quot;',quoting=csv.QUOTE_NONE)
+##it gives extra hand for defining the csv output, sticked much in this but not given the results
+#writer = csv.writer(open(outfile_path, 'w'),dialect='excel')
+#lineterminator='\n')
+#headers=['urn:ogc:def:parameter:x-istsos:1.0:time:iso8601','urn:ogc:def:parameter:x-istsos:1.0:cbe:dylos:np05mg','urn:ogc:def:parameter:x-istsos:1.0:cbe:dylos:np25mg']
+#text_file.write('urn:ogc:def:parameter:x-istsos:1.0:time:iso8601,urn:ogc:def:parameter:x-istsos:1.0:cbe:dylos:np05mg,urn:ogc:def:parameter:x#-istsos:1.0:cbe:dylos:np25mg')
+#writer.writerow(headers)
+#text_file.close
+
+##follwoing comments are for accessing sqlite
+con = lite.connect('GVR.db')
+cur = con.cursor()
+cur.execute(&quot;SELECT * FROM data&quot;)
+a= [str(i[1]) for i in cur.fetchall()]
+##without maping it produce file with alternative line kept empty
+b = map(str.strip,a)
+#c= str(b).strip(&quot;[']&quot;) 
+#e= [str(i) for i in b]
+#d=&quot;\n&quot;.join(b)
+#print d
+#print d
+#e = map(str.strip,b)
+#e=d.translate(None, '&quot;')
+#e = d.translate(identity, '&quot;,')
+#e = d[1:-1]
+#print &quot;[%s]&quot; % (','.join(e))
+#f = map(lambda x: x.strip('&quot;'), d)
+#writer.writerow([d])
+
+#for item in e:
+#     writer.writerow([item,].replace'&quot;')
+
+#csvwriter.writerow(JD.split())
+#e='map'
+#text_file = open(&quot;GVR.DAT&quot;, &quot;w&quot;)
+#text_file.write(e)
+#text_file.close
+#writer = csv.writer(open(&quot;GVR.DAT&quot;, &quot;wb&quot;), quoting=csv.QUOTE_NONE)
+#reader = csv.reader(open(&quot;GVR.DAT&quot;, &quot;rb&quot;), skipinitialspace=True)
+#writer.writerows(reader)
+#for val in e:
+#        writer.writerow([val])    
+#writer.writerow(d)
+
+f = open('output.txt', 'w')
+f.write('urn:ogc:def:parameter:x-istsos:1.0:time:iso8601,urn:ogc:def:parameter:x-istsos:1.0:cbe:dylos:np05mg,urn:ogc:def:parameter:x-istsos:1.0:cbe:dylos:np25mg'+&quot;\n&quot;)
+##this simple comments alveate two double quote removal for two hours
+f.write(&quot;\n&quot;.join(a))
+#simplejson.dump(d, f)
+f.close()
+</code></pre>
+
+<ul>
+<li>write csv method is not at all working, tryed with write.file method and worked fine.</li>
+</ul>
+
+<p>###with istsos dat formate
+- the istsos requieres date and time in this ( 2014-04-30T11:25:00.000000+0530) format, the data from dylos is cutshorten to reduce size. So to edit the column it has to converted into datframe in python.
+- Pandas data frame conversion based on <a href="http://www.gregreda.com/2013/01/23/translating-sql-to-pandas-part1/">this</a></p>
+
+<pre><code>col_names=[&quot;date&quot;,&quot;np05&quot;,&quot;np25&quot;]
+data = pa.read_csv(&quot;GVR.DAT&quot;, header=None,skiprows=1, parse_dates=&quot;date&quot;,names=col_names)
+</code></pre>
+
+<p>again reading the DAT file created in earlier step.</p>
+
+<pre><code>data[&quot;date&quot;]=pa.to_datetime(data[&quot;date&quot;])
+data[&quot;date&quot;] = data['date'].apply(lambda x: x.strftime(&quot;%Y-%m-%dT%H:%M:%S.000000+0530&quot;))
+</code></pre>
+
+<p>calling specific date column, then converting into desired date formate.</p>
+
+<p>###Time scaling</p>
+
+<ul>
+<li>based on <a href="http://stackoverflow.com/questions/20048200/averaging-every-five-minutes-data-as-one-datapoint-in-pandas-dataframe">this</a> and <a href="http://pandas.pydata.org/pandas-docs/dev/timeseries.html#up-and-downsampling">this</a></li>
+<li>has to reindex the dataframe into datetimeindex as follows
+<code>
+data2 = data.set_index(pa.DatetimeIndex(data['urn:ogc:def:parameter:x-istsos:1.0:time:iso8601']))
+</code></li>
+<li>then using this index to resample dataframe for every fifteen minutes last data, default resample is &lsquo;mean&rsquo;
+<code>
+data3=data2.resample('15Min', how='last')
+</code></li>
+<li>then set index to the date columns, other wise it write one extra column into dat file
+<code>
+data4=data3.set_index('urn:ogc:def:parameter:x-istsos:1.0:time:iso8601')
+</code></li>
+<li>then to make file out of this dataframe
+<code>
+data4.to_csv('GVR1.DAT', sep=',', encoding='utf-8')
+</code></li>
+</ul>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

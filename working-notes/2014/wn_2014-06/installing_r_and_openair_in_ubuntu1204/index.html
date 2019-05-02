@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Installing R and Openair in Ubuntu1204 - Nishadh KA</title>
+    <meta property="og:title" content="Installing R and Openair in Ubuntu1204 - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##InstallingRandOpenairin_Ubuntu1204## - installation of R in ubuntu 12.04, there are deb packages available for R from its source page here - But after installation it shows error in installing &amp;hellip;">
+      <meta property="og:description" content="##InstallingRandOpenairin_Ubuntu1204## - installation of R in ubuntu 12.04, there are deb packages available for R from its source page here - But after installation it shows error in installing &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Installing R and Openair in Ubuntu1204</h1>
+
+<h3>
+  2014-06-17</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Installing<em>R</em>and<em>Openair</em>in_Ubuntu1204##
+- installation of R in ubuntu 12.04, there are deb packages available for R from its source page <a href="http://cran.rstudio.com/">here</a>
+- But after installation it shows error in installing openair package, and depndancy chain goes from 2 to 10 and much more package with
+  version mismacth problem, starting from lattice saying <code>Error: package ‘lattice’ was built before R 3.0.0: please re-install it</code>
+- Even calling package by ```library(lattice&rsquo;) thoughed error
+- So installation in apt-get library might be problem solving, followed these</p>
+
+<pre><code>sudo nano /etc/apt/sources.list
+</code></pre>
+
+<p>addedd</p>
+
+<pre><code>deb http://cran.stat.ucla.edu/bin/linux/ubuntu precise/
+</code></pre>
+
+<p>and run</p>
+
+<pre><code>gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+gpg -a --export E084DAB9 | sudo apt-key add -
+</code></pre>
+
+<p>then doing</p>
+
+<pre><code>sudo apt-get update
+sudo apt-get install r-base
+</code></pre>
+
+<p>But met with error</p>
+
+<pre><code> python-rpy : Breaks: r-base-core (&gt;= 2.15.0) but 3.0.3.20140328-1precise0 is to be installed
+ r-base : Depends: r-base-core (&gt;= 3.1.0-1precise0) but 3.0.3.20140328-1precise0 is to be installed
+          Depends: r-recommended (= 3.1.0-1precise0) but 2.14.1-1 is to be installed
+E: Unmet dependencies. Try 'apt-get -f install' with no packages (or specify a solution).
+</code></pre>
+
+<p>of depndancy problem asking to run <code>apt-get -f install</code>, after doing this, run again r-base install, this time R was installed succesfulluy</p>
+
+<ul>
+<li>for installation of openair package, first made a test by <code>libarry('lattice')</code>, it thorughed a error saying the former lattice problem</li>
+<li>this time <code>install.packages('lattice')</code> installed lattice without any error</li>
+<li>so tryed to install openair by <code>install.packages('openair')</code> but got a error saying that problem with Rcpp packegs</li>
+<li>so intalled Rcpp by <code>install.packegs('Rcpp')</code> got erro saying codetools packages is old version</li>
+<li>so installed codetools by <code>install.packages('codetools')</code> this insatlled without error and so</li>
+<li>once agin installed Rcpp by `<code>install.packegs('Rcpp')</code>, no error now</li>
+<li>so installign open air, this error was <code>Error : package ‘cluster’ was built before R 3.0.0: please re-install it</code></li>
+<li>so installing cluster, no error for cluster, so again installing openair, but this time error fiwth `<code>mgcv</code> old version</li>
+<li>so installign mgcv, which has problme in <code>nlme</code>, so installing nlme</li>
+<li>so again installign mgcv, which now gives error in Matrix,so installing Matrix, took long time, but installed wihout any error</li>
+<li>again installed mgcv, now with out any error, so installingopen air</li>
+<li>now scuess, openair installed without errors, checked with running <code>library('openair')</code> no problem!</li>
+</ul>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

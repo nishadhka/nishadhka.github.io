@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Testing the RPi with usb hub usb serial and data card - Nishadh KA</title>
+    <meta property="og:title" content="Testing the RPi with usb hub usb serial and data card - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="There is a problem of ssh and pinging if connected with proper setup, that is RPI and LAN. 1. with some iteration starting from suspecting starting with UH(USB hub) adaptor, then UH itself, then RPi &amp;hellip;">
+      <meta property="og:description" content="There is a problem of ssh and pinging if connected with proper setup, that is RPI and LAN. 1. with some iteration starting from suspecting starting with UH(USB hub) adaptor, then UH itself, then RPi &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Testing the RPi with usb hub usb serial and data card</h1>
+
+<h3>
+  2014-01-08</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>There is a problem of ssh and pinging if connected with proper setup, that is RPI and LAN.
+1. with some iteration starting from suspecting starting with UH(USB hub) adaptor, then UH itself, then RPi and then wire connecting with UH and RPI, found the problem with the wire connecting UH and RPi.
+1. With this set then started the connection of DC(Dylos Cable), it was not recognized by lsusb, then connected the US (USB Serial pin), US was recognized but no DC, then DC was removed and connected to the USB point nearer to light now lsusb showed the DC and recognized, however, after a while LAN connection was disrupted and no pinging also. So for this case, the problem zeroed to RPi and RPi was changed to a new one.
+1. With this new RPi all set up was working fine, that is RPi, UH, DC and US. Made a /etc/udev/rules.d/90-phone.rules with this lines
+KERNEL==&ldquo;ttyUSB<em>&rdquo;, ATTRS{idVendor}==&ldquo;12d1&rdquo;, ATTRS{idProduct}==&ldquo;1436&rdquo;, NAME=&ldquo;phone&rdquo;, MODE=&ldquo;0666&rdquo;,SYMLINK+=&ldquo;phone&rdquo;
+KERNEL==&ldquo;ttyUSB</em>&rdquo;, ATTRS{idVendor}==&ldquo;067b&rdquo;, ATTRS{idProduct}==&ldquo;2303&rdquo;, NAME=&ldquo;dylos&rdquo;, MODE=&ldquo;0666&rdquo;,SYMLINK+=&ldquo;dylos&rdquo;
+1. now the /dev/phone and /dev/dylos was getting created with a subsequent reboot. One exception is setting up RPi, UH, DC and US was removed from power and restarted the /dev/phone, it is found to be a problem with the USB mode switch since the lsusb shows the DC as</p>
+
+<p>Bus 001 Device 009: ID 12d1:1446 Huawei Technologies Co., Ltd.</p>
+
+<p>This problem gets solved by removing DC and reconnecting to the UH, now /dev/phone is being created with a reboot
+1. serious problem with connecting wire of UH and RPi, it makes UH to stop working if connected to UH. now exchanged the US wire with this one now working, US also working have to check with dylos. Have to check RTC also.
+1. Now the status is if RPi is completely get switched off (power off) the data card will be detected as</p>
+
+<pre><code>pi@raspberrypi ~ $ lsusb
+Bus 001 Device 002: ID 0424:9512 Standard Microsystems Corp. 
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp. 
+Bus 001 Device 004: ID 1a40:0101 Terminus Technology Inc. 4-Port HUB
+Bus 001 Device 005: ID 1a40:0101 Terminus Technology Inc. 4-Port HUB
+Bus 001 Device 006: ID 067b:2303 Prolific Technology, Inc. PL2303 Serial Port
+Bus 001 Device 007: ID 12d1:1446 Huawei Technologies Co., Ltd. E1552/E1800/E173 (HSPA modem)
+</code></pre>
+
+<p>Since Huwaei as 12d1:1446 it will be detected as the modem and cannot send SMS, instead it has to be switched to 12d1:1436, usb<em>modeswitch is doing this job, but somehow it is not working. The usb</em>modeswitch.conf is like this</p>
+
+<pre><code>#Configuration for the usb_modeswitch package, a mode switching tool for
+#USB devices providing multiple states or modes
+
+#Evaluated by the wrapper script /usr/sbin/usb_modeswitch_dispatcher
+
+#To enable an option, set it to &quot;1&quot;, &quot;yes&quot; or &quot;true&quot; (case doesn't matter)
+#Everything else counts as &quot;disable&quot;
+
+
+#Disable automatic mode switching globally (e.g., to access the original
+#install storage)
+
+DisableSwitching=0
+
+
+#Enable logging (results in a extensive report file in /var/log, named
+#&quot;usb_modeswitch_&lt;interface-name&gt;&quot; and probably others
+
+EnableLogging=0
+
+DefaultVendor= 0x12d1
+DefaultProduct=0x1446
+
+TargetVendor=  0x12d1
+TargetProductList=&quot;1001,1406,140b,140c,1412,141b,1433,14ac&quot;
+
+CheckSuccess=20
+
+MessageContent=&quot;55534243123456780000000000000011062000000100000000000000000000&quot;
+</code></pre>
+
+<p>so doing this for firing usb_modeswitch give this</p>
+
+<p>pi@raspberrypi ~ $ sudo usb<em>modeswitch -c /etc/usb</em>modeswitch.conf</p>
+
+<p>giving</p>
+
+<p>&ldquo;No new devices in target mode or class found</p>
+
+<p>Mode switch has failed. Bye.&rdquo;</p>
+
+<p>So edited the /etc/usb_modeswitch.conf with this new conf content from Ubuntu forums [ubuntu] Huawei E173&hellip;have spent 3 days trying to connect to the net.html</p>
+
+<p>################################################## ######</p>
+
+<h1 id="huawei-e173">Huawei E173</h1>
+
+<p>DefaultVendor= 0x12d1
+DefaultProduct=0x1c0b</p>
+
+<p>TargetVendor= 0x12d1
+TargetProduct= 0x1c0b</p>
+
+<p>CheckSuccess=5</p>
+
+<p>MessageContent=&ldquo;5553424312345678000000000000001106 0000000000000000000000000000&rdquo;</p>
+
+<p>################################################## ###########</p>
+
+<h1 id="huawei-e173s">Huawei E173s</h1>
+
+<p>;DefaultVendor= 0x12d1
+;DefaultProduct= 0x1c0b</p>
+
+<p>;TargetVendor= 0x12d1
+;TargetProduct= 0x1c0b</p>
+
+<p>;CheckSuccess=20</p>
+
+<p>MessageEndpoint= 0x0f
+MessageContent=&ldquo;5553424312345678000000000000001106 2000000100000000000000000000&rdquo;
+################################################## ##</p>
+
+<p>sudo ./Adafruit_DHT 11 4</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

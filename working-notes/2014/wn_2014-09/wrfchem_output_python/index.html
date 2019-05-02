@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>WRFCHEM output python - Nishadh KA</title>
+    <meta property="og:title" content="WRFCHEM output python - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="###WRFCHEM_output pythonic####
+">
+      <meta property="og:description" content="###WRFCHEM_output pythonic####
+">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>WRFCHEM output python</h1>
+
+<h3>
+  2014-09-29</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>###WRFCHEM_output pythonic####</p>
+
+<ol>
+<li>Related to the last note on getting txt time series data from wrf output <a href="wn_2014-06/Textfile_from_WRFoutput_pythonic.md">here</a>. This note details  getting numpy array from wrf output and plotting data in python.</li>
+<li>The variables requiered from wrfoutput are Temperature, Realtive humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for quick view of the wrf output.</li>
+<li>The nummpy array creaytion is based on <a href="https://github.com/johnrobertlawson/WEM/blob/master/postWRF/postWRF/wrfout.py">this</a>, <a href="https://github.com/rveciana/geoexamples/blob/master/python/wrf-NetCDF/read_netcdf.py">this</a> and <a href="https://gist.github.com/jbeezley/944049">this</a>.</li>
+<li>The plotting is primarly based on <a href="https://github.com/muellermichel/pyWRF-NMM">this</a> and <a href="http://www.hydro.washington.edu/~jhamman/hydro-logic/blog/2013/10/12/plot-netcdf-data/">this</a>.</li>
+<li>The numpy array creation and plotting for each wrf output variables is attempted as follows
+###Temperature###</li>
+<li>From <a href="https://github.com/johnrobertlawson/WEM/blob/master/postWRF/postWRF/wrfout.py">this</a>, it is requiered to post process wrfoutput using <code>p_interp</code> utility to get pressure correction for varioables such RH.</li>
+<li>For this, the source code was downloaded and compiled using the command <code>gfortran p_interp.F90 -L/usr/local/lib -lnetcdf -lnetcdff -lm  \
+  -I/usr/local/include  -Mfree  -o p_interp</code>, with this p_interp got compiled and a executable of the same name is created.</li>
+</ol>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

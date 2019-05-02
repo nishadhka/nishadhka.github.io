@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Geonames Pandas Shapefile - Nishadh KA</title>
+    <meta property="og:title" content="Geonames Pandas Shapefile - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="###GEONAMESPandasintoSHape file#### ####For the scripts /script/ /scripts/csvtoshp.py, csvtoshpTEST.py, Geoname.py#### 1. The industry data for emission inventory is in address with its details. To &amp;hellip;">
+      <meta property="og:description" content="###GEONAMESPandasintoSHape file#### ####For the scripts /script/ /scripts/csvtoshp.py, csvtoshpTEST.py, Geoname.py#### 1. The industry data for emission inventory is in address with its details. To &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Geonames Pandas Shapefile</h1>
+
+<h3>
+  2014-11-28</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>###GEONAMES<em>Pandas</em>into<em>SHape file####
+####For the scripts /script/ /scripts/csvtoshp.py, csvtoshp</em>TEST.py, Geoname.py####
+1. The industry data for emission inventory is in address with its details. To get get the latitude and longitude value of each address has to have a database with address with its latitude and longitude.
+1. One such database is Geonames, its country wise data is having smaller amount of data for Coimbatore case, but POSTAL CODE data has more than 641 postal code details with latitude and longitude information.
+1. To get that data into pandas dataframe used following script. Faced a problem in specifying delimiter, it has to be mentioned as &lsquo;\t&rsquo; for specifying space delimited data</p>
+
+<pre><code>db=pd.read_csv('IN.txt', delimiter=&quot;\t&quot;)
+db=pd.read_csv('IN.txt', delimiter=&quot;\t&quot;, header=None, names=['countryCode','postalCode','placeName','adminName1','adminCode1',
+'adminName2','adminCode2','adminName3','adminCode3','latitude','longitude','accuracy'])
+db2=db[db['admin name2'].str.contains(&quot;Coimbatore&quot;)]
+</code></pre>
+
+<ol>
+<li>To convert this data into shape file used following script based on <a href="http://gis.stackexchange.com/questions/35593/using-the-python-shape-library-pyshp-how-to-convert-csv-file-to-shp">this</a> and <a href="http://gis.stackexchange.com/questions/41742/problems-converting-csv-to-shapefile-using-pyshp">this</a> following script, In which the PNADAS datfarme has to converted into csv file other wise having problem of</li>
+</ol>
+
+<pre><code>#this gives error of unidentifuiable like this ```File &quot;hashtable.pyx&quot;, line 388, in pandas.hashtable.Int64HashTable.get_item (pandas/hashtable.c:6517)
+#KeyError: 0
+</code></pre>
+
+<p>#this was reproducecd in
+#for j,k in enumerate(db2.longitude):</p>
+
+<h1 id="a-db2-latitude-j">a=db2.latitude[j]</h1>
+
+<h1 id="print-k-a">print k,a</h1>
+
+<p>#The baove problem was solved IF I am getting the dataframe from a csv file, a problem related with pandas dataframe
+````</p>
+
+<pre><code>import shapefile as shp
+import pandas as pd
+import csv
+import os
+import sys
+
+
+db0=pd.read_csv('IN.txt', delimiter=&quot;\t&quot;, header=None, names=['countryCode','postalCode','placeName','adminName1','adminCode1','adminName2','adminCode2','adminName3','adminCode3','latitude','longitude','accuracy'])
+db1=db0[db0['adminName2'].str.contains(&quot;Coimbatore&quot;)]
+db2=db.drop_duplicates(cols='postalCode', take_last=True)
+
+db2.to_csv('Coimbatore_postal2.csv')
+
+db=pd.read_csv('Coimbatore_postal2.csv')
+w = shp.Writer(shp.POINT)
+w.autoBalance = 1 #ensures gemoetry and attributes match
+w.field(&quot;postalCode&quot;,&quot;N&quot;,10)
+w.field(&quot;longitude&quot;,&quot;F&quot;,10,8)
+w.field(&quot;latitude&quot;,&quot;F&quot;,10,8)
+w.field(&quot;placeName&quot;,&quot;C&quot;,30)
+w.field(&quot;adminName1&quot;,&quot;C&quot;,30)
+w.field(&quot;adminName2&quot;,&quot;C&quot;,30)
+w.field(&quot;adminName3&quot;,&quot;C&quot;,30)
+w.field(&quot;accuracy&quot;,&quot;C&quot;,5)
+for j,k in enumerate(db.longitude):
+    w.point(k,db.latitude[j]) #write the geometry
+    w.record(db.postalCode[j],db.longitude[j],db.latitude[j],db.placeName[j],db.placeName[j],db.adminName1[j],db.adminName2[j],db.adminName3[j],db.accuracy[j])
+out_file='Coimbatore_postalcode1.shp'
+w.save(out_file)
+print &quot;Done!&quot;
+</code></pre>
+
+<ol>
+<li>This generated shape file for 641 rows in the datafraem but with only 120 points in the shape file, latter found that most of the rows are having same latitude and longitude value, so having problem with geonames POSTAL CODE data resolution for latitude and longitude.</li>
+<li>The final scripts are these, /scripts/csvtoshp.py, csvtoshp_TEST.py, Geoname.py</li>
+</ol>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

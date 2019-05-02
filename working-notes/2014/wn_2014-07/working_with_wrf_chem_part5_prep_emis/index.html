@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Working with WRF CHEM part5 prep emis - Nishadh KA</title>
+    <meta property="og:title" content="Working with WRF CHEM part5 prep emis - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##Running prepchemsrc## - based on part 1 prepchemSRC was compiled and ready to executed for emission inventory creation. - Following WRF-chem nepal tutorial and PREPCHEMSRC, README edited &amp;hellip;">
+      <meta property="og:description" content="##Running prepchemsrc## - based on part 1 prepchemSRC was compiled and ready to executed for emission inventory creation. - Following WRF-chem nepal tutorial and PREPCHEMSRC, README edited &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Working with WRF CHEM part5 prep emis</h1>
+
+<h3>
+  2014-07-13</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>##Running prep<em>chem</em>src##
+- based on part 1 prep<em>chem</em>SRC was compiled and ready to executed for emission inventory creation.
+- Following WRF-chem nepal tutorial and PREP<em>CHEM</em>SRC, README edited <code>prep_chem_sources.inp</code>.
+- then run the preogram by executing <code>./prep_chem_sources_RADM_WRF_FIM.exe</code>, it ran for some steps but exited with error of <code>Warning! ***HDF5 library version mismatched error***</code> saying the HDF5 version used in compiling is 1.8.8 and version for running PREP<em>CHEM</em>SRC is 1.8.12
+- to check what hdf5 is used by prep<em>che</em>src, run a command <code>h5dump -V</code> which gives <code>h5dump: Version 1.8.12</code>, so there is a problem.
+- as per the long well written error, &lsquo;LD<em>LIBRARY</em>PATH&rsquo; has to be checked, based  on <a href="http://askubuntu.com/questions/9878/set-ld-library-path-for-applications-started-from-the-desktop">this</a> and <a href="http://askubuntu.com/questions/9878/set-ld-library-path-for-applications-started-from-the-desktop">this</a>, a temproray solution is to execute <code>export LD_LIBRARY_PATH=&quot;/path/to/sdk/lib&quot;</code>, in this case <code>export LD_LIBRARY_PATH=&quot;/path_libs/hdf5-1.8.8&quot;</code>, but no error correction is happend, it was checked by executing the command <code>h5dump -V</code> but showing the same version and so problem persists.
+- followed several other options in editing the ld library path but faced dead bloack in terms of removing a entry in the ldconfig, it can be viewed by giving <code>ldconfig -V</code> a super note on <a href="http://www.cyberciti.biz/tips/linux-shared-library-management.html">this</a> but can&rsquo;t edit, so option is to compile hdf5 in that sepcifid location istead of changing the path so chnaged the compileed folder name and new foldeer is unziped from hdf5 source and execute this</p>
+
+<pre><code>FC=gfortran CC=gcc CXX=gc++ ./configure  --prefix=/usr/local --with-zlib=/path_libs/zlib-1.2.5  --disable-shared --enable-fortran
+</code></pre>
+
+<p>then <code>sudo make</code> and <code>sudo make check</code> and <code>sudo make checkinstall</code>, given installation successful, the check was made by running <code>h5dump -V</code> this time it gives what wanted that is version 1.8.8 and rerun the prep<em>chem</em>src, but still giving the same error, but now got a clue that no shared libarryies are over written above the old one version of 1.8.12, so the clue was first configure command was executed with <code>disable-shared</code> making it enable would solve the problem.
+- so redoing it by uninstalling, hdf5 by <code>sudo apt-get remove hdf5</code> and reconfiguring by <code>FC=gfortran CC=gcc CXX=gc++ ./configure  --prefix=/usr/local --with-zlib=/path_libs/zlib-1.2.5  --enable-shared --enable-fortran</code> and following athoer comments like, <code>sudo make</code>, <code>sudo make check</code> and <code>sudo checkinstall</code>. But now running <code>h5dump -v</code> gives error of <code>h5dump: error while loading shared libraries: libhdf5.so.7: cannot open shared object file: No such file or directory</code>. so execcuted ldconfig as per <a href="http://www.cyberciti.biz/tips/linux-shared-library-management.html">this</a>, <code>ldconfig -l /usr/local/lib/libhdf5.so.7.0.2</code> and again executing <code>ldconfig</code>, now <code>h5dump -v</code> gives version wanted 1.8.8 without any error. this time also version mismatch error is giving, so decided to removed any shared libaryr as from version 1.8.12, so removed files such as from /usr/local/lib, some four files ending with libhdf5.so.8. still the problem persist with prep<em>chem</em>src saying ```libhdf5.so.8: cannot open shared object file: No such file or directory</p>
+
+<pre><code>- So copying include file from old compile, and executing this ```make OPT=opt.gfortran CHEM=RADM_WRF_FIM``` made prep_che_src and so copied the olde input file and executed the program, but failed in opeining nc file, dump error.
+- so again made ```ldd ./prep_chem_sources_RADM_WRF_FIM.exe```, and it gives two lines fo rntecdf files such as this, libnetcdff.so.5 =&gt; /usr/lib/libnetcdff.so.5 (0x00007f8eedbb9000) and libnetcdf.so.6 =&gt; /usr/lib/libnetcdf.so.6 (0x00007f8eeca4c000), but chcking the file location and iclude file netcdf path, there is adescripiancy, so changed the file ```include.mk.opt.gfortran``` and it is as follows
+</code></pre>
+
+<p>#Makefile include include.mk.opt
+############################## Change Log ##################################</p>
+
+<h1 id="1-0-0-2">1.0.0.2</h1>
+
+<p>#</p>
+
+<h1 id="000908-mjb-include-mk-mrc">000908 MJB include.mk-mrc</h1>
+
+<h1 id="added-make-environment-varaible">Added MAKE environment varaible.</h1>
+
+<h1 id="added-free-format-option-to-f-opts-for-some-platforms">Added free format option to F_OPTS for some platforms.</h1>
+
+<h1 id="000907-mjb-include-mk-mrc">000907 MJB include.mk-mrc</h1>
+
+<h1 id="changed-the-defualts-to-no-ncar-graphics-and-no-parallel">Changed the defualts to no NCAR Graphics and no parallel.</h1>
+
+<h1 id="also-commented-out-the-machine-specifics-to-force-the-user-to">Also commented out the machine specifics to force the user to</h1>
+
+<h1 id="select-the-appropriate-machine-for-them">select the appropriate machine for them.</h1>
+
+<h1 id="000823-mjb-include-mk-mrc">000823 MJB include.mk-mrc</h1>
+
+<h1 id="new-defines-all-make-environment-varaibles-and-is-included">New - defines all make environment varaibles and is included</h1>
+
+<h1 id="in-all-make-files">in all make files.</h1>
+
+<p>#
+############################################################################</p>
+
+<h1 id="define-make-gnu-make-works-best">Define make (gnu make works best).</h1>
+
+<p>MAKE=/usr/bin/make</p>
+
+<h1 id="activate-appropriate-parts-below-comment-out-others">Activate appropriate parts below, comment out others.</h1>
+
+<h1 id="ncar-graphics">NCAR Graphics.</h1>
+
+<p>#&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</p>
+
+<h1 id="if-you-are-using-a-standard-installation-of-ncar-graphics-set">If you are using a standard installation of NCAR Graphics, set:</h1>
+
+<h1 id="loader-ncargf90">LOADER=ncargf90</h1>
+
+<h1 id="in-the-machine-dependent-sections-below">in the machine-dependent sections below</h1>
+
+<p>#LIBNCARG=
+#&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</p>
+
+<h1 id="if-you-are-using-the-ncar-dummy-libraries">If you are using the NCAR dummy libraries&hellip;</h1>
+
+<p>NCARG<em>DIR=$(BASE)
+#LIBNCARG=-L$(NCARG</em>DIR) -lncarg-$(UTILS<em>VERSION) -lncarg</em>c-$(UTILS_VERSION) </p>
+
+<h1 id="lncarg-gks-utils-version">-lncarg<em>gks-$(UTILS</em>VERSION)</h1>
+
+<p>#LIBNCARG=-L$(NCARG<em>DIR) -lncarg-$(UTILS</em>VERSION)
+LIBNCARG=$(BASE)/libncarg-$(UTILS_VERSION)-$(OPT).a
+#&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</p>
+
+<h1 id="if-you-are-using-a-real-distribution-of-ncar-graphics">If you are using a real distribution of NCAR Graphics&hellip;</h1>
+
+<p>#NCARG<em>DIR=/usr/local/ncarg-4.3.0/lib
+#LIBNCARG=-L$(NCARG</em>DIR) -lncarg -lncarg<em>gks -lncarg</em>c -L/usr/X11R6/lib -lX11 -ldl
+#&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</p>
+
+<h1 id="netcdf-libraries">NETCDF libraries</h1>
+
+<p>NETCDF=/usr
+NETCDF<em>INC=-I$(NETCDF)/include
+NETCDF</em>LIBS=-L$(NETCDF)/lib -lnetcdf -lnetcdff</p>
+
+<h1 id="hdf-libraries">HDF libraries</h1>
+
+<p>HDF5=/usr/local
+HDF5<em>INC=-I$(HDF5)/include
+HDF5</em>LIB=-L$(HDF5)/lib -lhdf5hl<em>fortran -lhdf5</em>fortran -lhdf5_hl -lhdf5 -L/path-zlib-1.2.5/lib/ -lz</p>
+
+<h1 id="machine-dependent-options">Machine-dependent options.</h1>
+
+<p>#&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;  LINUX Portland Group pgf77/gcc &mdash;&mdash;&mdash;&mdash;&mdash;
+CMACH=PC<em>LINUX1
+F</em>COMP=gfortran
+C<em>COMP=gcc
+LOADER=gfortran
+C</em>LOADER=gcc
+LIBS=
+MOD_EXT=mod</p>
+
+<p>F<em>OPTS=  -Xpreprocessor -D$(CHEM) -O2 -frecord-marker=4
+C</em>OPTS= -O2 #-DUNDERSCORE -DLITTLE
+LOADER_OPTS= -O2</p>
+
+<p>#&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</p>
+
+<h1 id="if-compiling-for-a-single-cpu-platform-only-without-mpi">If compiling for a single-CPU platform only (without MPI):</h1>
+
+<p>#&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;
+PAR<em>LIBS=
+PAR</em>DEFS=
+#&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</p>
+
+<h1 id="for-ibm-hp-sgi-alpha-use-these">For IBM,HP,SGI,ALPHA use these:</h1>
+
+<p>ARCHIVE=ar rs</p>
+
+<h1 id="for-nec-sx-6">For NEC SX-6</h1>
+
+<p>#ARCHIVE=sxar rs</p>
+
+<h1 id="for-sun-convex">For SUN,CONVEX</h1>
+
+<p>#ARCHIVE=ar r&rsquo;</p>
+
+<pre><code>- now again compiled and this time prep_chem_src run without any error upto no such file or folder error for some specific emission options so, edited that and rerun, it run without error and made bin file namely ```FIRE-RRCH-T-2014-03-01-000000-g1-ab.bin, FIRE-RRCH-T-2014-03-01-000000-g1-bb.bin, FIRE-RRCH-T-2014-03-01-000000-g1-gocartBG.bin, the final input ```prep_chem_sources.inp``` file is as follows
+</code></pre>
+
+<p>$RP<em>INPUT
+!##########################################################################!
+!  CATT-BRAMS/MCGA-CPTEC emission model    CPTEC/INPE                      !
+!  version 1: 28/feb/2007                                                  !
+!  developed/coded by Saulo Freitas and Karla Longo                        !
+!  contact: sfreitas@cptec.inpe.br   - www.cptec.inpe.br/meio</em>ambiente     !
+!###########################################################################</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- grid<em>type of the grid output
+   grid</em>type= &lsquo;lambert&rsquo;,<br />
+               !&lsquo;rams&rsquo; = rams grid
+               ! &lsquo;polar&rsquo;  = polar sterog. grid output
+                       ! &lsquo;gg&rsquo;     = gaussian grid output
+               ! &rsquo;ll&rsquo;     = lat/lon grid output
+               ! &lsquo;lambert&rsquo;  = lambert grid output
+               ! &lsquo;mercator&rsquo; = mercator grid output</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- if the output data is for use in CATT-BRAMS model, provide at least one analysis file
+!&mdash;&mdash;&mdash;&mdash;&mdash;- of this model
+   !rams<em>anal</em>prefix = &lsquo;./ANL/barca&rsquo;,
+   !rams<em>anal</em>prefix = &lsquo;/dados/dados2/mfapel/TESTCASE/ANL/A&rsquo;,
+!&mdash;&mdash;&mdash;&mdash;&mdash;- date of emission<br />
+!&mdash;&mdash;&mdash;&mdash;&mdash;- date of emission
+!   ihour=00, iday=2, imon=10, iyear=2008,
+    ihour=00,
+    iday=01,
+    imon=03,
+    iyear=2014,</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- select the sources datasets to be used<br />
+   use<em>retro =1,  ! 1 = yes, 0 = not
+   retro</em>data<em>dir=&lsquo;/home/swl-sacon-dst/Documents/GISE</em>2013/LAB/WRF-chem/wrf<em>chem</em>tut/Global<em>emissions</em>v3/Emission_data/RETRO/anthro&rsquo;,</p>
+
+<p>use<em>edgar =2,  ! 0 - not, 1 - Version 3, 2 - Version 4 for some species
+   edgar</em>data<em>dir=&lsquo;/home/swl-sacon-dst/Documents/GISE</em>2013/LAB/WRF-chem/wrf<em>chem</em>tut/Global<em>emissions</em>v3/Emission_data/EDGARV4&rsquo;,</p>
+
+<p>use<em>gocart =1,
+   gocart</em>data<em>dir=&lsquo;/home/swl-sacon-dst/Documents/GISE</em>2013/LAB/WRF-chem/wrf<em>chem</em>tut/Global<em>emissions</em>v3/Emission_data/GOCART/emissions&rsquo;,</p>
+
+<p>use<em>fwbawb =0,
+   fwbawb</em>data<em>dir =&lsquo;/home/swl-sacon-dst/Documents/GISE</em>2013/LAB/WRF-chem/wrf<em>chem</em>tut/Global<em>emissions</em>v3/Emission<em>data/Emissions</em>Yevich_Logan&rsquo;,</p>
+
+<p>use<em>bioge =0, ! 1 - geia, 2 - megan
+   ! ######
+   ! # BIOGENIC = 1
+   !bioge</em>data<em>dir =&lsquo;/home/poluicao/EMISSION</em>DATA/biogenic<em>emissions&rsquo;,
+   ! # MEGAN = 2
+   ! ######<br />
+   bioge</em>data<em>dir=&lsquo;/home/swl-sacon-dst/Documents/GISE</em>2013/LAB/WRF-chem/wrf<em>chem</em>tut/Global<em>emissions</em>v3/Emission<em>data/biogenic</em>emissions&rsquo;,<br />
+   ! ######</p>
+
+<p>use<em>gfedv2 =0,
+   gfedv2</em>data<em>dir =&lsquo;/home/swl-sacon-dst/Documents/GISE</em>2013/LAB/WRF-chem/wrf<em>chem</em>tut/Global<em>emissions</em>v3/Emission_data/GFEDv2-8days&rsquo;,</p>
+
+<p>use<em>bbem =0,
+   use</em>bbem<em>plumerise =0,
+!&mdash;&mdash;&mdash;&mdash;&mdash;- if  the merging of gfedv2 with bbem is desired (=1, yes, 0 = no)<br />
+   merge</em>GFEDv2<em>bbem =0,
+!&mdash;&mdash;&mdash;&mdash;&mdash;- Fire product for BBBEM/BBBEM-plumerise emission models
+!  bbem</em>wfabba<em>data</em>dir   =&lsquo;/lfs0/projects/wrf-chem/wrfchemv33/Emission<em>data/fires</em>data/WF<em>ABBA</em>v60/filt/f&rsquo;,
+!   bbem<em>wfabba</em>data<em>dir   =&lsquo;/public/data/sat/ssec/goes11/wf</em>abba/f&rsquo;,
+!  bbem<em>wfabba</em>data<em>dir   =&lsquo;/lfs0/projects/wrf-chem/wrfchemv33/WFABBA/f&rsquo;,
+!  bbem</em>wfabba<em>data</em>dir   =&lsquo;/lfs0/projects/wrf-chem/wrfchemv33/WFABBA/f&rsquo;,
+!  bbem<em>modis</em>data<em>dir    =&lsquo;/lfs0/projects/wrf-chem/wrfchemv33/Emission</em>data/fires<em>data/MODIS/Fires.&lsquo;,
+!   bbem</em>modis<em>data</em>dir    =&lsquo;/public/data/sat/firms/global/Global<em>MCD14DL</em>&rsquo;,
+!   bbem<em>inpe</em>data<em>dir     =&lsquo;/lfs0/projects/wrf-chem/wrfchemv33/Emission</em>data/fires<em>data/DSA/Focos&rsquo;,
+!   bbem</em>extra<em>data</em>dir    =&lsquo;/lfs0/projects/wrf-chem/wrfchemv33/Emission<em>data/fires</em>data/BLMALASKA/current.dat&rsquo;,</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- veg type data set (dir + prefix)
+! veg<em>type</em>data<em>dir      =&lsquo;/home/poluicao/SURFACE</em>DATA/GL<em>IGBP</em>AVHRR<em>INPE/IGBP&rsquo;,<br />
+  veg</em>type<em>data</em>dir      =&lsquo;/home/swl-sacon-dst/Documents/GISE<em>2013/LAB/WRF-chem/wrf</em>chem<em>tut/Global</em>emissions<em>v3/surface</em>data/GL<em>IGBP</em>MODIS_INPE&rsquo;,</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- vcf type data set (dir + prefix)
+  use<em>vcf = 0,
+  vcf</em>type<em>data</em>dir      =&lsquo;/dados/dados3/stockler/VCF/data_out/2004/VCF&rsquo;,</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;-  Carbon density data  &mdash;&mdash;&mdash;&mdash;&mdash;-
+!&mdash;&mdash;&mdash;&mdash;&mdash;-  New Olson&rdquo;s data set (dir + prefix)
+!  olson<em>data</em>dir= &lsquo;/home/poluicao/EMISSION<em>DATA/OLSON2/OLSON&rsquo;,<br />
+   olson</em>data<em>dir= &lsquo;/home/swl-sacon-dst/Documents/GISE</em>2013/LAB/WRF-chem/wrf<em>chem</em>tut/Global<em>emissions</em>v3/Emission_data/OLSON2/OLSON&rsquo;,</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;-  Old Olson&rdquo;s data set
+  carbon<em>density</em>data<em>dir=&lsquo;/home/swl-sacon-dst/Documents/GISE</em>2013/LAB/WRF-chem/wrf<em>chem</em>tut/Global<em>emissions</em>v3/surface<em>data/GL</em>OGE_INPE/OGE&rsquo;,</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- carbon density data set for Amazon (dir + prefix)
+!  fuel<em>data</em>dir      =&rsquo; &lsquo;,</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- gocart background
+  use<em>gocart</em>bg =1,
+  gocart<em>bg</em>data<em>dir=&lsquo;/home/swl-sacon-dst/Documents/GISE</em>2013/LAB/WRF-chem/wrf<em>chem</em>tut/Global<em>emissions</em>v3/Emission_data/GOCART/&lsquo;,</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- volcanoes emissions
+!   use<em>volcanoes =1,
+!   volcano</em>index =1143, !Popocatepetl</p>
+
+<p>use<em>these</em>values=&lsquo;NONE&rsquo;,
+! define a text file for using external values for INJ<em>HEIGHT, DURATION,
+! MASS ASH (units are meters - seconds - kilograms) and the format for
+! a file &lsquo;values.txt&rsquo; is like this:
+! 11000. 10800. 1.5e10
+! use</em>these<em>values=&lsquo;values.txt&rsquo;,
+!  begin</em>eruption=&lsquo;201204200000&rsquo;,  !begin time UTC of eruption YYYYMMDDhhmm<br />
+!   begin_eruption=&lsquo;201305080000&rsquo;,  !begin time UTC of eruption YYYYMMDDhhmm</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- degassing volcanoes emissions
+!   use<em>degass</em>volcanoes =0,
+!   degass<em>volc</em>data<em>dir =&lsquo;/home/poluicao/EMISSION</em>DATA/VOLC_SO2&rsquo;,</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- user specific  emissions directory
+!&mdash;&mdash;&mdash;&mdash;&mdash;- Update for South America megacities
+!&mdash;&mdash;&mdash;&mdash;&mdash;- set &lsquo;NONE&rsquo; if you do not want to use
+!  user<em>data</em>dir=&lsquo;/home/poluicao/EMISSION<em>DATA/SouthAmerica</em>Megacities&rsquo;,
+   user<em>data</em>dir=&lsquo;NONE&rsquo;,</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;
+   pond=1,   ! mad/mfa  0 -&gt; molar mass weighted
+             !          1 -&gt; Reactivity weighted</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- for grid type &rsquo;ll&rsquo; or &lsquo;gg&rsquo; only
+   grid<em>resolucao</em>lon=0.2,
+   grid<em>resolucao</em>lat=0.2,</p>
+
+<p>nlat=320,          ! if gg (only global grid)
+   lon<em>beg   = -180., ! (-180.:+180.) long-begin of the output file
+   lat</em>beg   = -90., ! ( -90.:+90. ) lat -begin of the output file
+   delta<em>lon = 360., ! total long extension of the domain (360 for global)
+   delta</em>lat = 180., ! total lat  extension of the domain (180 for global)</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- For regional grids (polar or lambert)</p>
+
+<p>NGRIDS   = 1,            ! Number of grids to run</p>
+
+<p>NNXP     = 90 !,201,86,46,        ! Number of x gridpoints
+   NNYP     = 90 ! ,311,74,46,        ! Number of y gridpoints
+   NXTNEST  = 0  !,1,2,3,          ! Grid number which is the next coarser grid
+   DELTAX   = 100000.
+   DELTAY   = 100000.  ! X and Y grid spacing</p>
+
+<p>! Nest ratios between this grid and the next coarser grid.
+   NSTRATX  = 1,2,3,4,           ! x-direction
+   NSTRATY  = 1,2,3,4,           ! y-direction</p>
+
+<p>NINEST = 1,26,22,22,        ! Grid point on the next coarser
+   NJNEST = 1,7,15,32,        !  nest where the lower southwest
+                             !  corner of this nest will start.
+                             !  If NINEST or NJNEST = 0, use CENTLAT/LON
+   POLELAT  = 18.363,           ! If polar, latitude/longitude of pole point
+   POLELON  = 78.925,       ! If lambert/mercator, lat/lon of grid origin (x=y=0.) (ref<em>lat
+                             ! /ref</em>lon from namelist.wps)</p>
+
+<p>STDLAT1  = 18.363,           ! If polar, unused
+   STDLAT2  = 18.363,           ! If lambert, standard latitudes of projection
+                             !(truelat2/truelat1 from namelist.wps, STDLAT1 &lt; STDLAT2)
+                             ! If mercator STDLAT1 = 1st true latitude</p>
+
+<p>CENTLAT  = 18.363,      !45.,  -23., 27.5,  27.5,   ! (ref<em>lat/ref</em>lon from namelist.wps)
+   CENTLON  = 78.925,      !        -99.18, -46.,-80.5, -80.5,</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- model output domain for each grid (only set up for rams)
+   lati =  -90.,  -90.,   -90.,
+   latf =  +90.,  +90.,   +90.,<br />
+   loni = -180., -180.,  -180.,
+   lonf =  180.,  180.,   180.,</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- project rams grid (polar sterogr) to lat/lon: &lsquo;YES&rsquo; or &lsquo;NOT&rsquo;
+   proj<em>to</em>ll=&lsquo;NO&rsquo;,</p>
+
+<p>!&mdash;&mdash;&mdash;&mdash;&mdash;- output file prefix (may include directory other than the current)
+   chem<em>out</em>prefix = &lsquo;FIRE-RRCH&rsquo;,
+   chem<em>out</em>format = &lsquo;vfm&rsquo;,
+!&mdash;&mdash;&mdash;&mdash;&mdash;- convert to WRF/CHEM (yes,not)
+  special<em>output</em>to_wrf = &lsquo;YES&rsquo;,</p>
+
+<p>$END</p>
+
+<p><code>
+- with this prep_chem_src was made and then executed the program with input file, some misatakes in emission source non availablity was raised, it was solved in input file and then re run the program, it completed without any error and made three files in the bin folder</code>FIRE-RRCH-T-2014-03-01-000000-g1-ab.bin<code>,</code>FIRE-RRCH-T-2014-03-01-000000-g1-bb.bin<code>and</code>FIRE-RRCH-T-2014-03-01-000000-g1-gocartBG.bin```. three totally cost arround only 7 MB in size!</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

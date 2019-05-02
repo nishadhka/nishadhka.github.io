@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>running WRF EMS - Nishadh KA</title>
+    <meta property="og:title" content="running WRF EMS - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##Running WRF EMS## - WRF EMS is a pearl scripted implementation of weather research and forecast (WRF) model. By user easy scripting implementations, it hides the complex compiling and running steps &amp;hellip;">
+      <meta property="og:description" content="##Running WRF EMS## - WRF EMS is a pearl scripted implementation of weather research and forecast (WRF) model. By user easy scripting implementations, it hides the complex compiling and running steps &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>running WRF EMS</h1>
+
+<h3>
+  2014-06-05</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##Running WRF EMS##
+- WRF EMS is a pearl scripted implementation of weather research and forecast (WRF) model. By user easy scripting implementations, it hides the complex compiling and running steps in WRF model for operational and research purposes.
+- It&rsquo;s installation is by running a perl script provided by mail request, the installation size goes around 22 GB and so being a long processes.
+- The foremost step in model execution in creation of model domain, for high resolution forecasting of weather in Coimbatore, has to make a four nested domain. The domain creation in WRF is by wizard dwiz.
+- dwiz is super duper simplified with simple option selection such as domain draw and specifying domain grid ratio to parent  and its resolution in 10m, 5m, 2m and 30s.
+- All other micro physics and other physical parameterization has to specify it in the config folder inside the domain static folder. WRF EMS with dwiz create a specific environment with all required configuration and WRF routines for the specific domain, this environment is the static folder of the domain, located inside the runs folder of WRF EMS main folder. This is the main robustness of WRF EMS against WRF routine.
+- for disabling cumulus parameter to have a model run with resolution less than 10km, it has to edited in the &hellip;/runs/domain/config/ems<em>run/run</em>physics.conf
+- like this other files in the folder defines the various routines physical parameterization, cluster running and variable specification for WRF model.</p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>python script InsertObservation istSOS xml - Nishadh KA</title>
+    <meta property="og:title" content="python script InsertObservation istSOS xml - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="##python script to InsertObservation into istSOSxml way## 1. Based on the early experience of inserting observation in xml way with python using HTTP post in 52North SOS, made a try with Ist SOS, &amp;hellip;">
+      <meta property="og:description" content="##python script to InsertObservation into istSOSxml way## 1. Based on the early experience of inserting observation in xml way with python using HTTP post in 52North SOS, made a try with Ist SOS, &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>python script InsertObservation istSOS xml</h1>
+
+<h3>
+  2014-08-06</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>##python script to InsertObservation into istSOS<em>xml way##
+1. Based on the early experience of inserting observation in xml way with python using HTTP post in 52North SOS, made a try with Ist SOS, other way to do is using calling another python script to import data in csv formate.
+2. Based on this note on OWS service [requests](<a href="https://geoservice.ist.supsi.ch/projects/istsos/index.php/Example">https://geoservice.ist.supsi.ch/projects/istsos/index.php/Example</a></em>of<em>SOS</em>request). to get the DescribeSensor information used this link, it always failed in specfying formate but other request was succeffull</p>
+
+<pre><code>http://54.255.173.125/istsos/cbed?request=describeSensor&amp;procedure=KNMR&amp;outputFormat= text xml;subtype=&quot;sensorML/1.0.1&quot;&amp;service=SOS&amp;version=1.0.0
+</code></pre>
+
+<p>to GetFeatureInterest</p>
+
+<pre><code>http://54.255.173.125/istsos/cbed?request=getFeatureOfInterest&amp;featureOfInterestId=KNMR&amp;srsName=4326&amp;service=SOS&amp;version=1.0.0
+</code></pre>
+
+<p><a href="http://localhost/istsos/demo/?request=getFeatureOfInterest&amp;featureOfInterestId=LUGANO&amp;srsName=21781&amp;service=SOS&amp;version=1.0.0">http://localhost/istsos/demo/?request=getFeatureOfInterest&amp;featureOfInterestId=LUGANO&amp;srsName=21781&amp;service=SOS&amp;version=1.0.0</a></p>
+
+<p><a href="http://localhost/istsos/demo?request=describeSensor&amp;procedure=T_LUGANO&amp;outputFormat=text/xml;subtype=%27sensorML/1.0.0%27&amp;service=SOS&amp;version=1.0.0">http://localhost/istsos/demo?request=describeSensor&amp;procedure=T_LUGANO&amp;outputFormat=text/xml;subtype=%27sensorML/1.0.0%27&amp;service=SOS&amp;version=1.0.0</a></p>
+
+<p>to GetObservation</p>
+
+<pre><code>http://54.255.173.125/istsos/wa/istsos/services/cbed/operations/getobservation/offerings/temporary/procedures/SVNC/observedproperties/urn:ogc:def:parameter:x-istsos:1.0:cbe:dylos:np05mg,urn:ogc:def:parameter:x-istsos:1.0:cbe:dylos:np25mg/eventtime/2014-04-29T00:00:00+0530/2014-04-30T00:00:00+0530?_=1405529585826
+</code></pre>
+
+<ol>
+<li>From GetObservation request found the basic detials requered for InsertObservation request they are
+<code>
+procedure: &quot;urn:ogc:def:procedure:x-istsos:1.0:KNMR&quot;, 
+featureOfInterest:&quot;urn:ogc:def:feature:x-istsos:1.0:Point:KNMR&quot;, observedProperty&quot;:    &quot;urn:ogc:def:parameter:x-istsos:1.0:time:iso8601&quot;,
+&quot;urn:ogc:def:parameter:x-istsos:1.0:cbe:dylos:np05mg&quot;,
+&quot;urn:ogc:def:parameter:x-istsos:1.0:cbe:dylos:np25mg&quot;,
+</code></li>
+<li>So using above details made xml for InsertObservation, it is became
+<code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;sos:InsertObservation xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://schemas.opengis.net/sos/1.0.0/sosAll.xsd&quot; xmlns:sos=&quot;http://www.opengis.net/sos/1.0&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:sa=&quot;http://www.opengis.net/sampling/1.0&quot; xmlns:swe=&quot;http://www.opengis.net/swe/1.0.1&quot; xmlns:gml=&quot;http://www.opengis.net/gml/3.2&quot; xmlns:ogc=&quot;http://www.opengis.net/ogc&quot; xmlns:om=&quot;http://www.opengis.net/om/1.0&quot; service=&quot;SOS&quot; version=&quot;1.0.0&quot;&gt;
+&lt;AssignedSensorId&gt;urn:ogc:object:sensor:x-ist::???&lt;/AssignedSensorId&gt;
+&lt;om:Observation&gt;
+&lt;om:procedure xlink:href=&quot;urn:ogc:def:procedure:x-istsos:1.0:KNMR&quot;/&gt;
+&lt;om:samplingTime&gt;
+  &lt;gml:TimePeriod&gt;
+    &lt;gml:beginPosition&gt;2010-01-01T22:35:03+05:30&lt;/gml:beginPosition&gt;
+    &lt;gml:endPosition&gt;2010-01-01T22:35:03+05:30&lt;/gml:endPosition&gt;
+  &lt;/gml:TimePeriod&gt;
+&lt;/om:samplingTime&gt;
+&lt;om:observedProperty&gt;
+  &lt;swe:CompositPhenomenon dimension=&quot;3&quot;&gt;
+    &lt;swe:component xlink:href=&quot;urn:ogc:def:parameter:x-istsos:1.0:time:iso8601&quot;/&gt;  
+    &lt;swe:component xlink:href=&quot;urn:ogc:def:parameter:x-istsos:1.0:cbe:dylos:np05mg&quot;/&gt;
+    &lt;swe:component xlink:href=&quot;urn:ogc:def:parameter:x-istsos:1.0:cbe:dylos:np25mg&quot;/&gt;       
+  &lt;/swe:CompositPhenomenon&gt;
+&lt;/om:observedProperty&gt;
+&lt;om:featureOfInterest xlink:href=&quot;urn:ogc:def:feature:x-istsos:1.0:Point:KNMR&quot;/&gt;
+  &lt;om:result&gt;
+    &lt;swe:DataArray&gt;
+      &lt;swe:elementCount&gt;
+        &lt;swe:Count&gt;
+          &lt;swe:value&gt;2&lt;/swe:value&gt;
+        &lt;/swe:Count&gt;
+      &lt;/swe:elementCount&gt;
+      &lt;swe:elementType name=&quot;SimpleDataArray&quot;&gt;
+          &lt;swe:DataRecord definition=&quot;http://mmiws.org/ont/x/timeSeries&quot;&gt;
+            &lt;swe:field name=&quot;Time&quot;&gt;
+              &lt;swe:Time definition=&quot;urn:ogc:def:parameter:x-istsos:1.0:time:iso8601&quot;/&gt;
+            &lt;/swe:field&gt;
+            &lt;swe:field name=&quot;NoPG0.5&quot;&gt;
+              &lt;swe:Quantity definition=&quot;urn:ogc:def:parameter:x-istsos:1.0:cbe:dylos:np05mg&quot;&gt;
+                &lt;swe:uom code=&quot;NoOfPG0.5mg/m3&quot;/&gt;
+              &lt;/swe:Quantity&gt;
+            &lt;/swe:field&gt;
+            &lt;swe:field name=&quot;NoPG2.5&quot;&gt;
+              &lt;swe:Quantity definition=&quot;urn:ogc:def:parameter:x-istsos:1.0:cbe:dylos:np25mg&quot;&gt;
+                &lt;swe:uom code=&quot;NoOfPG2.5mg/m3&quot;/&gt;
+              &lt;/swe:Quantity&gt;
+            &lt;/swe:field&gt;
+          &lt;/swe:DataRecord&gt;
+      &lt;/swe:elementType&gt;
+    &lt;swe:encoding&gt;
+      &lt;swe:TextBlock tokenSeparator=&quot;,&quot; blockSeparator=&quot;@&quot; decimalSeparator=&quot;.&quot;/&gt;
+    &lt;/swe:encoding&gt;
+    &lt;swe:values&gt;
+        2010-01-01T00:10:00+00:00,9.81@
+    &lt;/swe:values&gt;
+  &lt;/swe:DataArray&gt;
+&lt;/om:result&gt;
+&lt;/om:Observation&gt;
+&lt;/sos:InsertObservation&gt;
+</code></li>
+</ol>
+
+<p><a href="http://54.255.173.125/istsos/cbed?request=describeSensor&amp;procedure=KNMR&amp;outputFormat=">http://54.255.173.125/istsos/cbed?request=describeSensor&amp;procedure=KNMR&amp;outputFormat=</a> text xml;subtype=%27sensorML/1.0.1%27&amp;service=SOS&amp;version=1.0.1</p>
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

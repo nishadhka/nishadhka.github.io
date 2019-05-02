@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>PythonGDALproblem - Nishadh KA</title>
+    <meta property="og:title" content="PythonGDALproblem - Nishadh KA">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="####Python GDAL problem####
+ImportError: /usr/lib/libgdal.so.1: undefined symbol: sqlite3columntable_name
+main.gdalconfigerror: [Errno 2] No such file or directory
+sudo apt-cache showpkg sqlite3 &amp;hellip;">
+      <meta property="og:description" content="####Python GDAL problem####
+ImportError: /usr/lib/libgdal.so.1: undefined symbol: sqlite3columntable_name
+main.gdalconfigerror: [Errno 2] No such file or directory
+sudo apt-cache showpkg sqlite3 &amp;hellip;">
+      
+    
+
+    
+    
+    
+    <meta name="twitter:image" content="/images/logo.png">
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="working-notes">
+    <header class="masthead">
+      <h1><a href="/">Nishadh KA</a></h1>
+
+
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/working-notes/2019/">Working notes</a></li>
+  
+  <li><a href="/archives/">archives</a></li>
+  
+  <li><a href="/categories/">categories</a></li>
+  
+  <li><a href="/tags/">tags</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>PythonGDALproblem</h1>
+
+<h3>
+  2014-10-28</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>####Python GDAL problem####</p>
+
+<p>ImportError: /usr/lib/libgdal.so.1: undefined symbol: sqlite3<em>column</em>table_name</p>
+
+<p><strong>main</strong>.gdal<em>config</em>error: [Errno 2] No such file or directory</p>
+
+<p>sudo apt-cache showpkg sqlite3</p>
+
+<p>ogrinfo grid.shp -dialect sqlite -sql &ldquo;select sqlite_version()&rdquo;</p>
+
+<p>ldconfig -p</p>
+
+<p>install.packages(file<em>name</em>and_path, repos = NULL, type=&ldquo;source&rdquo;)</p>
+
+<p><a href="http://marc.info/?l=grass-dev&amp;m=138736238422272&amp;w=2">http://marc.info/?l=grass-dev&amp;m=138736238422272&amp;w=2</a></p>
+
+<p><a href="http://askubuntu.com/questions/443379/sqlite-header-and-source-version-mismatch">http://askubuntu.com/questions/443379/sqlite-header-and-source-version-mismatch</a></p>
+
+<p><a href="http://stackoverflow.com/questions/16095942/sqlite-header-and-source-version-mismatch/16366457#16366457">http://stackoverflow.com/questions/16095942/sqlite-header-and-source-version-mismatch/16366457#16366457</a></p>
+
+<p>for R based netcdf view</p>
+
+<p><a href="https://gist.github.com/xuanlongma/5874674">https://gist.github.com/xuanlongma/5874674</a></p>
+
+<p><a href="http://stackoverflow.com/questions/11319698/how-to-install-r-packages-rnetcdf-and-ncdf-on-ubuntu">http://stackoverflow.com/questions/11319698/how-to-install-r-packages-rnetcdf-and-ncdf-on-ubuntu</a></p>
+
+<p>install.packages(repos=c(&lsquo;<a href="http://cran.fhcrc.org/'),pkgs=c('ncdf'),lib=&quot;/usr/lib/R/site-library/&quot;,configure.args=&quot;--with-netcdf-include=/usr/local/include">http://cran.fhcrc.org/'),pkgs=c('ncdf'),lib=&quot;/usr/lib/R/site-library/&quot;,configure.args=&quot;--with-netcdf-include=/usr/local/include</a> &ndash;with-netcdf-lib=/usr/local/lib&rdquo;)</p>
+
+<p>1.correcting the grid of coimbatore urban
+1</p>
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">Design cerdits to <a href="https://github.com/rbind/yihui">yihui</a> and <a href="https://github.com/dmulholl/ivy">ivy</a>, a <a href="https://gohugo.io/">hugo</a> site</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
