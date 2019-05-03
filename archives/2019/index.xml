@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2019 on Nishadh KA</title>
-    <link>//localhost:42041/archives/2019/</link>
+    <link>//localhost:1313/archives/2019/</link>
     <description>Recent content in 2019 on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Jan 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:42041/archives/2019/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/archives/2019/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Finding route between two points from OSM road network input</title>
-      <link>//localhost:42041/working-notes/2019/route-between-two-points-from-osm-road-network-input/</link>
+      <link>//localhost:1313/working-notes/2019/route-between-two-points-from-osm-road-network-input/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2019/route-between-two-points-from-osm-road-network-input/</guid>
+      <guid>//localhost:1313/working-notes/2019/route-between-two-points-from-osm-road-network-input/</guid>
       <description>Finding navigable route such as for driving between two points has several application. Open Street Map(OSM) with its free downloadable map, routing algorithms can be applied to find best route between two location. OSMNX, a python library import osm (a default file format provided by OSM) into graphml format which can be used with network analysis to get route network. The OSM downloaded from overpass using the polygon bouundary for an urban area, the overpass query https://overpass-api.</description>
     </item>
     
     <item>
       <title>Markdown Syntax</title>
-      <link>//localhost:42041/working-notes/2019/markdown-syntax/</link>
+      <link>//localhost:1313/working-notes/2019/markdown-syntax/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2019/markdown-syntax/</guid>
+      <guid>//localhost:1313/working-notes/2019/markdown-syntax/</guid>
       <description>Markdown: Syntax Main Basics Syntax License Dingus   Overview  Philosophy Inline HTML Automatic Escaping for Special Characters  Block Elements  Paragraphs and Line Breaks Headers Blockquotes Lists Code Blocks Horizontal Rules  Span Elements  Links Emphasis Code Images  Miscellaneous  Backslash Escapes Automatic Links   Note: This document is itself written using Markdown; you can see the source for it by adding &amp;lsquo;.text&amp;rsquo; to the URL.</description>
     </item>
     
     <item>
       <title>Decoding the polyline encoded line vectors</title>
-      <link>//localhost:42041/working-notes/2019/decoding-the-polyline-encoded-line-vectors/</link>
+      <link>//localhost:1313/working-notes/2019/decoding-the-polyline-encoded-line-vectors/</link>
       <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2019/decoding-the-polyline-encoded-line-vectors/</guid>
+      <guid>//localhost:1313/working-notes/2019/decoding-the-polyline-encoded-line-vectors/</guid>
       <description></description>
     </item>
     

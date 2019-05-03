@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IRIS on Nishadh KA</title>
-    <link>//localhost:42041/tags/iris/</link>
+    <link>//localhost:1313/tags/iris/</link>
     <description>Recent content in IRIS on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 24 Apr 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:42041/tags/iris/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/tags/iris/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>IRIS install</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-04/iris_install/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-04/iris_install/</link>
       <pubDate>Thu, 24 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-04/iris_install/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-04/iris_install/</guid>
       <description>Installing_IRIS
  IRIS is a python tool for working with netcdf and grib files. It is installed to convert WRF output in netCDF to grib2 formate, which is need for grib2json tool. IRIS is dependent of large number of python scientific libraries. Most of the libraries are python and it can be isntalled though  pip install libarry  based on the failure report It&amp;rsquo;s installation further gets erroneous due to unavailability of netcdf, HDF5, netcdf-python packages.</description>
     </item>

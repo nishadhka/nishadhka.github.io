@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Geoserver on Nishadh KA</title>
-    <link>//localhost:42041/tags/geoserver/</link>
+    <link>//localhost:1313/tags/geoserver/</link>
     <description>Recent content in Geoserver on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 05 Nov 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:42041/tags/geoserver/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/tags/geoserver/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Notes on Geoserver</title>
-      <link>//localhost:42041/working-notes/2013/wn_2013-11/notes-on-geoserver/</link>
+      <link>//localhost:1313/working-notes/2013/wn_2013-11/notes-on-geoserver/</link>
       <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2013/wn_2013-11/notes-on-geoserver/</guid>
+      <guid>//localhost:1313/working-notes/2013/wn_2013-11/notes-on-geoserver/</guid>
       <description>Started based on this link http://gis.stackexchange.com/questions/69430/best-way-to-visualize-the-postgis-raster-in-openlayers Geoserver very easy to install, followed installation based on war and Apache tomcat. For know more about rest api for Geoserver http://boundlessgeo.com/2012/10/adding-layers-to-geoserver-using-the-rest-api/ to more on the python script for automatic the MODIS visualization http://gis.stackexchange.com/questions/16515/how-to-import-a-raster-into-postgis</description>
     </item>
     

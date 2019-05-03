@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ubuntu on Nishadh KA</title>
-    <link>//localhost:42041/tags/ubuntu/</link>
+    <link>//localhost:1313/tags/ubuntu/</link>
     <description>Recent content in Ubuntu on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 22 Nov 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:42041/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ubunut1204 recovery</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-11/ubunut1204_recovery/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-11/ubunut1204_recovery/</link>
       <pubDate>Sat, 22 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-11/ubunut1204_recovery/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-11/ubunut1204_recovery/</guid>
       <description>###Ubunut 12.04 recovery###
  It is found that changing the file /etc/environment has huge problem after reboot. Added the environment variables for ncl language in /etc/environment as export NCARG_ROOT=/usr/local/ncl-6.2.1; export PATH=$NCARG_ROOT/bin:$PATH. This was resultant in problematic reboot of the system. The system gets instead of into login page, gets flickering command log. By reboot went inside of command line and there no system command like ls or sudo was not working.</description>
     </item>
     
     <item>
       <title>NCL install ubunut1204</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-11/ncl_install_ubunut1204/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-11/ncl_install_ubunut1204/</link>
       <pubDate>Thu, 20 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-11/ncl_install_ubunut1204/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-11/ncl_install_ubunut1204/</guid>
       <description>http://www.ncl.ucar.edu/Download/install.shtml</description>
     </item>
     
     <item>
       <title>ubuntu1204to1404</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-09/ubuntu1204to1404/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-09/ubuntu1204to1404/</link>
       <pubDate>Mon, 08 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-09/ubuntu1204to1404/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-09/ubuntu1204to1404/</guid>
       <description>####Ubuntu 12.04 to Ubunut 14.04 upgradation####
 fellow@dhcppc3:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 12.04.3 LTS Release: 12.04 Codename: precise
 fellow@dhcppc3:~$ uname -r 3.5.0-44-generic 1. /boot foldeer is full, free some space to continue upgrade. This isssue was solved by this. Importatnly the command dpkg -l &#39;linux-*&#39; | sed &#39;/^ii/!d;/&#39;&amp;quot;$(uname -r | sed &amp;quot;s/\(.*\)-\([^0-9]\+\)/\1/&amp;quot;)&amp;quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39; shows the absolute kernals in /boot to be removed.</description>
@@ -43,86 +43,86 @@ fellow@dhcppc3:~$ uname -r 3.5.0-44-generic 1. /boot foldeer is full, free some 
     
     <item>
       <title>Installing R and Openair in Ubuntu1204</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-06/installing_r_and_openair_in_ubuntu1204/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-06/installing_r_and_openair_in_ubuntu1204/</link>
       <pubDate>Tue, 17 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-06/installing_r_and_openair_in_ubuntu1204/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-06/installing_r_and_openair_in_ubuntu1204/</guid>
       <description>##InstallingRandOpenairin_Ubuntu1204## - installation of R in ubuntu 12.04, there are deb packages available for R from its source page here - But after installation it shows error in installing openair package, and depndancy chain goes from 2 to 10 and much more package with version mismacth problem, starting from lattice saying Error: package ‘lattice’ was built before R 3.0.0: please re-install it - Even calling package by ```library(lattice&amp;rsquo;) thoughed error - So installation in apt-get library might be problem solving, followed these</description>
     </item>
     
     <item>
       <title>Installing netcdf python in Ubuntu1204</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-05/installing_netcdf_python_in_ubuntu1204/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-05/installing_netcdf_python_in_ubuntu1204/</link>
       <pubDate>Tue, 20 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-05/installing_netcdf_python_in_ubuntu1204/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-05/installing_netcdf_python_in_ubuntu1204/</guid>
       <description>##InstallingnetcdfpythoninUbuntu12.04##
  to install netcdf-python requiers HDF, based on this HDF isntallation from source got failed, used synaptic package manager to install HDF5 Downloaded netcdf-python, extracted and run python setup.py install Failed, saying netcdf is not found in usr/ So follwoed this, downloaded version of netcdf-4.0.1, placed in /usr/local cd into netcdf-4.0.1, and run the code LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=/usr/local then sudo make and then sudo make install seems got installed, then went into netcdf4-python as given in this and run sduo python setup.</description>
     </item>
     
     <item>
       <title>usb modeswitch on reboot</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-03/usb_modeswitch_on_reboot/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-03/usb_modeswitch_on_reboot/</link>
       <pubDate>Tue, 25 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-03/usb_modeswitch_on_reboot/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-03/usb_modeswitch_on_reboot/</guid>
       <description>usb_modeswitch.conf</description>
     </item>
     
     <item>
       <title>Server stuck at GRUB menu after 1204 update upgrade</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-03/server_stuck_at_grub_menu_after_1204_update_upgrade/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-03/server_stuck_at_grub_menu_after_1204_update_upgrade/</link>
       <pubDate>Wed, 05 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-03/server_stuck_at_grub_menu_after_1204_update_upgrade/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-03/server_stuck_at_grub_menu_after_1204_update_upgrade/</guid>
       <description>ServerstuckatGRUBmenuafter12.04_update/upgrade
 Having this problem of Ubuntu server stuck at grub menu and not going inside automatically, button enter has to pressed to get inside and also into a blank useless screen with single hyphen with no activity to view or enter command. Workaround was by pressing ENTER after few minutes of server reboot, solved!. My problem was with Ubuntu server 12.04 LTS in IBM but started same as with a clean sudo apt-get upgrade .</description>
     </item>
     
     <item>
       <title>trisquel 60 installation in nvidia geforce card laptop</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-02/trisquel-60-installation-in-nvidia-geforce-card-laptop/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-02/trisquel-60-installation-in-nvidia-geforce-card-laptop/</link>
       <pubDate>Tue, 25 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-02/trisquel-60-installation-in-nvidia-geforce-card-laptop/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-02/trisquel-60-installation-in-nvidia-geforce-card-laptop/</guid>
       <description>There are problems in installing Trisquel 6.0 in HCL ME laptop having Nvidia GeForce graphics card. aUsed live USB created from Ubuntu 12.04 using startup disk creator, and the installation screen never turned up. It shows a blank screen with a large cursor object then get into Trisquel popular background image and stay there forever with a hopeful rotating mouse pointer for some time and then into a sad state, this is the first problem.</description>
     </item>
     
     <item>
       <title>Installing 55north SOS with tomcat7</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-02/installing-55north-sos-with-tomcat7/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-02/installing-55north-sos-with-tomcat7/</link>
       <pubDate>Fri, 21 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-02/installing-55north-sos-with-tomcat7/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-02/installing-55north-sos-with-tomcat7/</guid>
       <description>Installed tomcat 7 using http://askubuntu.com/questions/339169/how-to-install tomcat-7-0-42-on-ubuntu-12-04-3-lts to find tomcat is running followed by http://stackoverflow.com/questions/3944157/is-tomcat-running netstat -a | grep 8080 ps -ef | grep tomcat
 both commands gives some bulge result and responses if it is working. if it is not working the command used to start tomcat7 is from the installation page sudo $CATALINA_HOME/bin/startup.sh Installing the SOS war following tomcat manager and war file upload to upload the data into istsos used this command following all its installation documentation.</description>
     </item>
     
     <item>
       <title>File transfer between AWS and ubuntu</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-01/file-transfer-between-aws-and-ubuntu/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-01/file-transfer-between-aws-and-ubuntu/</link>
       <pubDate>Sat, 25 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-01/file-transfer-between-aws-and-ubuntu/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-01/file-transfer-between-aws-and-ubuntu/</guid>
       <description>Use scp  sudo scp -i .ssh/gssa.pem ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/CORE-Ubuntu_eWRF.zip /home/fellow   Use rsync, to transfer file from local host to aws  sudo rsync -avz –stats /home/fellow/sim.txt -e “ssh -i .ssh/gssa.pem” ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/ sudo rsync -P –stats -e “ssh -i .ssh/gssa.pem” ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/CORE-Ubuntu_eWRF.zip /home/fellow/  to transfer file from aws to local host  sudo rsync -avz –stats -e “ssh -i .ssh/gssa.pem” ubuntu@ecip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/sim.txt /home/fellow/  to resume a download after a net connection break</description>
     </item>
     
     <item>
       <title>Installing Munin for ubuntu server</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-01/installing-munin-for-ubuntu-server/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-01/installing-munin-for-ubuntu-server/</link>
       <pubDate>Fri, 17 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-01/installing-munin-for-ubuntu-server/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-01/installing-munin-for-ubuntu-server/</guid>
       <description>Based on
 http://ubuntuserverguide.com/2012/08/how-to-install-and-configure-munin-on-ubuntu-server-12-04.html http://www.hashbangcode.com/blog/monitoring-performance-munin-713.html  </description>
     </item>
     
     <item>
       <title>more with SMS gateway for ubuntu 1204</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-01/more-with-sms-gateway-for-ubuntu-1204/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-01/more-with-sms-gateway-for-ubuntu-1204/</link>
       <pubDate>Fri, 17 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-01/more-with-sms-gateway-for-ubuntu-1204/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-01/more-with-sms-gateway-for-ubuntu-1204/</guid>
       <description>based on this  http://blog.sleeplessbeastie.eu/2012/07/16/kalkun-how-to-setup-sms-gateway-at-home/
 http://back2arie.wordpress.com/2010/07/27/using-gammu-smsd-with-multiple-phone/
  problem rectified by  http://askubuntu.com/questions/211739/gammu-and-device-permissions
@@ -133,20 +133,20 @@ http://back2arie.wordpress.com/2010/07/27/using-gammu-smsd-with-multiple-phone/
     
     <item>
       <title>SCREEN usage</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-01/screen-usage/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-01/screen-usage/</link>
       <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-01/screen-usage/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-01/screen-usage/</guid>
       <description>SCREEN is a utility for multiple session in command line Linux. * To start a screen with the name screen -S &amp;ldquo;name without mark&amp;rdquo; * To view running screen screen -r * to get into a particular screen screen -xr pid(of the screen) * to get out of the screen CTRL+A+D
 Ubuntu problem atkbd.c spamming the logs. How to get rid? What is this? using this http://askubuntu.com/questions/116538/atkbd-c-spamming-the-logs-how-to-get-rid-what-is-this</description>
     </item>
     
     <item>
       <title>Secure ubuntu SERVER 1204</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-01/secure-ubuntu-server-1204/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-01/secure-ubuntu-server-1204/</link>
       <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-01/secure-ubuntu-server-1204/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-01/secure-ubuntu-server-1204/</guid>
       <description>For key pair login and removing the password based on
 http://ubuntuforums.org/archive/index.php/t-30709.html http://blog.nas-admin.org/?p=63 http://www.thefanclub.co.za/how-to/how-install-psad-intrusion-detection-ubuntu-1204-lts-server following first one
  cd .ssh/
@@ -164,10 +164,10 @@ http://ubuntuforums.org/archive/index.php/t-30709.html http://blog.nas-admin.org
     
     <item>
       <title>USB DATA card for ubuntu 1204</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-01/usb_data_card_for_ubuntu_1204/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-01/usb_data_card_for_ubuntu_1204/</link>
       <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-01/usb_data_card_for_ubuntu_1204/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-01/usb_data_card_for_ubuntu_1204/</guid>
       <description>Do dmesg |grep tty
  if not showing anything, solved following final answer of this question
   http://ubuntuforums.org/archive/index.php/t-1853306.html
@@ -177,30 +177,30 @@ http://ubuntuforums.org/archive/index.php/t-30709.html http://blog.nas-admin.org
     
     <item>
       <title>Ubuntu SERVER black screen problem</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-01/ubuntu-server-black-screen-problem/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-01/ubuntu-server-black-screen-problem/</link>
       <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-01/ubuntu-server-black-screen-problem/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-01/ubuntu-server-black-screen-problem/</guid>
       <description>The problem is with monitor display for Ubuntu 12.04 server headless is showing a black screen, however, with this state, the SSH and all other functionality will work without any problem. Another problem is through SSH; the reboot will not work. It will be stuck on the GRUB menu after reboot; the physical machine has to be approached to start the session.
 SERVER CODE executed after this is sudo apt-get upgrade grub</description>
     </item>
     
     <item>
       <title>Adding font in Ubuntu 1204</title>
-      <link>//localhost:42041/working-notes/2013/wn_2013-12/adding-font-in-ubuntu-1204/</link>
+      <link>//localhost:1313/working-notes/2013/wn_2013-12/adding-font-in-ubuntu-1204/</link>
       <pubDate>Wed, 04 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2013/wn_2013-12/adding-font-in-ubuntu-1204/</guid>
+      <guid>//localhost:1313/working-notes/2013/wn_2013-12/adding-font-in-ubuntu-1204/</guid>
       <description>To add font
  move the ttf file into the folder usr/share/fonts/ttf then remove fonts cache by rm -f /usr/share/fonts/*fonts.cache-1 then create the cache again sudo fc-cache that&amp;rsquo;s it, added ttf can be seen in all the text editors.  </description>
     </item>
     
     <item>
       <title>Screen for remote head less sever</title>
-      <link>//localhost:42041/working-notes/2013/wn_2013-11/screen-for-remote-head-less-sever/</link>
+      <link>//localhost:1313/working-notes/2013/wn_2013-11/screen-for-remote-head-less-sever/</link>
       <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2013/wn_2013-11/screen-for-remote-head-less-sever/</guid>
+      <guid>//localhost:1313/working-notes/2013/wn_2013-11/screen-for-remote-head-less-sever/</guid>
       <description>Execute multiple programs simultaneously in the terminal, use the program screen. based on http://askubuntu.com/questions/163567/start-program-from-terminal and http://www.howtoforge.com/linux_screen
 Basic running steps
  screen -r: to view any running screen If there is no running screen, by this command a new terminal will be open, and any commands can be run here, such as to get a file using sftp To get out of the screen type CTRL +A+D after this the cursor goes to the base terminal  based on http://askubuntu.</description>
@@ -208,10 +208,10 @@ Basic running steps
     
     <item>
       <title>Installing maven in Ubuntu 1204</title>
-      <link>//localhost:42041/working-notes/2013/wn_2013-10/installing-maven-in-ubuntu-1204/</link>
+      <link>//localhost:1313/working-notes/2013/wn_2013-10/installing-maven-in-ubuntu-1204/</link>
       <pubDate>Tue, 08 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2013/wn_2013-10/installing-maven-in-ubuntu-1204/</guid>
+      <guid>//localhost:1313/working-notes/2013/wn_2013-10/installing-maven-in-ubuntu-1204/</guid>
       <description>Based on links http://docs.geotools.org/latest/userguide/build/install/mvn.html http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/ http://lukieb.wordpress.com/2011/02/15/installing-maven-3-on-ubuntu-10-04-lts-server/
  Download, untar and copy maven in /usr/local/
   wget http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz tar -zxf apache-maven-3.0.4-bin.tar.gz sudo cp -R apache-maven-3.0.4 /usr/local
@@ -222,10 +222,10 @@ Basic running steps
     
     <item>
       <title>Xvfb Virtual FrameBuffer error for Ubuntu server 1204</title>
-      <link>//localhost:42041/working-notes/2013/wn_2013-10/xvfb-virtual-framebuffer-error-for-ubuntu-server-1204/</link>
+      <link>//localhost:1313/working-notes/2013/wn_2013-10/xvfb-virtual-framebuffer-error-for-ubuntu-server-1204/</link>
       <pubDate>Mon, 07 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2013/wn_2013-10/xvfb-virtual-framebuffer-error-for-ubuntu-server-1204/</guid>
+      <guid>//localhost:1313/working-notes/2013/wn_2013-10/xvfb-virtual-framebuffer-error-for-ubuntu-server-1204/</guid>
       <description>The frame buffer is a hardware portion in memory to provide a display. X window systems are the basic display setup for computers. The display in the computer is organized as bitmap windows. In headless Ubuntu servers, virtual framebuffers are used for the application which requires display explicitly such as for Firefox or other browsers. Xvfb provides a virtual display for those applications. In Ubuntu headless server (server without any GUI) this is installed for mainly running Selenium scripts which require a browser to run.</description>
     </item>
     

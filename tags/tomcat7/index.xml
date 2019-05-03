@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tomcat7 on Nishadh KA</title>
-    <link>//localhost:42041/tags/tomcat7/</link>
+    <link>//localhost:1313/tags/tomcat7/</link>
     <description>Recent content in tomcat7 on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 21 Feb 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:42041/tags/tomcat7/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/tags/tomcat7/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Installing 55north SOS with tomcat7</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-02/installing-55north-sos-with-tomcat7/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-02/installing-55north-sos-with-tomcat7/</link>
       <pubDate>Fri, 21 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-02/installing-55north-sos-with-tomcat7/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-02/installing-55north-sos-with-tomcat7/</guid>
       <description>Installed tomcat 7 using http://askubuntu.com/questions/339169/how-to-install tomcat-7-0-42-on-ubuntu-12-04-3-lts to find tomcat is running followed by http://stackoverflow.com/questions/3944157/is-tomcat-running netstat -a | grep 8080 ps -ef | grep tomcat
 both commands gives some bulge result and responses if it is working. if it is not working the command used to start tomcat7 is from the installation page sudo $CATALINA_HOME/bin/startup.sh Installing the SOS war following tomcat manager and war file upload to upload the data into istsos used this command following all its installation documentation.</description>
     </item>

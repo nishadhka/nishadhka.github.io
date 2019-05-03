@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code snippet on Nishadh KA</title>
-    <link>//localhost:42041/categories/code-snippet/</link>
+    <link>//localhost:1313/categories/code-snippet/</link>
     <description>Recent content in Code snippet on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Jan 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:42041/categories/code-snippet/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/categories/code-snippet/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Finding route between two points from OSM road network input</title>
-      <link>//localhost:42041/working-notes/2019/route-between-two-points-from-osm-road-network-input/</link>
+      <link>//localhost:1313/working-notes/2019/route-between-two-points-from-osm-road-network-input/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2019/route-between-two-points-from-osm-road-network-input/</guid>
+      <guid>//localhost:1313/working-notes/2019/route-between-two-points-from-osm-road-network-input/</guid>
       <description>Finding navigable route such as for driving between two points has several application. Open Street Map(OSM) with its free downloadable map, routing algorithms can be applied to find best route between two location. OSMNX, a python library import osm (a default file format provided by OSM) into graphml format which can be used with network analysis to get route network. The OSM downloaded from overpass using the polygon bouundary for an urban area, the overpass query https://overpass-api.</description>
     </item>
     
     <item>
       <title>Python pandas cont</title>
-      <link>//localhost:42041/working-notes/2013/wn_2013-11/python_pandas_cont/</link>
+      <link>//localhost:1313/working-notes/2013/wn_2013-11/python_pandas_cont/</link>
       <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2013/wn_2013-11/python_pandas_cont/</guid>
+      <guid>//localhost:1313/working-notes/2013/wn_2013-11/python_pandas_cont/</guid>
       <description>Pythonpandas-cont. To call specific column in data frame df[df.columns[2:4]] To join called rows, in concatenating fashion df[“DateTime”] = [’ ’.join(row) for row in df[df.columns[2:4]].values] To speifiy the date time foramte in data frame of DPCC dMDIDT= pa.todatetime(Time, format=‘%A, %B %d, %Y %H:%M:%S’)
 based on http://www.cyberciti.biz/faq/howto-get-current-date-time-in-python/ http://stackoverflow.com/questions/12030398/concatenate-multiple-columns-based-on-index-in-pandas A best tutorial for visualization in pyhton http://nbviewer.ipython.org/urls/raw.github.com/bolhovsky/notebooks/master/earth-day-data-challenge.ipynb</description>
     </item>
     
     <item>
       <title>Store json data into Mysql using python</title>
-      <link>//localhost:42041/working-notes/2013/wn_2013-10/store-json-data-into-mysql-using-python/</link>
+      <link>//localhost:1313/working-notes/2013/wn_2013-10/store-json-data-into-mysql-using-python/</link>
       <pubDate>Mon, 28 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2013/wn_2013-10/store-json-data-into-mysql-using-python/</guid>
+      <guid>//localhost:1313/working-notes/2013/wn_2013-10/store-json-data-into-mysql-using-python/</guid>
       <description>Web services APIs such as weather underground data provided in json format is stored in Mysql table using this python script.
 Based on stack overflow answers http://stackoverflow.com/questions/1640715/get-json-data-via-url-and-use-in-python-simplejson http://stackoverflow.com/questions/5687718/python-mysql-insert-data
 import urllib2 import json import MySQLdb
@@ -46,10 +46,10 @@ try: x.execute( &amp;ldquo;INSERT INTO CBEmeterology (Station, DateAP)&amp;rdquo
     
     <item>
       <title>Python for data frame editing using pandas</title>
-      <link>//localhost:42041/working-notes/2013/wn_2013-10/python-for-data-frame-editing-using-pandas/</link>
+      <link>//localhost:1313/working-notes/2013/wn_2013-10/python-for-data-frame-editing-using-pandas/</link>
       <pubDate>Wed, 16 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2013/wn_2013-10/python-for-data-frame-editing-using-pandas/</guid>
+      <guid>//localhost:1313/working-notes/2013/wn_2013-10/python-for-data-frame-editing-using-pandas/</guid>
       <description>Pandas is a library for a data frame manipulation and analysis; it gives the ability to python as R like functionality. It is for converting a CSV file into the form to import into istsos as a tutorial sensor observations. The steps are as follows
  1. remove the unwanted column in csv file 2. filter each station’s readings 3. remove duplicates 4.convert the date and time format into ISO standards as demo data</description>
     </item>

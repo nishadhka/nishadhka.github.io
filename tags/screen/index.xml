@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Screen on Nishadh KA</title>
-    <link>//localhost:42041/tags/screen/</link>
+    <link>//localhost:1313/tags/screen/</link>
     <description>Recent content in Screen on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 16 Jan 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:42041/tags/screen/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/tags/screen/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SCREEN usage</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-01/screen-usage/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-01/screen-usage/</link>
       <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-01/screen-usage/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-01/screen-usage/</guid>
       <description>SCREEN is a utility for multiple session in command line Linux. * To start a screen with the name screen -S &amp;ldquo;name without mark&amp;rdquo; * To view running screen screen -r * to get into a particular screen screen -xr pid(of the screen) * to get out of the screen CTRL+A+D
 Ubuntu problem atkbd.c spamming the logs. How to get rid? What is this? using this http://askubuntu.com/questions/116538/atkbd-c-spamming-the-logs-how-to-get-rid-what-is-this</description>
     </item>
     
     <item>
       <title>Screen for remote head less sever</title>
-      <link>//localhost:42041/working-notes/2013/wn_2013-11/screen-for-remote-head-less-sever/</link>
+      <link>//localhost:1313/working-notes/2013/wn_2013-11/screen-for-remote-head-less-sever/</link>
       <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2013/wn_2013-11/screen-for-remote-head-less-sever/</guid>
+      <guid>//localhost:1313/working-notes/2013/wn_2013-11/screen-for-remote-head-less-sever/</guid>
       <description>Execute multiple programs simultaneously in the terminal, use the program screen. based on http://askubuntu.com/questions/163567/start-program-from-terminal and http://www.howtoforge.com/linux_screen
 Basic running steps
  screen -r: to view any running screen If there is no running screen, by this command a new terminal will be open, and any commands can be run here, such as to get a file using sftp To get out of the screen type CTRL +A+D after this the cursor goes to the base terminal  based on http://askubuntu.</description>

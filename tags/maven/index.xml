@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Maven on Nishadh KA</title>
-    <link>//localhost:42041/tags/maven/</link>
+    <link>//localhost:1313/tags/maven/</link>
     <description>Recent content in Maven on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 24 Apr 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:42041/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/tags/maven/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>package using maven</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-04/package_using_maven/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-04/package_using_maven/</link>
       <pubDate>Thu, 24 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-04/package_using_maven/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-04/package_using_maven/</guid>
       <description>PackageusingMavenforGRIB2JSON
  Java based tools such as grib2json has to compiled with maven latest maven is installed, following as per this note (https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2013-10/Installing_maven_in_Ubuntu_12.04.md) the tool grib2json requieres java 1.7 made huge search due to error while trying for  mvn package  it gives error of  Error: JAVA_HOME is not defined correctly. We cannot execute ”/usr/lib/jvm/jdk1.7.0”/bin/java   later found that, the system doesn&amp;rsquo;t containing jdk1.7.0 installed jdk1.7.0 follwoing (http://askubuntu.</description>
     </item>
     
     <item>
       <title>Installing maven in Ubuntu 1204</title>
-      <link>//localhost:42041/working-notes/2013/wn_2013-10/installing-maven-in-ubuntu-1204/</link>
+      <link>//localhost:1313/working-notes/2013/wn_2013-10/installing-maven-in-ubuntu-1204/</link>
       <pubDate>Tue, 08 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2013/wn_2013-10/installing-maven-in-ubuntu-1204/</guid>
+      <guid>//localhost:1313/working-notes/2013/wn_2013-10/installing-maven-in-ubuntu-1204/</guid>
       <description>Based on links http://docs.geotools.org/latest/userguide/build/install/mvn.html http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/ http://lukieb.wordpress.com/2011/02/15/installing-maven-3-on-ubuntu-10-04-lts-server/
  Download, untar and copy maven in /usr/local/
   wget http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz tar -zxf apache-maven-3.0.4-bin.tar.gz sudo cp -R apache-maven-3.0.4 /usr/local

@@ -2,16 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Homepage on Nishadh KA</title>
-    <link>//localhost:42041/</link>
+    <link>//localhost:1313/</link>
     <description>Recent content in Homepage on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Jan 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:42041/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-    
+	<atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+
   </channel>
 </rss>

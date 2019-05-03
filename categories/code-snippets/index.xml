@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code snippets on Nishadh KA</title>
-    <link>//localhost:42041/categories/code-snippets/</link>
+    <link>//localhost:1313/categories/code-snippets/</link>
     <description>Recent content in Code snippets on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 08 Jan 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:42041/categories/code-snippets/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/categories/code-snippets/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Decoding the polyline encoded line vectors</title>
-      <link>//localhost:42041/working-notes/2019/decoding-the-polyline-encoded-line-vectors/</link>
+      <link>//localhost:1313/working-notes/2019/decoding-the-polyline-encoded-line-vectors/</link>
       <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2019/decoding-the-polyline-encoded-line-vectors/</guid>
+      <guid>//localhost:1313/working-notes/2019/decoding-the-polyline-encoded-line-vectors/</guid>
       <description></description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HYSPLIT on Nishadh KA</title>
-    <link>//localhost:42041/tags/hysplit/</link>
+    <link>//localhost:1313/tags/hysplit/</link>
     <description>Recent content in HYSPLIT on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 04 Apr 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:42041/tags/hysplit/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/tags/hysplit/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>HYSPLIT compile</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-04/hysplit_compile/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-04/hysplit_compile/</link>
       <pubDate>Fri, 04 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-04/hysplit_compile/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-04/hysplit_compile/</guid>
       <description>#HYSPLIT_compile
 Compiling HYSPLIT in Ubuntu 12.04 was hurdled by a error related with netcdf.
  Installation of netcdf is through compiling and package installation from synaptic package manager. Synaptic and latest source download compilation gives error of &amp;ldquo;no netcdf.inc&amp;rdquo; in hysplit compile. It is due to a fortran binding lapse in latest verision. So used a old version of the netcdf 3.6.3 and compiled following this&amp;ndash; http://code.google.com/p/netcdf4-python/wiki/UbuntuInstall has to give sudo in make and make install, with the first comment disable-shared LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include .</description>

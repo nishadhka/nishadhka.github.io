@@ -3,1416 +3,1416 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>//localhost:42041/working-notes/2019/</loc>
+    <loc>//localhost:1313/working-notes/2019/</loc>
     <lastmod>2019-05-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/archives/2019/</loc>
+    <loc>//localhost:1313/archives/2019/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/archives/</loc>
+    <loc>//localhost:1313/archives/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/categories/</loc>
+    <loc>//localhost:1313/categories/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/categories/code-snippet/</loc>
+    <loc>//localhost:1313/categories/code-snippet/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2019/route-between-two-points-from-osm-road-network-input/</loc>
+    <loc>//localhost:1313/working-notes/2019/route-between-two-points-from-osm-road-network-input/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/</loc>
+    <loc>//localhost:1313/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/categories/markdown/</loc>
-    <lastmod>2019-01-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/working-notes/2019/markdown-syntax/</loc>
-    <lastmod>2019-01-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/tags/networkx/</loc>
+    <loc>//localhost:1313/categories/markdown/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/osm/</loc>
+    <loc>//localhost:1313/working-notes/2019/markdown-syntax/</loc>
+    <lastmod>2019-01-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/tags/networkx/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/python/</loc>
+    <loc>//localhost:1313/tags/osm/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/</loc>
+    <loc>//localhost:1313/tags/python/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/graphml/</loc>
+    <loc>//localhost:1313/tags/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/osmnx/</loc>
+    <loc>//localhost:1313/tags/graphml/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/syntax/</loc>
+    <loc>//localhost:1313/tags/osmnx/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/archives/2014/</loc>
+    <loc>//localhost:1313/tags/syntax/</loc>
+    <lastmod>2019-01-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/archives/2014/</loc>
     <lastmod>2014-12-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/categories/software/</loc>
+    <loc>//localhost:1313/categories/software/</loc>
     <lastmod>2014-12-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-12/wrf_chem_cluster/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_cluster/</loc>
     <lastmod>2014-12-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-12/wrf_chem_compile_qn/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_compile_qn/</loc>
     <lastmod>2014-12-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_aws/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_aws/</loc>
     <lastmod>2014-12-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_ct/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_ct/</loc>
     <lastmod>2014-12-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_pl/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_pl/</loc>
     <lastmod>2014-12-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/wrf-chem/</loc>
-    <lastmod>2014-12-29T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/working-notes/</loc>
+    <loc>//localhost:1313/tags/wrf-chem/</loc>
     <lastmod>2014-12-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/nan/</loc>
+    <loc>//localhost:1313/working-notes/</loc>
     <lastmod>2014-12-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/matplotlib/</loc>
+    <loc>//localhost:1313/tags/nan/</loc>
+    <lastmod>2014-12-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/tags/matplotlib/</loc>
     <lastmod>2014-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/plot/</loc>
+    <loc>//localhost:1313/tags/plot/</loc>
     <lastmod>2014-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-12/print_map_shape_file_python/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-12/print_map_shape_file_python/</loc>
     <lastmod>2014-12-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/categories/script/</loc>
+    <loc>//localhost:1313/categories/script/</loc>
     <lastmod>2014-12-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/categories/hardware/</loc>
+    <loc>//localhost:1313/categories/hardware/</loc>
     <lastmod>2014-12-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/parallella/</loc>
+    <loc>//localhost:1313/tags/parallella/</loc>
     <lastmod>2014-12-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-12/parallella_upand_run/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-12/parallella_upand_run/</loc>
     <lastmod>2014-12-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/geocoding/</loc>
+    <loc>//localhost:1313/tags/geocoding/</loc>
     <lastmod>2014-11-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/geonames/</loc>
+    <loc>//localhost:1313/tags/geonames/</loc>
     <lastmod>2014-11-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</loc>
     <lastmod>2014-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/geospatial/</loc>
-    <lastmod>2014-11-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/tags/pandas/</loc>
+    <loc>//localhost:1313/tags/geospatial/</loc>
     <lastmod>2014-11-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-11/reverse_geocoding/</loc>
+    <loc>//localhost:1313/tags/pandas/</loc>
+    <lastmod>2014-11-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-11/reverse_geocoding/</loc>
     <lastmod>2014-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-11/pandas_json/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-11/pandas_json/</loc>
     <lastmod>2014-11-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-11/wrfchem_output_pm25pm10/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-11/wrfchem_output_pm25pm10/</loc>
     <lastmod>2014-11-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/error/</loc>
+    <loc>//localhost:1313/tags/error/</loc>
     <lastmod>2014-11-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/categories/operating-system/</loc>
+    <loc>//localhost:1313/categories/operating-system/</loc>
     <lastmod>2014-11-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/ubuntu/</loc>
+    <loc>//localhost:1313/tags/ubuntu/</loc>
     <lastmod>2014-11-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-11/ubunut1204_recovery/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-11/ubunut1204_recovery/</loc>
     <lastmod>2014-11-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/ncl/</loc>
+    <loc>//localhost:1313/tags/ncl/</loc>
     <lastmod>2014-11-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-11/ncl_install_ubunut1204/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-11/ncl_install_ubunut1204/</loc>
     <lastmod>2014-11-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/aerocet/</loc>
+    <loc>//localhost:1313/tags/aerocet/</loc>
     <lastmod>2014-11-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/d3.js/</loc>
+    <loc>//localhost:1313/tags/d3.js/</loc>
     <lastmod>2014-11-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-11/plot_aerocet_sample_d3js/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-11/plot_aerocet_sample_d3js/</loc>
     <lastmod>2014-11-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/web-application/</loc>
+    <loc>//localhost:1313/tags/web-application/</loc>
     <lastmod>2014-11-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/git/</loc>
+    <loc>//localhost:1313/tags/git/</loc>
     <lastmod>2014-11-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-11/git_delete_routine/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-11/git_delete_routine/</loc>
     <lastmod>2014-11-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/dylos/</loc>
+    <loc>//localhost:1313/tags/dylos/</loc>
     <lastmod>2014-11-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-11/redeploy_dylos_tdm/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-11/redeploy_dylos_tdm/</loc>
     <lastmod>2014-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-11/docx_table_into_python/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-11/docx_table_into_python/</loc>
     <lastmod>2014-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/data-cleanup/</loc>
-    <lastmod>2014-11-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/tags/scraping/</loc>
+    <loc>//localhost:1313/tags/data-cleanup/</loc>
     <lastmod>2014-11-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/netcdf/</loc>
+    <loc>//localhost:1313/tags/scraping/</loc>
+    <lastmod>2014-11-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/tags/netcdf/</loc>
     <lastmod>2014-10-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-10/plot_netcdf/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-10/plot_netcdf/</loc>
     <lastmod>2014-10-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</loc>
     <lastmod>2014-10-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/gdal/</loc>
-    <lastmod>2014-10-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/tags/latex/</loc>
+    <loc>//localhost:1313/tags/gdal/</loc>
     <lastmod>2014-10-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-10/pythongdalproblem/</loc>
-    <lastmod>2014-10-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/tags/timeseries/</loc>
+    <loc>//localhost:1313/tags/latex/</loc>
     <lastmod>2014-10-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-10/timeseries_pandas/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-10/pythongdalproblem/</loc>
     <lastmod>2014-10-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/cluster/</loc>
+    <loc>//localhost:1313/tags/timeseries/</loc>
+    <lastmod>2014-10-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-10/timeseries_pandas/</loc>
+    <lastmod>2014-10-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/tags/cluster/</loc>
     <lastmod>2014-10-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/cubietruck/</loc>
+    <loc>//localhost:1313/tags/cubietruck/</loc>
     <lastmod>2014-10-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-10/cubietruck_cluster_wrfchem/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-10/cubietruck_cluster_wrfchem/</loc>
     <lastmod>2014-10-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</loc>
     <lastmod>2014-10-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/kml/</loc>
+    <loc>//localhost:1313/tags/kml/</loc>
     <lastmod>2014-10-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</loc>
     <lastmod>2014-10-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/raspberry-pi/</loc>
+    <loc>//localhost:1313/tags/raspberry-pi/</loc>
     <lastmod>2014-10-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/wrfchem_output_python/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_output_python/</loc>
     <lastmod>2014-09-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</loc>
     <lastmod>2014-09-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/assimilation/</loc>
+    <loc>//localhost:1313/tags/assimilation/</loc>
     <lastmod>2014-09-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/gsi/</loc>
+    <loc>//localhost:1313/tags/gsi/</loc>
     <lastmod>2014-09-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/compilegsionubuntu1404/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/compilegsionubuntu1404/</loc>
     <lastmod>2014-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/emisinv_reas_pandas/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/emisinv_reas_pandas/</loc>
     <lastmod>2014-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/emission-inventory/</loc>
-    <lastmod>2014-09-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/categories/study/</loc>
+    <loc>//localhost:1313/tags/emission-inventory/</loc>
     <lastmod>2014-09-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/aerocet531s_serial_read/</loc>
+    <loc>//localhost:1313/categories/study/</loc>
+    <lastmod>2014-09-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/aerocet531s_serial_read/</loc>
     <lastmod>2014-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/wrf_chem_compile_completenote_server/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/wrf_chem_compile_completenote_server/</loc>
     <lastmod>2014-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/aws/</loc>
+    <loc>//localhost:1313/tags/aws/</loc>
     <lastmod>2014-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/categories/cloud-computing/</loc>
+    <loc>//localhost:1313/categories/cloud-computing/</loc>
     <lastmod>2014-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/pm_emission_inventory_cbe_sd/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/pm_emission_inventory_cbe_sd/</loc>
     <lastmod>2014-09-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/starcluster/</loc>
+    <loc>//localhost:1313/tags/starcluster/</loc>
     <lastmod>2014-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/wrfchem_cbe_aoptionwithaws_starcluster/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_cbe_aoptionwithaws_starcluster/</loc>
     <lastmod>2014-09-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/forumpost/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/forumpost/</loc>
     <lastmod>2014-09-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/wrfchem_cbe_a1/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_cbe_a1/</loc>
     <lastmod>2014-09-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/ubuntu1204to1404/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/ubuntu1204to1404/</loc>
     <lastmod>2014-09-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/working_with_wrf_chem_part70_cbe_dustonlytutorial/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/working_with_wrf_chem_part70_cbe_dustonlytutorial/</loc>
     <lastmod>2014-09-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/working_with_wrf_chem_part71_emission_inventory_cbe_ndown/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/working_with_wrf_chem_part71_emission_inventory_cbe_ndown/</loc>
     <lastmod>2014-09-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</loc>
     <lastmod>2014-09-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-09/working_with_wrf_chem_part65_emissioninventorytut/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-09/working_with_wrf_chem_part65_emissioninventorytut/</loc>
     <lastmod>2014-09-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-08/gsi_assimilation_pm25pm10_wrfchem/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-08/gsi_assimilation_pm25pm10_wrfchem/</loc>
     <lastmod>2014-08-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/sos/</loc>
+    <loc>//localhost:1313/tags/sos/</loc>
     <lastmod>2014-08-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-08/sosforwrfchem_output/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-08/sosforwrfchem_output/</loc>
     <lastmod>2014-08-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/beagle-bone-black-board/</loc>
+    <loc>//localhost:1313/tags/beagle-bone-black-board/</loc>
     <lastmod>2014-08-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-08/wrf_chem_compilinginarm_beagleboneblack/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-08/wrf_chem_compilinginarm_beagleboneblack/</loc>
     <lastmod>2014-08-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</loc>
     <lastmod>2014-08-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-08/working_with_wrf_chem_part63_wrf_coimbatorenesting/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part63_wrf_coimbatorenesting/</loc>
     <lastmod>2014-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-08/working_with_wrf_chem_part64_dustonlytutorial/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part64_dustonlytutorial/</loc>
     <lastmod>2014-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-08/working_with_wrf_chem_part60_dustonly_cbe/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part60_dustonly_cbe/</loc>
     <lastmod>2014-08-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-08/working_with_wrf_chem_part61_wrf_katrinasingledomain/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part61_wrf_katrinasingledomain/</loc>
     <lastmod>2014-08-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-08/working_with_wrf_chem_part62_wrf_katrinanesting/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part62_wrf_katrinanesting/</loc>
     <lastmod>2014-08-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-08/python_script_insertobservation_istsos_xml/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-08/python_script_insertobservation_istsos_xml/</loc>
     <lastmod>2014-08-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-08/english_grammer_checker/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-08/english_grammer_checker/</loc>
     <lastmod>2014-08-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/nltk/</loc>
+    <loc>//localhost:1313/tags/nltk/</loc>
     <lastmod>2014-08-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-07/gh_pages_html_css_js/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-07/gh_pages_html_css_js/</loc>
     <lastmod>2014-07-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/bibtex/</loc>
+    <loc>//localhost:1313/tags/bibtex/</loc>
     <lastmod>2014-07-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-07/latex_beamer_based_pdf_presntation/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-07/latex_beamer_based_pdf_presntation/</loc>
     <lastmod>2014-07-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-07/workflow_docear_mendely_python/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-07/workflow_docear_mendely_python/</loc>
     <lastmod>2014-07-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-07/check_null_in_python/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-07/check_null_in_python/</loc>
     <lastmod>2014-07-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-07/serial_port_problem_lbm1_knmr/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-07/serial_port_problem_lbm1_knmr/</loc>
     <lastmod>2014-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-07/working_with_wrf_chem_part4_cbe_domain_run/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-07/working_with_wrf_chem_part4_cbe_domain_run/</loc>
     <lastmod>2014-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-07/working_with_wrf_chem_part5_prep_emis/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-07/working_with_wrf_chem_part5_prep_emis/</loc>
     <lastmod>2014-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-07/lan_based_internet_problem_and_solutionforraspberry/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-07/lan_based_internet_problem_and_solutionforraspberry/</loc>
     <lastmod>2014-07-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/textfile_from_wrfoutput_pythonic/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/textfile_from_wrfoutput_pythonic/</loc>
     <lastmod>2014-06-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/latex_into_html/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/latex_into_html/</loc>
     <lastmod>2014-06-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/working_with_wrf_chem_part1_prepchemsrc/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/working_with_wrf_chem_part1_prepchemsrc/</loc>
     <lastmod>2014-06-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/working_with_wrf_chem_part2_wps/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/working_with_wrf_chem_part2_wps/</loc>
     <lastmod>2014-06-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/working_with_wrf_chem_part3_compile_wrf_exe/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/working_with_wrf_chem_part3_compile_wrf_exe/</loc>
     <lastmod>2014-06-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/installing_gdal_with_python_in_ubunut1204/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/installing_gdal_with_python_in_ubunut1204/</loc>
     <lastmod>2014-06-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/qgis/</loc>
-    <lastmod>2014-06-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/reprojecting_shape_file_python/</loc>
-    <lastmod>2014-06-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/tags/shapefile/</loc>
+    <loc>//localhost:1313/tags/qgis/</loc>
     <lastmod>2014-06-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/shapefile_edit_qgis/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/reprojecting_shape_file_python/</loc>
     <lastmod>2014-06-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/installing_r_and_openair_in_ubuntu1204/</loc>
+    <loc>//localhost:1313/tags/shapefile/</loc>
+    <lastmod>2014-06-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/shapefile_edit_qgis/</loc>
+    <lastmod>2014-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/installing_r_and_openair_in_ubuntu1204/</loc>
     <lastmod>2014-06-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/openair/</loc>
+    <loc>//localhost:1313/tags/openair/</loc>
     <lastmod>2014-06-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/r/</loc>
+    <loc>//localhost:1313/tags/r/</loc>
     <lastmod>2014-06-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/data_editing_with_pandas/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/data_editing_with_pandas/</loc>
     <lastmod>2014-06-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/wrf/</loc>
+    <loc>//localhost:1313/tags/wrf/</loc>
     <lastmod>2014-06-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/editing_wrf_logfile_python/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/editing_wrf_logfile_python/</loc>
     <lastmod>2014-06-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/compiling/</loc>
+    <loc>//localhost:1313/tags/compiling/</loc>
     <lastmod>2014-06-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/compiling_grib2json_in_aws/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/compiling_grib2json_in_aws/</loc>
     <lastmod>2014-06-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/grib2json/</loc>
+    <loc>//localhost:1313/tags/grib2json/</loc>
     <lastmod>2014-06-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/bewolf_cluster_for_wrf_ems/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/bewolf_cluster_for_wrf_ems/</loc>
     <lastmod>2014-06-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/localinstall_wrfems/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/localinstall_wrfems/</loc>
     <lastmod>2014-06-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/ssh/</loc>
-    <lastmod>2014-06-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/ssh_for_wrf_ems_cluster_running/</loc>
-    <lastmod>2014-06-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/wrf_ems_install_and_running_in_ibm_x3100_m4/</loc>
-    <lastmod>2014-06-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/wrf_ems_log/</loc>
-    <lastmod>2014-06-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/tags/wrf-ems/</loc>
+    <loc>//localhost:1313/tags/ssh/</loc>
     <lastmod>2014-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-06/running_wrf_ems/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/ssh_for_wrf_ems_cluster_running/</loc>
     <lastmod>2014-06-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/json/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/wrf_ems_install_and_running_in_ibm_x3100_m4/</loc>
+    <lastmod>2014-06-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/wrf_ems_log/</loc>
+    <lastmod>2014-06-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/tags/wrf-ems/</loc>
+    <lastmod>2014-06-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-06/running_wrf_ems/</loc>
+    <lastmod>2014-06-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/tags/json/</loc>
     <lastmod>2014-05-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/python_querying_and_editing_json/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/python_querying_and_editing_json/</loc>
     <lastmod>2014-05-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/geojson/</loc>
+    <loc>//localhost:1313/tags/geojson/</loc>
     <lastmod>2014-05-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/merge_geojsons_into_one/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/merge_geojsons_into_one/</loc>
     <lastmod>2014-05-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/javascript/</loc>
+    <loc>//localhost:1313/tags/javascript/</loc>
     <lastmod>2014-05-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/node_js_withairwindandearthwind/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/node_js_withairwindandearthwind/</loc>
     <lastmod>2014-05-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/json_data_into_sqlinsert_with_python/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/json_data_into_sqlinsert_with_python/</loc>
     <lastmod>2014-05-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/querying_netcdf_with_python_kdtree/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/querying_netcdf_with_python_kdtree/</loc>
     <lastmod>2014-05-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/installing_netcdf_python_in_ubuntu1204/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/installing_netcdf_python_in_ubuntu1204/</loc>
     <lastmod>2014-05-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/converting_wrf_ouput_netcdf_into_json/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/converting_wrf_ouput_netcdf_into_json/</loc>
     <lastmod>2014-05-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/mysql/</loc>
+    <loc>//localhost:1313/tags/mysql/</loc>
     <lastmod>2014-05-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/sms/</loc>
+    <loc>//localhost:1313/tags/sms/</loc>
     <lastmod>2014-05-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/gammu_mysql/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/gammu_mysql/</loc>
     <lastmod>2014-05-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/qualityschu_to_cbe_air/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/qualityschu_to_cbe_air/</loc>
     <lastmod>2014-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/postgresql/</loc>
+    <loc>//localhost:1313/tags/postgresql/</loc>
     <lastmod>2014-05-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/postgresql/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/postgresql/</loc>
     <lastmod>2014-05-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/onpython/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/onpython/</loc>
     <lastmod>2014-05-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/pandas_dataframe_into_latex_pdf/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/pandas_dataframe_into_latex_pdf/</loc>
     <lastmod>2014-05-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/mount_sdcard_with_bbb/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/mount_sdcard_with_bbb/</loc>
     <lastmod>2014-05-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/mysql_bbb/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/mysql_bbb/</loc>
     <lastmod>2014-05-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/gammu_compile_bbb/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/gammu_compile_bbb/</loc>
     <lastmod>2014-05-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-05/cross_origin_resource_sharing/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-05/cross_origin_resource_sharing/</loc>
     <lastmod>2014-04-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-04/file_system_based_sos_using_github_ajax/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-04/file_system_based_sos_using_github_ajax/</loc>
     <lastmod>2014-04-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/iris/</loc>
-    <lastmod>2014-04-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-04/iris_install/</loc>
-    <lastmod>2014-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/tags/maven/</loc>
+    <loc>//localhost:1313/tags/iris/</loc>
     <lastmod>2014-04-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-04/package_using_maven/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-04/iris_install/</loc>
     <lastmod>2014-04-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-04/gammu_smsd_shared_memeory_error_for_huwaei_e303f/</loc>
+    <loc>//localhost:1313/tags/maven/</loc>
+    <lastmod>2014-04-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-04/package_using_maven/</loc>
+    <lastmod>2014-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-04/gammu_smsd_shared_memeory_error_for_huwaei_e303f/</loc>
     <lastmod>2014-04-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-04/shared_memory_error_more/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-04/shared_memory_error_more/</loc>
     <lastmod>2014-04-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/usb/</loc>
+    <loc>//localhost:1313/tags/usb/</loc>
     <lastmod>2014-04-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-04/usbreset_program/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-04/usbreset_program/</loc>
     <lastmod>2014-04-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-04/compileling_wrf_chem/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-04/compileling_wrf_chem/</loc>
     <lastmod>2014-04-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/csv/</loc>
+    <loc>//localhost:1313/tags/csv/</loc>
     <lastmod>2014-04-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-04/csv_edit_by_pandas/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-04/csv_edit_by_pandas/</loc>
     <lastmod>2014-04-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/dylos-monitor/</loc>
+    <loc>//localhost:1313/tags/dylos-monitor/</loc>
     <lastmod>2014-04-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-04/dylos_monitor_setup_full_with_log/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-04/dylos_monitor_setup_full_with_log/</loc>
     <lastmod>2014-04-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-04/sending_sms_with_at_and_python/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-04/sending_sms_with_at_and_python/</loc>
     <lastmod>2014-04-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/hysplit/</loc>
+    <loc>//localhost:1313/tags/hysplit/</loc>
     <lastmod>2014-04-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-04/hysplit_compile/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-04/hysplit_compile/</loc>
     <lastmod>2014-04-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-03/sending_sms_with_beagle_bone_black/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-03/sending_sms_with_beagle_bone_black/</loc>
     <lastmod>2014-03-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-03/gammu_and_mysql/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-03/gammu_and_mysql/</loc>
     <lastmod>2014-03-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-03/usb_modeswitch_on_reboot/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-03/usb_modeswitch_on_reboot/</loc>
     <lastmod>2014-03-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-03/ems_wrf/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-03/ems_wrf/</loc>
     <lastmod>2014-03-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-03/server_stuck_at_grub_menu_after_1204_update_upgrade/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-03/server_stuck_at_grub_menu_after_1204_update_upgrade/</loc>
     <lastmod>2014-03-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-03/unbricking_bbb/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-03/unbricking_bbb/</loc>
     <lastmod>2014-03-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/android/</loc>
+    <loc>//localhost:1313/tags/android/</loc>
     <lastmod>2014-03-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/arduino/</loc>
+    <loc>//localhost:1313/tags/arduino/</loc>
     <lastmod>2014-03-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-03/data_communication_between_arduino_and_android/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-03/data_communication_between_arduino_and_android/</loc>
     <lastmod>2014-03-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-02/trisquel-60-installation-in-nvidia-geforce-card-laptop/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-02/trisquel-60-installation-in-nvidia-geforce-card-laptop/</loc>
     <lastmod>2014-02-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-02/installing-55north-sos-with-tomcat7/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-02/installing-55north-sos-with-tomcat7/</loc>
     <lastmod>2014-02-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/tomcat7/</loc>
+    <loc>//localhost:1313/tags/tomcat7/</loc>
     <lastmod>2014-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-02/python_for_fetching_mysql_table/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-02/python_for_fetching_mysql_table/</loc>
     <lastmod>2014-02-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/geotiff/</loc>
+    <loc>//localhost:1313/tags/geotiff/</loc>
     <lastmod>2014-02-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-02/python-script-to-convert-wrfout-into-geotiff-and-some-issues/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-02/python-script-to-convert-wrfout-into-geotiff-and-some-issues/</loc>
     <lastmod>2014-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/wind-power/</loc>
+    <loc>//localhost:1313/tags/wind-power/</loc>
     <lastmod>2014-02-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-02/wind-power-forecasting-map/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-02/wind-power-forecasting-map/</loc>
     <lastmod>2014-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/file-transfer-between-aws-and-ubuntu/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/file-transfer-between-aws-and-ubuntu/</loc>
     <lastmod>2014-01-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/standards/</loc>
+    <loc>//localhost:1313/tags/standards/</loc>
     <lastmod>2014-01-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/python-script-for-inserting-sos/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/python-script-for-inserting-sos/</loc>
     <lastmod>2014-01-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/recover-password-for-postgresql/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/recover-password-for-postgresql/</loc>
     <lastmod>2014-01-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/installing-munin-for-ubuntu-server/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/installing-munin-for-ubuntu-server/</loc>
     <lastmod>2014-01-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/munin/</loc>
+    <loc>//localhost:1313/tags/munin/</loc>
     <lastmod>2014-01-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/more-with-sms-gateway-for-ubuntu-1204/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/more-with-sms-gateway-for-ubuntu-1204/</loc>
     <lastmod>2014-01-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/remote-access/</loc>
+    <loc>//localhost:1313/tags/remote-access/</loc>
     <lastmod>2014-01-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/screen-usage/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/screen-usage/</loc>
     <lastmod>2014-01-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/screen/</loc>
-    <lastmod>2014-01-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/secure-ubuntu-server-1204/</loc>
-    <lastmod>2014-01-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/tags/security/</loc>
+    <loc>//localhost:1313/tags/screen/</loc>
     <lastmod>2014-01-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/usb_data_card_for_ubuntu_1204/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/secure-ubuntu-server-1204/</loc>
     <lastmod>2014-01-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/ubuntu-server-black-screen-problem/</loc>
+    <loc>//localhost:1313/tags/security/</loc>
+    <lastmod>2014-01-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/usb_data_card_for_ubuntu_1204/</loc>
     <lastmod>2014-01-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/categories/code-snippets/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/ubuntu-server-black-screen-problem/</loc>
+    <lastmod>2014-01-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/categories/code-snippets/</loc>
     <lastmod>2014-01-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/daemon_service_for_rpi_for_running_python_script/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/daemon_service_for_rpi_for_running_python_script/</loc>
     <lastmod>2014-01-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2019/decoding-the-polyline-encoded-line-vectors/</loc>
+    <loc>//localhost:1313/working-notes/2019/decoding-the-polyline-encoded-line-vectors/</loc>
     <lastmod>2014-01-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/encode/decode/</loc>
-    <lastmod>2014-01-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/gsm-internet-connection-for-rpi/</loc>
-    <lastmod>2014-01-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/how-to-brick-beagle-bone-black/</loc>
-    <lastmod>2014-01-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/tags/internet/</loc>
+    <loc>//localhost:1313/tags/encode/decode/</loc>
     <lastmod>2014-01-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/polyline/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/gsm-internet-connection-for-rpi/</loc>
+    <lastmod>2014-01-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/how-to-brick-beagle-bone-black/</loc>
+    <lastmod>2014-01-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/tags/internet/</loc>
     <lastmod>2014-01-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/testing-the-rpi-with-usb-hub-usb-serial-and-data-card/</loc>
+    <loc>//localhost:1313/tags/polyline/</loc>
+    <lastmod>2014-01-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/testing-the-rpi-with-usb-hub-usb-serial-and-data-card/</loc>
     <lastmod>2014-01-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/udev-rules-for-usb-attached-to-rpi/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/udev-rules-for-usb-attached-to-rpi/</loc>
     <lastmod>2014-01-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/raspberry-pi-errors/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/raspberry-pi-errors/</loc>
     <lastmod>2014-01-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2014/wn_2014-01/removing-pin-in-android/</loc>
+    <loc>//localhost:1313/working-notes/2014/wn_2014-01/removing-pin-in-android/</loc>
     <lastmod>2014-01-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/archives/2013/</loc>
+    <loc>//localhost:1313/archives/2013/</loc>
     <lastmod>2013-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/api/</loc>
+    <loc>//localhost:1313/tags/api/</loc>
     <lastmod>2013-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-12/dylos_raspberry_pi_and_xively/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-12/dylos_raspberry_pi_and_xively/</loc>
     <lastmod>2013-12-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-12/script-for-json-to-csv-for-weather-underground-api-fetching-historical-data/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-12/script-for-json-to-csv-for-weather-underground-api-fetching-historical-data/</loc>
     <lastmod>2013-12-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/weather-underground/</loc>
-    <lastmod>2013-12-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/tags/xively/</loc>
+    <loc>//localhost:1313/tags/weather-underground/</loc>
     <lastmod>2013-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-12/aws-instances-and-more-tips/</loc>
+    <loc>//localhost:1313/tags/xively/</loc>
+    <lastmod>2013-12-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-12/aws-instances-and-more-tips/</loc>
     <lastmod>2013-12-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-12/adding-font-in-ubuntu-1204/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-12/adding-font-in-ubuntu-1204/</loc>
     <lastmod>2013-12-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/fonts/</loc>
+    <loc>//localhost:1313/tags/fonts/</loc>
     <lastmod>2013-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</loc>
     <lastmod>2013-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/setup/</loc>
+    <loc>//localhost:1313/tags/setup/</loc>
     <lastmod>2013-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</loc>
     <lastmod>2013-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-11/aws_postgresql_remote_host_connection/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-11/aws_postgresql_remote_host_connection/</loc>
     <lastmod>2013-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/geoserver/</loc>
+    <loc>//localhost:1313/tags/geoserver/</loc>
     <lastmod>2013-11-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-11/notes-on-aws/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-11/notes-on-aws/</loc>
     <lastmod>2013-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-11/notes-on-geoserver/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-11/notes-on-geoserver/</loc>
     <lastmod>2013-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-11/postgresql-table-edit-in-command-line/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-11/postgresql-table-edit-in-command-line/</loc>
     <lastmod>2013-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-11/sms-management-web-application/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-11/sms-management-web-application/</loc>
     <lastmod>2013-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-11/screen-for-remote-head-less-sever/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-11/screen-for-remote-head-less-sever/</loc>
     <lastmod>2013-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/data-scraping/</loc>
+    <loc>//localhost:1313/tags/data-scraping/</loc>
     <lastmod>2013-11-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-11/notes-on-selenium/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-11/notes-on-selenium/</loc>
     <lastmod>2013-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-11/python_pandas_cont/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-11/python_pandas_cont/</loc>
     <lastmod>2013-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/selenium/</loc>
+    <loc>//localhost:1313/tags/selenium/</loc>
     <lastmod>2013-11-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</loc>
     <lastmod>2013-10-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-10/store-json-data-into-mysql-using-python/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-10/store-json-data-into-mysql-using-python/</loc>
     <lastmod>2013-10-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-10/python-for-data-frame-editing-using-pandas/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-10/python-for-data-frame-editing-using-pandas/</loc>
     <lastmod>2013-10-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-10/installing-maven-in-ubuntu-1204/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-10/installing-maven-in-ubuntu-1204/</loc>
     <lastmod>2013-10-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-10/xvfb-virtual-framebuffer-error-for-ubuntu-server-1204/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-10/xvfb-virtual-framebuffer-error-for-ubuntu-server-1204/</loc>
     <lastmod>2013-10-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/categories/python-programming/</loc>
+    <loc>//localhost:1313/categories/python-programming/</loc>
     <lastmod>2013-09-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-09/scale-images-using-python-script/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-09/scale-images-using-python-script/</loc>
     <lastmod>2013-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/image/</loc>
-    <lastmod>2013-09-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//localhost:42041/tags/snippets/</loc>
+    <loc>//localhost:1313/tags/image/</loc>
     <lastmod>2013-09-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/tags/bluetooth/</loc>
+    <loc>//localhost:1313/tags/snippets/</loc>
+    <lastmod>2013-09-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/tags/bluetooth/</loc>
     <lastmod>2013-08-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>//localhost:42041/working-notes/2013/wn_2013-08/bluetoothshield_arduino_and_android/</loc>
+    <loc>//localhost:1313/working-notes/2013/wn_2013-08/bluetoothshield_arduino_and_android/</loc>
     <lastmod>2013-08-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//localhost:42041/about/</loc>
+    <loc>//localhost:1313/about/</loc>
   </url>
   
 </urlset>

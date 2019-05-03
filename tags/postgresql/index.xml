@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PostgreSQL on Nishadh KA</title>
-    <link>//localhost:42041/tags/postgresql/</link>
+    <link>//localhost:1313/tags/postgresql/</link>
     <description>Recent content in PostgreSQL on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 12 May 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:42041/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>postgresql</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-05/postgresql/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-05/postgresql/</link>
       <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-05/postgresql/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-05/postgresql/</guid>
       <description>#to edit a table in postgresql
  to list databases  \list  to list tables in a database based on this  SELECT table_schema,table_name FROM information_schema.tables ORDER BY table_schema,table_name;  to view details about a table  \d table.name  to edit a column in a table  ALTER TABLE cbed.measures ALTER COLUMN val_msr TYPE numeric(14,6);   </description>
     </item>
     
     <item>
       <title>recover password for postgresql</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-01/recover-password-for-postgresql/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-01/recover-password-for-postgresql/</link>
       <pubDate>Sat, 25 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-01/recover-password-for-postgresql/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-01/recover-password-for-postgresql/</guid>
       <description>based on http://scratching.psybermonkey.net/2009/06/postgresql-how-to-reset-user-name.html
  sudo nano /etc/postgresql/9.1/main/pg_hba.conf change |local all postgres md5| to | local all postgres trust| sudo service postgresql restart now enter into the PostgreSQL using psql -U postgres ALTER USER postgres with password &amp;lsquo;new password&amp;rsquo;; then again change the pg_hba.conf as earlier and restart the PostgreSQL for invoking the password protection  </description>
     </item>
     
     <item>
       <title>AWS postgresql remote host connection</title>
-      <link>//localhost:42041/working-notes/2013/wn_2013-11/aws_postgresql_remote_host_connection/</link>
+      <link>//localhost:1313/working-notes/2013/wn_2013-11/aws_postgresql_remote_host_connection/</link>
       <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2013/wn_2013-11/aws_postgresql_remote_host_connection/</guid>
+      <guid>//localhost:1313/working-notes/2013/wn_2013-11/aws_postgresql_remote_host_connection/</guid>
       <description>To connect and run PostgreSQL database for istsos in AWS ubuntu 12.04. As per istsos tutorial, specifying localhost in database credentials says the database is inactive and subsequent service creation will end up in error, saying the wrong database the PostgreSQL TCP/IP connection and access credentials has to change.
  have to edit  sudo nano /etc/postgresql/9.1/main/postgresql.conf
 file line listenaddresses ‘localhost’ to listenaddresses ‘*’ and
@@ -45,10 +45,10 @@ file line listenaddresses ‘localhost’ to listenaddresses ‘*’ and
     
     <item>
       <title>PostGresql table edit in command line</title>
-      <link>//localhost:42041/working-notes/2013/wn_2013-11/postgresql-table-edit-in-command-line/</link>
+      <link>//localhost:1313/working-notes/2013/wn_2013-11/postgresql-table-edit-in-command-line/</link>
       <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2013/wn_2013-11/postgresql-table-edit-in-command-line/</guid>
+      <guid>//localhost:1313/working-notes/2013/wn_2013-11/postgresql-table-edit-in-command-line/</guid>
       <description>To edit the Istsos database table “measures” in PostgreSQL it is to overcome to the error in istsos import saying the Dylos reading is exceeding the digit limit of the column val_meas in the table. Normally it is easy to change column digit size through pgadmin. However, for command line, it requires following commands.
  Get access to PostgreSQL  sudo -u postres psql
  To view the database in PostgreSQL \dt</description>

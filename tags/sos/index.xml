@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SOS on Nishadh KA</title>
-    <link>//localhost:42041/tags/sos/</link>
+    <link>//localhost:1313/tags/sos/</link>
     <description>Recent content in SOS on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 30 Aug 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:42041/tags/sos/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/tags/sos/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SOSforWRFCHEM output</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-08/sosforwrfchem_output/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-08/sosforwrfchem_output/</link>
       <pubDate>Sat, 30 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-08/sosforwrfchem_output/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-08/sosforwrfchem_output/</guid>
       <description>###Sensor Observation service for WRF CHEM output###</description>
     </item>
     
     <item>
       <title>python script InsertObservation istSOS xml</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-08/python_script_insertobservation_istsos_xml/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-08/python_script_insertobservation_istsos_xml/</link>
       <pubDate>Wed, 06 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-08/python_script_insertobservation_istsos_xml/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-08/python_script_insertobservation_istsos_xml/</guid>
       <description>##python script to InsertObservation into istSOSxml way## 1. Based on the early experience of inserting observation in xml way with python using HTTP post in 52North SOS, made a try with Ist SOS, other way to do is using calling another python script to import data in csv formate. 2. Based on this note on OWS service [requests](https://geoservice.ist.supsi.ch/projects/istsos/index.php/ExampleofSOSrequest). to get the DescribeSensor information used this link, it always failed in specfying formate but other request was succeffull</description>
     </item>
     
     <item>
       <title>File system based SOS using github AJAX</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-04/file_system_based_sos_using_github_ajax/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-04/file_system_based_sos_using_github_ajax/</link>
       <pubDate>Thu, 24 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-04/file_system_based_sos_using_github_ajax/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-04/file_system_based_sos_using_github_ajax/</guid>
       <description>FilesystembasedSOSusinggithubAJAX Found a article discussing similar to this line.
 https://www.academia.edu/1502083/A_flexible_geospatial_sensor_observation_service_for_diverse_sensor_data_based_on
 Monitoring real-time environmental information using Web 2.0 and GIServices technology
@@ -47,20 +47,20 @@ simple SOS https://github.com/jcu-eresearch/python-simplesos</description>
     
     <item>
       <title>Installing 55north SOS with tomcat7</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-02/installing-55north-sos-with-tomcat7/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-02/installing-55north-sos-with-tomcat7/</link>
       <pubDate>Fri, 21 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-02/installing-55north-sos-with-tomcat7/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-02/installing-55north-sos-with-tomcat7/</guid>
       <description>Installed tomcat 7 using http://askubuntu.com/questions/339169/how-to-install tomcat-7-0-42-on-ubuntu-12-04-3-lts to find tomcat is running followed by http://stackoverflow.com/questions/3944157/is-tomcat-running netstat -a | grep 8080 ps -ef | grep tomcat
 both commands gives some bulge result and responses if it is working. if it is not working the command used to start tomcat7 is from the installation page sudo $CATALINA_HOME/bin/startup.sh Installing the SOS war following tomcat manager and war file upload to upload the data into istsos used this command following all its installation documentation.</description>
     </item>
     
     <item>
       <title>python script for inserting SOS</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-01/python-script-for-inserting-sos/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-01/python-script-for-inserting-sos/</link>
       <pubDate>Sat, 25 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-01/python-script-for-inserting-sos/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-01/python-script-for-inserting-sos/</guid>
       <description>A python script to insert data into 52 NORTH SOS through HTTP POST. Save this script as python file and run the script in the terminal as python “scriptname”.py. It will insert the data and report the status as given by test client “send” button. 52 north SOS needs to run in localhost.
 based on https://github.com/mpfeil/qualitySCHU/blob/master/Parser/LANUV/main.py http://stackoverflow.com/questions/16055334/post-xml-request-using-python
 import urllib import httplib from xml.dom.minidom import parse, parseString target_url = “http://localhost:8080/52n-sos-webapp-4.0.0-Beta1/sos/soap” #the insert observation requests from test client 52 north SOS xml_request = “”&amp;quot; &amp;lt;sos:offering&amp;gt;test_offering_1&amp;lt;/sos:offering&amp;gt; &amp;lt;sos:observation&amp;gt; &amp;lt;om:OM_Observation gml:id=&amp;quot;o1&amp;quot;&amp;gt; &amp;lt;om:type xlink:href=&amp;quot;http://www.</description>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cubietruck on Nishadh KA</title>
-    <link>//localhost:42041/tags/cubietruck/</link>
+    <link>//localhost:1313/tags/cubietruck/</link>
     <description>Recent content in Cubietruck on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 25 Oct 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:42041/tags/cubietruck/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/tags/cubietruck/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Cubietruck cluster WRFCHEM</title>
-      <link>//localhost:42041/working-notes/2014/wn_2014-10/cubietruck_cluster_wrfchem/</link>
+      <link>//localhost:1313/working-notes/2014/wn_2014-10/cubietruck_cluster_wrfchem/</link>
       <pubDate>Sat, 25 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:42041/working-notes/2014/wn_2014-10/cubietruck_cluster_wrfchem/</guid>
+      <guid>//localhost:1313/working-notes/2014/wn_2014-10/cubietruck_cluster_wrfchem/</guid>
       <description>####cubie truck cluster for WRF CHEM####
 This note explains the steps in creating cubietruck cluster for WRF CHEM modeling.
 #####Installing debian##### 1. cubietruck is preinstalled with Android as its main os for its inbuilt nand storage of 8 GB harddisk. To chane this into debian os follwoing steps were followed. 1. More number of attempts was made for running debain or ubunut os image in cubietruck, Later found a tweaked image from here aat first sight shows promising for WRF CHEM.</description>
