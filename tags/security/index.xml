@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Security on Nishadh KA</title>
-    <link>/tags/security/</link>
+    <link>//localhost:42041/tags/security/</link>
     <description>Recent content in Security on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 16 Jan 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/security/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/tags/security/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Secure ubuntu SERVER 1204</title>
-      <link>/working-notes/2014/wn_2014-01/secure-ubuntu-server-1204/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-01/secure-ubuntu-server-1204/</link>
       <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-01/secure-ubuntu-server-1204/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-01/secure-ubuntu-server-1204/</guid>
       <description>For key pair login and removing the password based on
 http://ubuntuforums.org/archive/index.php/t-30709.html http://blog.nas-admin.org/?p=63 http://www.thefanclub.co.za/how-to/how-install-psad-intrusion-detection-ubuntu-1204-lts-server following first one
  cd .ssh/

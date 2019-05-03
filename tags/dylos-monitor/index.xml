@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dylos Monitor on Nishadh KA</title>
-    <link>/tags/dylos-monitor/</link>
+    <link>//localhost:42041/tags/dylos-monitor/</link>
     <description>Recent content in Dylos Monitor on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 10 Apr 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/dylos-monitor/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/tags/dylos-monitor/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Dylos monitor setup full with log</title>
-      <link>/working-notes/2014/wn_2014-04/dylos_monitor_setup_full_with_log/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-04/dylos_monitor_setup_full_with_log/</link>
       <pubDate>Thu, 10 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-04/dylos_monitor_setup_full_with_log/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-04/dylos_monitor_setup_full_with_log/</guid>
       <description>Dylosmonitorsetupfullwith_log Following http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/ and UdevrulesforUSB&amp;rsquo;sattachedtoRPi
 create a udev rule for RPI
 edited the file /etc/udev/rules.d
@@ -29,10 +29,10 @@ by this, while connecting these two devices, the folder /dev shows the files for
     
     <item>
       <title>DYLOS raspberry pi and xively</title>
-      <link>/working-notes/2013/wn_2013-12/dylos_raspberry_pi_and_xively/</link>
+      <link>//localhost:42041/working-notes/2013/wn_2013-12/dylos_raspberry_pi_and_xively/</link>
       <pubDate>Mon, 16 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2013/wn_2013-12/dylos_raspberry_pi_and_xively/</guid>
+      <guid>//localhost:42041/working-notes/2013/wn_2013-12/dylos_raspberry_pi_and_xively/</guid>
       <description>To connect the raspberry pi with Dylos serial to xively IOT, based on https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley
 the written code was this
 #!/usr/bin/env python from __future__ import division import time import os import eeml import sys import syslog import json import serial import subprocess import re a = 0.02832 ser = serial.Serial(&#39;/dev/ttyUSB0&#39;, 9600, timeout=60) def getCPUtemperature(): res = os.popen(&#39;vcgencmd measure_temp&#39;).readline() return(res.replace(&amp;quot;temp=&amp;quot;,&amp;quot;&amp;quot;).replace(&amp;quot;&#39;C\n&amp;quot;,&amp;quot;&amp;quot;)) def getDiskSpace(): p = os.popen(&amp;quot;df -h /&amp;quot;) i = 0 while 1: i = i +1 line = p.</description>
@@ -40,20 +40,20 @@ the written code was this
     
     <item>
       <title>DYLOS raspberry pi experiment</title>
-      <link>/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</link>
+      <link>//localhost:42041/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</link>
       <pubDate>Mon, 11 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</guid>
+      <guid>//localhost:42041/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</guid>
       <description>The Dylos air quality monitor with serial to USB port was connected to the raspberry pi. Raspberry pi connected through mini USB for power, LAN is connected to RPi, for SD card preparation followed this
  using DD already had a .img file of old raspberry pi SD card Linux files make fresh SD card for RPi, SD card is formatted with FAT file formate and then run df -h to view the currently mounted devices, it shows the presence of “/dev/mmcblk0p1” then unmounted the /dev/mmcblk0p1 then ran this command dd bs=4M if=~/2012-12-16-wheezy-raspbian.</description>
     </item>
     
     <item>
       <title>Steps to view attached USB serial in RPI</title>
-      <link>/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</link>
+      <link>//localhost:42041/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</link>
       <pubDate>Mon, 11 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</guid>
+      <guid>//localhost:42041/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</guid>
       <description>in case of DYLOS air quality monitor /dev,based on http://www.linfo.org/dmesg.html bash dmesg | grep -i tty  Now to use this for data logging and GSM data transmission for data logging python script from this replay is used#3 http://forum.arduino.cc/index.php?topic=105148.0 python import serial import time ser = serial.Serial(‘/dev/ttyUSB0’, 9600, timeout=60) time.sleep(60) logfile = open(‘test.csv’, ‘a’) while 1: line = ser.readline() now = time.strftime(“%Y-%m-%dT%H:%M:%S:00.000000+0530”, time.localtime()) a = “%s,%s” % (now,line) print a logfile.</description>
     </item>
     

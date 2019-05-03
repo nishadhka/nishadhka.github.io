@@ -2,68 +2,68 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cloud computing on Nishadh KA</title>
-    <link>/categories/cloud-computing/</link>
+    <link>//localhost:42041/categories/cloud-computing/</link>
     <description>Recent content in Cloud computing on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 09 Sep 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/cloud-computing/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/categories/cloud-computing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>WRFCHEM CBE aOptionwithAWS StarCluster</title>
-      <link>/working-notes/2014/wn_2014-09/wrfchem_cbe_aoptionwithaws_starcluster/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-09/wrfchem_cbe_aoptionwithaws_starcluster/</link>
       <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-09/wrfchem_cbe_aoptionwithaws_starcluster/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-09/wrfchem_cbe_aoptionwithaws_starcluster/</guid>
       <description>####WRF-CHEM for Coimabtore: An option with AWS and starcluster####
  Considering the huge time requirement for running wrf chem over Coimbatore with high resolution (It roughly took 8 hour 15 minutes X 7 for domain 4 alone, 6 second time steps with average 50 seconds), Amazon Web Service (AWS) t2.medium instace and StarCluster compute cluster would be a viable option to make wrf-chem run in &amp;lsquo;real time&amp;rsquo;. ####AWS charges for a typical cluster####  ####upgrading aws free tier into ubunut 14.</description>
     </item>
     
     <item>
       <title>compiling grib2json in AWS</title>
-      <link>/working-notes/2014/wn_2014-06/compiling_grib2json_in_aws/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-06/compiling_grib2json_in_aws/</link>
       <pubDate>Fri, 06 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-06/compiling_grib2json_in_aws/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-06/compiling_grib2json_in_aws/</guid>
       <description>Install latest java and jdk follow this (http://askubuntu.com/questions/117189/apt-get-install-openjdk-7-jdk-doesnt-install-javac-why) Install latest maven  wget http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz tar -zxf apache-maven-3.0.4-bin.tar.gz sudo cp -R apache-maven-3.0.4 /usr/local sudo ln -s /usr/local/apache-maven-3.0.4/bin/mvn /usr/bin/mvn  then edit .bashrc file and add this line, not working, don&amp;rsquo;t do this  nano .bashrc &amp;gt;&amp;gt;&amp;gt;JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64  check installation with mvn version and mvn package gives spurious errors Never mind the error, download the grib2json as told here No need to install git in aws, instead use https with wget and get the folder, unzip, have to install unzip, then follow the readME.</description>
     </item>
     
     <item>
       <title>SSH for WRF EMS Cluster running</title>
-      <link>/working-notes/2014/wn_2014-06/ssh_for_wrf_ems_cluster_running/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-06/ssh_for_wrf_ems_cluster_running/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-06/ssh_for_wrf_ems_cluster_running/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-06/ssh_for_wrf_ems_cluster_running/</guid>
       <description>###SSH for WRFEMS cluster running### - For executing the WRF EMS in cluster computer mode, pass wordless ssh is required, it is specified in &amp;hellip;/runs/domain/config/emsrun/run_ncpus.conf as follows
 LOG: R.Rozumalski - NWS January 2012 - I&#39;m still gruven # # Running the WRF on a cluster? # # If so, then make sure you that you have passwordless SSH on machines that # you plan to use when running on multiple nodes (not necessary for single # workstation runs).</description>
     </item>
     
     <item>
       <title>File transfer between AWS and ubuntu</title>
-      <link>/working-notes/2014/wn_2014-01/file-transfer-between-aws-and-ubuntu/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-01/file-transfer-between-aws-and-ubuntu/</link>
       <pubDate>Sat, 25 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-01/file-transfer-between-aws-and-ubuntu/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-01/file-transfer-between-aws-and-ubuntu/</guid>
       <description>Use scp  sudo scp -i .ssh/gssa.pem ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/CORE-Ubuntu_eWRF.zip /home/fellow   Use rsync, to transfer file from local host to aws  sudo rsync -avz –stats /home/fellow/sim.txt -e “ssh -i .ssh/gssa.pem” ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/ sudo rsync -P –stats -e “ssh -i .ssh/gssa.pem” ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/CORE-Ubuntu_eWRF.zip /home/fellow/  to transfer file from aws to local host  sudo rsync -avz –stats -e “ssh -i .ssh/gssa.pem” ubuntu@ecip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/sim.txt /home/fellow/  to resume a download after a net connection break</description>
     </item>
     
     <item>
       <title>AWS instances and more tips</title>
-      <link>/working-notes/2013/wn_2013-12/aws-instances-and-more-tips/</link>
+      <link>//localhost:42041/working-notes/2013/wn_2013-12/aws-instances-and-more-tips/</link>
       <pubDate>Wed, 04 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2013/wn_2013-12/aws-instances-and-more-tips/</guid>
+      <guid>//localhost:42041/working-notes/2013/wn_2013-12/aws-instances-and-more-tips/</guid>
       <description>Created a medium instances, it showed an error or not getting into the ssh, due to non-availability of ssh port in the security group. some command line tips * to rename a file or folder mv old_name new_name * to install git sudo apt-get install git-core * PostgreSQL reference [http://www.thegeekstuff.com/2009/04/15-practical-postgresql-database-adminstration-commands/] * to use FileZilla with AWS [http://glidingphenomena.blogspot.in/2011/03/using-filezilla-to-login-into-amazon.html]</description>
     </item>
     
     <item>
       <title>AWS postgresql remote host connection</title>
-      <link>/working-notes/2013/wn_2013-11/aws_postgresql_remote_host_connection/</link>
+      <link>//localhost:42041/working-notes/2013/wn_2013-11/aws_postgresql_remote_host_connection/</link>
       <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2013/wn_2013-11/aws_postgresql_remote_host_connection/</guid>
+      <guid>//localhost:42041/working-notes/2013/wn_2013-11/aws_postgresql_remote_host_connection/</guid>
       <description>To connect and run PostgreSQL database for istsos in AWS ubuntu 12.04. As per istsos tutorial, specifying localhost in database credentials says the database is inactive and subsequent service creation will end up in error, saying the wrong database the PostgreSQL TCP/IP connection and access credentials has to change.
  have to edit  sudo nano /etc/postgresql/9.1/main/postgresql.conf
 file line listenaddresses ‘localhost’ to listenaddresses ‘*’ and
@@ -72,10 +72,10 @@ file line listenaddresses ‘localhost’ to listenaddresses ‘*’ and
     
     <item>
       <title>Notes on AWS</title>
-      <link>/working-notes/2013/wn_2013-11/notes-on-aws/</link>
+      <link>//localhost:42041/working-notes/2013/wn_2013-11/notes-on-aws/</link>
       <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2013/wn_2013-11/notes-on-aws/</guid>
+      <guid>//localhost:42041/working-notes/2013/wn_2013-11/notes-on-aws/</guid>
       <description>To start up AWS tutorial notes on getting started is too good notes For know about EBS for AWS and its role in data storage https://spruce.it/noise/setting-up-a-proper-lamp-stack-on-aws-ec2-ebs/ For mounting the EBS volume to cloud http://stackoverflow.com/questions/11535617/add-ebs-to-ubuntu-ec2-instance http://maplpro.blogspot.in/ A best visualization for pyhton turoail For more comphrehensive understanding of AWS follow this http://serverfault.com/questions/315123/difference-between-rebooting-and-stop-starting-an-amazon-ec2-instance</description>
     </item>
     

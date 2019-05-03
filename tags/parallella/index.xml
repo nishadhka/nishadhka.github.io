@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Parallella on Nishadh KA</title>
-    <link>/tags/parallella/</link>
+    <link>//localhost:42041/tags/parallella/</link>
     <description>Recent content in Parallella on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 10 Dec 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/parallella/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/tags/parallella/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Parallella upand run</title>
-      <link>/working-notes/2014/wn_2014-12/parallella_upand_run/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-12/parallella_upand_run/</link>
       <pubDate>Wed, 10 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-12/parallella_upand_run/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-12/parallella_upand_run/</guid>
       <description>####Parallellaupand_run#### 1. Ubunut image for parallella can be downloaded from this note, it was dd&amp;rsquo;d into 8GB SD card micro. 1. The BOOT foilder content was not as such of this note,these files were making problem related with rebooting of the parallella. For this there is a foruym post states that need of device tree.dtb has to be changed and there is a file was attached with that. Using that file the problem of no rebooting of parallella was solved 1.</description>
     </item>
     
     <item>
       <title>Parallella for WRF CHEM</title>
-      <link>/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</link>
       <pubDate>Thu, 21 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</guid>
       <description>###Parallella cluster for WRF CHEM### 1. WRF-CHEM is a computationally intensive model, for example &amp;ldquo;On a typically-sized 40×40 grid with 20 horizontal layers, the meteorological part of the simulation (the WRF weather model itself) is only 160 × 106 floating point operations per time step, about 2.5% the cost of the full WRF-Chem with both chemical kinetics and aerosol&amp;rdquo;[1].It is generally executed with parallel mode to reduce time latency of model execution time.</description>
     </item>
     

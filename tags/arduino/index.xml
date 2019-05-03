@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Arduino on Nishadh KA</title>
-    <link>/tags/arduino/</link>
+    <link>//localhost:42041/tags/arduino/</link>
     <description>Recent content in Arduino on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Mar 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/arduino/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/tags/arduino/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>data communication between arduino and android</title>
-      <link>/working-notes/2014/wn_2014-03/data_communication_between_arduino_and_android/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-03/data_communication_between_arduino_and_android/</link>
       <pubDate>Tue, 04 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-03/data_communication_between_arduino_and_android/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-03/data_communication_between_arduino_and_android/</guid>
       <description>datacommunicationbetweenarduionand_android</description>
     </item>
     
     <item>
       <title>Bluetoothshield Arduino and Android</title>
-      <link>/working-notes/2013/wn_2013-08/bluetoothshield_arduino_and_android/</link>
+      <link>//localhost:42041/working-notes/2013/wn_2013-08/bluetoothshield_arduino_and_android/</link>
       <pubDate>Sat, 31 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2013/wn_2013-08/bluetoothshield_arduino_and_android/</guid>
+      <guid>//localhost:42041/working-notes/2013/wn_2013-08/bluetoothshield_arduino_and_android/</guid>
       <description>For building a mobile particulate matter pollution monitoring. Fusing a Arduino controlling Shenyi dust sensor and am Android tablet.
 Alternatives: 1. Tried with Amarino library and apps 2. App Inventor and Arduino with blue tooth shield 3. Crude code and android app
 following links were most useful for error-free slave connection between Android and Arduino with seed studio blue tooth shield.

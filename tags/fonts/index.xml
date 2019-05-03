@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fonts on Nishadh KA</title>
-    <link>/tags/fonts/</link>
+    <link>//localhost:42041/tags/fonts/</link>
     <description>Recent content in Fonts on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 04 Dec 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/fonts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/tags/fonts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Adding font in Ubuntu 1204</title>
-      <link>/working-notes/2013/wn_2013-12/adding-font-in-ubuntu-1204/</link>
+      <link>//localhost:42041/working-notes/2013/wn_2013-12/adding-font-in-ubuntu-1204/</link>
       <pubDate>Wed, 04 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2013/wn_2013-12/adding-font-in-ubuntu-1204/</guid>
+      <guid>//localhost:42041/working-notes/2013/wn_2013-12/adding-font-in-ubuntu-1204/</guid>
       <description>To add font
  move the ttf file into the folder usr/share/fonts/ttf then remove fonts cache by rm -f /usr/share/fonts/*fonts.cache-1 then create the cache again sudo fc-cache that&amp;rsquo;s it, added ttf can be seen in all the text editors.  </description>
     </item>

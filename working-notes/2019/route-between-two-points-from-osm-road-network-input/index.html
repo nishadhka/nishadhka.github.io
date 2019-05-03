@@ -23,7 +23,7 @@
     
     
     
-    <meta name="twitter:image" content="/images/logo.png">
+    <meta name="twitter:image" content="//localhost:42041/images/logo.png">
     
     
 
@@ -93,63 +93,58 @@
 Open Street Map(OSM) with its free downloadable map, routing algorithms can be applied to
 find best route between two location. OSMNX, a python library import osm (a default file format
 provided by OSM) into graphml format which can be used with network analysis to get route network.
-The OSM downloaded from overpass using the polygon bouundary for an urban area, the overpass query</p>
+The OSM downloaded from overpass using the polygon bouundary for an urban area, the overpass query
+<code>https://overpass-api.de/api/map?bbox=77.3,12.7,77.9,13.3</code> was then created by</p>
 
-<pre><code class="language-https://overpass-api.de/api/map?bbox=77.3,12.7,77.9,13.3```was">
-</code></pre>
-
-<p>import geopandas as gp</p>
-
-<p>ex=gp.read<em>file(&lsquo;urban</em>polygon.shp&rsquo;)
+<pre><code>import geopandas as gp
+ex=gp.read_file('urban_polygon.shp')
 ex.bounds
-print(&lsquo;<a href="https://overpass-api.de/api/map?bbox=',ex.bounds['minx'][0],',',ex.bounds['miny'][0],',',ex.bounds['maxx'][0],',',ex.bounds['maxy'][0]">https://overpass-api.de/api/map?bbox=',ex.bounds['minx'][0],',',ex.bounds['miny'][0],',',ex.bounds['maxx'][0],',',ex.bounds['maxy'][0]</a>)</p>
-
-<pre><code>The osm file is then converted into graphml file format by 
+print('https://overpass-api.de/api/map?bbox=',ex.bounds['minx'][0],',',ex.bounds['miny'][0],',',ex.bounds['maxx'][0],',',ex.bounds['maxy'][0])
 </code></pre>
 
-<p>import osmnx as ox
-import networkx as nx</p>
+<p>The osm file is then converted into graphml file format by</p>
 
-<p>B1=ox.graph<em>from</em>file(&lsquo;bng.osm&rsquo;, network<em>type=&lsquo;all&rsquo;, simplify=False, retain</em>all=False, name=&lsquo;b1&rsquo;)
-ox.save_graphml(B1, filename=&lsquo;bng.graphml&rsquo;)</p>
-
-<pre><code>Route network was then found by using Network analysis libraries [Networkx] [1] and [graph-tool] [2].
-Conversion of OSM into graphml makes it Graph notations to read by network analysis libraries. 
-Graphml represents vertices in OSM road network file into node/vertex and line connecting the vertices as edge.  
-The locations to be queried to get route network has to be made into nodes as well.
-&lt;h3 id=&quot;networkx&quot;&gt;Networkx&lt;/h3&gt;
-The graphml is read by networkx as follows
-</code></pre>
-
-<p>import osmnx as ox
+<pre><code>import osmnx as ox
 import networkx as nx
-G2 = ox.load_graphml(&lsquo;bng.graphml&rsquo;)</p>
-
-<pre><code>The nodes of the querry location points are derived as follows. A shape file with point fetures containing 
-origin and destination deatils are read and node deatials are derived by querying nearest nodes
+B1=ox.graph_from_file('bng.osm', network_type='all', simplify=False, retain_all=False, name='b1')
+ox.save_graphml(B1, filename='bng.graphml')
 </code></pre>
 
-<p>import numpy as np
+<p>Route network was then found by using Network analysis libraries [Networkx] [1] and [graph-tool] [2].
+Conversion of OSM into graphml makes it Graph notations to read by network analysis libraries.
+Graphml represents vertices in OSM road network file into node/vertex and line connecting the vertices as edge.<br />
+The locations to be queried to get route network has to be made into nodes as well.
+<h4 id="networkx">Networkx</h4></p>
+
+<p>The graphml is read by networkx as follows</p>
+
+<pre><code>import osmnx as ox
+import networkx as nx
+G2 = ox.load_graphml('bng.graphml')
+</code></pre>
+
+<p>The nodes of the querry location points are derived as follows. A shape file with point fetures containing
+origin and destination deatils are read and node deatials are derived by querying nearest nodes</p>
+
+<pre><code>import numpy as np
 import itertools
-import osmnx as ox</p>
-
-<p>db=gp.read<em>file(&lsquo;bangalore</em>wards.json&rsquo;)
-#list=np.arange(0,len(db.index))</p>
-
-<p>db[&lsquo;centroid&rsquo;]=db[&lsquo;geometry&rsquo;].centroid
-db[&ldquo;x&rdquo;] = db.centroid.map(lambda p: p.x)
-db[&ldquo;y&rdquo;] = db.centroid.map(lambda p: p.y)</p>
-
-<p>gmc=[]
+import osmnx as ox
+db=gp.read_file('bangalore_wards.json')
+#list=np.arange(0,len(db.index))
+db['centroid']=db['geometry'].centroid
+db[&quot;x&quot;] = db.centroid.map(lambda p: p.x)
+db[&quot;y&quot;] = db.centroid.map(lambda p: p.y)
+gmc=[]
 for idx, row in db.iterrows():
-    od<em>node = ox.get</em>nearest<em>node(G2, (row[&lsquo;y&rsquo;],row[&lsquo;x&rsquo;]), method=&lsquo;euclidean&rsquo;)
-    gmc.append(od</em>node)
-    od_node=[]</p>
-
-<p>db[&lsquo;gmcnode&rsquo;]=gmc
-```</p>
+    od_node = ox.get_nearest_node(G2, (row['y'],row['x']), method='euclidean')
+    gmc.append(od_node)
+    od_node=[]
+db['gmcnode']=gmc
+</code></pre>
 
 <h3 id="graph-tool">graph-tool</h3>
+
+<p>To be continued&hellip;.</p>
 
 
   <footer>
@@ -176,6 +171,6 @@ for idx, row in db.iterrows():
   </footer>
   </article>
   
-  </body>
+  <script data-no-instant>document.write('<script src="/livereload.js?port=42041&mindelay=10"></' + 'script>')</script></body>
 </html>
 

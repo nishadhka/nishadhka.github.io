@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shapefile on Nishadh KA</title>
-    <link>/tags/shapefile/</link>
+    <link>//localhost:42041/tags/shapefile/</link>
     <description>Recent content in Shapefile on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 18 Jun 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/shapefile/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/tags/shapefile/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Shapefile edit QGIS</title>
-      <link>/working-notes/2014/wn_2014-06/shapefile_edit_qgis/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-06/shapefile_edit_qgis/</link>
       <pubDate>Wed, 18 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-06/shapefile_edit_qgis/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-06/shapefile_edit_qgis/</guid>
       <description>##to edit shape file in qgis## - to edit multipart shape file in qgis into a one outline map - used qgis multipart into single feature by selected attributes - it conveert shape file with multiple attirbutes feature-multiple rows into single rows - this can be edited to delete any redisuals in the operaation, used delete ring in qgis for that</description>
     </item>
     

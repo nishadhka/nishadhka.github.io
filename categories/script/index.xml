@@ -2,127 +2,127 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Script on Nishadh KA</title>
-    <link>/categories/script/</link>
+    <link>//localhost:42041/categories/script/</link>
     <description>Recent content in Script on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 17 Dec 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/script/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/categories/script/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Print map shape file python</title>
-      <link>/working-notes/2014/wn_2014-12/print_map_shape_file_python/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-12/print_map_shape_file_python/</link>
       <pubDate>Wed, 17 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-12/print_map_shape_file_python/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-12/print_map_shape_file_python/</guid>
       <description>####Create and print map using pandas in python from SHAPE file#####
  Based on this note to print map from shape file, a sort of scripting map creation and printing without using qgis kind GUI. The above note uses fiona lib. Intsallation of fiona is super easy with anaconda. Command conda install fiona does all the jobs of installing with all its depndancy starting from gdal. Native installtion of gdal and linkingit with python libs are super hard.</description>
     </item>
     
     <item>
       <title>Geonames Pandas Shapefile</title>
-      <link>/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</link>
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</guid>
       <description>###GEONAMESPandasintoSHape file#### ####For the scripts /script/ /scripts/csvtoshp.py, csvtoshpTEST.py, Geoname.py#### 1. The industry data for emission inventory is in address with its details. To get get the latitude and longitude value of each address has to have a database with address with its latitude and longitude. 1. One such database is Geonames, its country wise data is having smaller amount of data for Coimbatore case, but POSTAL CODE data has more than 641 postal code details with latitude and longitude information.</description>
     </item>
     
     <item>
       <title>Reverse Geocoding</title>
-      <link>/working-notes/2014/wn_2014-11/reverse_geocoding/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-11/reverse_geocoding/</link>
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-11/reverse_geocoding/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-11/reverse_geocoding/</guid>
       <description>####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude is not having high resolution to differentiate between to nearby postal code points. For this need a high resolution latitude longitude data, IN this regard GOOGLE MAP API is a good help. As per this from address the latitude and longitude json files can be obtained with its API key, based on this and getting the API access key from here.</description>
     </item>
     
     <item>
       <title>Pandas JSON</title>
-      <link>/working-notes/2014/wn_2014-11/pandas_json/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-11/pandas_json/</link>
       <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-11/pandas_json/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-11/pandas_json/</guid>
       <description>####Pandas to JSON#### #####It is for this script /scripts/PandasJSONscript.py#####
  To convert pandas dataframe into JSON, converted pandas dataframe into csv and then using this script to convert csv into json. But it was not giving satisfactory json file, the fields where completely shuffled. Then used pandas in built function of to_json but it was giving nested json file.  import pandas import pandas as pd d=pd.read_csv(&#39;/home/swl-sacon-dst/Documents/GISE_2013/LAB/Aerocet_DATA/Oct_sample/json/A08102014M.csv&#39;) db=d[[&#39;Time&#39;,&#39;long&#39;,&#39;lat&#39;,&#39;PM1(ug/m3)&#39;,&#39;PM2.5(ug/m3)&#39;,&#39;PM4(ug/m3)&#39;,&#39;PM7(ug/m3)&#39;,&#39;PM10(ug/m3)&#39;,&#39;TSP(ug/m3)&#39;]] db[&#39;geojson&#39;]=&#39;{\\&amp;quot;type\\&amp;quot;:\\&amp;quot;Point\\&amp;quot;,\\&amp;quot;coordinates\\&amp;quot;:[&#39;+db[&#39;long&#39;].astype(str)+&#39;,&#39;+db[&#39;lat&#39;].astype(str)+&#39;]}&#39; db2=db[[&#39;Time&#39;,&#39;PM2.5(ug/m3)&#39;,&#39;PM10(ug/m3)&#39;,&#39;TSP(ug/m3)&#39;,&#39;geojson&#39;]] db2.</description>
     </item>
     
     <item>
       <title>DOCX table into python</title>
-      <link>/working-notes/2014/wn_2014-11/docx_table_into_python/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-11/docx_table_into_python/</link>
       <pubDate>Sat, 01 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-11/docx_table_into_python/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-11/docx_table_into_python/</guid>
       <description>###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Insted of this the table can be all select, copy paste in Libre calculator and save it as csv. 1. This csv file will be having one blank line after every row as of DOCX table. To remove this row use this script, edited with considering the special delimiter used to silence the &amp;lsquo;,&amp;rsquo; in address column.</description>
     </item>
     
     <item>
       <title>plot NETCDF</title>
-      <link>/working-notes/2014/wn_2014-10/plot_netcdf/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-10/plot_netcdf/</link>
       <pubDate>Fri, 31 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-10/plot_netcdf/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-10/plot_netcdf/</guid>
       <description>###Plot NETCDF and create xlsx file for pyWRFChemEmiss####
  The 2010 anthropogenic emission file of Asian region is available in netcdf format. To use it with WRF CHEM, PREPCHEMSRC is limited use mainy because the emission source has to specify and it&amp;rsquo;s conversion factor might not be correct. Complexity/understandability is case for similar emission converter program such as Air Emissions Processor program and SMOKE. In this regard pyWRFChemEmiss give more modular and easy interface to convert emission file to be used with wrf chem.</description>
     </item>
     
     <item>
       <title>Aerocet sampleData KML Pandas</title>
-      <link>/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</link>
       <pubDate>Wed, 15 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</guid>
       <description>####Aerocet Sampling Data, using kml files and pandas####
  The data from dust pollution monitoring in Coimbatore using Aerocet was copy paste into a csv file from miniterm.py program and command 2 given to aerocet. Seprate CSV files were made for count and mass mode sampling. The location of sampling point is made into a point feature in Google earth with name of respective sampling time. This was saved as kml file and opened in QGIS converted into shape file to add gemoetry.</description>
     </item>
     
     <item>
       <title>WRFCHEM output python</title>
-      <link>/working-notes/2014/wn_2014-09/wrfchem_output_python/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-09/wrfchem_output_python/</link>
       <pubDate>Mon, 29 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-09/wrfchem_output_python/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-09/wrfchem_output_python/</guid>
       <description>###WRFCHEM_output pythonic####
  Related to the last note on getting txt time series data from wrf output here. This note details getting numpy array from wrf output and plotting data in python. The variables requiered from wrfoutput are Temperature, Realtive humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for quick view of the wrf output.</description>
     </item>
     
     <item>
       <title>WRFCHEM CBE lazyWRF py</title>
-      <link>/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</link>
       <pubDate>Thu, 25 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</guid>
       <description>###Use script to execute WRF CHEM CBE### 1. To run in real time and in cluster environment(AWS or ARM), various steps of WRF have to be made into script. 1. There are several python based scripts avaiable for running WRF. The script lazyWRF is a neat and simple script to run wrf from WPS stage. 1. The script has minor problem in running, it was forked from its git hub repository and edited.</description>
     </item>
     
     <item>
       <title>WRFCHEM domain view python</title>
-      <link>/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</guid>
       <description>####WRF_CHEM domain view by python script####
  WRF CHEM domain in nested has to be visulaised to correct the nesting and for domain size adjustment. There are few tools availble to do that such as dwiz of wrf ems and plotgrid.ncl. There is an alternative with python based on this, it is a wrf script tools for visualizing and nesting based simulation. Set of scripts available has a function to visualize the namelist.</description>
     </item>
     
     <item>
       <title>Check null in python</title>
-      <link>/working-notes/2014/wn_2014-07/check_null_in_python/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-07/check_null_in_python/</link>
       <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-07/check_null_in_python/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-07/check_null_in_python/</guid>
       <description>##checking for null in python## - lbm1, connected with tp-link and to upload data to thinkspeak internet of things services, a script is used as follows,
 import sqlite3 as lite import logging import httplib, urllib from time import localtime, strftime import time logger = logging.getLogger(&#39;lbm1&#39;) hdlr = logging.FileHandler(&#39;/home/pi/SMS/pyts.log&#39;) formatter = logging.Formatter(&#39;%(asctime)s: %(levelname)s %(message)s&#39;) headers = {&amp;quot;Content-type&amp;quot;: &amp;quot;application/x-www-form-urlencoded&amp;quot;,&amp;quot;Accept&amp;quot;: &amp;quot;text/plain&amp;quot;} conn = httplib.HTTPConnection(&amp;quot;api.thingspeak.com:80&amp;quot;) hdlr.setFormatter(formatter) logger.addHandler(hdlr) logger.setLevel(logging.INFO) logger.info(&amp;quot;tss&amp;quot;) con = lite.connect(&#39;/home/pi/SMS/dylos.db&#39;) try: with con: cur = con.</description>
     </item>
     
     <item>
       <title>Python script to convert wrfout into Geotiff and some issues</title>
-      <link>/working-notes/2014/wn_2014-02/python-script-to-convert-wrfout-into-geotiff-and-some-issues/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-02/python-script-to-convert-wrfout-into-geotiff-and-some-issues/</link>
       <pubDate>Wed, 05 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-02/python-script-to-convert-wrfout-into-geotiff-and-some-issues/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-02/python-script-to-convert-wrfout-into-geotiff-and-some-issues/</guid>
       <description>To visualize WRF output in GIS platform so that it would have an extra hand in interactive visualization and spatial analysis out of it. Python script (modified from http://lists.osgeo.org/pipermail/gdal-dev/2013-November/037602.html and http://geoexamples.blogspot.in/2013/09/reading-wrf-netcdf-files-with-gdal.html) used to convert NetCDF into GeoTIFF format. However, the given scripts in those links are throwing an error while converting eWRF NetCDF output, saying there are multiple bands in specific variables say for example U10. Slightly changed those code to collect one band out of 24 bands in U10 (In some variables the band number goes around 650, like P) and converted into GeoTIFF without error and can visualize it in QGIS.</description>
     </item>
     

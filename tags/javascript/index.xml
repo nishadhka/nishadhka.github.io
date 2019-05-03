@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JavaScript on Nishadh KA</title>
-    <link>/tags/javascript/</link>
+    <link>//localhost:42041/tags/javascript/</link>
     <description>Recent content in JavaScript on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 23 May 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Node js withAIRwindandEarthwind</title>
-      <link>/working-notes/2014/wn_2014-05/node_js_withairwindandearthwind/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-05/node_js_withairwindandearthwind/</link>
       <pubDate>Fri, 23 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-05/node_js_withairwindandearthwind/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-05/node_js_withairwindandearthwind/</guid>
       <description>##Node.jswithairwindandearthwindintocbe-air##
  for addressing objective2 of web processing service for real time air pollution model, the implementation with node.jsearth or airis planned. These are perfect match for this objective in showing the grandioseness of air circulation and how air pollution effect this grandioseness in real time animation of wind As a node.js web application, node has to installed as specified in the project&amp;rsquo;s readme. for node installation followed this wonderful tutorial, it basically involves and checking with node -v and npm -v  apt-get install python-software-properties apt-add-repository ppa:chris-lea/node.</description>
     </item>
     
     <item>
       <title>QualitySCHU to cbe air</title>
-      <link>/working-notes/2014/wn_2014-05/qualityschu_to_cbe_air/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-05/qualityschu_to_cbe_air/</link>
       <pubDate>Thu, 15 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-05/qualityschu_to_cbe_air/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-05/qualityschu_to_cbe_air/</guid>
       <description>##QualitySCHU to cbe-air##
  qualityschu(qs) is a web application coupled with istsos sensor web, it&amp;rsquo;s elegant, simple html with javascript design makes easy to work with it and being educative. It is base code to build particulate matter air quality monitors web application in Coimbatore named cbeair web application. The app&amp;rsquo;s main difference with source(qs) would be its ability to work with github pages it is basically a html file with map and menu javascript files, main functions it provide is map view, table, chart view and download functions all are coupled with istSOS.</description>
     </item>

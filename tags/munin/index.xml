@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Munin on Nishadh KA</title>
-    <link>/tags/munin/</link>
+    <link>//localhost:42041/tags/munin/</link>
     <description>Recent content in Munin on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 17 Jan 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/munin/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/tags/munin/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Installing Munin for ubuntu server</title>
-      <link>/working-notes/2014/wn_2014-01/installing-munin-for-ubuntu-server/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-01/installing-munin-for-ubuntu-server/</link>
       <pubDate>Fri, 17 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-01/installing-munin-for-ubuntu-server/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-01/installing-munin-for-ubuntu-server/</guid>
       <description>Based on
 http://ubuntuserverguide.com/2012/08/how-to-install-and-configure-munin-on-ubuntu-server-12-04.html http://www.hashbangcode.com/blog/monitoring-performance-munin-713.html  </description>
     </item>

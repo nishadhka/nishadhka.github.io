@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Internet on Nishadh KA</title>
-    <link>/tags/internet/</link>
+    <link>//localhost:42041/tags/internet/</link>
     <description>Recent content in Internet on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 08 Jan 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/internet/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/tags/internet/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>GSM INTERNET connection for RPi</title>
-      <link>/working-notes/2014/wn_2014-01/gsm-internet-connection-for-rpi/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-01/gsm-internet-connection-for-rpi/</link>
       <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-01/gsm-internet-connection-for-rpi/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-01/gsm-internet-connection-for-rpi/</guid>
       <description>Based on
 http://mintakaconciencia.net/squares/umtskeeper/index.html#install http://bigcowpi.blogspot.in/2013/03/raspberry-pi-as-3g-huawei-e303-wireless.html http://raspberry-at-home.com/installing-3g-modem/ http://decryption.wordpress.com/2013/07/30/raspberry-pi-portable-3g4g-network-quality-logger-project-part-1/ http://pikiosk.tumblr.com/post/39526392102/raspberry-3g-modem-usb http://shkspr.mobi/blog/2012/07/3g-internet-on-raspberry-pi-success/ http://fcastagnotto.wordpress.com/2013/04/29/usb_modeswitch-ubuntu-systems/ http://www.thefanclub.co.za/how-to/how-setup-usb-3g-modem-raspberry-pi-using-usbmodeswitch-and-wvdial http://raspberrypi.stackexchange.com/questions/4314/can-i-use-usb-dongle-to-connect-raspberry-pi-to-internet  </description>
     </item>
     
     <item>
       <title>Giving Raspberry pi net connection</title>
-      <link>/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</link>
+      <link>//localhost:42041/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</link>
       <pubDate>Tue, 29 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</guid>
+      <guid>//localhost:42041/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</guid>
       <description>The static IP address addition on SD card seems not connecting RPi (Raspberry Pi) to the Internet (1) 1. A possible way is to remove DHCP and invoke static 2. So the command netstat -nr will show up only the
 Destination Gateway Genmask Flags MSS 192.168.1.0 0.0.0.0 255.255.255.0 U 0 Window irtt Iface 0 0 eth0
 without UG flag (from http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues)

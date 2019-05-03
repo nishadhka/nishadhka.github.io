@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NLTK on Nishadh KA</title>
-    <link>/tags/nltk/</link>
+    <link>//localhost:42041/tags/nltk/</link>
     <description>Recent content in NLTK on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Aug 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/nltk/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/tags/nltk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>English Grammer checker</title>
-      <link>/working-notes/2014/wn_2014-08/english_grammer_checker/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-08/english_grammer_checker/</link>
       <pubDate>Fri, 01 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-08/english_grammer_checker/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-08/english_grammer_checker/</guid>
       <description>###Find the tense and voices in a sentence: English grammar checker###
  Search made to find various type of tense in a sentence. Ended in this, sf page. Stanford core NLP and NLTK with python are good natural language processors used for this purposes. NLP gives statistical measure of likely role of words in a sentence, Standford NLP is giving a web service with visualization of various statical measures in part-of-speech tags.</description>
     </item>

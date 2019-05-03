@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Setup on Nishadh KA</title>
-    <link>/tags/setup/</link>
+    <link>//localhost:42041/tags/setup/</link>
     <description>Recent content in Setup on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 11 Nov 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/setup/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/tags/setup/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>DYLOS raspberry pi experiment</title>
-      <link>/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</link>
+      <link>//localhost:42041/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</link>
       <pubDate>Mon, 11 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</guid>
+      <guid>//localhost:42041/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</guid>
       <description>The Dylos air quality monitor with serial to USB port was connected to the raspberry pi. Raspberry pi connected through mini USB for power, LAN is connected to RPi, for SD card preparation followed this
  using DD already had a .img file of old raspberry pi SD card Linux files make fresh SD card for RPi, SD card is formatted with FAT file formate and then run df -h to view the currently mounted devices, it shows the presence of “/dev/mmcblk0p1” then unmounted the /dev/mmcblk0p1 then ran this command dd bs=4M if=~/2012-12-16-wheezy-raspbian.</description>
     </item>
     
     <item>
       <title>Steps to view attached USB serial in RPI</title>
-      <link>/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</link>
+      <link>//localhost:42041/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</link>
       <pubDate>Mon, 11 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</guid>
+      <guid>//localhost:42041/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</guid>
       <description>in case of DYLOS air quality monitor /dev,based on http://www.linfo.org/dmesg.html bash dmesg | grep -i tty  Now to use this for data logging and GSM data transmission for data logging python script from this replay is used#3 http://forum.arduino.cc/index.php?topic=105148.0 python import serial import time ser = serial.Serial(‘/dev/ttyUSB0’, 9600, timeout=60) time.sleep(60) logfile = open(‘test.csv’, ‘a’) while 1: line = ser.readline() now = time.strftime(“%Y-%m-%dT%H:%M:%S:00.000000+0530”, time.localtime()) a = “%s,%s” % (now,line) print a logfile.</description>
     </item>
     
     <item>
       <title>Giving Raspberry pi net connection</title>
-      <link>/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</link>
+      <link>//localhost:42041/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</link>
       <pubDate>Tue, 29 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</guid>
+      <guid>//localhost:42041/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</guid>
       <description>The static IP address addition on SD card seems not connecting RPi (Raspberry Pi) to the Internet (1) 1. A possible way is to remove DHCP and invoke static 2. So the command netstat -nr will show up only the
 Destination Gateway Genmask Flags MSS 192.168.1.0 0.0.0.0 255.255.255.0 U 0 Window irtt Iface 0 0 eth0
 without UG flag (from http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues)

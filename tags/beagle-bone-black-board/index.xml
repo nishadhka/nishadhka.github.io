@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Beagle Bone Black board on Nishadh KA</title>
-    <link>/tags/beagle-bone-black-board/</link>
+    <link>//localhost:42041/tags/beagle-bone-black-board/</link>
     <description>Recent content in Beagle Bone Black board on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 23 Aug 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/beagle-bone-black-board/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/tags/beagle-bone-black-board/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>WRF CHEM compilingInARM BeagleBoneBlack</title>
-      <link>/working-notes/2014/wn_2014-08/wrf_chem_compilinginarm_beagleboneblack/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-08/wrf_chem_compilinginarm_beagleboneblack/</link>
       <pubDate>Sat, 23 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-08/wrf_chem_compilinginarm_beagleboneblack/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-08/wrf_chem_compilinginarm_beagleboneblack/</guid>
       <description>###WRF CHEM compiling in ARM architecture, Beagle Bone Black###
 This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compiler test#### went successful, except in test4 using 64 bit ###libraries### ####Netcdf compiling#### 1. Environment has to be properly setup, following was correct for ARM arch, clarified based on this
  export DIR=/media/card/wrf/lib export CC=gcc export CXX=g++ export FC=gfortran export FCFLAGS=-g export F77=gfortran export FFLAGS=-g export CXXFLAGS=-g   Faced error in make after configure command of .</description>
@@ -24,58 +24,58 @@ This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compi
     
     <item>
       <title>Mount SDcard with BBB</title>
-      <link>/working-notes/2014/wn_2014-05/mount_sdcard_with_bbb/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-05/mount_sdcard_with_bbb/</link>
       <pubDate>Tue, 06 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-05/mount_sdcard_with_bbb/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-05/mount_sdcard_with_bbb/</guid>
       <description>#MountSDcardwithBBB.md# - Mounting SD card is not so easy with BBB, it is due to the problem of mysql error, saying sock file is missing and while starting satying /var folder is full - By cheking df -h shows it is true. So only way to increase the partition is use sd card, but noraml sd card with partiion cannot mount with BBB, due to some kernal inclination - there is work arroun, based on [[this]](http://dev.</description>
     </item>
     
     <item>
       <title>mysql BBB</title>
-      <link>/working-notes/2014/wn_2014-05/mysql_bbb/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-05/mysql_bbb/</link>
       <pubDate>Tue, 06 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-05/mysql_bbb/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-05/mysql_bbb/</guid>
       <description>installing mysql and phpmyadmin in BBB.md
  Based on this and this apt-get install mysql-server apt-get install phpmyadmin phpmyadmin not showing up, so wokring with mysql command line followed this to get into mysql shell /usr/bin/mysql -u root -p to create new data base followed this by create database gammu in mysql shell to excute gammu mysql.sql file to create tables for gammu backend, used this mysql -u root -p&#39;passwd&#39; gammu &amp;lt; /home/debian/gammu-1.</description>
     </item>
     
     <item>
       <title>gammu compile BBB</title>
-      <link>/working-notes/2014/wn_2014-05/gammu_compile_bbb/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-05/gammu_compile_bbb/</link>
       <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-05/gammu_compile_bbb/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-05/gammu_compile_bbb/</guid>
       <description>Gammu_compile-in-BBB
  Gammu was compiled in BBB follwoing this The dependacnies was intaalled using this command  apt-get install cmake python-dev pkg-config libmysqlclient-dev libpq-dev \ libcurl4-gnutls-dev libusb-1.0-0-dev libdbi0-dev libbluetooth-dev \ libgudev-1.0-dev libglib2.0-dev unixodbc-dev  the command ./configure gives error of CMake Error: CMake was unable to find a build program corresponding to &amp;quot;Unix Makefiles&amp;quot;. based on this installed make by apt-get install make after this the error goes away executed this command cmake .</description>
     </item>
     
     <item>
       <title>Sending SMS with Beagle bone black</title>
-      <link>/working-notes/2014/wn_2014-03/sending_sms_with_beagle_bone_black/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-03/sending_sms_with_beagle_bone_black/</link>
       <pubDate>Tue, 25 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-03/sending_sms_with_beagle_bone_black/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-03/sending_sms_with_beagle_bone_black/</guid>
       <description>Sending SMS in Beagle bone black
 It is an angstrom linux BBB, first connected to Ubuntu lap using usb wire from BBB, then a USB was connected to the powered USB hub, in which a serial USB connector and a Huwaei e 173 data (This was tested for Huwaei E303F also, it worked) card was connected. * ssh&amp;rsquo;s into it using ssh 192.168.7.2 -l root and password blank (a enter) * Now lsusb showing Huwaei with modem and serial usb.</description>
     </item>
     
     <item>
       <title>Unbricking BBB</title>
-      <link>/working-notes/2014/wn_2014-03/unbricking_bbb/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-03/unbricking_bbb/</link>
       <pubDate>Wed, 05 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-03/unbricking_bbb/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-03/unbricking_bbb/</guid>
       <description>Unbricking_BBB</description>
     </item>
     
     <item>
       <title>How to BRICK Beagle Bone Black</title>
-      <link>/working-notes/2014/wn_2014-01/how-to-brick-beagle-bone-black/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-01/how-to-brick-beagle-bone-black/</link>
       <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-01/how-to-brick-beagle-bone-black/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-01/how-to-brick-beagle-bone-black/</guid>
       <description>apt-get update and upgrade make BBB&amp;rsquo;s internal hard disk to crash, to solve this is to make a recovery SD card and rewrite the hard disk
  After a long searching for making the SD card finally followed this http://www.armhf.com/index.php/getting-started-with-ubuntu-img-file/ Installed the xz in ubuntu laptop apt-get install xz-utils then viewed the attached sd card device name by ls /dev/sd* given it as sdb so run the xz, followed this http://downloads.</description>
     </item>

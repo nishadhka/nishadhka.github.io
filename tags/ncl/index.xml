@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NCL on Nishadh KA</title>
-    <link>/tags/ncl/</link>
+    <link>//localhost:42041/tags/ncl/</link>
     <description>Recent content in NCL on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 20 Nov 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/ncl/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/tags/ncl/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>NCL install ubunut1204</title>
-      <link>/working-notes/2014/wn_2014-11/ncl_install_ubunut1204/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-11/ncl_install_ubunut1204/</link>
       <pubDate>Thu, 20 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-11/ncl_install_ubunut1204/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-11/ncl_install_ubunut1204/</guid>
       <description>http://www.ncl.ucar.edu/Download/install.shtml</description>
     </item>
     

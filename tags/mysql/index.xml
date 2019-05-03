@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MySQL on Nishadh KA</title>
-    <link>/tags/mysql/</link>
+    <link>//localhost:42041/tags/mysql/</link>
     <description>Recent content in MySQL on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 16 May 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:42041/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>gammu MYSQL</title>
-      <link>/working-notes/2014/wn_2014-05/gammu_mysql/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-05/gammu_mysql/</link>
       <pubDate>Fri, 16 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-05/gammu_mysql/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-05/gammu_mysql/</guid>
       <description>gammu_mysql
  followed this,this the running, file based gammu-smsd backend configuration file is as follows    nano /etc/gammu-smsdrc # Configuration file for Gammu SMS Daemon # Gammu library configuration, see gammurc(5) [gammu] # Please configure this! port = /dev/ttyUSB2 model = connection = at synchronizetime = yes #logfile = /home/debian/gammulog #logformat = textalldate use_locking = gammuloc = # SMSD configuration, see gammu-smsdrc(5) [smsd] #debuglevel = 255 #Service = sql #Driver = sqlite3 #database = kalkun.</description>
     </item>
     
     <item>
       <title>mysql BBB</title>
-      <link>/working-notes/2014/wn_2014-05/mysql_bbb/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-05/mysql_bbb/</link>
       <pubDate>Tue, 06 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-05/mysql_bbb/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-05/mysql_bbb/</guid>
       <description>installing mysql and phpmyadmin in BBB.md
  Based on this and this apt-get install mysql-server apt-get install phpmyadmin phpmyadmin not showing up, so wokring with mysql command line followed this to get into mysql shell /usr/bin/mysql -u root -p to create new data base followed this by create database gammu in mysql shell to excute gammu mysql.sql file to create tables for gammu backend, used this mysql -u root -p&#39;passwd&#39; gammu &amp;lt; /home/debian/gammu-1.</description>
     </item>
     
     <item>
       <title>gammu and mysql</title>
-      <link>/working-notes/2014/wn_2014-03/gammu_and_mysql/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-03/gammu_and_mysql/</link>
       <pubDate>Tue, 25 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-03/gammu_and_mysql/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-03/gammu_and_mysql/</guid>
       <description>gammuandmysql</description>
     </item>
     
     <item>
       <title>Python for fetching Mysql table</title>
-      <link>/working-notes/2014/wn_2014-02/python_for_fetching_mysql_table/</link>
+      <link>//localhost:42041/working-notes/2014/wn_2014-02/python_for_fetching_mysql_table/</link>
       <pubDate>Tue, 18 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-02/python_for_fetching_mysql_table/</guid>
+      <guid>//localhost:42041/working-notes/2014/wn_2014-02/python_for_fetching_mysql_table/</guid>
       <description>Converting the MySQL backed SMS gateway data into (Sensor Observation Service (SOS) import formate. COCEMS_lbm are sending the data every 15 minutes through SMS and received by server-side data card and Gammu SMS gateway backed by MySQL, the data is in inbox table. Following python script do the job. It took a long time in understanding the difference between array, and list objects in python, a clear understanding of this would not cost this much time to solve the error.</description>
     </item>
     
     <item>
       <title>Store json data into Mysql using python</title>
-      <link>/working-notes/2013/wn_2013-10/store-json-data-into-mysql-using-python/</link>
+      <link>//localhost:42041/working-notes/2013/wn_2013-10/store-json-data-into-mysql-using-python/</link>
       <pubDate>Mon, 28 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2013/wn_2013-10/store-json-data-into-mysql-using-python/</guid>
+      <guid>//localhost:42041/working-notes/2013/wn_2013-10/store-json-data-into-mysql-using-python/</guid>
       <description>Web services APIs such as weather underground data provided in json format is stored in Mysql table using this python script.
 Based on stack overflow answers http://stackoverflow.com/questions/1640715/get-json-data-via-url-and-use-in-python-simplejson http://stackoverflow.com/questions/5687718/python-mysql-insert-data
 import urllib2 import json import MySQLdb
