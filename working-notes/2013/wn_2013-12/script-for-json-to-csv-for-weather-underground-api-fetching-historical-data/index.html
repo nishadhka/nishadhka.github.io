@@ -15,15 +15,17 @@
 
     
       
-      <meta property="description" content="import urllib2 import json import csv outfile_path=&#39;history.csv&#39; writer = csv.writer(open(outfile_path, &#39;w&#39;)) headers = [&#39;date&#39;] writer.writerow(headers) req = &amp;hellip;">
-      <meta property="og:description" content="import urllib2 import json import csv outfile_path=&#39;history.csv&#39; writer = csv.writer(open(outfile_path, &#39;w&#39;)) headers = [&#39;date&#39;] writer.writerow(headers) req = &amp;hellip;">
+      <meta property="description" content="Based on this https://github.com/PythonJournos/LearningPython/blob/master/tutorials/convert_json_to_csv.py, the script as follows,
+import urllib2 import json import csv outfile_path=&#39;history.csv&#39; &amp;hellip;">
+      <meta property="og:description" content="Based on this https://github.com/PythonJournos/LearningPython/blob/master/tutorials/convert_json_to_csv.py, the script as follows,
+import urllib2 import json import csv outfile_path=&#39;history.csv&#39; &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -89,13 +91,8 @@
 
 
 
-
-
 <ol>
-<li>based on this
-<a href="https://github.com/PythonJournos/LearningPython/blob/master/tutorials/convert_json_to_csv.py">https://github.com/PythonJournos/LearningPython/blob/master/tutorials/convert_json_to_csv.py</a>
-a sample script</li>
-</ol>
+<li><p>Based on this <a href="https://github.com/PythonJournos/LearningPython/blob/master/tutorials/convert_json_to_csv.py">https://github.com/PythonJournos/LearningPython/blob/master/tutorials/convert_json_to_csv.py</a>, the script as follows,</p>
 
 <pre><code>import urllib2
 import json
@@ -109,52 +106,40 @@ opener = urllib2.build_opener()
 f = opener.open(req)
 data = json.load(f)
 for history in data['history']['observations']:
-       row = []
-       row.append(str(history['date']['pretty']))
-       row.append(str(history['tempm']))
-       writer.writerow(row)
-</code></pre>
+    row = []
+    row.append(str(history['date']['pretty']))
+    row.append(str(history['tempm']))
+    writer.writerow(row)
+</code></pre></li>
 
-<ol>
-<li>Now the URL has to be iterated to give a range of historical data required, and most important the date range has to set.
-The date range constructed from this answer <a href="http://stackoverflow.com/questions/1060279/iterating-through-a-range-of-dates-in-python">http://stackoverflow.com/questions/1060279/iterating-through-a-range-of-dates-in-python</a></li>
-</ol>
+<li><p>Now the URL has to be iterated to give a range of historical data required, and most important the date range has to set.</p></li>
 
-<p>a sample script</p>
+<li><p>The date range constructed from this answer <a href="http://stackoverflow.com/questions/1060279/iterating-through-a-range-of-dates-in-python">http://stackoverflow.com/questions/1060279/iterating-through-a-range-of-dates-in-python</a></p>
 
 <pre><code>from datetime import date
 from dateutil.rrule import rrule, DAILY
-
 a = date(2009, 5, 30)
 b = date(2009, 6, 9)
-
 for dt in rrule(DAILY, dtstart=a, until=b):
-    print dt.strftime(&quot;%Y-%m-%d&quot;)
-</code></pre>
+print dt.strftime(&quot;%Y-%m-%d&quot;)
+</code></pre></li>
 
-<p>The URL itration based on this answer
-<a href="http://stackoverflow.com/questions/16632569/for-loops-in-python-to-read-long-url-from-shortened-url">http://stackoverflow.com/questions/16632569/for-loops-in-python-to-read-long-url-from-shortened-url</a>
-a sample code</p>
+<li><p>The URL itration based on this answer <a href="http://stackoverflow.com/questions/16632569/for-loops-in-python-to-read-long-url-from-shortened-url">http://stackoverflow.com/questions/16632569/for-loops-in-python-to-read-long-url-from-shortened-url</a></p>
 
 <pre><code>import urllib2
 from BeautifulSoup import BeautifulSoup
-
 for x in ('20131011','20131012'):
-  shortURL = 'http://api.wunderground.com/api/4d09b615cbc7726e/history_'+str(x)+'/q/India/Coimbatore.json'
-  output = urllib2.urlopen(shortURL)
+shortURL = 'http://api.wunderground.com/api/4d09b615cbc7726e/history_'+str(x)+'/q/India/Coimbatore.json'
+output = urllib2.urlopen(shortURL)
+print output.url
+</code></pre></li>
 
-  print output.url
+<li><p>now the problem is how to take the for loop date range into the URL for looping, long searched for making a list from the print
+<code>dt.strftime(“%Y-%m-%d”)</code></p></li>
 
+<li><p>finally got write by the empty array. Append, hoorah! <a href="http://learnpythonthehardway.org/book/ex32.html">http://learnpythonthehardway.org/book/ex32.html</a></p>
 
-3. now the problem is how to take the for loop date range into the URL for looping, long searched for making a list from the print
-    dt.strftime(“%Y-%m-%d”)
-
-finally got write by the empty array. Append, hoorah! http://learnpythonthehardway.org/book/ex32.html
-the sample code becomes
-
-</code></pre>
-
-<p>import urllib2 from datetime
+<pre><code>import urllib2 from datetime
 import date from dateutil.rrule
 import rrule, DAILY
 a = date(2009, 6, 3)
@@ -164,180 +149,172 @@ for
 dt in rrule(DAILY, dtstart=a, until=b): print dt.strftime(“%Y%m%d”)
 dtm.append(dt.strftime(“%Y%m%d”))
 print dtm
-for x in (dtm): shortURL = ‘<a href="http://api.wunderground.com/api/YOURKEY/history_’+str(x)+‘/q/India/Coimbatore.json’">http://api.wunderground.com/api/YOURKEY/history_’+str(x)+‘/q/India/Coimbatore.json’</a> output = urllib2.urlopen(shortURL)
+for x in (dtm): shortURL = ‘http://api.wunderground.com/api/YOURKEY/history_’+str(x)+‘/q/India/Coimbatore.json’ output = urllib2.urlopen(shortURL)
 print output.url ``` the out put looks
-20090603 20090604 ——— 20090609 [‘20090603’, ‘20090604’, ‘20090605’, ‘20090606’, ‘20090607’, ‘20090608’, ‘20090609’] <a href="http://api.wunderground.com/api/YOURKEY/history_20090603/q/India/Coimbatore.json">http://api.wunderground.com/api/YOURKEY/history_20090603/q/India/Coimbatore.json</a> —————- <a href="http://api.wunderground.com/api/YOURKEY/history_20090609/q/India/Coimbatore.json">http://api.wunderground.com/api/YOURKEY/history_20090609/q/India/Coimbatore.json</a></p>
+20090603 20090604 ——— 20090609 [‘20090603’, ‘20090604’, ‘20090605’, ‘20090606’, ‘20090607’, ‘20090608’, ‘20090609’] http://api.wunderground.com/api/YOURKEY/history_20090603/q/India/Coimbatore.json —————- http://api.wunderground.com/api/YOURKEY/history_20090609/q/India/Coimbatore.json
+</code></pre></li>
 
-<pre><code>
-now the challenge is how to integrate the above code with csv write code.
-The solution is another for loop for urllib
-the final code is
-</code></pre>
+<li><p>now the challenge is how to integrate the above code with csv write code. The solution is another for loop for urllib. the final code is</p>
 
-<p>import urllib2
+<pre><code>import urllib2
 import json
 import csv
 from datetime import date
-from dateutil.rrule import rrule, DAILY</p>
+from dateutil.rrule import rrule, DAILY
 
-<p>outfile<em>path=&lsquo;history.csv&rsquo;
-writer = csv.writer(open(outfile</em>path, &lsquo;w&rsquo;))
-headers = [&lsquo;TimeIST&rsquo;,&lsquo;TemperatureC&rsquo;,&lsquo;Dew PointC&rsquo;,&lsquo;Humidity&rsquo;,&lsquo;Wind SpeedKm/h&rsquo;,&lsquo;Gust SpeedKm/h&rsquo;,&lsquo;Wind DirectionDe&rsquo;,&lsquo;Wind Direction&rsquo;,&lsquo;VisibilityKm&rsquo;,&lsquo;Sea Level PressurehPa&rsquo;,&lsquo;Events&rsquo;,&lsquo;Heatindex&rsquo;,&lsquo;Precipitationmm&rsquo;,&lsquo;Conditions&rsquo;]
-writer.writerow(headers)</p>
+outfile_path='history.csv'
+writer = csv.writer(open(outfile_path, 'w'))
+headers = ['TimeIST','TemperatureC','Dew PointC','Humidity','Wind SpeedKm/h','Gust SpeedKm/h','Wind DirectionDe','Wind Direction','VisibilityKm','Sea Level PressurehPa','Events','Heatindex','Precipitationmm','Conditions']
+writer.writerow(headers)
 
-<p>a = date(2013, 8, 1)
-b = date(2013, 8, 2)</p>
 
-<p>dtm = []
+a = date(2013, 8, 1)
+b = date(2013, 8, 2)
+
+dtm = []
 for dt in rrule(DAILY, dtstart=a, until=b):
-    dtm.append(dt.strftime(&ldquo;%Y%m%d&rdquo;))</p>
+dtm.append(dt.strftime(&quot;%Y%m%d&quot;))
 
-<p>for x in (dtm):
-    url = &lsquo;<a href="http://api.wunderground.com/api/4d09b615cbc7726e/history_'+str(x)+'/q/India/Coimbatore.json'">http://api.wunderground.com/api/4d09b615cbc7726e/history_'+str(x)+'/q/India/Coimbatore.json'</a>
-    req = urllib2.Request(url)
-    opener = urllib2.build_opener()
-    f = opener.open(req)
-    data = json.load(f)
-for history in data[&lsquo;history&rsquo;][&lsquo;observations&rsquo;]:
-       row = []
-       datewu = history[&lsquo;date&rsquo;][&lsquo;year&rsquo;]+&lsquo;-&rsquo;+history[&lsquo;date&rsquo;][&lsquo;mon&rsquo;]+&lsquo;-&rsquo;+history[&lsquo;date&rsquo;][&lsquo;mday&rsquo;]+&rsquo;T&rsquo;+history[&lsquo;date&rsquo;][&lsquo;hour&rsquo;]+&rsquo;:&lsquo;+history[&lsquo;date&rsquo;][&lsquo;min&rsquo;]+&rsquo;:00.000000+0530&rsquo;<br />
-       row.append(str(datewu))
-       row.append(str(history[&lsquo;tempm&rsquo;]))
-       row.append(str(history[&lsquo;dewptm&rsquo;]))
-       row.append(str(history[&lsquo;hum&rsquo;]))
-       row.append(str(history[&lsquo;wspdm&rsquo;]))
-       row.append(str(history[&lsquo;wgustm&rsquo;]))
-       row.append(str(history[&lsquo;wdird&rsquo;]))
-       row.append(str(history[&lsquo;wdire&rsquo;]))
-       row.append(str(history[&lsquo;vism&rsquo;]))
-       row.append(str(history[&lsquo;pressurem&rsquo;]))
-       row.append(str(history[&lsquo;windchillm&rsquo;]))
-       row.append(str(history[&lsquo;heatindexm&rsquo;]))
-       row.append(str(history[&lsquo;precipm&rsquo;]))
-       row.append(str(history[&lsquo;conds&rsquo;]))
-       writer.writerow(row)</p>
+for x in (dtm):
+   url = 'http://api.wunderground.com/api/4d09b615cbc7726e/history_'+str(x)+'/q/India/Coimbatore.json'
+   req = urllib2.Request(url)
+   opener = urllib2.build_opener()
+   f = opener.open(req)
+   data = json.load(f)
+for history in data['history']['observations']:
+    row = []
+    datewu = history['date']['year']+'-'+history['date']['mon']+'-'+history['date']['mday']+'T'+history['date']['hour']+':'+history['date']['min']+':00.000000+0530'    
+    row.append(str(datewu))
+    row.append(str(history['tempm']))
+    row.append(str(history['dewptm']))
+    row.append(str(history['hum']))
+    row.append(str(history['wspdm']))
+    row.append(str(history['wgustm']))
+    row.append(str(history['wdird']))
+    row.append(str(history['wdire']))
+    row.append(str(history['vism']))
+    row.append(str(history['pressurem']))
+    row.append(str(history['windchillm']))
+    row.append(str(history['heatindexm']))
+    row.append(str(history['precipm']))
+    row.append(str(history['conds']))
+    writer.writerow(row)
+</code></pre></li>
 
-<pre><code>
-The above code does not do the job; it only takes the last date from the date range, the code has to change.
-the final working code
+<li><p>The above code does not do the job; it only takes the last date from the date range, the code has to change. The final working code</p>
 
-</code></pre>
-
-<p>import urllib2
+<pre><code>import urllib2
 import json
 import csv from datetime
 import date from dateutil.rrule
 import rrule, DAILY
-outfile<em>path=‘history1.csv’
-writer = csv.writer(open(outfile</em>path, ‘w’))
+outfile_path=‘history1.csv’
+writer = csv.writer(open(outfile_path, ‘w’))
 headers = [‘TimeIST’,‘TemperatureC’,‘Dew PointC’,‘Humidity’,‘Wind SpeedKm/h’,‘Gust SpeedKm/h’,‘Wind DirectionDe’,‘Wind Direction’,‘VisibilityKm’,‘Sea Level PressurehPa’,‘Events’,‘Heatindex’,‘Precipitationmm’,‘Conditions’] writer.writerow(headers)
 a = date(2013, 8, 5) b = date(2013, 8, 10)
 dtm = [] for dt in rrule(DAILY, dtstart=a, until=b): # print dt.strftime(“%Y%m%d”) dtm.append(dt.strftime(“%Y%m%d”))
 dtl = [] for x in (dtm):
-shortURL = ‘<a href="http://api.wunderground.com/api/4d09b615cbc7726e/history_’+str(x)+‘/q/India/Coimbatore.json’">http://api.wunderground.com/api/4d09b615cbc7726e/history_’+str(x)+‘/q/India/Coimbatore.json’</a> output = urllib2.urlopen(shortURL) # print output.url dtl.append(output.url)
+shortURL = ‘http://api.wunderground.com/api/4d09b615cbc7726e/history_’+str(x)+‘/q/India/Coimbatore.json’ output = urllib2.urlopen(shortURL) # print output.url dtl.append(output.url)
 print dtl
 dtd = [] for url in (dtl): req = urllib2.Request(url)
 opener = urllib2.build_opener()
 f = opener.open(req) data = json.load(f) # print data dtd.append(data)
 for d in (dtd): for history in d[‘history’][‘observations’]: if d != history: row = [] datewu = history[‘date’][‘year’]+’-‘+history[’date’][‘mon’]+’-‘+history[’date’][‘mday’]+‘T’+history[‘date’][‘hour’]+’:‘+history[’date’][‘min’]+’:00.000000+0530’
 row.append(str(datewu)) row.append(str(history[‘tempm’])) row.append(str(history[‘dewptm’])) row.append(str(history[‘hum’])) row.append(str(history[‘wspdm’])) row.append(str(history[‘wgustm’])) row.append(str(history[‘wdird’])) row.append(str(history[‘wdire’])) row.append(str(history[‘vism’])) row.append(str(history[‘pressurem’])) row.append(str(history[‘windchillm’])) row.append(str(history[‘heatindexm’])) row.append(str(history[‘precipm’])) row.append(str(history[‘conds’])) writer.writerow(row)
-print data</p>
+print data
+</code></pre></li>
 
-<pre><code>
-Create a csv from Json for WU current observations
-the nonworking code for the past 5 hours
+<li><p>Create a csv from Json for WU current observations, the nonworking code for the past 5 hours</p>
 
-</code></pre>
-
-<p>import urllib2
+<pre><code>import urllib2
 import json
 import csv
 from datetime import date
-#from dateutil.rrule import rrule, DAILY</p>
+#from dateutil.rrule import rrule, DAILY
 
-<p>outfile<em>path=&lsquo;CART.DAT&rsquo;
-writer = csv.writer(open(outfile</em>path, &lsquo;w&rsquo;))
-headers = [&lsquo;urn:ogc:def:parameter:x-istsos:1.0:time:iso8601&rsquo;,&lsquo;urn:ogc:def:parameter:x-istsos:1.0:cbe:aws:dewpont&rsquo;,&lsquo;urn:ogc:def:parameter:x-ists$
-writer.writerow(headers)</p>
+outfile_path='CART.DAT'
+writer = csv.writer(open(outfile_path, 'w'))
+headers = ['urn:ogc:def:parameter:x-istsos:1.0:time:iso8601','urn:ogc:def:parameter:x-istsos:1.0:cbe:aws:dewpont','urn:ogc:def:parameter:x-ists$
+writer.writerow(headers)
 
-<p>req = urllib2.Request(&ldquo;<a href="http://api.wunderground.com/api/4d09b615cbc7726e/conditions/q/India/Coimbatore.json&quot;">http://api.wunderground.com/api/4d09b615cbc7726e/conditions/q/India/Coimbatore.json&quot;</a>)
+
+req = urllib2.Request(&quot;http://api.wunderground.com/api/4d09b615cbc7726e/conditions/q/India/Coimbatore.json&quot;)
 opener = urllib2.build_opener()
 f = opener.open(req)
-data = json.load(f)</p>
+data = json.load(f)
 
-<p>for current<em>observation in data[&lsquo;current</em>observation&rsquo;]:
-     print [&lsquo;station_id&rsquo;]</p>
 
-<pre><code>one working code for converting json into csv
+for current_observation in data['current_observation']:
+    print ['station_id']
+</code></pre></li>
 
-</code></pre>
+<li><p>one working code for converting json into csv</p>
 
-<p>import csv
-import json</p>
+<pre><code>import csv
+import json
 
-<p>x=&ldquo;&rdquo;&rdquo;[
-    { &ldquo;pk&rdquo;: 22, &ldquo;model&rdquo;: &ldquo;auth.permission&rdquo;, &ldquo;fields&rdquo;:
-        { &ldquo;codename&rdquo;: &ldquo;add<em>logentry&rdquo;, &ldquo;name&rdquo;: &ldquo;Can add log entry&rdquo;, &ldquo;content</em>type&rdquo;: 8 }
-    },
-    { &ldquo;pk&rdquo;: 23, &ldquo;model&rdquo;: &ldquo;auth.permission&rdquo;, &ldquo;fields&rdquo;:
-        { &ldquo;codename&rdquo;: &ldquo;change<em>logentry&rdquo;, &ldquo;name&rdquo;: &ldquo;Can change log entry&rdquo;, &ldquo;content</em>type&rdquo;: 8 }
-    },
-    { &ldquo;pk&rdquo;: 24, &ldquo;model&rdquo;: &ldquo;auth.permission&rdquo;, &ldquo;fields&rdquo;:
-        { &ldquo;codename&rdquo;: &ldquo;delete<em>logentry&rdquo;, &ldquo;name&rdquo;: &ldquo;Can delete log entry&rdquo;, &ldquo;content</em>type&rdquo;: 8 }
-    }
-]&ldquo;&rdquo;&rdquo;</p>
+x=&quot;&quot;&quot;[ 
+{ &quot;pk&quot;: 22, &quot;model&quot;: &quot;auth.permission&quot;, &quot;fields&quot;: 
+{ &quot;codename&quot;: &quot;add_logentry&quot;, &quot;name&quot;: &quot;Can add log entry&quot;, &quot;content_type&quot;: 8 } 
+}, 
+{ &quot;pk&quot;: 23, &quot;model&quot;: &quot;auth.permission&quot;, &quot;fields&quot;: 
+{ &quot;codename&quot;: &quot;change_logentry&quot;, &quot;name&quot;: &quot;Can change log entry&quot;, &quot;content_type&quot;: 8 } 
+},
+{ &quot;pk&quot;: 24, &quot;model&quot;: &quot;auth.permission&quot;, &quot;fields&quot;: 
+{ &quot;codename&quot;: &quot;delete_logentry&quot;, &quot;name&quot;: &quot;Can delete log entry&quot;, &quot;content_type&quot;: 8 } 
+}
+]&quot;&quot;&quot;
 
-<p>x = json.loads(x)</p>
+x = json.loads(x)
 
-<p>f = csv.writer(open(&ldquo;test.csv&rdquo;, &ldquo;wb+&rdquo;))</p>
+f = csv.writer(open(&quot;test.csv&quot;, &quot;wb+&quot;))
 
-<h1 id="write-csv-header-if-you-dont-need-that-remove-this-line">Write CSV Header, If you dont need that, remove this line</h1>
+# Write CSV Header, If you dont need that, remove this line
+f.writerow([&quot;pk&quot;, &quot;model&quot;, &quot;codename&quot;, &quot;name&quot;, &quot;content_type&quot;])
 
-<p>f.writerow([&ldquo;pk&rdquo;, &ldquo;model&rdquo;, &ldquo;codename&rdquo;, &ldquo;name&rdquo;, &ldquo;content_type&rdquo;])</p>
+for x in x:
+    f.writerow([x[&quot;pk&quot;], 
+    x[&quot;model&quot;], 
+    x[&quot;fields&quot;][&quot;codename&quot;], 
+    x[&quot;fields&quot;][&quot;name&quot;],
+    x[&quot;fields&quot;][&quot;content_type&quot;]])
+</code></pre></li>
 
-<p>for x in x:
-    f.writerow([x[&ldquo;pk&rdquo;],
-                x[&ldquo;model&rdquo;],
-                x[&ldquo;fields&rdquo;][&ldquo;codename&rdquo;],
-                x[&ldquo;fields&rdquo;][&ldquo;name&rdquo;],
-                x[&ldquo;fields&rdquo;][&ldquo;content_type&rdquo;]])</p>
+<li><p>always getting <code>TypeError: string indices must be integers</code> hrrr! finally got working code based on experience that, with current json file of sin     gle row, it is unnecessary and erroneous to call <code>for loop</code>, (took 5 hours to realize) and as per this answer
+ <a href="http://stackoverflow.com/questions/14784334/python-csv-error-sequence-expected">http://stackoverflow.com/questions/14784334/python-csv-error-sequence-expected</a> so the working code is as follows</p></li>
 
-<pre><code>
-always getting TypeError: string indices must be integers
-hrrr
-finally got working code based on experience that, with current json file of single row, it is unnecessary and erroneous to call ‘for loop’, (took 5 hours to realize) and as per this answer http://stackoverflow.com/questions/14784334/python-csv-error-sequence-expected
-so the working code is as follows
-``` import csv import json import urllib2 from datetime import date outfile_path=‘CART.DAT’ writer = csv.writer(open(outfile_path, ‘w’)) headers = [‘urn:ogc:def:parameter:x-istsos:1.0:time:iso8601’,‘urn:ogc:def:parameter:x-istsos:1.0:cbe:aws:dewpont’] writer.writerow(headers) req = urllib2.Request(“http://api.wunderground.com/api/4d09b615cbc7726e/conditions/q/India/Coimbatore.json”) opener = urllib2.build_opener() f = opener.open(req) data = json.load(f) #for data in data: rows = [data[“current_observation”][“temp_c”]] writer.writerow(rows)
-``` Now having problem in converting the date time formate of wu date formate to istsos’s. followed this for converting last answer, http://stackoverflow.com/questions/13350909/convert-other-time-values-to-datetime-format-in-python
-but that answer has a mistake, in specifying the shortened version of month, it should be %b not %m as specified in the answer.
-this is from http://www.lightbird.net/py-by-example/datetime.date-module.html
-so the final code for converting the date and making a csv.DAT is this
+<li><p>Now having problem in converting the date time formate of wu date formate to istsos’s. followed this for converting last answer,
+ <a href="http://stackoverflow.com/questions/13350909/convert-other-time-values-to-datetime-format-in-python">http://stackoverflow.com/questions/13350909/convert-other-time-values-to-datetime-format-in-python</a> but that answer has a mistake, in
+ specifying the shortened version of month, it should be %b not %m as specified in the answer. this is from
+ <a href="http://www.lightbird.net/py-by-example/datetime.date-module.html">http://www.lightbird.net/py-by-example/datetime.date-module.html</a> so the final code for converting the date and making a csv.DAT is this</p>
 
-</code></pre>
-
-<p>import csv
+<pre><code>import csv
 import json
 import urllib2
-from datetime import datetime</p>
+from datetime import datetime
 
-<p>outfile<em>path=&lsquo;CART.DAT&rsquo;
-writer = csv.writer(open(outfile</em>path, &lsquo;w&rsquo;))
-headers = [&lsquo;urn:ogc:def:parameter:x-istsos:1.0:time:iso8601&rsquo;,&lsquo;urn:ogc:def:parameter:x-istsos:1.0:cbe:aws:dewpont&rsquo;]
-writer.writerow(headers)</p>
 
-<p>req = urllib2.Request(&ldquo;<a href="http://api.wunderground.com/api/4d09b615cbc7726e/conditions/q/India/Coimbatore.json&quot;">http://api.wunderground.com/api/4d09b615cbc7726e/conditions/q/India/Coimbatore.json&quot;</a>)
+outfile_path='CART.DAT'
+writer = csv.writer(open(outfile_path, 'w'))
+headers = ['urn:ogc:def:parameter:x-istsos:1.0:time:iso8601','urn:ogc:def:parameter:x-istsos:1.0:cbe:aws:dewpont']
+writer.writerow(headers)
+
+req = urllib2.Request(&quot;http://api.wunderground.com/api/4d09b615cbc7726e/conditions/q/India/Coimbatore.json&quot;)
 opener = urllib2.build_opener()
 f = opener.open(req)
-data = json.load(f)</p>
+data = json.load(f)
 
-<p>#for data in data:
-dateNF = data[&lsquo;current<em>observation&rsquo;][&lsquo;observation</em>time<em>rfc822&rsquo;].strip( &lsquo;+0530&rsquo; );
+
+
+#for data in data:
+dateNF = data['current_observation']['observation_time_rfc822'].strip( '+0530' );
 print dateNF
-dateITS = datetime.strptime (dateNF, &ldquo;%a, %d %b %Y %H:%M:%S &ldquo;).strftime(&rdquo;%Y-%m-%dT%H:%M:%S.000000+0530&rdquo;)
+dateITS = datetime.strptime (dateNF, &quot;%a, %d %b %Y %H:%M:%S &quot;).strftime(&quot;%Y-%m-%dT%H:%M:%S.000000+0530&quot;)
 print dateITS
-rows = [dateITS,data[&ldquo;current</em>observation&rdquo;][&ldquo;temp_c&rdquo;]]
+rows = [dateITS,data[&quot;current_observation&quot;][&quot;temp_c&quot;]]
 writer.writerow(rows)
-```</p>
+</code></pre></li>
+</ol>
 
 
   <footer>
@@ -364,6 +341,6 @@ writer.writerow(rows)
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

@@ -2,87 +2,75 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>USB on Nishadh KA</title>
-    <link>//localhost:1313/tags/usb/</link>
+    <link>/tags/usb/</link>
     <description>Recent content in USB on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 21 Apr 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/tags/usb/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/usb/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Gammu smsd shared memeory error for Huwaei E303F</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/gammu_smsd_shared_memeory_error_for_huwaei_e303f/</link>
+      <link>/working-notes/2014/wn_2014-04/gammu-smsd-shared-memeory-error-for-huwaei-e303f/</link>
       <pubDate>Mon, 21 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/gammu_smsd_shared_memeory_error_for_huwaei_e303f/</guid>
-      <description>I am running gammu and gammu-smsd backed by Mysql in Ubuntu 12.04, All these setup was running with out error using Huwaei E173 data card. But upgraded model of this, Huwaei E303F, working fine with gammu, but starting gammu-smsd collapsing gammu. for example gammu &amp;ndash;identify says phone not connected
-gammurc ~/.gammurc  port = /dev/ttyUSB0 model = auto connection = at synchronizetime = yes logfile = /home/user/gammu.log logformat = textalldate use_locking = gammuloc =</description>
+      <guid>/working-notes/2014/wn_2014-04/gammu-smsd-shared-memeory-error-for-huwaei-e303f/</guid>
+      <description>Running gammu and gammu-smsd backed by Mysql in Ubuntu 12.04, All these setup was running without error using Huwaei E173 data card. However, upgraded model of this, Huwaei E303F, working fine with gammu, but starting gammu-smsd collapsing gammu. For example gammu --identify says phone not connected Looking into file of gammurc ~/.gammurc
+port = /dev/ttyUSB0 model = auto connection = at synchronizetime = yes logfile = /home/user/gammu.log logformat = textalldate use_locking = gammuloc =  Looking into file gammu-smsdrc ~/etc/gammu-smsdrc</description>
     </item>
     
     <item>
-      <title>usbreset Program</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/usbreset_program/</link>
+      <title>Program for usbreset</title>
+      <link>/working-notes/2014/wn_2014-04/usbreset-program/</link>
       <pubDate>Mon, 21 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/usbreset_program/</guid>
-      <description>USBRESETPROGRAM From this ask ubuntu answer. to reset the USB data card
- saving this code as usbreset.c  /* usbreset -- send a USB port reset to a USB device */ #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;errno.h&amp;gt; #include &amp;lt;sys/ioctl.h&amp;gt; #include &amp;lt;linux/usbdevice_fs.h&amp;gt; int main(int argc, char **argv) { const char *filename; int fd; int rc; if (argc != 2) { fprintf(stderr, &amp;quot;Usage: usbreset device-filename\n&amp;quot;); return 1; } filename = argv[1]; fd = open(filename, O_WRONLY); if (fd &amp;lt; 0) { perror(&amp;quot;Error opening output file&amp;quot;); return 1; } printf(&amp;quot;Resetting USB device %s\n&amp;quot;, filename); rc = ioctl(fd, USBDEVFS_RESET, 0); if (rc &amp;lt; 0) { perror(&amp;quot;Error in ioctl&amp;quot;); return 1; } printf(&amp;quot;Reset successful\n&amp;quot;); close(fd); return 0; }   compile code using cc usbreset.</description>
-    </item>
-    
-    <item>
-      <title>usb modeswitch on reboot</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-03/usb_modeswitch_on_reboot/</link>
-      <pubDate>Tue, 25 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/working-notes/2014/wn_2014-03/usb_modeswitch_on_reboot/</guid>
-      <description>usb_modeswitch.conf</description>
+      <guid>/working-notes/2014/wn_2014-04/usbreset-program/</guid>
+      <description>From this ask ubuntu answer. to reset the USB data card Saving this code as usbreset.c
+/* usbreset -- send a USB port reset to a USB device */ #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;errno.h&amp;gt; #include &amp;lt;sys/ioctl.h&amp;gt; #include &amp;lt;linux/usbdevice_fs.h&amp;gt; int main(int argc, char **argv) { const char *filename; int fd; int rc; if (argc != 2) { fprintf(stderr, &amp;quot;Usage: usbreset device-filename\n&amp;quot;); return 1; } filename = argv[1]; fd = open(filename, O_WRONLY); if (fd &amp;lt; 0) { perror(&amp;quot;Error opening output file&amp;quot;); return 1; } printf(&amp;quot;Resetting USB device %s\n&amp;quot;, filename); rc = ioctl(fd, USBDEVFS_RESET, 0); if (rc &amp;lt; 0) { perror(&amp;quot;Error in ioctl&amp;quot;); return 1; } printf(&amp;quot;Reset successful\n&amp;quot;); close(fd); return 0; }  Compile code using cc usbreset.</description>
     </item>
     
     <item>
       <title>USB DATA card for ubuntu 1204</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-01/usb_data_card_for_ubuntu_1204/</link>
+      <link>/working-notes/2014/wn_2014-01/usb_data_card_for_ubuntu_1204/</link>
       <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-01/usb_data_card_for_ubuntu_1204/</guid>
-      <description>Do dmesg |grep tty
- if not showing anything, solved following final answer of this question
-  http://ubuntuforums.org/archive/index.php/t-1853306.html
- &amp;ldquo;dmesg is a ring buffer, so if many messages are being logged, will lose the initial boot messages. Try this instead:  cd /var/log ; grep ttyUSB dmesg messages *log | more&amp;rdquo;
- now showing   grep: messagesdmesg:[ 23.391523] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB0 No such file or directory dmesg:[ 23.</description>
+      <guid>/working-notes/2014/wn_2014-01/usb_data_card_for_ubuntu_1204/</guid>
+      <description>To detect the USB connected to system, Do a dmesg |grep tty If not showing anything, the issue was solved following final answer of this question http://ubuntuforums.org/archive/index.php/t-1853306.html dmesg is a &amp;ldquo;ring buffer, so if many messages are being logged, will lose the initial boot messages. Try this instead:&amp;rdquo;
+cd /var/log grep ttyUSB dmesg messages *log | more&amp;quot;  now showing
+fellow@dhcppc3:~$ cd /var/log ; grep ttyUSB dmesg messages *log | more grep: messagesdmesg:[ 23.</description>
     </item>
     
     <item>
       <title>GSM INTERNET connection for RPi</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-01/gsm-internet-connection-for-rpi/</link>
+      <link>/working-notes/2014/wn_2014-01/gsm-internet-connection-for-rpi/</link>
       <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-01/gsm-internet-connection-for-rpi/</guid>
+      <guid>/working-notes/2014/wn_2014-01/gsm-internet-connection-for-rpi/</guid>
       <description>Based on
-http://mintakaconciencia.net/squares/umtskeeper/index.html#install http://bigcowpi.blogspot.in/2013/03/raspberry-pi-as-3g-huawei-e303-wireless.html http://raspberry-at-home.com/installing-3g-modem/ http://decryption.wordpress.com/2013/07/30/raspberry-pi-portable-3g4g-network-quality-logger-project-part-1/ http://pikiosk.tumblr.com/post/39526392102/raspberry-3g-modem-usb http://shkspr.mobi/blog/2012/07/3g-internet-on-raspberry-pi-success/ http://fcastagnotto.wordpress.com/2013/04/29/usb_modeswitch-ubuntu-systems/ http://www.thefanclub.co.za/how-to/how-setup-usb-3g-modem-raspberry-pi-using-usbmodeswitch-and-wvdial http://raspberrypi.stackexchange.com/questions/4314/can-i-use-usb-dongle-to-connect-raspberry-pi-to-internet  </description>
+ http://mintakaconciencia.net/squares/umtskeeper/index.html#install http://bigcowpi.blogspot.in/2013/03/raspberry-pi-as-3g-huawei-e303-wireless.html http://raspberry-at-home.com/installing-3g-modem/ http://decryption.wordpress.com/2013/07/30/raspberry-pi-portable-3g4g-network-quality-logger-project-part-1/ http://pikiosk.tumblr.com/post/39526392102/raspberry-3g-modem-usb http://shkspr.mobi/blog/2012/07/3g-internet-on-raspberry-pi-success/ http://fcastagnotto.wordpress.com/2013/04/29/usb_modeswitch-ubuntu-systems/ http://www.thefanclub.co.za/how-to/how-setup-usb-3g-modem-raspberry-pi-using-usbmodeswitch-and-wvdial http://raspberrypi.stackexchange.com/questions/4314/can-i-use-usb-dongle-to-connect-raspberry-pi-to-internet  </description>
     </item>
     
     <item>
       <title>Testing the RPi with usb hub usb serial and data card</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-01/testing-the-rpi-with-usb-hub-usb-serial-and-data-card/</link>
+      <link>/working-notes/2014/wn_2014-01/testing-the-rpi-with-usb-hub-usb-serial-and-data-card/</link>
       <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-01/testing-the-rpi-with-usb-hub-usb-serial-and-data-card/</guid>
-      <description>There is a problem of ssh and pinging if connected with proper setup, that is RPI and LAN. 1. with some iteration starting from suspecting starting with UH(USB hub) adaptor, then UH itself, then RPi and then wire connecting with UH and RPI, found the problem with the wire connecting UH and RPi. 1. With this set then started the connection of DC(Dylos Cable), it was not recognized by lsusb, then connected the US (USB Serial pin), US was recognized but no DC, then DC was removed and connected to the USB point nearer to light now lsusb showed the DC and recognized, however, after a while LAN connection was disrupted and no pinging also.</description>
+      <guid>/working-notes/2014/wn_2014-01/testing-the-rpi-with-usb-hub-usb-serial-and-data-card/</guid>
+      <description>There is a problem of ssh and pinging if connected with setup of RPI and LAN.
+ with some iteration starting from suspecting starting with UH(USB hub) adaptor, then UH itself, then RPi and then wire connecting with UH and RPI, found the problem with the wire connecting UH and RPi. With this set then started the connection of DC(Dylos Cable), it was not recognized by lsusb, then connected the US (USB Serial pin), US was recognized but no DC, then DC was removed and connected to the USB point nearer to light now lsusb showed the DC and recognized, however, after a while LAN connection was disrupted and no pinging also.</description>
     </item>
     
     <item>
       <title>Udev rules for USB attached to RPi</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-01/udev-rules-for-usb-attached-to-rpi/</link>
+      <link>/working-notes/2014/wn_2014-01/udev-rules-for-usb-attached-to-rpi/</link>
       <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-01/udev-rules-for-usb-attached-to-rpi/</guid>
-      <description>It seems the /dev/tty* address for the attached USB is changing intermittently, giving a permanent rules name for each device will be the workaround.
-Based on this http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/
-So the udev rules for cocemsd, setup is as follows.
-/etc/udev/rules.d, with file name 90-phone.rules, with this contents
-KERNEL==&amp;ldquo;ttyUSB&amp;rdquo;, ATTRS{idVendor}==&amp;ldquo;12d1&amp;rdquo;, ATTRS{idProduct}==&amp;ldquo;1436&amp;rdquo;, NAME=&amp;ldquo;phone&amp;rdquo;, MODE=&amp;ldquo;0666&amp;rdquo;,SYMLINK+=&amp;ldquo;phone&amp;rdquo; KERNEL==&amp;ldquo;ttyUSB&amp;rdquo;, ATTRS{idVendor}==&amp;ldquo;067b&amp;rdquo;, ATTRS{idProduct}==&amp;ldquo;2303&amp;rdquo;, NAME=&amp;ldquo;dylos&amp;rdquo;, MODE=&amp;ldquo;0666&amp;rdquo;,SYMLINK+=&amp;ldquo;dylos&amp;rdquo;</description>
+      <guid>/working-notes/2014/wn_2014-01/udev-rules-for-usb-attached-to-rpi/</guid>
+      <description>It seems the /dev/tty* address for the attached USB is changing intermittently, giving a permanent rules name for each device will be the workaround. Based on this http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/
+So the udev rules for cocemsd USB datacard, config file under folder /etc/udev/rules.d, with file name 90-phone.rules, is edited with this contents
+KERNEL==&amp;quot;ttyUSB*&amp;quot;, ATTRS{idVendor}==&amp;quot;12d1&amp;quot;, ATTRS{idProduct}==&amp;quot;1436&amp;quot;, NAME=&amp;quot;phone&amp;quot;, MODE=&amp;quot;0666&amp;quot;,SYMLINK+=&amp;quot;phone&amp;quot; KERNEL==&amp;quot;ttyUSB*&amp;quot;, ATTRS{idVendor}==&amp;quot;067b&amp;quot;, ATTRS{idProduct}==&amp;quot;2303&amp;quot;, NAME=&amp;quot;dylos&amp;quot;, MODE=&amp;quot;0666&amp;quot;,SYMLINK+=&amp;quot;dylos&amp;quot;  </description>
     </item>
     
   </channel>

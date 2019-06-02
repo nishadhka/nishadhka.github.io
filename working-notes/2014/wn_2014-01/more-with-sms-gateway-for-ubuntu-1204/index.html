@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>more with SMS gateway for ubuntu 1204 - Nishadh KA</title>
-    <meta property="og:title" content="more with SMS gateway for ubuntu 1204 - Nishadh KA">
+    <title>More with SMS gateway for ubuntu 1204 - Nishadh KA</title>
+    <meta property="og:title" content="More with SMS gateway for ubuntu 1204 - Nishadh KA">
     
     <meta name="twitter:card" content="summary">
 
@@ -15,19 +15,17 @@
 
     
       
-      <meta property="description" content="http://blog.sleeplessbeastie.eu/2012/07/16/kalkun-how-to-setup-sms-gateway-at-home/
-http://back2arie.wordpress.com/2010/07/27/using-gammu-smsd-with-multiple-phone/
-[&amp;hellip;] &amp;hellip;">
-      <meta property="og:description" content="http://blog.sleeplessbeastie.eu/2012/07/16/kalkun-how-to-setup-sms-gateway-at-home/
-http://back2arie.wordpress.com/2010/07/27/using-gammu-smsd-with-multiple-phone/
-[&amp;hellip;] &amp;hellip;">
+      <meta property="description" content="for this the config file gammurc has to edited as per like this
+[gammu] device = /dev/phone connection = at  to make the /dev/phone, the udev files have to be created, inside /etc/udev/rules.d, with &amp;hellip;">
+      <meta property="og:description" content="for this the config file gammurc has to edited as per like this
+[gammu] device = /dev/phone connection = at  to make the /dev/phone, the udev files have to be created, inside /etc/udev/rules.d, with &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -82,7 +80,7 @@ http://back2arie.wordpress.com/2010/07/27/using-gammu-smsd-with-multiple-phone/
     <article class="main">
       <header class="title">
       
-<h1>more with SMS gateway for ubuntu 1204</h1>
+<h1>More with SMS gateway for ubuntu 1204</h1>
 
 <h3>
   2014-01-17</h3>
@@ -93,82 +91,50 @@ http://back2arie.wordpress.com/2010/07/27/using-gammu-smsd-with-multiple-phone/
 
 
 
-<ul>
-<li>based on this</li>
-</ul>
-
-<p><a href="http://blog.sleeplessbeastie.eu/2012/07/16/kalkun-how-to-setup-sms-gateway-at-home/">http://blog.sleeplessbeastie.eu/2012/07/16/kalkun-how-to-setup-sms-gateway-at-home/</a></p>
-
-<p><a href="http://back2arie.wordpress.com/2010/07/27/using-gammu-smsd-with-multiple-phone/">http://back2arie.wordpress.com/2010/07/27/using-gammu-smsd-with-multiple-phone/</a></p>
-
-<ul>
-<li>problem rectified by</li>
-</ul>
-
-<p><a href="http://askubuntu.com/questions/211739/gammu-and-device-permissions">http://askubuntu.com/questions/211739/gammu-and-device-permissions</a></p>
-
-<ul>
-<li>steps followed are</li>
-</ul>
-
-<p>installed</p>
-
 <ol>
-<li>sudo apt-get install gammu gammu-smsd</li>
-<li>sudo cp /usr/share/doc/gammu/examples/config/gammurc /etc/gammurc
-the gammurc file will not be there, has to do this step,
-instaed of running gammu-conifg is a problem and make gammurc files in home folder</li>
+<li>based on this <a href="http://blog.sleeplessbeastie.eu/2012/07/16/kalkun-how-to-setup-sms-gateway-at-home/">http://blog.sleeplessbeastie.eu/2012/07/16/kalkun-how-to-setup-sms-gateway-at-home/</a> and <a href="http://back2arie.wordpress.com/2010/07/27/using-gammu-smsd-with-multiple-phone/">http://back2arie.wordpress.com/2010/07/27/using-gammu-smsd-with-multiple-phone/</a></li>
+<li>problem rectified by <a href="http://askubuntu.com/questions/211739/gammu-and-device-permissions">http://askubuntu.com/questions/211739/gammu-and-device-permissions</a></li>
+<li>following are installed
+   sudo apt-get install gammu gammu-smsd
+   sudo cp /usr/share/doc/gammu/examples/config/gammurc /etc/gammurc
+ the gammurc file will not be there, has to do this step, instaed of running gammu-conifg is a problem and make gammurc files in home folder</li>
+<li>now runing <code>gammu --identify</code>,  gives no phone detected and other error</li>
 
-<li><p>now run
-gammu &ndash;identify, it gives
-no phone detected or some other error</p></li>
-
-<li><p>for this the config file gammurc has to edited as per like this</p></li>
-</ol>
+<li><p>for this the config file gammurc has to edited as per like this</p>
 
 <pre><code>[gammu]
 
 device = /dev/phone
 connection = at
-
-to make the /dev/phone, the udev files have to be created, inside 
-
-/etc/udev/rules.d, with file name 90-phone.rules, with this contents
-
-KERNEL==&quot;ttyUSB*&quot;, ATTRS{idVendor}==&quot;12d1&quot;, ATTRS{idProduct}==&quot;1436&quot;, NAME=&quot;phone&quot;, MODE=&quot;0666&quot;,SYMLINK+=&quot;phone&quot;
-KERNEL==&quot;ttyUSB*&quot;, ATTRS{idVendor}==&quot;067b&quot;, ATTRS{idProduct}==&quot;2303&quot;, NAME=&quot;dylos&quot;, MODE=&quot;0666&quot;,SYMLINK+=&quot;dylos&quot;
-
-
-
- ATTRS{idVendor}==&quot;067b&quot;, ATTRS{idProduct}==&quot;2303&quot;, SYMLINK+=&quot;dylos&quot;
 </code></pre>
 
-<p>now reboot the system, now inside the /dev folder there will be phone file</p>
+<p>to make the /dev/phone, the udev files have to be created, inside  /etc/udev/rules.d, with file name 90-phone.rules, with this contents</p>
 
-<p>change the gammurc file as earlier and reboot</p>
+<pre><code>KERNEL==&quot;ttyUSB*&quot;, ATTRS{idVendor}==&quot;12d1&quot;, ATTRS{idProduct}==&quot;1436&quot;, NAME=&quot;phone&quot;, MODE=&quot;0666&quot;,SYMLINK+=&quot;phone&quot;
+KERNEL==&quot;ttyUSB*&quot;, ATTRS{idVendor}==&quot;067b&quot;, ATTRS{idProduct}==&quot;2303&quot;, NAME=&quot;dylos&quot;, MODE=&quot;0666&quot;,SYMLINK+=&quot;dylos&quot;
+ATTRS{idVendor}==&quot;067b&quot;, ATTRS{idProduct}==&quot;2303&quot;, SYMLINK+=&quot;dylos&quot;
+</code></pre>
 
-<p>now gammu &ndash;identify can be run with out sudo</p>
+<p>now reboot the system, inside the <code>/dev</code> folder there will be phone file.
+  Change the gammurc file as earlier and reboot now gammu <code>--identify</code> can be run with out <code>sudo</code> it shows</p>
 
-<p>it shows</p>
-
-<p>gammu &ndash;identify
+<pre><code>gammu --identify
 Device               : /dev/phone
 Manufacturer         : Huawei
 Model                : E173 (E173)
 Firmware             : 11.126.30.00.00
-IMEI                 : 868860005573702
-SIM IMSI             : 404805166582360</p>
+IMEI                 : Digits
+SIM IMSI             : Digits
+</code></pre>
 
-<p>now go to gammu-smsd</p>
+<p>now go to <code>gammu-smsd</code>, it removes file permission error like if it was running <code>gammu --identify</code> with <code>sudo</code></p>
 
-<p>it removes file permission error like this if it was running gammu &ndash;identify with sudo</p>
-
-<pre><code> gammu-smsd -c /etc/gammu-smsdrc
+<pre><code>gammu-smsd -c /etc/gammu-smsdrc
 Can't open log file &quot;/var/log/gammu-smsd.log&quot;
 Failed to read config: Can not open specified file.
 </code></pre>
 
-<p>by rectifying the gammu &ndash;identify with out sudo, by this now the gammu-smsdrc will also be running and storing the received sms in its in box of mysql if it is configured as per the earlier references, te gammu-smsdrc config file look like this</p>
+<p>by rectifying the <code>gammu --identify</code> with out <code>sudo</code>, <code>gammu-smsdrc</code> will be running and storing the received sms in its in box of mysql if it is configured as per the earlier references, the <code>gammu-smsdrc</code> config file look like this</p>
 
 <pre><code>[gammu]
 device = /dev/phone
@@ -201,15 +167,8 @@ pc = localhost
 #inboxformat = standard
 </code></pre>
 
-<p>moreover, also the MySQL has to give with a database and SQL import from the SQL file provided with the gammu or gammu-smsd, to unzip the gz files use</p>
-
-<p>sudo gzip -d pgsql.sql.gz</p>
-
-<p>in this folder</p>
-
-<p>/usr/share/doc/gammu/examples/sql</p>
-
-<p>now the kalkun is not working has to see other time</p>
+<p>moreover, also the MySQL has to give with a database and SQL import from the SQL file provided with the gammu or gammu-smsd, to unzip the gz files use  <code>sudo gzip -d pgsql.sql.gz</code> in this folder  <code>/usr/share/doc/gammu/examples/sql</code>. Still the kalkun is not working has to see other time</p></li>
+</ol>
 
 
   <footer>
@@ -236,6 +195,6 @@ pc = localhost
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

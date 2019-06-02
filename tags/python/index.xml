@@ -2,87 +2,87 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on Nishadh KA</title>
-    <link>//localhost:1313/tags/python/</link>
+    <link>/tags/python/</link>
     <description>Recent content in Python on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Jan 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Finding route between two points from OSM road network input</title>
-      <link>//localhost:1313/working-notes/2019/route-between-two-points-from-osm-road-network-input/</link>
+      <link>/working-notes/2019/route-between-two-points-from-osm-road-network-input/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2019/route-between-two-points-from-osm-road-network-input/</guid>
+      <guid>/working-notes/2019/route-between-two-points-from-osm-road-network-input/</guid>
       <description>Finding navigable route such as for driving between two points has several application. Open Street Map(OSM) with its free downloadable map, routing algorithms can be applied to find best route between two location. OSMNX, a python library import osm (a default file format provided by OSM) into graphml format which can be used with network analysis to get route network. The OSM downloaded from overpass using the polygon bouundary for an urban area, the overpass query https://overpass-api.</description>
     </item>
     
     <item>
       <title>Print map shape file python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-12/print_map_shape_file_python/</link>
+      <link>/working-notes/2014/wn_2014-12/print_map_shape_file_python/</link>
       <pubDate>Wed, 17 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-12/print_map_shape_file_python/</guid>
+      <guid>/working-notes/2014/wn_2014-12/print_map_shape_file_python/</guid>
       <description>####Create and print map using pandas in python from SHAPE file#####
  Based on this note to print map from shape file, a sort of scripting map creation and printing without using qgis kind GUI. The above note uses fiona lib. Intsallation of fiona is super easy with anaconda. Command conda install fiona does all the jobs of installing with all its depndancy starting from gdal. Native installtion of gdal and linkingit with python libs are super hard.</description>
     </item>
     
     <item>
       <title>Geonames Pandas Shapefile</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</link>
+      <link>/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</link>
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</guid>
+      <guid>/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</guid>
       <description>###GEONAMESPandasintoSHape file#### ####For the scripts /script/ /scripts/csvtoshp.py, csvtoshpTEST.py, Geoname.py#### 1. The industry data for emission inventory is in address with its details. To get get the latitude and longitude value of each address has to have a database with address with its latitude and longitude. 1. One such database is Geonames, its country wise data is having smaller amount of data for Coimbatore case, but POSTAL CODE data has more than 641 postal code details with latitude and longitude information.</description>
     </item>
     
     <item>
       <title>Reverse Geocoding</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/reverse_geocoding/</link>
+      <link>/working-notes/2014/wn_2014-11/reverse_geocoding/</link>
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/reverse_geocoding/</guid>
+      <guid>/working-notes/2014/wn_2014-11/reverse_geocoding/</guid>
       <description>####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude is not having high resolution to differentiate between to nearby postal code points. For this need a high resolution latitude longitude data, IN this regard GOOGLE MAP API is a good help. As per this from address the latitude and longitude json files can be obtained with its API key, based on this and getting the API access key from here.</description>
     </item>
     
     <item>
       <title>Pandas JSON</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/pandas_json/</link>
+      <link>/working-notes/2014/wn_2014-11/pandas_json/</link>
       <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/pandas_json/</guid>
+      <guid>/working-notes/2014/wn_2014-11/pandas_json/</guid>
       <description>####Pandas to JSON#### #####It is for this script /scripts/PandasJSONscript.py#####
  To convert pandas dataframe into JSON, converted pandas dataframe into csv and then using this script to convert csv into json. But it was not giving satisfactory json file, the fields where completely shuffled. Then used pandas in built function of to_json but it was giving nested json file.  import pandas import pandas as pd d=pd.read_csv(&#39;/home/swl-sacon-dst/Documents/GISE_2013/LAB/Aerocet_DATA/Oct_sample/json/A08102014M.csv&#39;) db=d[[&#39;Time&#39;,&#39;long&#39;,&#39;lat&#39;,&#39;PM1(ug/m3)&#39;,&#39;PM2.5(ug/m3)&#39;,&#39;PM4(ug/m3)&#39;,&#39;PM7(ug/m3)&#39;,&#39;PM10(ug/m3)&#39;,&#39;TSP(ug/m3)&#39;]] db[&#39;geojson&#39;]=&#39;{\\&amp;quot;type\\&amp;quot;:\\&amp;quot;Point\\&amp;quot;,\\&amp;quot;coordinates\\&amp;quot;:[&#39;+db[&#39;long&#39;].astype(str)+&#39;,&#39;+db[&#39;lat&#39;].astype(str)+&#39;]}&#39; db2=db[[&#39;Time&#39;,&#39;PM2.5(ug/m3)&#39;,&#39;PM10(ug/m3)&#39;,&#39;TSP(ug/m3)&#39;,&#39;geojson&#39;]] db2.</description>
     </item>
     
     <item>
       <title>Pandas JSON</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/pandas_json/</link>
+      <link>/working-notes/2014/wn_2014-11/pandas_json/</link>
       <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/pandas_json/</guid>
+      <guid>/working-notes/2014/wn_2014-11/pandas_json/</guid>
       <description>####Pandas to JSON#### #####It is for this script /scripts/PandasJSONscript.py#####
  To convert pandas dataframe into JSON, converted pandas dataframe into csv and then using this script to convert csv into json. But it was not giving satisfactory json file, the fields where completely shuffled. Then used pandas in built function of to_json but it was giving nested json file.  import pandas import pandas as pd d=pd.read_csv(&#39;/home/swl-sacon-dst/Documents/GISE_2013/LAB/Aerocet_DATA/Oct_sample/json/A08102014M.csv&#39;) db=d[[&#39;Time&#39;,&#39;long&#39;,&#39;lat&#39;,&#39;PM1(ug/m3)&#39;,&#39;PM2.5(ug/m3)&#39;,&#39;PM4(ug/m3)&#39;,&#39;PM7(ug/m3)&#39;,&#39;PM10(ug/m3)&#39;,&#39;TSP(ug/m3)&#39;]] db[&#39;geojson&#39;]=&#39;{\\&amp;quot;type\\&amp;quot;:\\&amp;quot;Point\\&amp;quot;,\\&amp;quot;coordinates\\&amp;quot;:[&#39;+db[&#39;long&#39;].astype(str)+&#39;,&#39;+db[&#39;lat&#39;].astype(str)+&#39;]}&#39; db2=db[[&#39;Time&#39;,&#39;PM2.5(ug/m3)&#39;,&#39;PM10(ug/m3)&#39;,&#39;TSP(ug/m3)&#39;,&#39;geojson&#39;]] db2.</description>
     </item>
     
     <item>
       <title>DOCX table into python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/docx_table_into_python/</link>
+      <link>/working-notes/2014/wn_2014-11/docx_table_into_python/</link>
       <pubDate>Sat, 01 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/docx_table_into_python/</guid>
+      <guid>/working-notes/2014/wn_2014-11/docx_table_into_python/</guid>
       <description>###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Insted of this the table can be all select, copy paste in Libre calculator and save it as csv. 1. This csv file will be having one blank line after every row as of DOCX table. To remove this row use this script, edited with considering the special delimiter used to silence the &amp;lsquo;,&amp;rsquo; in address column.</description>
     </item>
     
     <item>
       <title>Excel Pandas LATEX PDF</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</link>
+      <link>/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</link>
       <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</guid>
+      <guid>/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</guid>
       <description>###CSV data into pandas and LATEX then into PDF and then print!###
  To import csv file with date into pandas dataframe. Pands can parse date column, but it won&amp;rsquo;t be correct. The date column formate has top be mentiod and parsed for this, like below based on [this], then this can be imported into pandas datafrem emntioing the dateparse.  dateparse = lambda x: pd.datetime.strptime(x, &amp;lsquo;%d/%m/%y&amp;rsquo;) pro=pd.readcsv(&amp;lsquo;PROJECTEXPNDTR1.csv&amp;rsquo;,parsedates=[1],date_parser=dateparse)
 dateparse = lambda x: pd.</description>
@@ -90,10 +90,10 @@ dateparse = lambda x: pd.</description>
     
     <item>
       <title>PythonGDALproblem</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-10/pythongdalproblem/</link>
+      <link>/working-notes/2014/wn_2014-10/pythongdalproblem/</link>
       <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-10/pythongdalproblem/</guid>
+      <guid>/working-notes/2014/wn_2014-10/pythongdalproblem/</guid>
       <description>####Python GDAL problem####
 ImportError: /usr/lib/libgdal.so.1: undefined symbol: sqlite3columntable_name
 main.gdalconfigerror: [Errno 2] No such file or directory
@@ -113,29 +113,29 @@ install.packages(repos=c(&amp;lsquo;http://cran.fhcrc.org/&#39;),pkgs=c(&#39;ncd
     
     <item>
       <title>WRFCHEM output python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_output_python/</link>
+      <link>/working-notes/2014/wn_2014-09/wrfchem_output_python/</link>
       <pubDate>Mon, 29 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_output_python/</guid>
+      <guid>/working-notes/2014/wn_2014-09/wrfchem_output_python/</guid>
       <description>###WRFCHEM_output pythonic####
  Related to the last note on getting txt time series data from wrf output here. This note details getting numpy array from wrf output and plotting data in python. The variables requiered from wrfoutput are Temperature, Realtive humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for quick view of the wrf output.</description>
     </item>
     
     <item>
       <title>WRFCHEM CBE lazyWRF py</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</link>
+      <link>/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</link>
       <pubDate>Thu, 25 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</guid>
+      <guid>/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</guid>
       <description>###Use script to execute WRF CHEM CBE### 1. To run in real time and in cluster environment(AWS or ARM), various steps of WRF have to be made into script. 1. There are several python based scripts avaiable for running WRF. The script lazyWRF is a neat and simple script to run wrf from WPS stage. 1. The script has minor problem in running, it was forked from its git hub repository and edited.</description>
     </item>
     
     <item>
       <title>forumpost</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/forumpost/</link>
+      <link>/working-notes/2014/wn_2014-09/forumpost/</link>
       <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/forumpost/</guid>
+      <guid>/working-notes/2014/wn_2014-09/forumpost/</guid>
       <description>there are example of porting WRF model in ARM processors. Fine grained parallellism, OpenMP, 16bytes genration in GPU exampel study
 WRF is developed with single floating point oeprations and newer modules of WRF such as WRF CHEM for air quality predictions are having single as well as double floating point implemntaiton. There are studies comparing GPU enhanment with double and single point operations.
 Plan of server board cluster Hardware enahmenet Limitation of OpenMP</description>
@@ -143,236 +143,251 @@ Plan of server board cluster Hardware enahmenet Limitation of OpenMP</descriptio
     
     <item>
       <title>WRFCHEM domain view python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</link>
+      <link>/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</guid>
+      <guid>/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</guid>
       <description>####WRF_CHEM domain view by python script####
  WRF CHEM domain in nested has to be visulaised to correct the nesting and for domain size adjustment. There are few tools availble to do that such as dwiz of wrf ems and plotgrid.ncl. There is an alternative with python based on this, it is a wrf script tools for visualizing and nesting based simulation. Set of scripts available has a function to visualize the namelist.</description>
     </item>
     
     <item>
-      <title>python script InsertObservation istSOS xml</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-08/python_script_insertobservation_istsos_xml/</link>
+      <title>Insert Observation in istSOS xml</title>
+      <link>/working-notes/2014/wn_2014-08/python-script-insertobservation-istsos-xml/</link>
       <pubDate>Wed, 06 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-08/python_script_insertobservation_istsos_xml/</guid>
-      <description>##python script to InsertObservation into istSOSxml way## 1. Based on the early experience of inserting observation in xml way with python using HTTP post in 52North SOS, made a try with Ist SOS, other way to do is using calling another python script to import data in csv formate. 2. Based on this note on OWS service [requests](https://geoservice.ist.supsi.ch/projects/istsos/index.php/ExampleofSOSrequest). to get the DescribeSensor information used this link, it always failed in specfying formate but other request was succeffull</description>
+      <guid>/working-notes/2014/wn_2014-08/python-script-insertobservation-istsos-xml/</guid>
+      <description>Based on the early experience of inserting observation in xml way with python using HTTP post in 52North SOS, made a try with Ist SOS, another way to do is using calling another python script to import data in CSV format. Based on this note on OWS service requests. to get the DescribeSensor information used this link, it always failed in specifying formate, but another request was successful
+http://54.255.173.125/istsos/cbed?request=describeSensor&amp;amp;procedure=KNMR&amp;amp;outputFormat= text xml;subtype=&amp;quot;sensorML/1.</description>
     </item>
     
     <item>
-      <title>Workflow docear mendely Python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-07/workflow_docear_mendely_python/</link>
+      <title>Workflow with Docear, Mendely and Python</title>
+      <link>/working-notes/2014/wn_2014-07/workflow-docear-mendely-python/</link>
       <pubDate>Fri, 18 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-07/workflow_docear_mendely_python/</guid>
-      <description>creating a script to select pdf files from a bunch of folders, subfolders, html files create folders with only pdf files the code is ``` import os count = 0 d=[] f=[] for (dirname, dirs, files) in os.walk(&amp;lsquo;/home/swl-sacon-dst/Documents/GISE2013/LAB/labnotes/&amp;lsquo;): #sepecifiying the directory to search for pdf files from for filename in files: if filename.endswith(&amp;lsquo;.pdf&amp;rsquo;) : thefile = os.path.join(dirname,filename) dire = os.path.dirname(thefile) f.append(thefile) d.append(dire) #makung a list of ifle names and folders for copying #using list comphrehsnsion to change the folder path from dc = [word.</description>
+      <guid>/working-notes/2014/wn_2014-07/workflow-docear-mendely-python/</guid>
+      <description>A script to select pdf files from a bunch of folders, subfolders, html files and create folders with only pdf files, the code is
+import os count = 0 d=[] f=[] for (dirname, dirs, files) in os.walk(&#39;/home/swl-sacon-dst/Documents/GISE_2013/LAB/lab_notes/&#39;): #sepecifiying the directory to search for pdf files [from](http://stackoverflow.com/questions/273192/check-if-a-directory-exists-and-create-it-if-necessary) for filename in files: if filename.endswith(&#39;.pdf&#39;) : thefile = os.path.join(dirname,filename) dire = os.path.dirname(thefile) f.append(thefile) d.append(dire) #makung a list of ifle names and folders for copying #using list comphrehsnsion to change the folder path [from](http://stackoverflow.</description>
     </item>
     
     <item>
-      <title>Check null in python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-07/check_null_in_python/</link>
+      <title>Checkng Null in Python for loop</title>
+      <link>/working-notes/2014/wn_2014-07/check_null_in_python/</link>
       <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-07/check_null_in_python/</guid>
-      <description>##checking for null in python## - lbm1, connected with tp-link and to upload data to thinkspeak internet of things services, a script is used as follows,
+      <guid>/working-notes/2014/wn_2014-07/check_null_in_python/</guid>
+      <description>Checking for null in python
+ The Dylos montior, connected with tp-link and to upload data to thinkspeak internet of things services, following script is used,
 import sqlite3 as lite import logging import httplib, urllib from time import localtime, strftime import time logger = logging.getLogger(&#39;lbm1&#39;) hdlr = logging.FileHandler(&#39;/home/pi/SMS/pyts.log&#39;) formatter = logging.Formatter(&#39;%(asctime)s: %(levelname)s %(message)s&#39;) headers = {&amp;quot;Content-type&amp;quot;: &amp;quot;application/x-www-form-urlencoded&amp;quot;,&amp;quot;Accept&amp;quot;: &amp;quot;text/plain&amp;quot;} conn = httplib.HTTPConnection(&amp;quot;api.thingspeak.com:80&amp;quot;) hdlr.setFormatter(formatter) logger.addHandler(hdlr) logger.setLevel(logging.INFO) logger.info(&amp;quot;tss&amp;quot;) con = lite.connect(&#39;/home/pi/SMS/dylos.db&#39;) try: with con: cur = con.</description>
     </item>
     
     <item>
-      <title>Serial port problem lbm1 knmr</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-07/serial_port_problem_lbm1_knmr/</link>
+      <title>Serial port problem in Dylos Air quality monitor</title>
+      <link>/working-notes/2014/wn_2014-07/serial-port-problem-lbm1-knmr/</link>
       <pubDate>Sun, 13 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-07/serial_port_problem_lbm1_knmr/</guid>
-      <description>##Serialport and other problem, lbm1 knmr monitor## - lbm1 knmr monitor is setup with three threepin plugs extension box serially wired, it is connected with another serially connected extension box with two pin plug. - In which three plugs, one plug, dylos air quality monitor is connected, another 2A 7port USB hub adapter is connected and third and final pin from right to left, TP link 3G router is connected. - With the above setup, router LAN is connected with rapberry pi which is connected with 7hub USB, Dylos serial port is connected with rpi, RPi is accessed via wireless connectivity through router.</description>
+      <guid>/working-notes/2014/wn_2014-07/serial-port-problem-lbm1-knmr/</guid>
+      <description>A monitor is set up with three three-pin plugs extension box serially wired, and connected to another serially connected extension box with two pin plug. In which three plugs, one Dylos air quality monitor is connected, another 2A 7port USB hub adapter is connected and third and final pin from right to left, TP-link 3G router is connected. With the above setup, router LAN connected with raspberry pi which connected with 7hub USB, Dylos serial port connected with RPI, RPi accessed via wireless connectivity through a router.</description>
     </item>
     
     <item>
-      <title>Textfile from WRFoutput pythonic</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/textfile_from_wrfoutput_pythonic/</link>
+      <title>Textfile from WRFoutput using Python</title>
+      <link>/working-notes/2014/wn_2014-06/textfile-from-wrfoutput-pythonic/</link>
       <pubDate>Sat, 28 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/textfile_from_wrfoutput_pythonic/</guid>
-      <description>##TextfilefromWRFoutputpythonic## - to convert wrf output into text file for the value of a specified lat long - Using the script WrfncXnj.py, convert wrf output in cf abiding nc file - the steps are as follows - cp wrfoutd04* /home/hoopoe/wrfncxnj-0.1_r2120/ - to get the list of available files in a directory
-import os a=[] for file in os.listdir(&amp;quot;/home/hoopoe/wrfncxnj-0.1_r2120/&amp;quot;): if file.startswith(&amp;quot;wrfout_d04&amp;quot;): a.append(file)   to run a external python script from another python script,  import subprocess a= wrfout_d04_2014-06-11_00:00:00 subprocess.</description>
+      <guid>/working-notes/2014/wn_2014-06/textfile-from-wrfoutput-pythonic/</guid>
+      <description>To convert wrf output into a text file for the value of a specified lat long Using the script WrfncXnj.py, convert wrf output in cf abiding nc file The steps are as follows, cp wrfout_d04* /home/hoopoe/wrfncxnj-0.1_r2120/. To get the list of available files in a directory
+import os a=[] for file in os.listdir(&amp;quot;/home/hoopoe/wrfncxnj-0.1_r2120/&amp;quot;): if file.startswith(&amp;quot;wrfout_d04&amp;quot;): a.append(file)  To run a external python script from another python script,
+import subprocess a= wrfout_d04_2014-06-11_00:00:00 subprocess.</description>
     </item>
     
     <item>
       <title>Installing GDAL with Python in Ubunut1204</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/installing_gdal_with_python_in_ubunut1204/</link>
+      <link>/working-notes/2014/wn_2014-06/installing-gdal-with-python-in-ubunut1204/</link>
       <pubDate>Wed, 18 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/installing_gdal_with_python_in_ubunut1204/</guid>
-      <description>##InstallingGDALwith_Python## - to make geotiff file from wrf output, python script requiers gdal such as for this from osgeo import gdal and from osgeo import osr - to install it in Ubuntu 12.04, it reuiers to install gdal-bin, libgdal1 and ptthon-gdal, after installing running python and importing crahes python with this message segmentation error(core dumped) - first it was detected of version difference, so installed with deb packages avaolable for the version for 1.</description>
+      <guid>/working-notes/2014/wn_2014-06/installing-gdal-with-python-in-ubunut1204/</guid>
+      <description>Convert WRF output into geotiff. Python script requires gdal such as for this from osgeo import gdal and from osgeo import osr To install it in Ubuntu 12.04, it requires to install gdal-bin, libgdal1 and python-gdal, after installing and running python import of these libs ends up in crashes with this message segmentation error(core dumped) Detected error due to version difference, so installed with deb packages available for the version for 1.</description>
     </item>
     
     <item>
-      <title>Reprojecting SHAPE file python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/reprojecting_shape_file_python/</link>
+      <title>Reprojecting SHAPE file uing Python</title>
+      <link>/working-notes/2014/wn_2014-06/reprojecting-shape-file-python/</link>
       <pubDate>Wed, 18 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/reprojecting_shape_file_python/</guid>
-      <description>##reporjecting shape file using python##
- WRF output netcdf(nc) or wrfncx.py output nc files are converted into geotiff(tiff) file with coustom projections, see the codes for nc to tiff conversion.
-from osgeo import gdal from osgeo import osr import numpy import numpy.ma as ma datafile = &#39;ZZZG3wrfout_psl.nc&#39; proj_out = osr.SpatialReference() proj_out.SetMercator(0.0, 115.02, 0.98931892612652, 0.0, 0.0) ds_in = gdal.Open(datafile) #subdatasets = ds_in.GetSubDatasets() #variables = [] #for subdataset in subdatasets: # variables.</description>
+      <guid>/working-notes/2014/wn_2014-06/reprojecting-shape-file-python/</guid>
+      <description>WRF output netcdf(nc) or wrfncx.py output nc files converted into geotiff(tiff) file with custom projections, see the codes for nc to tiff conversion.
+from osgeo import gdal from osgeo import osr import numpy import numpy.ma as ma datafile = &#39;ZZZG3wrfout_psl.nc&#39; proj_out = osr.SpatialReference() proj_out.SetMercator(0.0, 115.02, 0.98931892612652, 0.0, 0.0) ds_in = gdal.Open(datafile) #subdatasets = ds_in.GetSubDatasets() #variables = [] #for subdataset in subdatasets: # variables.append(subdataset[1].split(&amp;quot; &amp;quot;)[1]) ds_lon = gdal.Open(&#39;NETCDF:&amp;quot;ZZZG3wrfout_psl.nc&amp;quot;:lon&#39;) ds_lat = gdal.</description>
     </item>
     
     <item>
-      <title>data editing with pandas</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/data_editing_with_pandas/</link>
+      <title>Working with CSV using Python Pandas</title>
+      <link>/working-notes/2014/wn_2014-06/data-editing-with-pandas/</link>
       <pubDate>Tue, 17 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/data_editing_with_pandas/</guid>
-      <description>##data editing with pandas## - to import data into python
-import pandas as pd data=pd.read_csv(&#39;value.txt&#39;)   to view dat ahead or sepcified rows  data.iloc[:5, :4]  to sort data based on specific oclumn, here data column  d2=d1.sort([&#39;observation_time&#39;])  to make a dataetime column recognized as date column in padnas dataframe  d1[&#39;SamplingDate&#39;] = pd.to_datetime(d1[&#39;SamplingDate&#39;])  to remove NaN valued rows in any of the columns of dataframe  d1=data.</description>
+      <guid>/working-notes/2014/wn_2014-06/data-editing-with-pandas/</guid>
+      <description>To import data into python
+import pandas as pd data=pd.read_csv(&#39;value.txt&#39;)  To view data head or specified rows
+data.iloc[:5, :4]  To sort data based on a specific column, here data column
+d2=d1.sort([&#39;observation_time&#39;])  To make a dataetime column recognized as date column in padnas dataframe
+d1[&#39;SamplingDate&#39;] = pd.to_datetime(d1[&#39;SamplingDate&#39;])  To remove NaN valued rows in any of the columns of the data frame
+ d1=data.dropna()  To reindex data frame with date time columns</description>
     </item>
     
     <item>
-      <title>editing WRF logfile Python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/editing_wrf_logfile_python/</link>
+      <title>Parsing the WRF logfile in Python</title>
+      <link>/working-notes/2014/wn_2014-06/editing-wrf-logfile-python/</link>
       <pubDate>Sun, 08 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/editing_wrf_logfile_python/</guid>
-      <description>##editingWRFlogfile_Python and pandas##
- to get sum seconds wrf is running, the wrf.out.log was imported into python to sum the elapsed seconds in each domains to get the log file into wrf bf = open(&#39;run_wrfm.log&#39;, &#39;r&#39;) to read each lines in the file bf_lines=bf.readlines() to make the lines into list array and select only the list with particular words in it, here the word &amp;ldquo;Timing for Writing&amp;rdquo;  f=[] for line in bf_lines: if &#39;Timing for Writing&#39; in line: f.</description>
+      <guid>/working-notes/2014/wn_2014-06/editing-wrf-logfile-python/</guid>
+      <description>To get a sum of seconds WRF is running, the wrf.out.log was imported into python to sum the elapsed seconds in each domain To get the log file into wrf bf = open(&#39;run_wrfm.log&#39;, &#39;r&#39;) To read each lines in the file bf_lines=bf.readlines() To make the lines into list array and select only the list with particular words in it, here the word &amp;ldquo;Timing for Writing&amp;rdquo;
+f=[] for line in bf_lines: if &#39;Timing for Writing&#39; in line: f.</description>
     </item>
     
     <item>
-      <title>python_querying_and_editing_json</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/python_querying_and_editing_json/</link>
+      <title>Python to query and edit json files</title>
+      <link>/working-notes/2014/wn_2014-05/python-querying-and-editing-json/</link>
       <pubDate>Wed, 28 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/python_querying_and_editing_json/</guid>
-      <description>##pythonqueryingandeditingjson## - For most of the works related with this and this involves editing and querying of json and its formates such as GeoJson and Topojson - In cbe-air web application, topjson is going to act as map element and its editing is required for real time map generation and for map styling - In node.js based web application for visualizing model output, netcdf output from WRF has to converted into geojson and made similar with the earth wind data formate.</description>
+      <guid>/working-notes/2014/wn_2014-05/python-querying-and-editing-json/</guid>
+      <description>For most of the works related to this and this It involves editing and querying of JSON and its formats such as GeoJson and Topojson In cbe-air web application, topjson is going to act as map element, and its editing required for real-time map generation and map styling In node.js based web application for visualizing model output, NetCDF output from WRF has to converted into geojson and made similar with the earth wind data formate.</description>
     </item>
     
     <item>
-      <title>Merge geojsons into one</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/merge_geojsons_into_one/</link>
+      <title>Merge multiple geojsons into single file</title>
+      <link>/working-notes/2014/wn_2014-05/merge-multiple-geojsons-into-single-file/</link>
       <pubDate>Sat, 24 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/merge_geojsons_into_one/</guid>
-      <description>##Mergegeojsonsinto_one## - For converting qs into cbe-air, map is rendered using geojson rendering capability of github - the marker was easiliy made into geojson from qgis and org2ogr as a shape file. based on this under section &amp;ldquo;getting map data&amp;rdquo;, the command is
-ogr2ogr -f GeoJSON point.json point.shp //and adding this script line in html &amp;lt;script src=&amp;quot;https://embed.github.com/view/geojson/saconswl/cbeair/gh-pages/cbe-s.json?height=530&amp;amp;width=1300&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; //under div map   To include coimbatore city limits along with point marker, adding another script line of github embed renderes another map!</description>
+      <guid>/working-notes/2014/wn_2014-05/merge-multiple-geojsons-into-single-file/</guid>
+      <description>For converting qs into cbe-air, the map is rendered using geojson rendering capability of GitHub The marker was easily made into geojson from QGIS and org2ogr as a shapefile. based on this under section &amp;ldquo;getting map data,&amp;rdquo; the command is
+ogr2ogr -f GeoJSON point.json point.shp  and adding this script line in html
+&amp;lt;script src=&amp;quot;https://embed.github.com/view/geojson/saconswl/cbeair/gh-pages/cbe-s.json?height=530&amp;amp;width=1300&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;  under div map
+ To include Coimbatore city limits along with point marker, adding another script line of GitHub embed renderers another map!</description>
     </item>
     
     <item>
-      <title>json data into SQLinsert with python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/json_data_into_sqlinsert_with_python/</link>
+      <title>The json data into SQLinsert with python</title>
+      <link>/working-notes/2014/wn_2014-05/json-data-into-sqlinsert-with-python/</link>
       <pubDate>Fri, 23 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/json_data_into_sqlinsert_with_python/</guid>
-      <description>##jsondataintoSQLinsertwith python## - to start with json data in python and loop over its elements
-import json json_data=open(&#39;data.json&#39;) data=json.load(json_data) a=data[0][&#39;samples&#39;] for rs in a: print rs[&#39;wind&#39;]   to join two list as a column in python  to join two list inpython for c1, c2 in zip(de, c): print &amp;quot;%-9s %s&amp;quot; % (c1, c2)  to append loop items into a array  c=[] for rs in a: c.append(rs[&#39;wind&#39;])  to remove u from list elemnt  de=[] for x in d: de.</description>
+      <guid>/working-notes/2014/wn_2014-05/json-data-into-sqlinsert-with-python/</guid>
+      <description>To start with json data in python and loop over its elements
+import json json_data=open(&#39;data.json&#39;) data=json.load(json_data) a=data[0][&#39;samples&#39;] for rs in a: print rs[&#39;wind&#39;]  To join two list as a column in python, to join two list inpython
+for c1, c2 in zip(de, c): print &amp;quot;%-9s %s&amp;quot; % (c1, c2)  To append loop items into a array
+c=[] for rs in a: c.append(rs[&#39;wind&#39;])  To remove u from list elemnt</description>
     </item>
     
     <item>
-      <title>Querying netcdf with python_kdtree</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/querying_netcdf_with_python_kdtree/</link>
+      <title>Querying netcdf with python and KDtree algorithm</title>
+      <link>/working-notes/2014/wn_2014-05/querying-netcdf-with-python-kdtree/</link>
       <pubDate>Wed, 21 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/querying_netcdf_with_python_kdtree/</guid>
-      <description>##QueryingnetcdfwithPYTHONKDTREE## - To query a netcdf with latitude and longitude is required for objective three, in which user pointed lat long, revived as SMS from Android app has to parsed and find its model and nearest dylos monitoring station to send replay. - there is very useful tutorial on this with elaboration on different implementations advantages - In which most advanced querying was based on KDtree, this implementation was used to query netcdf generated from WRF model the code is as follows</description>
+      <guid>/working-notes/2014/wn_2014-05/querying-netcdf-with-python-kdtree/</guid>
+      <description>To query a NetCDF with latitude and longitude is required for objective three, in which user pointed lat-long, revived as SMS from Android app has to parsed and find its model and nearest Dylos monitoring station to send replay. There is handy tutorial on this with elaboration on different implementations advantages In which most advanced querying based on KDtree, this implementation was used to query NetCDF generated from WRF model the code is as follows</description>
     </item>
     
     <item>
       <title>Installing netcdf python in Ubuntu1204</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/installing_netcdf_python_in_ubuntu1204/</link>
+      <link>/working-notes/2014/wn_2014-05/installing-netcdf-python-in-ubuntu1204/</link>
       <pubDate>Tue, 20 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/installing_netcdf_python_in_ubuntu1204/</guid>
-      <description>##InstallingnetcdfpythoninUbuntu12.04##
- to install netcdf-python requiers HDF, based on this HDF isntallation from source got failed, used synaptic package manager to install HDF5 Downloaded netcdf-python, extracted and run python setup.py install Failed, saying netcdf is not found in usr/ So follwoed this, downloaded version of netcdf-4.0.1, placed in /usr/local cd into netcdf-4.0.1, and run the code LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=/usr/local then sudo make and then sudo make install seems got installed, then went into netcdf4-python as given in this and run sduo python setup.</description>
+      <guid>/working-notes/2014/wn_2014-05/installing-netcdf-python-in-ubuntu1204/</guid>
+      <description>To install NetCDF-python requires HDF, based on this The HDF installation from source got failed, used the synaptic package manager instead to install HDF5 Downloaded NetCDF-python, extracted and run python setup.py install Failed, saying NetCDF is not found in usr/ So followed this, downloaded version of NetCDF-4.0.1, placed in /usr/local Doing cd into netcdf-4.0.1, and run the code
+LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=/usr/local  Then doing sudo make and then sudo make install, seems got installed, then went into netcdf4-python as given in this</description>
     </item>
     
     <item>
-      <title>OnPython</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/onpython/</link>
+      <title>Convert pandas dataframe into a PDF file using Latex</title>
+      <link>/working-notes/2014/wn_2014-05/pandas-dataframe-into-latex-pdf/</link>
       <pubDate>Sat, 10 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/onpython/</guid>
-      <description>##Python with sqlite, istsos dat formate and time downscaling#
-###WIth sqlite - to convert a list, for example cur.fetch from database like sqlite,
-[&#39;2014-04-30T10:25,2797,147&#39;, &#39;2014-04-30T10:27,2639,174&#39;, &#39;2014-04-30T10:29,2645,158&#39;, &#39;2014-04-30T10:31,2676,149&#39;]   use print &amp;quot;\n&amp;quot;.join(b) based on this gives  &amp;quot;2014-04-30T10:25,2797,147 2014-04-30T10:27,2639,174 2014-04-30T10:29,2645,158 2014-04-30T10:31,2676,149&amp;quot;  to remove double quotes from above to write into a .DAT, tryed almost two hours then find out that the used mehtod will not do this. the full code is as follows with uncommented lines are failed attmepts.</description>
+      <guid>/working-notes/2014/wn_2014-05/pandas-dataframe-into-latex-pdf/</guid>
+      <description>Huge data frames which go for multiple A4 pages landscape is difficult to make in excel The alternative uses python pandas and convert the pandas&amp;rsquo; data frame into pdf through latex or HTML, latex is promising for just printing Basically from ([1])(http://stackoverflow.com/questions/14380371/export-a-latex-table-from-pandas-dataframe) for convert data frame into tex and this for converting Tex into landscape pdf document The python script to make table text is as follows, It is mostly from third answer [1], and bold column heading write python trick from</description>
     </item>
     
     <item>
-      <title>pandas dataframe into LATEX PDF</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/pandas_dataframe_into_latex_pdf/</link>
+      <title>IStSOS Data formating using Python</title>
+      <link>/working-notes/2014/wn_2014-05/onpython/</link>
       <pubDate>Sat, 10 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/pandas_dataframe_into_latex_pdf/</guid>
-      <description>##pandasdataframeinto_PDF## - Huge dataframes whihc goes for multiple A4 pages landscape is difficult to make in excel - Alternative is use python pandas and convert the pandas dataframe into pdf thorugh latex or html, latex is promising for just printing - Basically from ([1])(http://stackoverflow.com/questions/14380371/export-a-latex-table-from-pandas-dataframe) for convert dataframe into tex and this for converting tex into landscape pdf document - the python script to make table text is as follows, It is mostly from 3rd answer [1] and bold column heading write python trick from</description>
+      <guid>/working-notes/2014/wn_2014-05/onpython/</guid>
+      <description>Use Python with SQLite, istsos data formate and timeseries subsampling (downscaling).
+ With sqlite to convert a list, for example cur.fetch from database like sqlite,
+[&#39;2014-04-30T10:25,2797,147&#39;, &#39;2014-04-30T10:27,2639,174&#39;, &#39;2014-04-30T10:29,2645,158&#39;, &#39;2014-04-30T10:31,2676,149&#39;]  Use print &amp;ldquo;\n&amp;rdquo;.join(b) based on this gives
+&amp;quot;2014-04-30T10:25,2797,147 2014-04-30T10:27,2639,174 2014-04-30T10:29,2645,158 2014-04-30T10:31,2676,149&amp;quot;  To remove double quotes from above to write into a.DAT, tried almost two hours then find out that the used method will not do this. The full code is as follows with uncommented lines showing failed attempts.</description>
     </item>
     
     <item>
       <title>IRIS install</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/iris_install/</link>
+      <link>/working-notes/2014/wn_2014-04/iris-install/</link>
       <pubDate>Thu, 24 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/iris_install/</guid>
-      <description>Installing_IRIS
- IRIS is a python tool for working with netcdf and grib files. It is installed to convert WRF output in netCDF to grib2 formate, which is need for grib2json tool. IRIS is dependent of large number of python scientific libraries. Most of the libraries are python and it can be isntalled though  pip install libarry  based on the failure report It&amp;rsquo;s installation further gets erroneous due to unavailability of netcdf, HDF5, netcdf-python packages.</description>
+      <guid>/working-notes/2014/wn_2014-04/iris-install/</guid>
+      <description>IRIS is a python tool for working with NetCDF and Grib files. It is installed to convert WRF output in netCDF to grib2 formate, which is the need for grib2json tool. IRIS is dependent on a large number of scientific python libraries. Most of the libraries are the python and installed through
+pip install library  Installation further gets erroneous due to unavailability of NetCDF, HDF5, NetCDF-python packages.
+ Has to follow this note (http://code.</description>
     </item>
     
     <item>
       <title>CSV edit by pandas</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/csv_edit_by_pandas/</link>
+      <link>/working-notes/2014/wn_2014-04/csv-edit-by-pandas/</link>
       <pubDate>Thu, 10 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/csv_edit_by_pandas/</guid>
-      <description>Modfying csv files using pandas, python
- to import csv file into python  import pandas data = pd.read_csv(&#39;/home/hoopoe/Documents/Real_time_air_pollution_Mod_Proj-2013-2014/obj2/237.csv&#39;)   to query the specfic column in data frame  data[&#39;SamplingDate&#39;]   to specifiy the column as datetime formate column for pandas  data[&#39;SamplingDate&#39;] = pd.to_datetime(data[&#39;SamplingDate&#39;])  to avoid date and month mismatch specify the formate of date as
-data[&#39;SamplingDate&#39;] = pd.to_datetime(data[&#39;SamplingDate&#39;],format=&#39;%d/%m/%Y&#39;)   to sort the data based on date column descending  dataso=data.</description>
+      <guid>/working-notes/2014/wn_2014-04/csv-edit-by-pandas/</guid>
+      <description>to import csv file into python
+import pandas data = pd.read_csv(&#39;/home/hoopoe/Documents/Real_time_air_pollution_Mod_Proj-2013-2014/obj2/237.csv&#39;)  to query the specific column in the data frame
+data[&#39;SamplingDate&#39;]  to specify the column as DateTime formate column for pandas
+data[&#39;SamplingDate&#39;] = pd.to_datetime(data[&#39;SamplingDate&#39;])  to avoid date and month mismatch specify the format of date as
+data[&#39;SamplingDate&#39;] = pd.to_datetime(data[&#39;SamplingDate&#39;],format=&#39;%d/%m/%Y&#39;)  to sort the data based on date column descending
+dataso=data.sort(&#39;SamplingDate&#39;, ascending=False)  to join two data frame in particular column</description>
     </item>
     
     <item>
       <title>Sending SMS with AT and python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/sending_sms_with_at_and_python/</link>
+      <link>/working-notes/2014/wn_2014-04/sending-sms-with-at-and-python/</link>
       <pubDate>Tue, 08 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/sending_sms_with_at_and_python/</guid>
-      <description>SendingSMSwithATand_PYTHON
-This is related with issue recorded here. Huwaei E303F is not working with Gammu, especially in RPi. So found a method to send SMS using this data card with out using gammu but using simple AT commands.
- primarly based on this 1 and this 2
- the code written for sending SMS from dylos serial is as follows
-  #!/usr/bin/python import serial import time from curses import ascii import sqlite3 as lite import logging logger = logging.</description>
+      <guid>/working-notes/2014/wn_2014-04/sending-sms-with-at-and-python/</guid>
+      <description>Huwaei E303F is not working with Gammu, especially in RPi. So found a method to send SMS using this data card without using gammu but using simple AT commands.
+ primarly based on this 1 and this 2 the code written for sending SMS from Dylos serial is as follows
+#!/usr/bin/python import serial import time from curses import ascii import sqlite3 as lite import logging logger = logging.getLogger(&#39;lbm1&#39;) hdlr = logging.</description>
     </item>
     
     <item>
       <title>Python for fetching Mysql table</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-02/python_for_fetching_mysql_table/</link>
+      <link>/working-notes/2014/wn_2014-02/python_for_fetching_mysql_table/</link>
       <pubDate>Tue, 18 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-02/python_for_fetching_mysql_table/</guid>
-      <description>Converting the MySQL backed SMS gateway data into (Sensor Observation Service (SOS) import formate. COCEMS_lbm are sending the data every 15 minutes through SMS and received by server-side data card and Gammu SMS gateway backed by MySQL, the data is in inbox table. Following python script do the job. It took a long time in understanding the difference between array, and list objects in python, a clear understanding of this would not cost this much time to solve the error.</description>
+      <guid>/working-notes/2014/wn_2014-02/python_for_fetching_mysql_table/</guid>
+      <description>Converting the MySQL backed SMS gateway data into (Sensor Observation Service, SOS) import formate. COCEMS_lbm is real time Dylos air quality montior sending the data every 15 minutes through SMS and received by server-side data card and Gammu SMS gateway backed by MySQL, the data is in inbox table. Following python script do the job. It took a long time in understanding the difference between array, and list objects in python, a clear understanding of this would not cost this much time to solve the error.</description>
     </item>
     
     <item>
       <title>Python script to convert wrfout into Geotiff and some issues</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-02/python-script-to-convert-wrfout-into-geotiff-and-some-issues/</link>
+      <link>/working-notes/2014/wn_2014-02/python-script-to-convert-wrfout-into-geotiff-and-some-issues/</link>
       <pubDate>Wed, 05 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-02/python-script-to-convert-wrfout-into-geotiff-and-some-issues/</guid>
+      <guid>/working-notes/2014/wn_2014-02/python-script-to-convert-wrfout-into-geotiff-and-some-issues/</guid>
       <description>To visualize WRF output in GIS platform so that it would have an extra hand in interactive visualization and spatial analysis out of it. Python script (modified from http://lists.osgeo.org/pipermail/gdal-dev/2013-November/037602.html and http://geoexamples.blogspot.in/2013/09/reading-wrf-netcdf-files-with-gdal.html) used to convert NetCDF into GeoTIFF format. However, the given scripts in those links are throwing an error while converting eWRF NetCDF output, saying there are multiple bands in specific variables say for example U10. Slightly changed those code to collect one band out of 24 bands in U10 (In some variables the band number goes around 650, like P) and converted into GeoTIFF without error and can visualize it in QGIS.</description>
     </item>
     
     <item>
-      <title>wind power forecasting map</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-02/wind-power-forecasting-map/</link>
+      <title>Wind power forecasting map</title>
+      <link>/working-notes/2014/wn_2014-02/wind-power-forecasting-map/</link>
       <pubDate>Wed, 05 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-02/wind-power-forecasting-map/</guid>
-      <description>Problem statement  In Tamil Nadu, electricity is significantly relying on wind power based renewable energy source. If much wind is there, there will be minimal power cuts and vice versa. The second-tier urban area like Coimbatore, this dependence is much visible, and so one of the simple predictors of long power cuts is lack of adequate wind power in the nearby wind park area for example. On the other hand operators of windmills or power transmission sector, if they know much early about the forecast of wind power in their area, they have many advantages in preparing for storing the surplus energy source or find alternatives in the situation of low wind power.</description>
+      <guid>/working-notes/2014/wn_2014-02/wind-power-forecasting-map/</guid>
+      <description>Problem statement
+In Tamil Nadu, electricity is significantly relying on wind power based renewable energy source. If much wind is there, there will be minimal power cuts and vice versa. The second-tier urban area like Coimbatore, this dependence is much visible, and so one of the simple predictors of long power cuts is lack of adequate wind power in the nearby wind park area for example. On the other hand operators of windmills or power transmission sector, if they know much early about the forecast of wind power in their area, they have many advantages in preparing for storing the surplus energy source or find alternatives in the situation of low wind power.</description>
     </item>
     
     <item>
-      <title>python script for inserting SOS</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-01/python-script-for-inserting-sos/</link>
+      <title>Python script for inserting SOS</title>
+      <link>/working-notes/2014/wn_2014-01/python-script-for-inserting-sos/</link>
       <pubDate>Sat, 25 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-01/python-script-for-inserting-sos/</guid>
+      <guid>/working-notes/2014/wn_2014-01/python-script-for-inserting-sos/</guid>
       <description>A python script to insert data into 52 NORTH SOS through HTTP POST. Save this script as python file and run the script in the terminal as python “scriptname”.py. It will insert the data and report the status as given by test client “send” button. 52 north SOS needs to run in localhost.
 based on https://github.com/mpfeil/qualitySCHU/blob/master/Parser/LANUV/main.py http://stackoverflow.com/questions/16055334/post-xml-request-using-python
 import urllib import httplib from xml.dom.minidom import parse, parseString target_url = “http://localhost:8080/52n-sos-webapp-4.0.0-Beta1/sos/soap” #the insert observation requests from test client 52 north SOS xml_request = “”&amp;quot; &amp;lt;sos:offering&amp;gt;test_offering_1&amp;lt;/sos:offering&amp;gt; &amp;lt;sos:observation&amp;gt; &amp;lt;om:OM_Observation gml:id=&amp;quot;o1&amp;quot;&amp;gt; &amp;lt;om:type xlink:href=&amp;quot;http://www.</description>
@@ -380,51 +395,52 @@ import urllib import httplib from xml.dom.minidom import parse, parseString targ
     
     <item>
       <title>Daemon service for RPI for running python script</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-01/daemon_service_for_rpi_for_running_python_script/</link>
+      <link>/working-notes/2014/wn_2014-01/daemon_service_for_rpi_for_running_python_script/</link>
       <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-01/daemon_service_for_rpi_for_running_python_script/</guid>
+      <guid>/working-notes/2014/wn_2014-01/daemon_service_for_rpi_for_running_python_script/</guid>
       <description>To make a python script run in demon which stores serial reading into a csv file and send one serial read value into SMS.
- First save the python script as service inside this folder and make it executable  /usr/local/bin/myservice/myscript.py
+ First save the python script as service inside this folder and make it executable /usr/local/bin/myservice/myscript.py
 #!/usr/bin/env python import serial import time import gammu ser = serial.Serial(&#39;/dev/ttyUSB0&#39;, 9600, timeout=60) time.sleep(60) logfile = open(&#39;DYLOS_log.csv&#39;, &#39;a&#39;) while 1: line = ser.readline() now = time.strftime(&amp;quot;%Y-%m-%dT%H:%M:%S:00.000000+0530&amp;quot;, time.localtime()) a = &amp;quot;%s,%s&amp;quot; % (now,line) #print a logfile.</description>
     </item>
     
     <item>
       <title>Decoding the polyline encoded line vectors</title>
-      <link>//localhost:1313/working-notes/2019/decoding-the-polyline-encoded-line-vectors/</link>
+      <link>/working-notes/2019/decoding-the-polyline-encoded-line-vectors/</link>
       <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2019/decoding-the-polyline-encoded-line-vectors/</guid>
+      <guid>/working-notes/2019/decoding-the-polyline-encoded-line-vectors/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Script for json to csv for weather underground API fetching historical data</title>
-      <link>//localhost:1313/working-notes/2013/wn_2013-12/script-for-json-to-csv-for-weather-underground-api-fetching-historical-data/</link>
+      <link>/working-notes/2013/wn_2013-12/script-for-json-to-csv-for-weather-underground-api-fetching-historical-data/</link>
       <pubDate>Mon, 16 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2013/wn_2013-12/script-for-json-to-csv-for-weather-underground-api-fetching-historical-data/</guid>
-      <description>based on this https://github.com/PythonJournos/LearningPython/blob/master/tutorials/convert_json_to_csv.py a sample script  import urllib2 import json import csv outfile_path=&#39;history.csv&#39; writer = csv.writer(open(outfile_path, &#39;w&#39;)) headers = [&#39;date&#39;] writer.writerow(headers) req = urllib2.Request(&amp;quot;http://api.wunderground.com/api/YOUR_KEY/history_20131001/q/India/Coimbatore.json&amp;quot;) opener = urllib2.build_opener() f = opener.open(req) data = json.load(f) for history in data[&#39;history&#39;][&#39;observations&#39;]: row = [] row.append(str(history[&#39;date&#39;][&#39;pretty&#39;])) row.append(str(history[&#39;tempm&#39;])) writer.writerow(row)   Now the URL has to be iterated to give a range of historical data required, and most important the date range has to set.</description>
+      <guid>/working-notes/2013/wn_2013-12/script-for-json-to-csv-for-weather-underground-api-fetching-historical-data/</guid>
+      <description>Based on this https://github.com/PythonJournos/LearningPython/blob/master/tutorials/convert_json_to_csv.py, the script as follows,
+import urllib2 import json import csv outfile_path=&#39;history.csv&#39; writer = csv.writer(open(outfile_path, &#39;w&#39;)) headers = [&#39;date&#39;] writer.writerow(headers) req = urllib2.Request(&amp;quot;http://api.wunderground.com/api/YOUR_KEY/history_20131001/q/India/Coimbatore.json&amp;quot;) opener = urllib2.build_opener() f = opener.open(req) data = json.load(f) for history in data[&#39;history&#39;][&#39;observations&#39;]: row = [] row.append(str(history[&#39;date&#39;][&#39;pretty&#39;])) row.append(str(history[&#39;tempm&#39;])) writer.writerow(row)  Now the URL has to be iterated to give a range of historical data required, and most important the date range has to set.</description>
     </item>
     
     <item>
       <title>Python pandas cont</title>
-      <link>//localhost:1313/working-notes/2013/wn_2013-11/python_pandas_cont/</link>
+      <link>/working-notes/2013/wn_2013-11/python_pandas_cont/</link>
       <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2013/wn_2013-11/python_pandas_cont/</guid>
-      <description>Pythonpandas-cont. To call specific column in data frame df[df.columns[2:4]] To join called rows, in concatenating fashion df[“DateTime”] = [’ ’.join(row) for row in df[df.columns[2:4]].values] To speifiy the date time foramte in data frame of DPCC dMDIDT= pa.todatetime(Time, format=‘%A, %B %d, %Y %H:%M:%S’)
-based on http://www.cyberciti.biz/faq/howto-get-current-date-time-in-python/ http://stackoverflow.com/questions/12030398/concatenate-multiple-columns-based-on-index-in-pandas A best tutorial for visualization in pyhton http://nbviewer.ipython.org/urls/raw.github.com/bolhovsky/notebooks/master/earth-day-data-challenge.ipynb</description>
+      <guid>/working-notes/2013/wn_2013-11/python_pandas_cont/</guid>
+      <description>To call specific column in data frame df[df.columns[2:4]] To join called rows, in concatenating fashion df[“DateTime”] = [’ ’.join(row) for row in df[df.columns[2:4]].values] To speifiy the date time foramte in data frame of DPCC dMDI_DT= pa.to_datetime(Time, format=‘%A, %B %d, %Y %H:%M:%S’)
+ based on http://www.cyberciti.biz/faq/howto-get-current-date-time-in-python/ http://stackoverflow.com/questions/12030398/concatenate-multiple-columns-based-on-index-in-pandas A best tutorial for visualization in pyhton http://nbviewer.ipython.org/urls/raw.github.com/bolhovsky/notebooks/master/earth-day-data-challenge.ipynb  </description>
     </item>
     
     <item>
       <title>Python for data frame editing using pandas</title>
-      <link>//localhost:1313/working-notes/2013/wn_2013-10/python-for-data-frame-editing-using-pandas/</link>
+      <link>/working-notes/2013/wn_2013-10/python-for-data-frame-editing-using-pandas/</link>
       <pubDate>Wed, 16 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2013/wn_2013-10/python-for-data-frame-editing-using-pandas/</guid>
+      <guid>/working-notes/2013/wn_2013-10/python-for-data-frame-editing-using-pandas/</guid>
       <description>Pandas is a library for a data frame manipulation and analysis; it gives the ability to python as R like functionality. It is for converting a CSV file into the form to import into istsos as a tutorial sensor observations. The steps are as follows
- 1. remove the unwanted column in csv file 2. filter each station’s readings 3. remove duplicates 4.convert the date and time format into ISO standards as demo data</description>
+ remove the unwanted column in csv file filter each station’s readings remove duplicates convert the date and time format into ISO standards as demo data</description>
     </item>
     
   </channel>

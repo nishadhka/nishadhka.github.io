@@ -15,21 +15,17 @@
 
     
       
-      <meta property="description" content="Do dmesg |grep tty
-[&amp;hellip;] if not showing anything, solved following final answer of this question
-[&amp;hellip;] http://ubuntuforums.org/archive/index.php/t-1853306.html
-[&amp;hellip;] cd /var/log ; grep &amp;hellip;">
-      <meta property="og:description" content="Do dmesg |grep tty
-[&amp;hellip;] if not showing anything, solved following final answer of this question
-[&amp;hellip;] http://ubuntuforums.org/archive/index.php/t-1853306.html
-[&amp;hellip;] cd /var/log ; grep &amp;hellip;">
+      <meta property="description" content="dmesg is a &amp;ldquo;ring buffer, so if many messages are being logged, will lose the initial boot messages. Try this instead:&amp;rdquo;
+cd /var/log grep ttyUSB dmesg messages *log | more&amp;quot;  now showing &amp;hellip;">
+      <meta property="og:description" content="dmesg is a &amp;ldquo;ring buffer, so if many messages are being logged, will lose the initial boot messages. Try this instead:&amp;rdquo;
+cd /var/log grep ttyUSB dmesg messages *log | more&amp;quot;  now showing &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -37,6 +33,11 @@
 
     
     
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -90,38 +91,43 @@
 
 
 
-<ul>
-<li><p>Do
-dmesg |grep tty</p></li>
+<ol>
+<li>To detect the USB connected to system, Do a <code>dmesg |grep tty</code></li>
+<li>If not showing anything, the issue was solved following final answer of this question  <a href="http://ubuntuforums.org/archive/index.php/t-1853306.html">http://ubuntuforums.org/archive/index.php/t-1853306.html</a></li>
 
-<li><p>if not showing anything, solved following final answer of this question</p></li>
-</ul>
+<li><p><code>dmesg</code> is a &ldquo;ring buffer, so if many messages are being logged, will lose the initial boot messages. Try this instead:&rdquo;</p>
 
-<p><a href="http://ubuntuforums.org/archive/index.php/t-1853306.html">http://ubuntuforums.org/archive/index.php/t-1853306.html</a></p>
+<pre><code>cd /var/log 
+grep ttyUSB dmesg messages *log | more&quot;
+</code></pre></li>
 
-<ul>
-<li>&ldquo;dmesg is a ring buffer, so if many messages are being logged, will lose the initial boot messages. Try this instead:</li>
-</ul>
+<li><p>now showing</p>
 
-<p>cd /var/log ; grep ttyUSB dmesg messages *log | more&rdquo;</p>
-
-<ul>
-<li>now showing</li>
-</ul>
-
-<dl>
-<dt>grep: messagesdmesg:[   23.391523] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB0</dt>
-<dd>No such file or directory
+<pre><code>fellow@dhcppc3:~$ cd /var/log ; grep ttyUSB dmesg messages *log | more
+grep: messagesdmesg:[   23.391523] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB0
+: No such file or directory
 dmesg:[   23.391604] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB1
-dmesg:[   23.391645] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB2</dd>
-</dl>
-
-<p>91645] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB2</p>
+dmesg:[   22.391645] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB2
+</code></pre></li>
+</ol>
 
 
   <footer>
   
   
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
   
   <hr>
@@ -130,6 +136,6 @@ dmesg:[   23.391645] usb 1-1.1: GSM modem (1-port) converter now attached to tty
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

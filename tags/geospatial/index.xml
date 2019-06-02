@@ -2,70 +2,72 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Geospatial on Nishadh KA</title>
-    <link>//localhost:1313/tags/geospatial/</link>
+    <link>/tags/geospatial/</link>
     <description>Recent content in Geospatial on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 28 Nov 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/tags/geospatial/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/geospatial/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Reverse Geocoding</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/reverse_geocoding/</link>
+      <link>/working-notes/2014/wn_2014-11/reverse_geocoding/</link>
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/reverse_geocoding/</guid>
+      <guid>/working-notes/2014/wn_2014-11/reverse_geocoding/</guid>
       <description>####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude is not having high resolution to differentiate between to nearby postal code points. For this need a high resolution latitude longitude data, IN this regard GOOGLE MAP API is a good help. As per this from address the latitude and longitude json files can be obtained with its API key, based on this and getting the API access key from here.</description>
     </item>
     
     <item>
-      <title>Reprojecting SHAPE file python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/reprojecting_shape_file_python/</link>
+      <title>Editing shapefile using QGIS</title>
+      <link>/working-notes/2014/wn_2014-06/shapefile-edit-qgis/</link>
       <pubDate>Wed, 18 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/reprojecting_shape_file_python/</guid>
-      <description>##reporjecting shape file using python##
- WRF output netcdf(nc) or wrfncx.py output nc files are converted into geotiff(tiff) file with coustom projections, see the codes for nc to tiff conversion.
-from osgeo import gdal from osgeo import osr import numpy import numpy.ma as ma datafile = &#39;ZZZG3wrfout_psl.nc&#39; proj_out = osr.SpatialReference() proj_out.SetMercator(0.0, 115.02, 0.98931892612652, 0.0, 0.0) ds_in = gdal.Open(datafile) #subdatasets = ds_in.GetSubDatasets() #variables = [] #for subdataset in subdatasets: # variables.</description>
+      <guid>/working-notes/2014/wn_2014-06/shapefile-edit-qgis/</guid>
+      <description> To edit multipart shapefile in QGIS into a one outline map Used QGIS multipart into a single feature by selected attributes It converts shapefile with multiple attributes feature(multiple rows) into single rows The resultant shapefile need to be edited to delete any residuals in operation, used delete ring in QGIS for that  </description>
     </item>
     
     <item>
-      <title>Shapefile edit QGIS</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/shapefile_edit_qgis/</link>
+      <title>Reprojecting SHAPE file uing Python</title>
+      <link>/working-notes/2014/wn_2014-06/reprojecting-shape-file-python/</link>
       <pubDate>Wed, 18 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/shapefile_edit_qgis/</guid>
-      <description>##to edit shape file in qgis## - to edit multipart shape file in qgis into a one outline map - used qgis multipart into single feature by selected attributes - it conveert shape file with multiple attirbutes feature-multiple rows into single rows - this can be edited to delete any redisuals in the operaation, used delete ring in qgis for that</description>
+      <guid>/working-notes/2014/wn_2014-06/reprojecting-shape-file-python/</guid>
+      <description>WRF output netcdf(nc) or wrfncx.py output nc files converted into geotiff(tiff) file with custom projections, see the codes for nc to tiff conversion.
+from osgeo import gdal from osgeo import osr import numpy import numpy.ma as ma datafile = &#39;ZZZG3wrfout_psl.nc&#39; proj_out = osr.SpatialReference() proj_out.SetMercator(0.0, 115.02, 0.98931892612652, 0.0, 0.0) ds_in = gdal.Open(datafile) #subdatasets = ds_in.GetSubDatasets() #variables = [] #for subdataset in subdatasets: # variables.append(subdataset[1].split(&amp;quot; &amp;quot;)[1]) ds_lon = gdal.Open(&#39;NETCDF:&amp;quot;ZZZG3wrfout_psl.nc&amp;quot;:lon&#39;) ds_lat = gdal.</description>
     </item>
     
     <item>
-      <title>Merge geojsons into one</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/merge_geojsons_into_one/</link>
+      <title>Merge multiple geojsons into single file</title>
+      <link>/working-notes/2014/wn_2014-05/merge-multiple-geojsons-into-single-file/</link>
       <pubDate>Sat, 24 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/merge_geojsons_into_one/</guid>
-      <description>##Mergegeojsonsinto_one## - For converting qs into cbe-air, map is rendered using geojson rendering capability of github - the marker was easiliy made into geojson from qgis and org2ogr as a shape file. based on this under section &amp;ldquo;getting map data&amp;rdquo;, the command is
-ogr2ogr -f GeoJSON point.json point.shp //and adding this script line in html &amp;lt;script src=&amp;quot;https://embed.github.com/view/geojson/saconswl/cbeair/gh-pages/cbe-s.json?height=530&amp;amp;width=1300&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; //under div map   To include coimbatore city limits along with point marker, adding another script line of github embed renderes another map!</description>
+      <guid>/working-notes/2014/wn_2014-05/merge-multiple-geojsons-into-single-file/</guid>
+      <description>For converting qs into cbe-air, the map is rendered using geojson rendering capability of GitHub The marker was easily made into geojson from QGIS and org2ogr as a shapefile. based on this under section &amp;ldquo;getting map data,&amp;rdquo; the command is
+ogr2ogr -f GeoJSON point.json point.shp  and adding this script line in html
+&amp;lt;script src=&amp;quot;https://embed.github.com/view/geojson/saconswl/cbeair/gh-pages/cbe-s.json?height=530&amp;amp;width=1300&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;  under div map
+ To include Coimbatore city limits along with point marker, adding another script line of GitHub embed renderers another map!</description>
     </item>
     
     <item>
-      <title>wind power forecasting map</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-02/wind-power-forecasting-map/</link>
+      <title>Wind power forecasting map</title>
+      <link>/working-notes/2014/wn_2014-02/wind-power-forecasting-map/</link>
       <pubDate>Wed, 05 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-02/wind-power-forecasting-map/</guid>
-      <description>Problem statement  In Tamil Nadu, electricity is significantly relying on wind power based renewable energy source. If much wind is there, there will be minimal power cuts and vice versa. The second-tier urban area like Coimbatore, this dependence is much visible, and so one of the simple predictors of long power cuts is lack of adequate wind power in the nearby wind park area for example. On the other hand operators of windmills or power transmission sector, if they know much early about the forecast of wind power in their area, they have many advantages in preparing for storing the surplus energy source or find alternatives in the situation of low wind power.</description>
+      <guid>/working-notes/2014/wn_2014-02/wind-power-forecasting-map/</guid>
+      <description>Problem statement
+In Tamil Nadu, electricity is significantly relying on wind power based renewable energy source. If much wind is there, there will be minimal power cuts and vice versa. The second-tier urban area like Coimbatore, this dependence is much visible, and so one of the simple predictors of long power cuts is lack of adequate wind power in the nearby wind park area for example. On the other hand operators of windmills or power transmission sector, if they know much early about the forecast of wind power in their area, they have many advantages in preparing for storing the surplus energy source or find alternatives in the situation of low wind power.</description>
     </item>
     
     <item>
       <title>Notes on Geoserver</title>
-      <link>//localhost:1313/working-notes/2013/wn_2013-11/notes-on-geoserver/</link>
+      <link>/working-notes/2013/wn_2013-11/notes-on-geoserver/</link>
       <pubDate>Tue, 05 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2013/wn_2013-11/notes-on-geoserver/</guid>
-      <description>Started based on this link http://gis.stackexchange.com/questions/69430/best-way-to-visualize-the-postgis-raster-in-openlayers Geoserver very easy to install, followed installation based on war and Apache tomcat. For know more about rest api for Geoserver http://boundlessgeo.com/2012/10/adding-layers-to-geoserver-using-the-rest-api/ to more on the python script for automatic the MODIS visualization http://gis.stackexchange.com/questions/16515/how-to-import-a-raster-into-postgis</description>
+      <guid>/working-notes/2013/wn_2013-11/notes-on-geoserver/</guid>
+      <description> Started based on this link http://gis.stackexchange.com/questions/69430/best-way-to-visualize-the-postgis-raster-in-openlayers Geoserver very easy to install, followed installation based on war and Apache tomcat. For know more about rest api for Geoserver http://boundlessgeo.com/2012/10/adding-layers-to-geoserver-using-the-rest-api/ to more on the python script for automatic MODIS sat visualization http://gis.stackexchange.com/questions/16515/how-to-import-a-raster-into-postgis  </description>
     </item>
     
   </channel>

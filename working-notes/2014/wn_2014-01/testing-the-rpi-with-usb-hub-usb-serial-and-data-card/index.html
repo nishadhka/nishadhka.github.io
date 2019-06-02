@@ -15,15 +15,17 @@
 
     
       
-      <meta property="description" content="There is a problem of ssh and pinging if connected with proper setup, that is RPI and LAN. 1. with some iteration starting from suspecting starting with UH(USB hub) adaptor, then UH itself, then RPi &amp;hellip;">
-      <meta property="og:description" content="There is a problem of ssh and pinging if connected with proper setup, that is RPI and LAN. 1. with some iteration starting from suspecting starting with UH(USB hub) adaptor, then UH itself, then RPi &amp;hellip;">
+      <meta property="description" content="There is a problem of ssh and pinging if connected with setup of RPI and LAN.
+[&amp;hellip;] With this new RPi all set up was working fine, that is RPi, UH, DC and US. Made a &amp;hellip;">
+      <meta property="og:description" content="There is a problem of ssh and pinging if connected with setup of RPI and LAN.
+[&amp;hellip;] With this new RPi all set up was working fine, that is RPi, UH, DC and US. Made a &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -89,21 +91,28 @@
 
 
 
+<p>There is a problem of ssh and pinging if connected with setup of RPI and LAN.</p>
 
+<ol>
+<li>with some iteration starting from suspecting starting with UH(USB hub) adaptor, then UH itself, then RPi and then wire connecting with UH and RPI, found the problem with the wire connecting UH and RPi.</li>
+<li>With this set then started the connection of DC(Dylos Cable), it was not recognized by lsusb, then connected the US (USB Serial pin), US was recognized but no DC, then DC was removed and connected to the USB point nearer to light now lsusb showed the DC and recognized, however, after a while LAN connection was disrupted and no pinging also. So for this case, the problem zeroed to RPi and RPi was changed to a new one.</li>
 
-<p>There is a problem of ssh and pinging if connected with proper setup, that is RPI and LAN.
-1. with some iteration starting from suspecting starting with UH(USB hub) adaptor, then UH itself, then RPi and then wire connecting with UH and RPI, found the problem with the wire connecting UH and RPi.
-1. With this set then started the connection of DC(Dylos Cable), it was not recognized by lsusb, then connected the US (USB Serial pin), US was recognized but no DC, then DC was removed and connected to the USB point nearer to light now lsusb showed the DC and recognized, however, after a while LAN connection was disrupted and no pinging also. So for this case, the problem zeroed to RPi and RPi was changed to a new one.
-1. With this new RPi all set up was working fine, that is RPi, UH, DC and US. Made a /etc/udev/rules.d/90-phone.rules with this lines
-KERNEL==&ldquo;ttyUSB<em>&rdquo;, ATTRS{idVendor}==&ldquo;12d1&rdquo;, ATTRS{idProduct}==&ldquo;1436&rdquo;, NAME=&ldquo;phone&rdquo;, MODE=&ldquo;0666&rdquo;,SYMLINK+=&ldquo;phone&rdquo;
-KERNEL==&ldquo;ttyUSB</em>&rdquo;, ATTRS{idVendor}==&ldquo;067b&rdquo;, ATTRS{idProduct}==&ldquo;2303&rdquo;, NAME=&ldquo;dylos&rdquo;, MODE=&ldquo;0666&rdquo;,SYMLINK+=&ldquo;dylos&rdquo;
-1. now the /dev/phone and /dev/dylos was getting created with a subsequent reboot. One exception is setting up RPi, UH, DC and US was removed from power and restarted the /dev/phone, it is found to be a problem with the USB mode switch since the lsusb shows the DC as</p>
+<li><p>With this new RPi all set up was working fine, that is RPi, UH, DC and US. Made a /etc/udev/rules.d/90-phone.rules with this lines</p>
 
-<p>Bus 001 Device 009: ID 12d1:1446 Huawei Technologies Co., Ltd.</p>
+<pre><code>KERNEL==&quot;ttyUSB*&quot;, ATTRS{idVendor}==&quot;12d1&quot;, ATTRS{idProduct}==&quot;1436&quot;, NAME=&quot;phone&quot;, MODE=&quot;0666&quot;,SYMLINK+=&quot;phone&quot;
+KERNEL==&quot;ttyUSB*&quot;, ATTRS{idVendor}==&quot;067b&quot;, ATTRS{idProduct}==&quot;2303&quot;, NAME=&quot;dylos&quot;, MODE=&quot;0666&quot;,SYMLINK+=&quot;dylos&quot;
+</code></pre></li>
 
-<p>This problem gets solved by removing DC and reconnecting to the UH, now /dev/phone is being created with a reboot
-1. serious problem with connecting wire of UH and RPi, it makes UH to stop working if connected to UH. now exchanged the US wire with this one now working, US also working have to check with dylos. Have to check RTC also.
-1. Now the status is if RPi is completely get switched off (power off) the data card will be detected as</p>
+<li><p>now the /dev/phone and /dev/dylos was getting created with a subsequent reboot. One exception is setting up RPi, UH, DC and US was removed from power and restarted the /dev/phone, it is found to be a problem with the USB mode switch since the lsusb shows the DC as</p>
+
+<pre><code>Bus 001 Device 009: ID 12d1:1446 Huawei Technologies Co., Ltd. 
+</code></pre>
+
+<p>This problem gets solved by removing DC and reconnecting to the UH, now /dev/phone is being created with a reboot</p></li>
+
+<li><p>serious problem with connecting wire of UH and RPi, it makes UH to stop working if connected to UH. now exchanged the US wire with this one now working, US also working have to check with dylos. Have to check RTC also.</p></li>
+
+<li><p>Now the status is if RPi is completely get switched off (power off) the data card will be detected as</p>
 
 <pre><code>pi@raspberrypi ~ $ lsusb
 Bus 001 Device 002: ID 0424:9512 Standard Microsystems Corp. 
@@ -113,9 +122,9 @@ Bus 001 Device 004: ID 1a40:0101 Terminus Technology Inc. 4-Port HUB
 Bus 001 Device 005: ID 1a40:0101 Terminus Technology Inc. 4-Port HUB
 Bus 001 Device 006: ID 067b:2303 Prolific Technology, Inc. PL2303 Serial Port
 Bus 001 Device 007: ID 12d1:1446 Huawei Technologies Co., Ltd. E1552/E1800/E173 (HSPA modem)
-</code></pre>
+</code></pre></li>
 
-<p>Since Huwaei as 12d1:1446 it will be detected as the modem and cannot send SMS, instead it has to be switched to 12d1:1436, usb<em>modeswitch is doing this job, but somehow it is not working. The usb</em>modeswitch.conf is like this</p>
+<li><p>Since Huwaei as 12d1:1446 it will be detected as the modem and cannot send SMS, instead it has to be switched to 12d1:1436, usb<em>modeswitch is doing this job, but somehow it is not working. The usb</em>modeswitch.conf is like this</p>
 
 <pre><code>#Configuration for the usb_modeswitch package, a mode switching tool for
 #USB devices providing multiple states or modes
@@ -146,51 +155,53 @@ TargetProductList=&quot;1001,1406,140b,140c,1412,141b,1433,14ac&quot;
 CheckSuccess=20
 
 MessageContent=&quot;55534243123456780000000000000011062000000100000000000000000000&quot;
+</code></pre></li>
+
+<li><p>After doing this for firing usb_modeswitch output was given this</p>
+
+<pre><code>pi@raspberrypi ~ $ sudo usb_modeswitch -c /etc/usb_modeswitch.conf
 </code></pre>
-
-<p>so doing this for firing usb_modeswitch give this</p>
-
-<p>pi@raspberrypi ~ $ sudo usb<em>modeswitch -c /etc/usb</em>modeswitch.conf</p>
 
 <p>giving</p>
 
-<p>&ldquo;No new devices in target mode or class found</p>
+<pre><code>&quot;No new devices in target mode or class found
+Mode switch has failed. Bye.&quot;
+</code></pre></li>
 
-<p>Mode switch has failed. Bye.&rdquo;</p>
+<li><p>So edited the /etc/usb_modeswitch.conf with this new conf content from Ubuntu forums [ubuntu] Huawei E173&hellip;have spent 3 days trying to connect to the net.html</p>
 
-<p>So edited the /etc/usb_modeswitch.conf with this new conf content from Ubuntu forums [ubuntu] Huawei E173&hellip;have spent 3 days trying to connect to the net.html</p>
+<pre><code>################################################## ######
+# Huawei E173
 
-<p>################################################## ######</p>
+DefaultVendor= 0x12d1
+DefaultProduct=0x1c0b
 
-<h1 id="huawei-e173">Huawei E173</h1>
+TargetVendor= 0x12d1
+TargetProduct= 0x1c0b
 
-<p>DefaultVendor= 0x12d1
-DefaultProduct=0x1c0b</p>
+CheckSuccess=5
 
-<p>TargetVendor= 0x12d1
-TargetProduct= 0x1c0b</p>
+MessageContent=&quot;5553424312345678000000000000001106 0000000000000000000000000000&quot;
 
-<p>CheckSuccess=5</p>
+################################################## ###########
 
-<p>MessageContent=&ldquo;5553424312345678000000000000001106 0000000000000000000000000000&rdquo;</p>
+# Huawei E173s
 
-<p>################################################## ###########</p>
+;DefaultVendor= 0x12d1
+;DefaultProduct= 0x1c0b
 
-<h1 id="huawei-e173s">Huawei E173s</h1>
+;TargetVendor= 0x12d1
+;TargetProduct= 0x1c0b
 
-<p>;DefaultVendor= 0x12d1
-;DefaultProduct= 0x1c0b</p>
+;CheckSuccess=20
 
-<p>;TargetVendor= 0x12d1
-;TargetProduct= 0x1c0b</p>
+MessageEndpoint= 0x0f
+MessageContent=&quot;5553424312345678000000000000001106 2000000100000000000000000000&quot;
+################################################## ##
+</code></pre></li>
 
-<p>;CheckSuccess=20</p>
-
-<p>MessageEndpoint= 0x0f
-MessageContent=&ldquo;5553424312345678000000000000001106 2000000100000000000000000000&rdquo;
-################################################## ##</p>
-
-<p>sudo ./Adafruit_DHT 11 4</p>
+<li><p>Then ran <code>sudo ./Adafruit_DHT 11 4</code></p></li>
+</ol>
 
 
   <footer>
@@ -217,6 +228,6 @@ MessageContent=&ldquo;5553424312345678000000000000001106 20000001000000000000000
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

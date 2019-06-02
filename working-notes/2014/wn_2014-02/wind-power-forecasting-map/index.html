@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>wind power forecasting map - Nishadh KA</title>
-    <meta property="og:title" content="wind power forecasting map - Nishadh KA">
+    <title>Wind power forecasting map - Nishadh KA</title>
+    <meta property="og:title" content="Wind power forecasting map - Nishadh KA">
     
     <meta name="twitter:card" content="summary">
 
@@ -15,15 +15,17 @@
 
     
       
-      <meta property="description" content="In Tamil Nadu, electricity is significantly relying on wind power based renewable energy source. If much wind is there, there will be minimal power cuts and vice versa. The second-tier urban area like &amp;hellip;">
-      <meta property="og:description" content="In Tamil Nadu, electricity is significantly relying on wind power based renewable energy source. If much wind is there, there will be minimal power cuts and vice versa. The second-tier urban area like &amp;hellip;">
+      <meta property="description" content="Problem statement
+In Tamil Nadu, electricity is significantly relying on wind power based renewable energy source. If much wind is there, there will be minimal power cuts and vice versa. The &amp;hellip;">
+      <meta property="og:description" content="Problem statement
+In Tamil Nadu, electricity is significantly relying on wind power based renewable energy source. If much wind is there, there will be minimal power cuts and vice versa. The &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -31,11 +33,6 @@
 
     
     
-
-
-<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
-
-
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -78,7 +75,7 @@
     <article class="main">
       <header class="title">
       
-<h1>wind power forecasting map</h1>
+<h1>Wind power forecasting map</h1>
 
 <h3>
   2014-02-05</h3>
@@ -89,17 +86,13 @@
 
 
 
-<ul>
-<li>Problem statement</li>
-</ul>
+<p><strong>Problem statement</strong></p>
 
 <p>In Tamil Nadu, electricity is significantly relying on wind power based renewable energy source. If much wind is there, there will be minimal power cuts and vice versa. The second-tier urban area like Coimbatore, this dependence is much visible, and so one of the simple predictors of long power cuts is lack of adequate wind power in the nearby wind park area for example. On the other hand operators of windmills or power transmission sector, if they know much early about the forecast of wind power in their area, they have many advantages in preparing for storing the surplus energy source or find alternatives in the situation of low wind power.</p>
 
 <p>Predicting the wind power is the problem of multidomain variables especially of meteorological predictions and engineering variables from the specific wind turbine used to generate the energy using wind power. One of the solutions is to use the existing empirical observation data from similar windmills or park to see how the variable is changing in the wind speed or meteorological domain of our area of interest (AOI).</p>
 
-<ul>
-<li>Computations</li>
-</ul>
+<p><strong>Computations</strong></p>
 
 <p>Wind power is the third power of the wind speed. Based on this equation wind power can be calculated</p>
 
@@ -109,50 +102,35 @@
 
 <p>Based on //www.iowaenergycenter.org/wind-energy-manual/wind-and-wind-power/wind-speed-and-power/#sthash.4UBSpEQx.dpuf</p>
 
-<ul>
-<li><p>Algorithm</p>
+<p><strong>Steps</strong></p>
 
-<p>Collect Numerical weather prediction (NWP) data of AOI. Mostly in the form of netCDF.
-Convert netCDF into GeoTIFF for the wind speed variable band while conversion made it into an array object and execute the wind power calculation equations in the array.
-Convert the wind power calculated array into GeoTIFF and visualize it in webGIS and implement query interface for the public user and operator user.
-Make a vector of urban locality and nearby wind park with points of the wind turbine.
-Based on the use case query,
-    if a common public is querying how much energy would be nearby wind park is producing, the program calculates polygon vector calculation using the GeoTIFF (array) of wind power
-    If an operator is asking for a specific turbine energy production, calculate point vector calculation using the GeoTIFF (array) of wind power
-Iterate the steps 1 to 4 for daily dynamic mapping of the wind power or based on the time frame availability of NWP data.</p></li>
+<ol>
+<li>Collect Numerical weather prediction (NWP) data of AOI. Mostly in the form of netCDF.</li>
+<li>Convert netCDF into GeoTIFF for the wind speed variable band while conversion made it into an array object and execute the wind power calculation equations in the array.</li>
+<li>Convert the wind power calculated array into GeoTIFF and visualize it in webGIS and implement query interface for the public user and operator user.</li>
+<li>Make a vector of urban locality and nearby wind park with points of the wind turbine.</li>
+<li>Based on the use case query,
 
-<li><p>After review presentation</p></li>
-</ul>
+<ol>
+<li>if a common public is querying how much energy would be nearby wind park is producing, the program calculates polygon vector calculation using the GeoTIFF (array) of wind power</li>
+<li>If an operator is asking for a specific turbine energy production, calculate point vector calculation using the GeoTIFF (array) of wind power</li>
+<li>Iterate the steps 1 to 4 for daily dynamic mapping of the wind power or based on the time frame availability of NWP data.</li>
+</ol></li>
+</ol>
 
-<p>the points raised by Rajan sir and fellow participants are</p>
+<p><strong>Views</strong></p>
 
-<pre><code>Use the wind prediction map for establishing windmills, so done site suitability analysis.
-</code></pre>
-
-<p>The problem addresses already established windmills, there were few GIS components involved as a solution, even though a visualization part is involved it is minimal use here, how the user is going to be interested in the dynamic entity of weather.</p>
-
-<p>So the problem is restated as Wind power forecasting map: a lightweight, event detection subscribable web application, based on work of</p>
-
-<p><a href="http://earth.nullschool.net/about.html">http://earth.nullschool.net/about.html</a>
-<a href="https://github.com/cambecc/air">https://github.com/cambecc/air</a></p>
+<ol>
+<li>Use the wind prediction map for establishing windmills, so done site suitability analysis.</li>
+<li>The problem addresses already established windmills, there were few GIS components involved as a solution, even though a visualization part is involved it is minimal use here, how the user is going to be interested in the dynamic entity of weather.</li>
+<li>So the problem is restated as Wind power forecasting map: a lightweight, event detection subscribable web application, based on work of
+ <a href="http://earth.nullschool.net/about.html">http://earth.nullschool.net/about.html</a> and <a href="https://github.com/cambecc/air">https://github.com/cambecc/air</a></li>
+</ol>
 
 
   <footer>
   
   
-
-
-
-<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-
-
-<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
-<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
-<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
-<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-
-
 
   
   <hr>
@@ -161,6 +139,6 @@ Iterate the steps 1 to 4 for daily dynamic mapping of the wind power or based on
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

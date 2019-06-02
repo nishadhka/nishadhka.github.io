@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Geocoding on Nishadh KA</title>
-    <link>//localhost:1313/tags/geocoding/</link>
+    <link>/tags/geocoding/</link>
     <description>Recent content in Geocoding on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 28 Nov 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/tags/geocoding/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/geocoding/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Reverse Geocoding</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/reverse_geocoding/</link>
+      <link>/working-notes/2014/wn_2014-11/reverse_geocoding/</link>
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/reverse_geocoding/</guid>
+      <guid>/working-notes/2014/wn_2014-11/reverse_geocoding/</guid>
       <description>####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude is not having high resolution to differentiate between to nearby postal code points. For this need a high resolution latitude longitude data, IN this regard GOOGLE MAP API is a good help. As per this from address the latitude and longitude json files can be obtained with its API key, based on this and getting the API access key from here.</description>
     </item>
     

@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>recover password for postgresql - Nishadh KA</title>
-    <meta property="og:title" content="recover password for postgresql - Nishadh KA">
+    <title>Recover password for postgresql - Nishadh KA</title>
+    <meta property="og:title" content="Recover password for postgresql - Nishadh KA">
     
     <meta name="twitter:card" content="summary">
 
@@ -16,16 +16,18 @@
     
       
       <meta property="description" content="based on http://scratching.psybermonkey.net/2009/06/postgresql-how-to-reset-user-name.html
-">
+[&amp;hellip;] now enter into the PostgreSQL using
+psql -U postgres ALTER USER postgres with password &#39;new &amp;hellip;">
       <meta property="og:description" content="based on http://scratching.psybermonkey.net/2009/06/postgresql-how-to-reset-user-name.html
-">
+[&amp;hellip;] now enter into the PostgreSQL using
+psql -U postgres ALTER USER postgres with password &#39;new &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -33,6 +35,11 @@
 
     
     
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -75,7 +82,7 @@
     <article class="main">
       <header class="title">
       
-<h1>recover password for postgresql</h1>
+<h1>Recover password for postgresql</h1>
 
 <h3>
   2014-01-25</h3>
@@ -86,23 +93,41 @@
 
 
 
-<p>based on
-<a href="http://scratching.psybermonkey.net/2009/06/postgresql-how-to-reset-user-name.html">http://scratching.psybermonkey.net/2009/06/postgresql-how-to-reset-user-name.html</a></p>
+<p>based on <a href="http://scratching.psybermonkey.net/2009/06/postgresql-how-to-reset-user-name.html">http://scratching.psybermonkey.net/2009/06/postgresql-how-to-reset-user-name.html</a></p>
 
 <ol>
-<li>sudo nano /etc/postgresql/9.1/main/pg_hba.conf</li>
-<li>change |local   all         postgres    md5| to | local   all         postgres     trust|</li>
-<li>sudo service postgresql restart</li>
-<li>now enter into the PostgreSQL using
-psql -U postgres</li>
-<li>ALTER USER postgres with password &lsquo;new password&rsquo;;</li>
-<li>then again change the pg_hba.conf as  earlier and restart the PostgreSQL for invoking the password protection</li>
+<li>Edit the file <code>sudo nano /etc/postgresql/9.1/main/pg_hba.conf</code></li>
+<li>change into
+    local   all         postgres    md5
+    local   all         postgres    trust|</li>
+<li>then do a restart <code>sudo service postgresql restart</code></li>
+
+<li><p>now enter into the PostgreSQL using</p>
+
+<pre><code>psql -U postgres
+ALTER USER postgres with password 'new password';
+</code></pre></li>
+
+<li><p>then again change the pg_hba.conf as  earlier and restart the PostgreSQL for invoking the password protection</p></li>
 </ol>
 
 
   <footer>
   
   
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
   
   <hr>
@@ -111,6 +136,6 @@ psql -U postgres</li>
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

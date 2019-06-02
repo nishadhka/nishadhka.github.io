@@ -15,15 +15,17 @@
 
     
       
-      <meta property="description" content="##Running WRF-CHEM for Coimbatore domain## - After doing wps with wrf-chem and problem faced to run wrf.exe, recompilation then decided to run the wrf-chem for Coimbatore domain - Coimbatore domain &amp;hellip;">
-      <meta property="og:description" content="##Running WRF-CHEM for Coimbatore domain## - After doing wps with wrf-chem and problem faced to run wrf.exe, recompilation then decided to run the wrf-chem for Coimbatore domain - Coimbatore domain &amp;hellip;">
+      <meta property="description" content="So made a last attempt of viewing nc file and its various variables from pythonic way, the command used was
+from osgeo import gdal from osgeo import osr import numpy import numpy.ma as ma datafile = &amp;hellip;">
+      <meta property="og:description" content="So made a last attempt of viewing nc file and its various variables from pythonic way, the command used was
+from osgeo import gdal from osgeo import osr import numpy import numpy.ma as ma datafile = &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -89,17 +91,17 @@
 
 
 
-<p>##Running WRF-CHEM for Coimbatore domain##
-- After doing wps with wrf-chem and problem faced to run wrf.exe, recompilation then decided to run the wrf-chem for Coimbatore domain
-- Coimbatore domain made with four nested domain feature has been run with wrf ems with resolution starting from 100&gt;27&gt;9&gt;3&gt;1km, this was made with dwiz application in wrf ems.
-- However to test the domain above the Coimbatore region the output was subject for wrfncxnj.py utility. It took 4 hours and 33 minutes to run this domain in IBM X4 series server computer with 16 GB ram.
-- to overlay the Coimbatore city shape file above the wrf output netcdf from wrfcnxnj.py. The Coimbatore city boundary shape file was converted into custom projection as per <a href="http://geoexamples.blogspot.in/2013/09/reading-wrf-netcdf-files-with-gdal.html">this</a>, <a href="http://www.gis.usu.edu/%7Echrisg/python/2009/lectures/ospy_hw2b.py">this</a> and <a href="http://geoinformaticstutorial.blogspot.in/2012/10/reprojecting-shapefile-with-gdalogr-and.html">this</a>. the final code is given in <a href="https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-06/Reprojecting_SHAPE_file_python.md">this</a>. But unfortunately the wrf output in far above north of  city boundary so it has to edited to involve the Coimbatore region.
-- So the server IBM started and made copy of the domain cbe<em>h1  tinto cbe</em>h2 and open this domain and edited the doamin in dwiz with asumption that it will encopose coimabtore region.
-- to ascertain the doamin creation assuumption the geogrid formed by wrf ems can be visulisaed in gis platform, for theis the nc file was subject to open in qgis, but it ends with error saying not supported format.
-- so the ioption is to convert this necdef file into geotiff and visulaise it in the qgis.
-- One advatgae observed was the shape file converted into the defined projhection is giving the area derived ifnroamtion in square kilometer, thsi awas problem in road network assementi in coimabtoer region, so the road netwwrk has to be converted into this projection and problem can rectified.
-- to get the geotiff from the geogrid nc files, ncview was used to know the variables to call the lat, long and parameters in geogrid. But, the variables pretended from ncview was througing error
-- so made a last attempt of viewing nc file various variables from pythonic way, the command used were</p>
+<ol>
+<li>Coimbatore domain made with four nests has been run with WRF-EMS with resolution starting from 100&gt;27&gt;9&gt;3&gt;1km. The domain is made using dwiz application in WRF-EMS.</li>
+<li>However, to test the domain above the Coimbatore region, the output was subject for wrfncxnj.py utility. It took 4 hours and 33 minutes to run this domain in IBM X4 series server computer with 16 GB ram.</li>
+<li>To overlay the Coimbatore city shape file above the WRF output NetCDF from wrfcnxnj.py. The city shapefile of Coimbatore converted into custom projection as per <a href="http://geoexamples.blogspot.in/2013/09/reading-wrf-netcdf-files-with-gdal.html">this</a>, <a href="http://www.gis.usu.edu/%7Echrisg/python/2009/lectures/ospy_hw2b.py">this</a> and <a href="http://geoinformaticstutorial.blogspot.in/2012/10/reprojecting-shapefile-with-gdalogr-and.html">this</a>. The final code look likes <a href="https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2014-06/Reprojecting_SHAPE_file_python.md">this</a>. But unfortunately the WRF output land far above north of  city boundary so it has to edited to involve the Coimbatore region.</li>
+<li>The server IBM started and made a copy of the domain cbe<em>h1  into cbe</em>h2 and open this domain and edited the domain in dwiz to make the domain cover the Coimbatore region.</li>
+<li>To ascertain the domain coverage the geogrid formed by wrf ems can be visualized in QGIS platform, for this the NC file was subject to open in qgis, but it ends with an error saying not supported format.</li>
+<li>So the option is to convert this NetCDF file into geotiff and visualize it in the QGIS.</li>
+<li>One advantage observed was the shapefile converted into the defined projection is giving the area derived information in a square kilometer, this was problem in road network assessment in the Coimbatore region, so the road network has to be converted into this projection and problem can rectified.</li>
+<li>To convert NC file into geotiff, name of the variables were chosen by ncview. However, this ends up in error</li>
+
+<li><p>So made a last attempt of viewing nc file and its various variables from pythonic way, the command used was</p>
 
 <pre><code>from osgeo import gdal
 from osgeo import osr
@@ -109,11 +111,10 @@ datafile = 'geo_em.d04.nc'
 ds_in = gdal.Open(datafile)
 subdatasets = ds_in.GetSubDatasets()
 subdatasets
-</code></pre>
-
-<p>these command gives the list of variables in the geo_em.d04.nc. In which the variables CLONG and CLAT was considered as lon and lat and variabnle GREENFRAC was used as parameter for geotiff conversion script. The script used were</p>
-
-<pre><code>from osgeo import gdal
+```
+these command gives the list of variables in the geo_em.d04.nc. In which the variables CLONG and CLAT was considered as lon and lat and variabnle GREENFRAC was used as parameter for geotiff conversion script. The script used were 
+```
+from osgeo import gdal
 from osgeo import osr
 import numpy
 import numpy.ma as ma
@@ -161,8 +162,10 @@ ds_out.SetProjection(proj_out.ExportToWkt())
 ds_out.GetRasterBand(1).WriteArray( ds_p_b )
 </code></pre>
 
-<p>By this script the geotiff file <code>geo_em.d04.tiff</code> was created and it was overlay with Coimbatore city boundary, by this the wrf -ems domain was ascertained that it involves Coimbatore region extent.
-- this made to copy the cbe_h1 folder in runs folder of WRF ems and kept it to use for input.wps and input.real in wrf chem simulation over Coimbatore domain</p>
+<p>By this script the geotiff file <code>geo_em.d04.tiff</code> was created and it gets cover Coimbatore city boundary. The wrf -ems domain made sure that it involves the Coimbatore region extent.</p></li>
+
+<li><p>Made a copy of the cbe_h1 folder in runs folder of WRF ems and kept it to use for input.wps and input.real in wrf chem simulation over Coimbatore domain</p></li>
+</ol>
 
 
   <footer>
@@ -189,6 +192,6 @@ ds_out.GetRasterBand(1).WriteArray( ds_p_b )
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

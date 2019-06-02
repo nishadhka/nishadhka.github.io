@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SSH on Nishadh KA</title>
-    <link>//localhost:1313/tags/ssh/</link>
+    <link>/tags/ssh/</link>
     <description>Recent content in SSH on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Jun 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>SSH for WRF EMS Cluster running</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/ssh_for_wrf_ems_cluster_running/</link>
+      <title>The SSH for WRF EMS Cluster running</title>
+      <link>/working-notes/2014/wn_2014-06/ssh-for-wrf-ems-cluster-running/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/ssh_for_wrf_ems_cluster_running/</guid>
-      <description>###SSH for WRFEMS cluster running### - For executing the WRF EMS in cluster computer mode, pass wordless ssh is required, it is specified in &amp;hellip;/runs/domain/config/emsrun/run_ncpus.conf as follows
+      <guid>/working-notes/2014/wn_2014-06/ssh-for-wrf-ems-cluster-running/</guid>
+      <description>For executing the WRF EMS in cluster computer mode, pass wordless ssh is required, it is specified in .../runs/domain/config/ems_run/run_ncpus.conf, the content of files is as follows
 LOG: R.Rozumalski - NWS January 2012 - I&#39;m still gruven # # Running the WRF on a cluster? # # If so, then make sure you that you have passwordless SSH on machines that # you plan to use when running on multiple nodes (not necessary for single # workstation runs).</description>
     </item>
     

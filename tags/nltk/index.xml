@@ -2,23 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NLTK on Nishadh KA</title>
-    <link>//localhost:1313/tags/nltk/</link>
+    <link>/tags/nltk/</link>
     <description>Recent content in NLTK on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Aug 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/tags/nltk/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/nltk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>English Grammer checker</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-08/english_grammer_checker/</link>
+      <title>Find the tense and voices in a sentence by English grammar checker</title>
+      <link>/working-notes/2014/wn_2014-08/english-grammer-checker/</link>
       <pubDate>Fri, 01 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-08/english_grammer_checker/</guid>
-      <description>###Find the tense and voices in a sentence: English grammar checker###
- Search made to find various type of tense in a sentence. Ended in this, sf page. Stanford core NLP and NLTK with python are good natural language processors used for this purposes. NLP gives statistical measure of likely role of words in a sentence, Standford NLP is giving a web service with visualization of various statical measures in part-of-speech tags.</description>
+      <guid>/working-notes/2014/wn_2014-08/english-grammer-checker/</guid>
+      <description>Search made to find various type of tense in a sentence. Ended in this, page. Stanford core NLP and NLTK with python are good natural language processors used for this purposes. NLP gives a statistical measure of the possible role of words in a sentence, Standford NLP is giving a web service with visualization of various statical measures in part-of-speech tags. Its grammatical state is inferred using the Penn tags, yes machine based!</description>
     </item>
     
   </channel>

@@ -15,15 +15,19 @@
 
     
       
-      <meta property="description" content="sudo scp -i .ssh/gssa.pem ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/CORE-Ubuntu_eWRF.zip /home/fellow   Use rsync, to transfer file from local host to aws  sudo rsync -avz –stats &amp;hellip;">
-      <meta property="og:description" content="sudo scp -i .ssh/gssa.pem ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/CORE-Ubuntu_eWRF.zip /home/fellow   Use rsync, to transfer file from local host to aws  sudo rsync -avz –stats &amp;hellip;">
+      <meta property="description" content="Use scp
+sudo scp -i .ssh/gssa.pem ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/CORE-Ubuntu_eWRF.zip /home/fellow  Use rsync, to transfer file from local host to aws
+sudo rsync -avz &amp;hellip;">
+      <meta property="og:description" content="Use scp
+sudo scp -i .ssh/gssa.pem ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/CORE-Ubuntu_eWRF.zip /home/fellow  Use rsync, to transfer file from local host to aws
+sudo rsync -avz &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -89,33 +93,30 @@
 
 
 
-<ul>
-<li>Use scp</li>
-</ul>
+<ol>
+<li><p>Use scp</p>
 
 <pre><code>sudo scp -i .ssh/gssa.pem ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/CORE-Ubuntu_eWRF.zip /home/fellow
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>Use rsync, to transfer file from local host to aws
-<code>
-sudo rsync -avz –stats /home/fellow/sim.txt -e “ssh -i .ssh/gssa.pem” ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/
+<li><p>Use rsync, to transfer file from local host to aws</p>
+
+<pre><code>sudo rsync -avz –stats /home/fellow/sim.txt -e “ssh -i .ssh/gssa.pem” ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/
 sudo rsync -P –stats -e “ssh -i .ssh/gssa.pem” ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/CORE-Ubuntu_eWRF.zip /home/fellow/
-</code>
-to transfer file from aws to local host</li>
-</ul>
+</code></pre></li>
+
+<li><p>to transfer file from aws to local host</p>
 
 <pre><code>sudo rsync -avz –stats -e “ssh -i .ssh/gssa.pem” ubuntu@ecip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/sim.txt /home/fellow/
-</code></pre>
+</code></pre></li>
 
-<p>to resume a download after a net connection break</p>
+<li><p>to resume a download after a net connection break</p>
 
 <pre><code>sudo rsync -P –stats -e “ssh -i .ssh/gssa.pem” ubuntu@ip.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/sim.txt /home/fellow/
-</code></pre>
+</code></pre></li>
 
-<p>rsync is most useful for backup purpose to transfer or update file between, external hard disk and laptop
-Based on
-<a href="http://x-ian.net/2009/05/15/resume-rsync-transfer-after-ssh-connection-crash/">http://x-ian.net/2009/05/15/resume-rsync-transfer-after-ssh-connection-crash/</a></p>
+<li><p>rsync is most useful for backup purpose to transfer or update file between, external hard disk and laptop Based on <a href="http://x-ian.net/2009/05/15/resume-rsync-transfer-after-ssh-connection-crash/">http://x-ian.net/2009/05/15/resume-rsync-transfer-after-ssh-connection-crash/</a></p></li>
+</ol>
 
 
   <footer>
@@ -142,6 +143,6 @@ Based on
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

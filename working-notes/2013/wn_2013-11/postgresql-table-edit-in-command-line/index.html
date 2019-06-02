@@ -23,7 +23,7 @@
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -31,6 +31,11 @@
 
     
     
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -88,29 +93,49 @@
 it is to overcome to the error in istsos import saying the Dylos reading is exceeding the digit limit of the column val_meas in the table. Normally it is easy to change column digit size through pgadmin. However, for command line, it requires following commands.</p>
 
 <ol>
-<li>Get access to PostgreSQL</li>
-</ol>
+<li><p>Get access to PostgreSQL</p>
 
-<p>sudo -u postres psql</p>
+<pre><code>sudo -u postres psql
+</code></pre></li>
 
-<ol>
-<li><p>To view the database in PostgreSQL
-\dt</p></li>
+<li><p>To view the database in PostgreSQL</p>
 
-<li><p>To connect with a particular database
-\c istsos      here istsos is database</p></li>
+<pre><code>\dt
+</code></pre></li>
 
-<li><p>To display the details of table
-\d dlyosecbe.measrues        here dlyosecbe.measrues is the table name</p></li>
+<li><p>To connect with a particular database</p>
 
-<li><p>To change the columns digit size use the SQl command got from pgadmin
-ALTER TABLE dyloscbe.measures k ALTER COLUMN val_msr TYPE numeric(14,6);</p></li>
+<pre><code>\c istsos      here istsos is database
+</code></pre></li>
+
+<li><p>To display the details of table</p>
+
+<pre><code>\d dlyosecbe.measrues        here dlyosecbe.measrues is the table name
+</code></pre></li>
+
+<li><p>To change the columns digit size use the SQl command got from pgadmin</p>
+
+<pre><code>ALTER TABLE dyloscbe.measures k ALTER COLUMN val_msr TYPE numeric(14,6);
+</code></pre></li>
 </ol>
 
 
   <footer>
   
   
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
   
   <hr>
@@ -119,6 +144,6 @@ ALTER TABLE dyloscbe.measures k ALTER COLUMN val_msr TYPE numeric(14,6);</p></li
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

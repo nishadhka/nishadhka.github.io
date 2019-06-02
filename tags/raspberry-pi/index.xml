@@ -2,144 +2,137 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Raspberry Pi on Nishadh KA</title>
-    <link>//localhost:1313/tags/raspberry-pi/</link>
+    <link>/tags/raspberry-pi/</link>
     <description>Recent content in Raspberry Pi on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 07 Oct 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Dylos RPi Serial problem</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</link>
+      <link>/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</link>
       <pubDate>Tue, 07 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</guid>
+      <guid>/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</guid>
       <description>####DYLOS RPi serial Problem#### 1. RPi(Raspberry pi) has problem in serial read of dylos air quality monitor data, the serial read ends with wrong or misplaced data from the dylos monitor, this problem was mentioned in this (note)(Serialportproblemlbm1knmr.md). For example runnnnig of the python command for getting dylos serial read ends as follows
  pi@raspberrypi ~/SMS $ python &amp;gt;&amp;gt;&amp;gt; import serial &amp;gt;&amp;gt;&amp;gt; ser = serial.Serial(&#39;/dev/dylos&#39;, 9600, timeout=60) &amp;gt;&amp;gt;&amp;gt; line = ser.</description>
     </item>
     
     <item>
-      <title>LAN based Internet problem and solutionforRaspberry</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-07/lan_based_internet_problem_and_solutionforraspberry/</link>
+      <title>LAN based Internet problem and th Raspberry Pi and solution</title>
+      <link>/working-notes/2014/wn_2014-07/lan_based_internet_problem_and_solutionforraspberry/</link>
       <pubDate>Wed, 02 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-07/lan_based_internet_problem_and_solutionforraspberry/</guid>
-      <description>##LANbasedInternetproblemand_solutionforRaspberry## - LAN based internet for Raspberry pi (RPi) is not on the go, the netsat, network interfaces has to be edited, and also based on the gateway of server it has to be changed - current case used server was TP-LINK MR3420, it is a small single board computer based 3G modem, wirless device, its gateway address is 192.168.0.254. A 3G dongle was connected with device and LAN from this device is connected into RPi.</description>
+      <guid>/working-notes/2014/wn_2014-07/lan_based_internet_problem_and_solutionforraspberry/</guid>
+      <description>LAN based internet for Raspberry pi (RPi) is not on the go, the netsat, network interfaces has to be edited, and also based on the gateway of server it has to be changed The current case used server was TP-LINK MR3420, it is a single small board computer based 3G modem, wireless device, its gateway address is 192.168.0.254. A 3G dongle connected with device and LAN from this device connected to RPi.</description>
     </item>
     
     <item>
       <title>Dylos monitor setup full with log</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/dylos_monitor_setup_full_with_log/</link>
+      <link>/working-notes/2014/wn_2014-04/dylos-monitor-setup-full-with-log/</link>
       <pubDate>Thu, 10 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/dylos_monitor_setup_full_with_log/</guid>
-      <description>Dylosmonitorsetupfullwith_log Following http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/ and UdevrulesforUSB&amp;rsquo;sattachedtoRPi
-create a udev rule for RPI
-edited the file /etc/udev/rules.d
-using command
-sudo nano /etc/udev/rules.d/90-phone.rules
-and add follwoing lines to giving persistant name for USB data card (HUWAEI E303F) and USB to serial cable for Dylos monitor.
-KERNEL==&amp;ldquo;ttyUSB&amp;rdquo;, ATTRS{idVendor}==&amp;ldquo;12d1&amp;rdquo;, ATTRS{idProduct}==&amp;ldquo;1506&amp;rdquo;, NAME=&amp;ldquo;phone&amp;rdquo;, MODE=&amp;ldquo;0666&amp;rdquo;,SYMLINK+=&amp;ldquo;mobile&amp;rdquo; KERNEL==&amp;ldquo;ttyUSB&amp;rdquo;, ATTRS{idVendor}==&amp;ldquo;067b&amp;rdquo;, ATTRS{idProduct}==&amp;ldquo;2303&amp;rdquo;, NAME=&amp;ldquo;dylos&amp;rdquo;, MODE=&amp;ldquo;0666&amp;rdquo;,SYMLINK+=&amp;ldquo;dylos&amp;rdquo;
-by this, while connecting these two devices, the folder /dev shows the files for USB data card and USB to serial cable for Dylos monitor.</description>
+      <guid>/working-notes/2014/wn_2014-04/dylos-monitor-setup-full-with-log/</guid>
+      <description>Following http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/ and UdevrulesforUSB&amp;rsquo;sattachedtoRPi
+ Create a udev rule for RPI, edited the file /etc/udev/rules.d using command sudo nano /etc/udev/rules.d/90-phone.rules and add following lines to giving a persistent name for USB data card (HUWAEI E303F) and USB to serial cable for Dylos monitor.
+KERNEL==&amp;quot;ttyUSB*&amp;quot;, ATTRS{idVendor}==&amp;quot;12d1&amp;quot;, ATTRS{idProduct}==&amp;quot;1506&amp;quot;, NAME=&amp;quot;phone&amp;quot;, MODE=&amp;quot;0666&amp;quot;,SYMLINK+=&amp;quot;mobile&amp;quot; KERNEL==&amp;quot;ttyUSB*&amp;quot;, ATTRS{idVendor}==&amp;quot;067b&amp;quot;, ATTRS{idProduct}==&amp;quot;2303&amp;quot;, NAME=&amp;quot;dylos&amp;quot;, MODE=&amp;quot;0666&amp;quot;,SYMLINK+=&amp;quot;dylos&amp;quot;  Adding udev rules gives option select devices, while connecting two or more devices. The folder /dev shows the files for USB data card and USB to serial cable for Dylos monitor.</description>
     </item>
     
     <item>
       <title>Daemon service for RPI for running python script</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-01/daemon_service_for_rpi_for_running_python_script/</link>
+      <link>/working-notes/2014/wn_2014-01/daemon_service_for_rpi_for_running_python_script/</link>
       <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-01/daemon_service_for_rpi_for_running_python_script/</guid>
+      <guid>/working-notes/2014/wn_2014-01/daemon_service_for_rpi_for_running_python_script/</guid>
       <description>To make a python script run in demon which stores serial reading into a csv file and send one serial read value into SMS.
- First save the python script as service inside this folder and make it executable  /usr/local/bin/myservice/myscript.py
+ First save the python script as service inside this folder and make it executable /usr/local/bin/myservice/myscript.py
 #!/usr/bin/env python import serial import time import gammu ser = serial.Serial(&#39;/dev/ttyUSB0&#39;, 9600, timeout=60) time.sleep(60) logfile = open(&#39;DYLOS_log.csv&#39;, &#39;a&#39;) while 1: line = ser.readline() now = time.strftime(&amp;quot;%Y-%m-%dT%H:%M:%S:00.000000+0530&amp;quot;, time.localtime()) a = &amp;quot;%s,%s&amp;quot; % (now,line) #print a logfile.</description>
     </item>
     
     <item>
       <title>GSM INTERNET connection for RPi</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-01/gsm-internet-connection-for-rpi/</link>
+      <link>/working-notes/2014/wn_2014-01/gsm-internet-connection-for-rpi/</link>
       <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-01/gsm-internet-connection-for-rpi/</guid>
+      <guid>/working-notes/2014/wn_2014-01/gsm-internet-connection-for-rpi/</guid>
       <description>Based on
-http://mintakaconciencia.net/squares/umtskeeper/index.html#install http://bigcowpi.blogspot.in/2013/03/raspberry-pi-as-3g-huawei-e303-wireless.html http://raspberry-at-home.com/installing-3g-modem/ http://decryption.wordpress.com/2013/07/30/raspberry-pi-portable-3g4g-network-quality-logger-project-part-1/ http://pikiosk.tumblr.com/post/39526392102/raspberry-3g-modem-usb http://shkspr.mobi/blog/2012/07/3g-internet-on-raspberry-pi-success/ http://fcastagnotto.wordpress.com/2013/04/29/usb_modeswitch-ubuntu-systems/ http://www.thefanclub.co.za/how-to/how-setup-usb-3g-modem-raspberry-pi-using-usbmodeswitch-and-wvdial http://raspberrypi.stackexchange.com/questions/4314/can-i-use-usb-dongle-to-connect-raspberry-pi-to-internet  </description>
+ http://mintakaconciencia.net/squares/umtskeeper/index.html#install http://bigcowpi.blogspot.in/2013/03/raspberry-pi-as-3g-huawei-e303-wireless.html http://raspberry-at-home.com/installing-3g-modem/ http://decryption.wordpress.com/2013/07/30/raspberry-pi-portable-3g4g-network-quality-logger-project-part-1/ http://pikiosk.tumblr.com/post/39526392102/raspberry-3g-modem-usb http://shkspr.mobi/blog/2012/07/3g-internet-on-raspberry-pi-success/ http://fcastagnotto.wordpress.com/2013/04/29/usb_modeswitch-ubuntu-systems/ http://www.thefanclub.co.za/how-to/how-setup-usb-3g-modem-raspberry-pi-using-usbmodeswitch-and-wvdial http://raspberrypi.stackexchange.com/questions/4314/can-i-use-usb-dongle-to-connect-raspberry-pi-to-internet  </description>
+    </item>
+    
+    <item>
+      <title>Raspberry pi errors</title>
+      <link>/working-notes/2014/wn_2014-01/raspberry-pi-errors/</link>
+      <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-01/raspberry-pi-errors/</guid>
+      <description>with GSM data card and serial to USB connected to the USB hub, after connecting GSM data card, a few minutes after the ssh is getting disconnected After dismantling the RPi with RTC, clock time become erroneous, so it was reconnected with lots of reboots and set the time manually using the command
+sudo hwclock --set --date &amp;quot;01/16/2014 08:33:01&amp;quot;  to set the computer time using https://wiki.debian.org/DateTime#Set_the_time_manually
+date --set 1998-11-02 date --set 21:08:00  Now RPI is connected with data card, without connecting serial to USB wire, now the RPi is working without a problem.</description>
     </item>
     
     <item>
       <title>Testing the RPi with usb hub usb serial and data card</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-01/testing-the-rpi-with-usb-hub-usb-serial-and-data-card/</link>
+      <link>/working-notes/2014/wn_2014-01/testing-the-rpi-with-usb-hub-usb-serial-and-data-card/</link>
       <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-01/testing-the-rpi-with-usb-hub-usb-serial-and-data-card/</guid>
-      <description>There is a problem of ssh and pinging if connected with proper setup, that is RPI and LAN. 1. with some iteration starting from suspecting starting with UH(USB hub) adaptor, then UH itself, then RPi and then wire connecting with UH and RPI, found the problem with the wire connecting UH and RPi. 1. With this set then started the connection of DC(Dylos Cable), it was not recognized by lsusb, then connected the US (USB Serial pin), US was recognized but no DC, then DC was removed and connected to the USB point nearer to light now lsusb showed the DC and recognized, however, after a while LAN connection was disrupted and no pinging also.</description>
+      <guid>/working-notes/2014/wn_2014-01/testing-the-rpi-with-usb-hub-usb-serial-and-data-card/</guid>
+      <description>There is a problem of ssh and pinging if connected with setup of RPI and LAN.
+ with some iteration starting from suspecting starting with UH(USB hub) adaptor, then UH itself, then RPi and then wire connecting with UH and RPI, found the problem with the wire connecting UH and RPi. With this set then started the connection of DC(Dylos Cable), it was not recognized by lsusb, then connected the US (USB Serial pin), US was recognized but no DC, then DC was removed and connected to the USB point nearer to light now lsusb showed the DC and recognized, however, after a while LAN connection was disrupted and no pinging also.</description>
     </item>
     
     <item>
       <title>Udev rules for USB attached to RPi</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-01/udev-rules-for-usb-attached-to-rpi/</link>
+      <link>/working-notes/2014/wn_2014-01/udev-rules-for-usb-attached-to-rpi/</link>
       <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-01/udev-rules-for-usb-attached-to-rpi/</guid>
-      <description>It seems the /dev/tty* address for the attached USB is changing intermittently, giving a permanent rules name for each device will be the workaround.
-Based on this http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/
-So the udev rules for cocemsd, setup is as follows.
-/etc/udev/rules.d, with file name 90-phone.rules, with this contents
-KERNEL==&amp;ldquo;ttyUSB&amp;rdquo;, ATTRS{idVendor}==&amp;ldquo;12d1&amp;rdquo;, ATTRS{idProduct}==&amp;ldquo;1436&amp;rdquo;, NAME=&amp;ldquo;phone&amp;rdquo;, MODE=&amp;ldquo;0666&amp;rdquo;,SYMLINK+=&amp;ldquo;phone&amp;rdquo; KERNEL==&amp;ldquo;ttyUSB&amp;rdquo;, ATTRS{idVendor}==&amp;ldquo;067b&amp;rdquo;, ATTRS{idProduct}==&amp;ldquo;2303&amp;rdquo;, NAME=&amp;ldquo;dylos&amp;rdquo;, MODE=&amp;ldquo;0666&amp;rdquo;,SYMLINK+=&amp;ldquo;dylos&amp;rdquo;</description>
-    </item>
-    
-    <item>
-      <title>raspberry pi errors</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-01/raspberry-pi-errors/</link>
-      <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/working-notes/2014/wn_2014-01/raspberry-pi-errors/</guid>
-      <description>with GSM data card and serial to USB connected to the USB hub, after connecting GSM data card, a few minutes after the ssh is getting disconnected After dismantling the RPi with RTC, clock time become erroneous, so it was reconnected with lots of reboots and set the time manually using the command  sudo hwclock --set --date &amp;quot;01/16/2014 08:33:01&amp;quot;  to set the computer time using
-https://wiki.debian.org/DateTime#Set_the_time_manually
-date &amp;ndash;set 1998-11-02 date &amp;ndash;set 21:08:00</description>
+      <guid>/working-notes/2014/wn_2014-01/udev-rules-for-usb-attached-to-rpi/</guid>
+      <description>It seems the /dev/tty* address for the attached USB is changing intermittently, giving a permanent rules name for each device will be the workaround. Based on this http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/
+So the udev rules for cocemsd USB datacard, config file under folder /etc/udev/rules.d, with file name 90-phone.rules, is edited with this contents
+KERNEL==&amp;quot;ttyUSB*&amp;quot;, ATTRS{idVendor}==&amp;quot;12d1&amp;quot;, ATTRS{idProduct}==&amp;quot;1436&amp;quot;, NAME=&amp;quot;phone&amp;quot;, MODE=&amp;quot;0666&amp;quot;,SYMLINK+=&amp;quot;phone&amp;quot; KERNEL==&amp;quot;ttyUSB*&amp;quot;, ATTRS{idVendor}==&amp;quot;067b&amp;quot;, ATTRS{idProduct}==&amp;quot;2303&amp;quot;, NAME=&amp;quot;dylos&amp;quot;, MODE=&amp;quot;0666&amp;quot;,SYMLINK+=&amp;quot;dylos&amp;quot;  </description>
     </item>
     
     <item>
       <title>DYLOS raspberry pi and xively</title>
-      <link>//localhost:1313/working-notes/2013/wn_2013-12/dylos_raspberry_pi_and_xively/</link>
+      <link>/working-notes/2013/wn_2013-12/dylos_raspberry_pi_and_xively/</link>
       <pubDate>Mon, 16 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2013/wn_2013-12/dylos_raspberry_pi_and_xively/</guid>
-      <description>To connect the raspberry pi with Dylos serial to xively IOT, based on https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley
-the written code was this
+      <guid>/working-notes/2013/wn_2013-12/dylos_raspberry_pi_and_xively/</guid>
+      <description>To connect the raspberry pi with Dylos serial to xively IOT, based on https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley the written code was this
 #!/usr/bin/env python from __future__ import division import time import os import eeml import sys import syslog import json import serial import subprocess import re a = 0.02832 ser = serial.Serial(&#39;/dev/ttyUSB0&#39;, 9600, timeout=60) def getCPUtemperature(): res = os.popen(&#39;vcgencmd measure_temp&#39;).readline() return(res.replace(&amp;quot;temp=&amp;quot;,&amp;quot;&amp;quot;).replace(&amp;quot;&#39;C\n&amp;quot;,&amp;quot;&amp;quot;)) def getDiskSpace(): p = os.popen(&amp;quot;df -h /&amp;quot;) i = 0 while 1: i = i +1 line = p.</description>
     </item>
     
     <item>
       <title>DYLOS raspberry pi experiment</title>
-      <link>//localhost:1313/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</link>
+      <link>/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</link>
       <pubDate>Mon, 11 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</guid>
+      <guid>/working-notes/2013/wn_2013-11/dylos-raspberry-pi-experiment/</guid>
       <description>The Dylos air quality monitor with serial to USB port was connected to the raspberry pi. Raspberry pi connected through mini USB for power, LAN is connected to RPi, for SD card preparation followed this
- using DD already had a .img file of old raspberry pi SD card Linux files make fresh SD card for RPi, SD card is formatted with FAT file formate and then run df -h to view the currently mounted devices, it shows the presence of “/dev/mmcblk0p1” then unmounted the /dev/mmcblk0p1 then ran this command dd bs=4M if=~/2012-12-16-wheezy-raspbian.</description>
+ using DD already had a .img file of old raspberry pi SD card Linux files make fresh SD card for RPi, SD card is formatted with FAT file formate and then run df -h to view the currently mounted devices it shows the presence of “/dev/mmcblk0p1” then unmounted the /dev/mmcblk0p1 then ran this command dd bs=4M if=~/2012-12-16-wheezy-raspbian.</description>
     </item>
     
     <item>
       <title>Steps to view attached USB serial in RPI</title>
-      <link>//localhost:1313/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</link>
+      <link>/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</link>
       <pubDate>Mon, 11 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</guid>
-      <description>in case of DYLOS air quality monitor /dev,based on http://www.linfo.org/dmesg.html bash dmesg | grep -i tty  Now to use this for data logging and GSM data transmission for data logging python script from this replay is used#3 http://forum.arduino.cc/index.php?topic=105148.0 python import serial import time ser = serial.Serial(‘/dev/ttyUSB0’, 9600, timeout=60) time.sleep(60) logfile = open(‘test.csv’, ‘a’) while 1: line = ser.readline() now = time.strftime(“%Y-%m-%dT%H:%M:%S:00.000000+0530”, time.localtime()) a = “%s,%s” % (now,line) print a logfile.</description>
+      <guid>/working-notes/2013/wn_2013-11/steps-viewing-attached-serial-usb-rpi/</guid>
+      <description>in case of DYLOS air quality monitor /dev,based on http://www.linfo.org/dmesg.html bash dmesg | grep -i tty  Now to use this for data logging and GSM data transmission for data logging python script from this replay is used#3 http://forum.arduino.cc/index.php?topic=105148.0
+import serial import time ser = serial.Serial(‘/dev/ttyUSB0’, 9600, timeout=60) time.sleep(60) logfile = open(‘test.csv’, ‘a’) while 1: line = ser.readline() now = time.strftime(“%Y-%m-%dT%H:%M:%S:00.000000+0530”, time.localtime()) a = “%s,%s” % (now,line) print a logfile.</description>
     </item>
     
     <item>
       <title>Giving Raspberry pi net connection</title>
-      <link>//localhost:1313/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</link>
+      <link>/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</link>
       <pubDate>Tue, 29 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</guid>
-      <description>The static IP address addition on SD card seems not connecting RPi (Raspberry Pi) to the Internet (1) 1. A possible way is to remove DHCP and invoke static 2. So the command netstat -nr will show up only the
-Destination Gateway Genmask Flags MSS 192.168.1.0 0.0.0.0 255.255.255.0 U 0 Window irtt Iface 0 0 eth0
-without UG flag (from http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues)
-so no gateway, no way to access the Internet</description>
+      <guid>/working-notes/2013/wn_2013-10/giving-raspberry-pi-net-connection/</guid>
+      <description>The static IP address addition on SD card seems not connecting RPi (Raspberry Pi) to the Internet (1)
+ A possible way is to remove DHCP and invoke static So the command netstat -nr will show up only the
+Destination Gateway Genmask Flags MSS 192.168.1.0 0.0.0.0 255.255.255.0 U 0 Window irtt Iface 0 0 eth0  without UG flag (from http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues) so no gateway, no way to access the Internet</description>
     </item>
     
   </channel>

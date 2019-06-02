@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GDAL on Nishadh KA</title>
-    <link>//localhost:1313/tags/gdal/</link>
+    <link>/tags/gdal/</link>
     <description>Recent content in GDAL on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Oct 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/tags/gdal/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/gdal/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>PythonGDALproblem</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-10/pythongdalproblem/</link>
+      <link>/working-notes/2014/wn_2014-10/pythongdalproblem/</link>
       <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-10/pythongdalproblem/</guid>
+      <guid>/working-notes/2014/wn_2014-10/pythongdalproblem/</guid>
       <description>####Python GDAL problem####
 ImportError: /usr/lib/libgdal.so.1: undefined symbol: sqlite3columntable_name
 main.gdalconfigerror: [Errno 2] No such file or directory
@@ -36,11 +36,11 @@ install.packages(repos=c(&amp;lsquo;http://cran.fhcrc.org/&#39;),pkgs=c(&#39;ncd
     
     <item>
       <title>Installing GDAL with Python in Ubunut1204</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/installing_gdal_with_python_in_ubunut1204/</link>
+      <link>/working-notes/2014/wn_2014-06/installing-gdal-with-python-in-ubunut1204/</link>
       <pubDate>Wed, 18 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/installing_gdal_with_python_in_ubunut1204/</guid>
-      <description>##InstallingGDALwith_Python## - to make geotiff file from wrf output, python script requiers gdal such as for this from osgeo import gdal and from osgeo import osr - to install it in Ubuntu 12.04, it reuiers to install gdal-bin, libgdal1 and ptthon-gdal, after installing running python and importing crahes python with this message segmentation error(core dumped) - first it was detected of version difference, so installed with deb packages avaolable for the version for 1.</description>
+      <guid>/working-notes/2014/wn_2014-06/installing-gdal-with-python-in-ubunut1204/</guid>
+      <description>Convert WRF output into geotiff. Python script requires gdal such as for this from osgeo import gdal and from osgeo import osr To install it in Ubuntu 12.04, it requires to install gdal-bin, libgdal1 and python-gdal, after installing and running python import of these libs ends up in crashes with this message segmentation error(core dumped) Detected error due to version difference, so installed with deb packages available for the version for 1.</description>
     </item>
     
   </channel>

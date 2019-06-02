@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>trisquel 60 installation in nvidia geforce card laptop - Nishadh KA</title>
-    <meta property="og:title" content="trisquel 60 installation in nvidia geforce card laptop - Nishadh KA">
+    <title>Trisquel 60 installation in nvidia geforce card laptop - Nishadh KA</title>
+    <meta property="og:title" content="Trisquel 60 installation in nvidia geforce card laptop - Nishadh KA">
     
     <meta name="twitter:card" content="summary">
 
@@ -23,7 +23,7 @@
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -73,7 +73,7 @@
     <article class="main">
       <header class="title">
       
-<h1>trisquel 60 installation in nvidia geforce card laptop</h1>
+<h1>Trisquel 60 installation in nvidia geforce card laptop</h1>
 
 <h3>
   2014-02-25</h3>
@@ -88,17 +88,21 @@
 aUsed live USB created from Ubuntu 12.04 using startup disk creator, and the installation screen never turned up. It shows a blank screen with a large cursor object then get into Trisquel popular background image and stay there forever with a hopeful rotating mouse pointer for some time and then into a sad state, this is the first problem.</p>
 
 <ul>
-<li><p>Problem 1
-solution:
-While blank screen with large cursor shows up after BIOS setup, press F1 (need to fast enough here, losing this screen would lead to restart the system again), it brings a screen with some numerics, then pressing ESC  will be getting into a screen with boot : _ . Type here &ldquo;help&rdquo; (with out &ldquo; &ldquo;) and press Enter, welcomed with help screen with several options and its functions. Typing here F3 (Here also have to fast enough. Otherwise it goes to the later screen stays forever and pretend you to restart the system) and type &ldquo;install nomodeset&rdquo;
-It will be prompted to the regular installation screen of Trisquel and can continue with the standard installation.</p></li>
-
-<li><p>Problem 2
-After installation and one time reboot, the system hangs into the background image and stays forever.
-Solution:
-Need to specify the nomodeset in grub, to get grub screen of Trisquel, keep on press shift key after blue bios screen, stop pressing after the GRUB screen of Trisquel shows up. The screen will be prompted with user name and password of GRUB, note that those are not the password or user name setup done during installation. User name and password can be known by going inside just installed Trisquel. Moreover, the password randomly generated, and so only way is to get into the file system of Trisquel located in  /etc/grub.d/01<em>PASSWORD and view it in a text editor to know about user name and password. Then the question how go inside the system and view a file even if it is not gets started arise, solution- use live USB, using a another Ubuntu live USB and follow the above step up to the installation screen and get into testing mode without installation then mount the hard disk and view the file from there.). After knowing the password, restart the system without live USB enter into grub screen and type the user name and password just noted. The grub option screen gets visible, press e or d as specified, a new screen comes up and edit content in there, remove &ldquo;quit splash&rdquo; into &ldquo;nomodeset&rdquo; (here again no &ldquo; &ldquo;). After editing press CTRL+X and can get into installed Trisquel. So to make permanently nomodeset for grub for avoiding the black screen problem, edit the grub file from /etc/default/grub and edit a line,
-GRUB</em>CMDLINE_LINUX=&ldquo;nomodeset&rdquo;, save the file and system works fine.</p></li>
+<li>Problem 1
+solution:</li>
 </ul>
+
+<p>While blank screen with large cursor shows up after BIOS setup, press <code>F1</code> (need to fast enough here, losing this screen would lead to restart the system again), it brings a screen with some numerics, then pressing <code>ESC</code>  will be getting into a screen with boot <code>: _</code>. Type here <code>&quot;help&quot;</code> (with out &ldquo; &ldquo;) and press Enter, welcomed with help screen with several options and its functions. Typing here <code>F3</code> (Here also have to fast enough. Otherwise it goes to the later screen stays forever and pretend you to restart the system) and type <code>&quot;install nomodeset&quot;</code>
+It will be prompted to the regular installation screen of Trisquel and can continue with the standard installation.</p>
+
+<ul>
+<li>Problem 2
+After installation and one time reboot, the system hangs into the background image and stays forever.
+Solution:</li>
+</ul>
+
+<p>Need to specify the nomodeset in grub, to get grub screen of Trisquel, keep on press <code>shift</code> key after blue bios screen, stop pressing after the GRUB screen of Trisquel shows up. The screen will be prompted with user name and password of GRUB, note that those are not the password or user name setup done during installation. User name and password can be known by going inside just installed Trisquel. Moreover, the password randomly generated, and so only way is to get into the file system of Trisquel located in  <code>/etc/grub.d/01_PASSWORD</code> and view it in a text editor to know about user name and password. Then the question how go inside the system and view a file even if it is not gets started arise, solution- use live USB, using a another Ubuntu live USB and follow the above step up to the installation screen and get into testing mode without installation then mount the hard disk and view the file from there.). After knowing the password, restart the system without live USB enter into grub screen and type the user name and password just noted. The grub option screen gets visible, press <code>e</code> or <code>d</code> as specified, a new screen comes up and edit content in there, remove <code>&quot;quit splash&quot;</code> into <code>&quot;nomodeset&quot;</code> (here again no &ldquo; &ldquo;). After editing press CTRL+X and can get into installed Trisquel. So to make permanently nomodeset for grub for avoiding the black screen problem, edit the grub file from <code>/etc/default/grub</code> and edit a line,
+<code>GRUB_CMDLINE_LINUX=&quot;nomodeset&quot;</code>, save the file and system works fine.</p>
 
 
   <footer>
@@ -112,6 +116,6 @@ GRUB</em>CMDLINE_LINUX=&ldquo;nomodeset&rdquo;, save the file and system works f
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

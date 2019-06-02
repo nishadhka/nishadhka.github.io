@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Error on Nishadh KA</title>
-    <link>//localhost:1313/tags/error/</link>
+    <link>/tags/error/</link>
     <description>Recent content in Error on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 22 Nov 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/tags/error/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/error/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ubunut1204 recovery</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/ubunut1204_recovery/</link>
+      <link>/working-notes/2014/wn_2014-11/ubunut1204_recovery/</link>
       <pubDate>Sat, 22 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/ubunut1204_recovery/</guid>
+      <guid>/working-notes/2014/wn_2014-11/ubunut1204_recovery/</guid>
       <description>###Ubunut 12.04 recovery###
  It is found that changing the file /etc/environment has huge problem after reboot. Added the environment variables for ncl language in /etc/environment as export NCARG_ROOT=/usr/local/ncl-6.2.1; export PATH=$NCARG_ROOT/bin:$PATH. This was resultant in problematic reboot of the system. The system gets instead of into login page, gets flickering command log. By reboot went inside of command line and there no system command like ls or sudo was not working.</description>
     </item>
     
     <item>
       <title>PythonGDALproblem</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-10/pythongdalproblem/</link>
+      <link>/working-notes/2014/wn_2014-10/pythongdalproblem/</link>
       <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-10/pythongdalproblem/</guid>
+      <guid>/working-notes/2014/wn_2014-10/pythongdalproblem/</guid>
       <description>####Python GDAL problem####
 ImportError: /usr/lib/libgdal.so.1: undefined symbol: sqlite3columntable_name
 main.gdalconfigerror: [Errno 2] No such file or directory
@@ -46,60 +46,50 @@ install.packages(repos=c(&amp;lsquo;http://cran.fhcrc.org/&#39;),pkgs=c(&#39;ncd
     
     <item>
       <title>Cross Origin Resource Sharing</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/cross_origin_resource_sharing/</link>
+      <link>/working-notes/2014/wn_2014-04/cross-origin-resource-sharing/</link>
       <pubDate>Wed, 30 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/cross_origin_resource_sharing/</guid>
-      <description>#Cross-OriginResourceSharing#
- WHile working with qs into cbe-air, in populating table and charts with istsos json data, stucked with a error the error was not informative in firebug.firefox, a simple correct repsonse of 200 with red fonts and also not giving any console.log in JS after trying with changing jquery version, different old edited version of qs, experimenting with differneet json url no clue was found, finally tryed to run the aptana server in chromium and its devloper tools option gives verbal error of No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource.</description>
+      <guid>/working-notes/2014/wn_2014-04/cross-origin-resource-sharing/</guid>
+      <description>While working with qs into cbe-air, in populating table and charts with istsos JSON data, stuck with an error The error was not informative in firebug. firefox, a simple correct response of 200 with red fonts and also not giving any console.log in JS After trying with changing jquery version, different old edited version of qs, experimenting with different JSON URL found no clue, finally Tried to run the server in chromium and its developer tools option gives an error of</description>
     </item>
     
     <item>
       <title>Gammu smsd shared memeory error for Huwaei E303F</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/gammu_smsd_shared_memeory_error_for_huwaei_e303f/</link>
+      <link>/working-notes/2014/wn_2014-04/gammu-smsd-shared-memeory-error-for-huwaei-e303f/</link>
       <pubDate>Mon, 21 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/gammu_smsd_shared_memeory_error_for_huwaei_e303f/</guid>
-      <description>I am running gammu and gammu-smsd backed by Mysql in Ubuntu 12.04, All these setup was running with out error using Huwaei E173 data card. But upgraded model of this, Huwaei E303F, working fine with gammu, but starting gammu-smsd collapsing gammu. for example gammu &amp;ndash;identify says phone not connected
-gammurc ~/.gammurc  port = /dev/ttyUSB0 model = auto connection = at synchronizetime = yes logfile = /home/user/gammu.log logformat = textalldate use_locking = gammuloc =</description>
-    </item>
-    
-    <item>
-      <title>Shared memory ERROR MORE</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/shared_memory_error_more/</link>
-      <pubDate>Mon, 21 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/shared_memory_error_more/</guid>
-      <description>More Insight into shared memory error -Was working on Beagle bone balck with Huwaei E173 -gammu &amp;ndash;identify -tail -f /home/debian/gammu-smsd.log - gammu-smsd -d - /etc/init.d/gammu-smsd restart - top - kill -9 2383 - ipcs -a - ipcrm -m 32768</description>
+      <guid>/working-notes/2014/wn_2014-04/gammu-smsd-shared-memeory-error-for-huwaei-e303f/</guid>
+      <description>Running gammu and gammu-smsd backed by Mysql in Ubuntu 12.04, All these setup was running without error using Huwaei E173 data card. However, upgraded model of this, Huwaei E303F, working fine with gammu, but starting gammu-smsd collapsing gammu. For example gammu --identify says phone not connected Looking into file of gammurc ~/.gammurc
+port = /dev/ttyUSB0 model = auto connection = at synchronizetime = yes logfile = /home/user/gammu.log logformat = textalldate use_locking = gammuloc =  Looking into file gammu-smsdrc ~/etc/gammu-smsdrc</description>
     </item>
     
     <item>
       <title>Ubuntu SERVER black screen problem</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-01/ubuntu-server-black-screen-problem/</link>
+      <link>/working-notes/2014/wn_2014-01/ubuntu-server-black-screen-problem/</link>
       <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-01/ubuntu-server-black-screen-problem/</guid>
+      <guid>/working-notes/2014/wn_2014-01/ubuntu-server-black-screen-problem/</guid>
       <description>The problem is with monitor display for Ubuntu 12.04 server headless is showing a black screen, however, with this state, the SSH and all other functionality will work without any problem. Another problem is through SSH; the reboot will not work. It will be stuck on the GRUB menu after reboot; the physical machine has to be approached to start the session.
 SERVER CODE executed after this is sudo apt-get upgrade grub</description>
     </item>
     
     <item>
-      <title>raspberry pi errors</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-01/raspberry-pi-errors/</link>
+      <title>Raspberry pi errors</title>
+      <link>/working-notes/2014/wn_2014-01/raspberry-pi-errors/</link>
       <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-01/raspberry-pi-errors/</guid>
-      <description>with GSM data card and serial to USB connected to the USB hub, after connecting GSM data card, a few minutes after the ssh is getting disconnected After dismantling the RPi with RTC, clock time become erroneous, so it was reconnected with lots of reboots and set the time manually using the command  sudo hwclock --set --date &amp;quot;01/16/2014 08:33:01&amp;quot;  to set the computer time using
-https://wiki.debian.org/DateTime#Set_the_time_manually
-date &amp;ndash;set 1998-11-02 date &amp;ndash;set 21:08:00</description>
+      <guid>/working-notes/2014/wn_2014-01/raspberry-pi-errors/</guid>
+      <description>with GSM data card and serial to USB connected to the USB hub, after connecting GSM data card, a few minutes after the ssh is getting disconnected After dismantling the RPi with RTC, clock time become erroneous, so it was reconnected with lots of reboots and set the time manually using the command
+sudo hwclock --set --date &amp;quot;01/16/2014 08:33:01&amp;quot;  to set the computer time using https://wiki.debian.org/DateTime#Set_the_time_manually
+date --set 1998-11-02 date --set 21:08:00  Now RPI is connected with data card, without connecting serial to USB wire, now the RPi is working without a problem.</description>
     </item>
     
     <item>
       <title>Xvfb Virtual FrameBuffer error for Ubuntu server 1204</title>
-      <link>//localhost:1313/working-notes/2013/wn_2013-10/xvfb-virtual-framebuffer-error-for-ubuntu-server-1204/</link>
+      <link>/working-notes/2013/wn_2013-10/xvfb-virtual-framebuffer-error-for-ubuntu-server-1204/</link>
       <pubDate>Mon, 07 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2013/wn_2013-10/xvfb-virtual-framebuffer-error-for-ubuntu-server-1204/</guid>
+      <guid>/working-notes/2013/wn_2013-10/xvfb-virtual-framebuffer-error-for-ubuntu-server-1204/</guid>
       <description>The frame buffer is a hardware portion in memory to provide a display. X window systems are the basic display setup for computers. The display in the computer is organized as bitmap windows. In headless Ubuntu servers, virtual framebuffers are used for the application which requires display explicitly such as for Firefox or other browsers. Xvfb provides a virtual display for those applications. In Ubuntu headless server (server without any GUI) this is installed for mainly running Selenium scripts which require a browser to run.</description>
     </item>
     

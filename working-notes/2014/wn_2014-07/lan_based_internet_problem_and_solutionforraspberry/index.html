@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>LAN based Internet problem and solutionforRaspberry - Nishadh KA</title>
-    <meta property="og:title" content="LAN based Internet problem and solutionforRaspberry - Nishadh KA">
+    <title>LAN based Internet problem and th Raspberry Pi and solution - Nishadh KA</title>
+    <meta property="og:title" content="LAN based Internet problem and th Raspberry Pi and solution - Nishadh KA">
     
     <meta name="twitter:card" content="summary">
 
@@ -15,15 +15,17 @@
 
     
       
-      <meta property="description" content="##LANbasedInternetproblemand_solutionforRaspberry## - LAN based internet for Raspberry pi (RPi) is not on the go, the netsat, network interfaces has to be edited, and also based on the gateway of &amp;hellip;">
-      <meta property="og:description" content="##LANbasedInternetproblemand_solutionforRaspberry## - LAN based internet for Raspberry pi (RPi) is not on the go, the netsat, network interfaces has to be edited, and also based on the gateway of &amp;hellip;">
+      <meta property="description" content="for example, the netstat -nr will show up only the
+Destination Gateway Genmask Flags MSS Window irtt Iface 192.168.0.0 * 255.255.255.0 U 0 0 0 eth0  without UG flag from, that means no gateway, no way &amp;hellip;">
+      <meta property="og:description" content="for example, the netstat -nr will show up only the
+Destination Gateway Genmask Flags MSS Window irtt Iface 192.168.0.0 * 255.255.255.0 U 0 0 0 eth0  without UG flag from, that means no gateway, no way &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -78,7 +80,7 @@
     <article class="main">
       <header class="title">
       
-<h1>LAN based Internet problem and solutionforRaspberry</h1>
+<h1>LAN based Internet problem and th Raspberry Pi and solution</h1>
 
 <h3>
   2014-07-02</h3>
@@ -89,23 +91,21 @@
 
 
 
-<p>##LAN<em>based</em>Internet<em>problem</em>and_solutionforRaspberry##
-- LAN based internet for Raspberry pi (RPi) is not on the go, the netsat, network interfaces has to be edited, and also based on the gateway of server it has to be changed
-- current case used server was TP-LINK MR3420, it is a small single board computer based 3G modem, wirless device, its gateway address is 192.168.0.254. A 3G dongle was connected with device and LAN from this device is connected into RPi.
-- The Ip address additon on SD card has to be 192.168.0.100, it is from other LAN connection to this wireless deivce is having similar adress and gives atuomatically by the wireless device.
-- Even with this no internet was pinging, possible way to avoid is DHCP was removed and static is invoked
-- for example, the <code>netstat -nr</code> will show up only the</p>
+<ol>
+<li>LAN based internet for Raspberry pi (RPi) is not on the go, the netsat, network interfaces has to be edited, and also based on the gateway of server it has to be changed</li>
+<li>The current case used server was TP-LINK MR3420, it is a single small board computer based 3G modem, wireless device, its gateway address is 192.168.0.254. A 3G dongle connected with device and LAN from this device connected to RPi.</li>
+<li>The Ip address addition on SD card has to be 192.168.0.100, and it is from other LAN connection to this wireless device having a similar address and gives automatically by the wireless device.</li>
+<li>Even with this, no internet was pinging, a possible cause would be DHCP was removed, and static gets invoked</li>
+
+<li><p>for example, the <code>netstat -nr</code> will show up only the</p>
 
 <pre><code>Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
 192.168.0.0     *         255.255.255.0   U         0 0          0 eth0
 </code></pre>
 
-<p>without UG flag <a href="http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues">from</a>, that means no gateway, no way to access internet.</p>
+<p>without UG flag <a href="http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues">from</a>, that means no gateway, no way to access the internet.</p></li>
 
-<ol>
-<li>the solution is to add following entries in
-pi@raspberrypi ~ $ cat /etc/network/interfaces</li>
-</ol>
+<li><p>the solution is to add following entries in  <code>pi@raspberrypi ~ $ cat /etc/network/interfaces</code></p>
 
 <pre><code>auto lo
 
@@ -122,10 +122,11 @@ wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
 iface default inet dhcp
 </code></pre>
 
-<p>and in
-pi@raspberrypi ~ $ cat /etc/resolv.conf</p>
+<p>and in</p>
 
-<pre><code>DNS 218.248.240.179
+<pre><code>pi@raspberrypi ~ $ cat /etc/resolv.conf
+
+DNS 218.248.240.179
 nameserver 218.248.240.179
 </code></pre>
 
@@ -133,19 +134,21 @@ nameserver 218.248.240.179
 
 <pre><code>sudo /sbin/route add -net 0.0.0.0 gw 192.168.0.254 eth0
 sudo /sbin/route add -net 0.0.0.0 gw 192.168.1.1 eth0
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>it makes three line in netstat table with these gatway address, after this the google was getting pinged</li>
+<li><p>it makes three lines in netstat table with these gateway address, after this the google was getting pinged</p></li>
 </ol>
 
-<p>Reference:
-1. <a href="http://raspberrypi.stackexchange.com/questions/7624/setting-a-static-eth0-ip">http://raspberrypi.stackexchange.com/questions/7624/setting-a-static-eth0-ip</a>
-2. <a href="http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues">http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues</a>
-3. <a href="http://www.soslug.org/wiki/getting_your_raspberry_pi_to_run_on_a_static_ip_with_internet">http://www.soslug.org/wiki/getting_your_raspberry_pi_to_run_on_a_static_ip_with_internet</a>
-4. <a href="http://www.penguintutor.com/linux/raspberrypi-webserver">http://www.penguintutor.com/linux/raspberrypi-webserver</a>
-5. <a href="http://pihw.wordpress.com/guides/direct-network-connection/">http://pihw.wordpress.com/guides/direct-network-connection/</a>
-6. <a href="http://www.penguintutor.com/linux/raspberrypi-headless">http://www.penguintutor.com/linux/raspberrypi-headless</a></p>
+<p><strong>Reference</strong></p>
+
+<ol>
+<li><a href="http://raspberrypi.stackexchange.com/questions/7624/setting-a-static-eth0-ip">http://raspberrypi.stackexchange.com/questions/7624/setting-a-static-eth0-ip</a></li>
+<li><a href="http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues">http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues</a></li>
+<li><a href="http://www.soslug.org/wiki/getting_your_raspberry_pi_to_run_on_a_static_ip_with_internet">http://www.soslug.org/wiki/getting_your_raspberry_pi_to_run_on_a_static_ip_with_internet</a></li>
+<li><a href="http://www.penguintutor.com/linux/raspberrypi-webserver">http://www.penguintutor.com/linux/raspberrypi-webserver</a></li>
+<li><a href="http://pihw.wordpress.com/guides/direct-network-connection/">http://pihw.wordpress.com/guides/direct-network-connection/</a></li>
+<li><a href="http://www.penguintutor.com/linux/raspberrypi-headless">http://www.penguintutor.com/linux/raspberrypi-headless</a></li>
+</ol>
 
 
   <footer>
@@ -172,6 +175,6 @@ sudo /sbin/route add -net 0.0.0.0 gw 192.168.1.1 eth0
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

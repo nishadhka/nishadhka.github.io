@@ -2,86 +2,82 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WRF-EMS on Nishadh KA</title>
-    <link>//localhost:1313/tags/wrf-ems/</link>
+    <link>/tags/wrf-ems/</link>
     <description>Recent content in WRF-EMS on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Jun 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/tags/wrf-ems/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/wrf-ems/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Bewolf cluster for WRF EMS</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/bewolf_cluster_for_wrf_ems/</link>
+      <title>Bewolf cluster setup or WRF EMS</title>
+      <link>/working-notes/2014/wn_2014-06/bewolf-cluster-for-wrf-ems/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/bewolf_cluster_for_wrf_ems/</guid>
-      <description>##BewolfclusterforWRFEMS##
- The four domain running of WRF EMS with reoslution startng from 27km, 9km, 3km to 1km gives error of exit with status of -9,
-this showing that it would because of outof memeory status([more from this])(http://forum.wrfforum.com/viewtopic.php?f=6&amp;amp;t=407), this gives motivation further for cluster running of wrf ems passwordless SSH is not suffecieidnt for cluster running of WRF EMS, as specfied in run_ncpus.conf, the created cluster has to be checked with netcheck script given with WRF-EMS, it is in strc folder hint So while running netcheck with passwordless ssh, it gives error that ssh localhostname hostname is not doing pasword less ssh, in the begning, this error seems to be ridiculus, how and what!</description>
+      <guid>/working-notes/2014/wn_2014-06/bewolf-cluster-for-wrf-ems/</guid>
+      <description>The four domain running of WRF EMS with resolution starting from 27km, 9km, 3km to 1km gives an error of exit with the status of -9. This showing that it would because of out of memory statusmore from this, this gives motivation further for a cluster running of WRF-EMS Mere passwordless SSH is not sufficient for cluster running of WRF EMS, as specified in run_ncpus.conf, the created cluster has to be checked with netcheck script given with WRF-EMS, it is in strc folder hint So while running netcheck with passwordless ssh, it gives an error that ssh localhostname hostname is not doing passwordless ssh, in the begning, this error seems to be ridiculous, how and what!</description>
     </item>
     
     <item>
-      <title>Localinstall WRFEMS</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/localinstall_wrfems/</link>
+      <title>Four Nested WRF-EMS simulation and its log file</title>
+      <link>/working-notes/2014/wn_2014-06/wrf-ems-log/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/localinstall_wrfems/</guid>
-      <description>##localinstall_WRFEMS##
- WRF ems can be installed locally using the file inside the folder releases based on the WRF ems manual, chapter2, installaation from local netwrok, use ./ems_install.pl --install --repodir &#39;releases folder content&#39; After this the ems will be installed, for running the user&amp;rsquo;s default shell has to be set into tcsh, by following this as follows echo $SHELL if it gives /bin/bash chnage into tcsh by chsh -s /bin/tcsh, still after this it was showing the terminal without any $ or username.</description>
+      <guid>/working-notes/2014/wn_2014-06/wrf-ems-log/</guid>
+      <description>WRF-EMS installed through a local file in the laptop WRF-EMS was installed by online and script in server WRF-EMS was installed by online and script in server Four nested domain is not running in desktop saying error code 9 during wrf real.exe  Four nested domain run of WRF-EMS above Trivandrum area
+ The domain made for Trivandrum tvm-gfs4, after running a test, it gives history output for every 30 minutes and took some four hours to complete To check the domain is covering the Trivandrum districts, after converting the WRF output into NetCDF using wrfncxnj.</description>
     </item>
     
     <item>
-      <title>SSH for WRF EMS Cluster running</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/ssh_for_wrf_ems_cluster_running/</link>
+      <title>Installing and running the WRF EMS</title>
+      <link>/working-notes/2014/wn_2014-06/running-wrf-ems/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/ssh_for_wrf_ems_cluster_running/</guid>
-      <description>###SSH for WRFEMS cluster running### - For executing the WRF EMS in cluster computer mode, pass wordless ssh is required, it is specified in &amp;hellip;/runs/domain/config/emsrun/run_ncpus.conf as follows
+      <guid>/working-notes/2014/wn_2014-06/running-wrf-ems/</guid>
+      <description>WRF EMS is a pearl scripted implementation of weather research and forecast (WRF) model. Relatively simple scripting implementations, it hides the complex compiling and running steps in the WRF model for operational and research purposes. Its installation is by running a Perl script provided by mail request; the total installation size goes around 22 GB, and so a long process. The first step in model execution in the creation of model domain, for high-resolution forecasting of weather in Coimbatore, has to make a four nested domain.</description>
+    </item>
+    
+    <item>
+      <title>Local install tion of WRF-EMS</title>
+      <link>/working-notes/2014/wn_2014-06/local-install-wrf-ems/</link>
+      <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-06/local-install-wrf-ems/</guid>
+      <description>WRF ems can be installed locally using the file inside the folder releases Based on the WRF ems manual, chapter2, installation from local network, use ./ems_install.pl --install --repodir &#39;releases folder content&#39; After this the ems will be installed, for running the user&amp;rsquo;s default shell has to be set into tcsh, by following this as follows echo $SHELL if it gives /bin/bash change into tcsh by chsh -s /bin/tcsh, still after this it was showing the terminal without any $ or username.</description>
+    </item>
+    
+    <item>
+      <title>The SSH for WRF EMS Cluster running</title>
+      <link>/working-notes/2014/wn_2014-06/ssh-for-wrf-ems-cluster-running/</link>
+      <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-06/ssh-for-wrf-ems-cluster-running/</guid>
+      <description>For executing the WRF EMS in cluster computer mode, pass wordless ssh is required, it is specified in .../runs/domain/config/ems_run/run_ncpus.conf, the content of files is as follows
 LOG: R.Rozumalski - NWS January 2012 - I&#39;m still gruven # # Running the WRF on a cluster? # # If so, then make sure you that you have passwordless SSH on machines that # you plan to use when running on multiple nodes (not necessary for single # workstation runs).</description>
     </item>
     
     <item>
       <title>WRF EMS install and running in IBM X3100 M4</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/wrf_ems_install_and_running_in_ibm_x3100_m4/</link>
+      <link>/working-notes/2014/wn_2014-06/wrf-ems-install-and-running-in-ibm-x3100-m4/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/wrf_ems_install_and_running_in_ibm_x3100_m4/</guid>
-      <description>##WRFEMSinstallandrunninginIBMX3100M4##
- Working in HP i5 system with quad core processor and 8GB memory, memory limit error was getting for 1km resolution domains. So made a try to make a cluster with another HP laptop with same configuration, this step also returen EXIT file9, memeory limit error. changed domain to make it 3 km resoliotn and ran in cluster steup and it took 1 hour for four doamins from 81km to 3km at 3 hour interval, so for 48 hour simurlaiotn it would be taking a 16 hour model running.</description>
-    </item>
-    
-    <item>
-      <title>WRF EMS log</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/wrf_ems_log/</link>
-      <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/wrf_ems_log/</guid>
-      <description>##WRFEMSlog##
- WRF ems instaled through local file in laptop WRF ems was installed by online and script in server wrf ems was installed by online and script in server Four netsed domain is not running in desktop saying error code 9 during wrf real.exe  ###four nested domain run of wrf ems above trivandrum area###
- the domain made for trivandrum tvm-gfs4, aftre running a test, it gives hostory output for eavery 30 minitres and took some four hours to complete To check the domain is covering the trivandrum districts, after converting the wrf ouput into netcdf using wrfncxnj.</description>
-    </item>
-    
-    <item>
-      <title>running WRF EMS</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/running_wrf_ems/</link>
-      <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/running_wrf_ems/</guid>
-      <description>##Running WRF EMS## - WRF EMS is a pearl scripted implementation of weather research and forecast (WRF) model. By user easy scripting implementations, it hides the complex compiling and running steps in WRF model for operational and research purposes. - It&amp;rsquo;s installation is by running a perl script provided by mail request, the installation size goes around 22 GB and so being a long processes. - The foremost step in model execution in creation of model domain, for high resolution forecasting of weather in Coimbatore, has to make a four nested domain.</description>
+      <guid>/working-notes/2014/wn_2014-06/wrf-ems-install-and-running-in-ibm-x3100-m4/</guid>
+      <description>Memory limit error is getting for 1km resolution domains in HP i5 system with a quad-core processor and 8GB memory. So made a try to make a cluster with another HP laptop with the same configuration, this step also returns EXIT file9, memory limit error. Changed the domain to make it 3 km resolution and ran in a cluster setup and it took 1 hour for four domains from 81km to 3km at 3-hour interval, so for 48-hour simulation, it would be taking a 16-hour model running.</description>
     </item>
     
     <item>
       <title>EMS WRF</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-03/ems_wrf/</link>
+      <link>/working-notes/2014/wn_2014-03/ems_wrf/</link>
       <pubDate>Thu, 06 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-03/ems_wrf/</guid>
-      <description>EMS WRF OF COIMBATORE REGION USING 4 DOMAINS :-
+      <guid>/working-notes/2014/wn_2014-03/ems_wrf/</guid>
+      <description>EMS-WRF for Coimbatore region using four domains
 Five simple steps required for the execution of EMS (Environmental modeling system) WRF.
-Step 1: Create a computational domain with the Domain Wizard(DW) GUI After the successful installation of EMS follow these steps,
-a) Start the DW by executing the command &amp;ldquo;dwiz&amp;rdquo; in terminal . b) DW window should appear and gives you an opportunity to select from creating a new domain or modifying existing domain.</description>
+After the successful installation of EMS follow these steps,
+Step 1: Create a computational domain with the Domain Wizard(DW) GUI
+ Start the DW by executing the command &amp;ldquo;dwiz&amp;rdquo; in the terminal. DW window should appear and gives an option to select from creating a new domain or modifying an existing Domain.</description>
     </item>
     
   </channel>

@@ -15,17 +15,15 @@
 
     
       
-      <meta property="description" content="Sending SMS in Beagle bone black
-It is an angstrom linux BBB, first connected to Ubuntu lap using usb wire from BBB, then a USB was connected to the powered USB hub, in which a serial USB connector &amp;hellip;">
-      <meta property="og:description" content="Sending SMS in Beagle bone black
-It is an angstrom linux BBB, first connected to Ubuntu lap using usb wire from BBB, then a USB was connected to the powered USB hub, in which a serial USB connector &amp;hellip;">
+      <meta property="description" content="Need to make usb_modeswitch for Huwaei GSM to sent SMS, so usb_modeswitch has to be installed in the Angstrom, downloaded ipk file (deb in angstrom) from &amp;hellip;">
+      <meta property="og:description" content="Need to make usb_modeswitch for Huwaei GSM to sent SMS, so usb_modeswitch has to be installed in the Angstrom, downloaded ipk file (deb in angstrom) from &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -91,64 +89,52 @@ It is an angstrom linux BBB, first connected to Ubuntu lap using usb wire from B
 
 
 
-<p><strong>Sending SMS in Beagle bone black</strong></p>
+<ol>
+<li>BBB is setup with Angstrom Linux, first connected to Ubuntu lap using USB wire from BBB, then a USB was connected to the powered USB hub, in which a serial USB connector and a Huwaei e 173 data (This tested for Huwaei E303F, it worked) card were connected.</li>
+<li>ssh&rsquo;s into it using <code>ssh 192.168.7.2 -l root</code> and password blank (an enter)</li>
+<li><code>lsusb</code> shows Huwaei with modem and serial usb.</li>
 
-<p>It is an angstrom linux BBB, first connected to Ubuntu lap using usb wire from BBB, then a USB was connected to the powered USB hub, in which a serial USB connector and a Huwaei e 173 data (This was tested for Huwaei E303F also, it worked) card was connected.
-* ssh&rsquo;s into it using ssh 192.168.7.2 -l root and password blank (a enter)
-* Now lsusb showing
-Huwaei with modem and serial usb.
-* Now the need of usb<em>modeswitch for Huwaei GSM, so need of usb</em>modeswitch in the Angstrom, downloaded ipk file (deb in angstrom) from</p>
-
-<pre><code>http://feeds.angstrom-distribution.org/feeds/unstable/ipk/glibc/armv7a/base/usbmodeswitch_1.1.3-r0.5_armv7a.ipk
-</code></pre>
-
-<p>and transfered the file into BBB using the command from lap Ubuntu</p>
+<li><p>Need to make <code>usb_modeswitch</code> for Huwaei GSM to sent SMS, so <code>usb_modeswitch</code> has to be installed in the Angstrom, downloaded ipk file (deb in angstrom) from  <a href="http://feeds.angstrom-distribution.org/feeds/unstable/ipk/glibc/armv7a/base/usbmodeswitch_1.1.3-r0.5_armv7a.ipk">http://feeds.angstrom-distribution.org/feeds/unstable/ipk/glibc/armv7a/base/usbmodeswitch_1.1.3-r0.5_armv7a.ipk</a> and transferred the file into BBB using the command from lap Ubuntu</p>
 
 <pre><code>scp Downloads/usbmodeswitch_1.1.3-r0.5_armv7a.ipk root@192.168.7.2:~/Desktop/
+</code></pre></li>
+
+<li><p>To install used <code>opkg install usbmodeswitch_1.1.3-r0.5_armv7a.ipk</code></p></li>
+
+<li><p>Edited usb_modeswitch.conf as</p>
+
+<pre><code>##################################
+DefaultVendor= 0x12d1
+DefaultProduct=0x1446
+
+TargetVendor=  0x12d1
+TargetProductList=&quot;1001,1406,140b,140c,1412,141b,1433,14ac&quot;
+
+CheckSuccess=20
+
+MessageContent=&quot;55534243000000000000000000000011060000000000000000000000000000&quot;
+###################################
 </code></pre>
 
-<ul>
-<li><p>To install used
-opkg install usbmodeswitch<em>1.1.3-r0.5</em>armv7a.ipk</p></li>
+<p>following <a href="http://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?p=4521">http://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?p=4521</a>, <a href="https://bbs.archlinux.org/viewtopic.php?id=118746">https://bbs.archlinux.org/viewtopic.php?id=118746</a></p></li>
 
-<li><p>Edited usb_modeswitch.conf as
-##################################
-DefaultVendor= 0x12d1
-DefaultProduct=0x1446</p></li>
-</ul>
+<li><p>Then fired usb_modeswitch as <code>usb_modeswitch -I -W -c /etc/usb_modeswitch.conf</code></p></li>
 
-<p>TargetVendor=  0x12d1
-TargetProductList=&ldquo;1001,1406,140b,140c,1412,141b,1433,14ac&rdquo;</p>
+<li><p>it finally says good news of modem switch, based on <a href="http://www.tabletroms.com/forums/adam-general-development/510-success-3g-usb-modems-now-work*-adam-35.html">http://www.tabletroms.com/forums/adam-general-development/510-success-3g-usb-modems-now-work*-adam-35.html</a></p></li>
 
-<p>CheckSuccess=20</p>
+<li><p>to send the SMS followed <a href="https://groups.google.com/forum/#!msg/beagleboard/lW60u9wR-iA/ziuvODtCaZQJ">https://groups.google.com/forum/#!msg/beagleboard/lW60u9wR-iA/ziuvODtCaZQJ</a></p></li>
 
-<p>MessageContent=&ldquo;55534243000000000000000000000011060000000000000000000000000000&rdquo;
-###################################
-following
-    <a href="http://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?p=4521">http://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?p=4521</a>
-    <a href="https://bbs.archlinux.org/viewtopic.php?id=118746">https://bbs.archlinux.org/viewtopic.php?id=118746</a></p>
+<li><p>Made a sms.sh file copied the contents follows</p>
 
-<ul>
-<li><p>Then fired usb<em>modeswitch as
-usb</em>modeswitch -I -W -c /etc/usb_modeswitch.conf</p></li>
+<pre><code>echo -e -n &quot;AT+CMGF=1 \015&quot; &gt; /dev/ttyUSB1
+echo -e -n &quot;AT+CMGS=\&quot;your mobile number\&quot; \015&quot; &gt; /dev/ttyUSB1
+echo -e -n &quot;your text message \015&quot; &gt; /dev/ttyUSB1
+echo -e -n &quot;\032&quot; &gt; /dev/ttyUSB1
+echo &quot;****SMS was sent successfully!***
+</code></pre></li>
 
-<li><p>it finally says good news of modem switch, based on
-<a href="http://www.tabletroms.com/forums/adam-general-development/510-success-3g-usb-modems-now-work*-adam-35.html">http://www.tabletroms.com/forums/adam-general-development/510-success-3g-usb-modems-now-work*-adam-35.html</a></p></li>
-
-<li><p>to send the SMS followed</p></li>
-</ul>
-
-<p><a href="https://groups.google.com/forum/#!msg/beagleboard/lW60u9wR-iA/ziuvODtCaZQJ">https://groups.google.com/forum/#!msg/beagleboard/lW60u9wR-iA/ziuvODtCaZQJ</a></p>
-
-<p>Made a sms.sh file copyed the contents follows</p>
-
-<p>echo -e -n &ldquo;AT+CMGF=1 \015&rdquo; &gt; /dev/ttyUSB1
-echo -e -n &ldquo;AT+CMGS=\&ldquo;your mobile number\&rdquo; \015&rdquo; &gt; /dev/ttyUSB1
-echo -e -n &ldquo;your text message \015&rdquo; &gt; /dev/ttyUSB1
-echo -e -n &ldquo;\032&rdquo; &gt; /dev/ttyUSB1
-echo &ldquo;***<strong><em>SMS was sent successfully!</em></strong>***&rdquo;</p>
-
-<p>run the file as sh sms.sh and immediately good news came SMS was sent successfully. dmesg| grep tty given the information to choose /dev/ttyUSB1</p>
+<li><p>run the file as <code>sh sms.sh</code> and immediately good news came SMS was sent successfully. <code>dmesg| grep tty</code> given the information to choose <code>/dev/ttyUSB1</code></p></li>
+</ol>
 
 
   <footer>
@@ -175,6 +161,6 @@ echo &ldquo;***<strong><em>SMS was sent successfully!</em></strong>***&rdquo;</p
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

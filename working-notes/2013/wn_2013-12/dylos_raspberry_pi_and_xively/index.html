@@ -15,11 +15,9 @@
 
     
       
-      <meta property="description" content="To connect the raspberry pi with Dylos serial to xively IOT, based on https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley
-the written code was this
+      <meta property="description" content="To connect the raspberry pi with Dylos serial to xively IOT, based on https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley the written code was this
 #!/usr/bin/env python from &amp;hellip;">
-      <meta property="og:description" content="To connect the raspberry pi with Dylos serial to xively IOT, based on https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley
-the written code was this
+      <meta property="og:description" content="To connect the raspberry pi with Dylos serial to xively IOT, based on https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley the written code was this
 #!/usr/bin/env python from &amp;hellip;">
       
     
@@ -27,7 +25,7 @@ the written code was this
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -93,10 +91,9 @@ the written code was this
 
 
 
-<p>To connect the raspberry pi with Dylos serial to xively IOT, based on
-<a href="https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley">https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley</a></p>
-
-<p>the written code was this</p>
+<ol>
+<li><p>To connect the raspberry pi with Dylos serial to xively IOT, based on <a href="https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley">https://sites.google.com/site/benhewitttechnology/raspberry-pi-with-xivley</a>
+ the written code was this</p>
 
 <pre><code>#!/usr/bin/env python
 from __future__ import division
@@ -202,17 +199,12 @@ print humidity
 print temp
 # send data to cosm
 pac.put()
-</code></pre>
+</code></pre></li>
 
-<p>The raspberry pi connected with Dylos and DHT11 temperature-humidity sensor
-DHT11 is managed based on Adafruit tutorial, and the code is using subprocess to get the Tempa and RH value from raspberry pi GPIO.
-The xively code based on the EEML, a framework for real-time sensor management, in which the units for each parameter has to be edited to called in xively, So that the EEML code was specifying the unit for DYLOS reading edited. The code of EEML for python, installed as python package, the source has to be edited for including the customized units of Dylos.</p>
-
-<p>this file need to be edited is</p>
-
-<p>/usr/local/lib/python2.7/dist-packages/Python_EEML-0.1-py2.7.egg/eeml/<strong>init</strong>.py</p>
-
-<p>the added code was</p>
+<li><p>The raspberry pi connected with Dylos and DHT11 temperature-humidity sensor DHT11 is managed based on Adafruit tutorial,
+ and the code is using subprocess to get the Tempa and RH value from raspberry pi GPIO.The xively code based on the EEML,
+ a framework for real-time sensor management, in which the units for each parameter has to be edited to called in xively, So that the EEML code was specifying the unit for DYLOS reading edited. The code of EEML for python, installed as python package, the source has to be edited for including the customized units of Dylos.
+ this file need to be edited is <code>/usr/local/lib/python2.7/dist-packages/Python_EEML-0.1-py2.7.egg/eeml/__init__.py</code> the added code was</p>
 
 <pre><code>class NoOfPm3(Unit):
     &quot;&quot;&quot;
@@ -234,8 +226,8 @@ class NoOfPo1cuf(Unit):
         Initialize the `Unit` parameters with NoOfP01cuf.
         &quot;&quot;&quot;
         Unit.__init__(self, 'NoofP01cuf', 'contextDependentUnits', 'No.Of.particleper01cuf')
-
-</code></pre>
+</code></pre></li>
+</ol>
 
 
   <footer>
@@ -262,6 +254,6 @@ class NoOfPo1cuf(Unit):
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

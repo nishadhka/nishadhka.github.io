@@ -15,17 +15,17 @@
 
     
       
-      <meta property="description" content="apt-get update and upgrade make BBB&amp;rsquo;s internal hard disk to crash, to solve this is to make a recovery SD card and rewrite the hard disk
-[&amp;hellip;] so run the xz, followed this &amp;hellip;">
-      <meta property="og:description" content="apt-get update and upgrade make BBB&amp;rsquo;s internal hard disk to crash, to solve this is to make a recovery SD card and rewrite the hard disk
-[&amp;hellip;] so run the xz, followed this &amp;hellip;">
+      <meta property="description" content="Doing a apt-get update and upgrade make BBB&amp;rsquo;s internal hard disk to crash, to solve this is to make a recovery SD card and rewrite the hard disk
+[&amp;hellip;] so to run the xz, followed this &amp;hellip;">
+      <meta property="og:description" content="Doing a apt-get update and upgrade make BBB&amp;rsquo;s internal hard disk to crash, to solve this is to make a recovery SD card and rewrite the hard disk
+[&amp;hellip;] so to run the xz, followed this &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -91,59 +91,53 @@
 
 
 
-<p>apt-get update and upgrade make BBB&rsquo;s internal hard disk to crash, to solve this is to make a recovery SD card and rewrite the hard disk</p>
+<p>Doing a <code>apt-get update</code> and <code>upgrade</code> make BBB&rsquo;s internal hard disk to crash, to solve this is to make a recovery SD card and rewrite the hard disk</p>
 
-<ul>
-<li>After a long searching for making the SD card
-finally followed this
+<ol>
+<li>After a long searching for making the SD card finally followed this
 <a href="http://www.armhf.com/index.php/getting-started-with-ubuntu-img-file/">http://www.armhf.com/index.php/getting-started-with-ubuntu-img-file/</a></li>
-<li>Installed the xz in ubuntu laptop
-apt-get install xz-utils</li>
-<li>then viewed the attached sd card device name by
-ls /dev/sd*
-given it as sdb</li>
+<li>Installed the xz in ubuntu laptop <code>apt-get install xz-utils</code></li>
+<li>then viewed the attached sd card device name by <code>ls /dev/sd*</code> given it as sdb</li>
 
-<li><p>so run the xz, followed this
-<a href="http://downloads.angstrom-distribution.org/demo/beaglebone/">http://downloads.angstrom-distribution.org/demo/beaglebone/</a></p>
+<li><p>so to run the xz, followed this <a href="http://downloads.angstrom-distribution.org/demo/beaglebone/">http://downloads.angstrom-distribution.org/demo/beaglebone/</a></p>
 
 <pre><code>xz -dkc Angstrom-Cloud9-IDE-GNOME-eglibc-ipk-v2012.12-beaglebone-2013.09.05.img.xz &gt; /dev/sdb
 </code></pre></li>
 
-<li><p>after some time exit the xz
-then inserted the sd card and booted the beagle on from sd card now following this</p></li>
-</ul>
+<li><p>after some time exit the xz, then inserted the sd card and booted the beagle on from sd card now following this <a href="http://hipstercircuits.com/unbrick-beaglebone-black-without-erasing-emmc/">http://hipstercircuits.com/unbrick-beaglebone-black-without-erasing-emmc/</a></p>
 
-<p><a href="http://hipstercircuits.com/unbrick-beaglebone-black-without-erasing-emmc/">http://hipstercircuits.com/unbrick-beaglebone-black-without-erasing-emmc/</a></p>
+<pre><code>ssh root@192.168.7.2
+gives a problem of denial
+</code></pre></li>
 
-<p>ssh root@192.168.7.2
-gives a problem of denial</p>
+<li><p>followed this <a href="http://stackoverflow.com/questions/19494619/how-to-interact-with-two-beaglebone-black-connected-to-one-computer">http://stackoverflow.com/questions/19494619/how-to-interact-with-two-beaglebone-black-connected-to-one-computer</a> and made a final <code>.ssh/config</code> with this content</p>
 
-<ul>
-<li><p>followed this
-<a href="http://stackoverflow.com/questions/19494619/how-to-interact-with-two-beaglebone-black-connected-to-one-computer">http://stackoverflow.com/questions/19494619/how-to-interact-with-two-beaglebone-black-connected-to-one-computer</a> made a finale
-.ssh/config
-with this content
-Host 192.168.7.* UserKnownHostsFile /dev/null StrictHostKeyChecking no
-now ssh is working and followed again this
-<a href="http://hipstercircuits.com/unbrick-beaglebone-black-without-erasing-emmc/">http://hipstercircuits.com/unbrick-beaglebone-black-without-erasing-emmc/</a></p></li>
+<pre><code>Host 192.168.7.* UserKnownHostsFile /dev/null StrictHostKeyChecking no
+</code></pre>
 
-<li><p>to mount the internal hard disk with SD card running BBB</p></li>
-</ul>
+<p>now ssh is working and followed again this <a href="http://hipstercircuits.com/unbrick-beaglebone-black-without-erasing-emmc/">http://hipstercircuits.com/unbrick-beaglebone-black-without-erasing-emmc/</a></p></li>
 
-<p>mkdir /mnt/microSD mount /dev/mmcblk0p2 /mnt/microSD
+<li><p>to mount the internal hard disk with SD card running BBB</p>
+
+<pre><code>mkdir /mnt/microSD mount /dev/mmcblk0p2 /mnt/microSD
 cp -r /mnt/microSD/lib/modules/3.8.13-00611-gd1fc8a7-dirty/ /media/Angstrom/lib/modules/
 shutdown now
-but in vein, so now plan is to copy all the files in / and copy it in mms that is inside angstrom folder and reboot it without the sd card, that also didn&rsquo;t turned up to correct the problem.</p>
+</code></pre></li>
 
-<p>Reference to solve bricking
-```
-<a href="https://pixhawk.ethz.ch/tutorials/omap/boot_from_sd_sdhc">https://pixhawk.ethz.ch/tutorials/omap/boot_from_sd_sdhc</a> <a href="http://eavise.wikispaces.com/Angstrom+installation">http://eavise.wikispaces.com/Angstrom+installation</a>
-<a href="http://www.angstrom-distribution.org/demo/beagleboard/">http://www.angstrom-distribution.org/demo/beagleboard/</a> <a href="http://www.angstrom-distribution.org/demo/beagleboard/">http://www.angstrom-distribution.org/demo/beagleboard/</a> <a href="http://elinux.org/BeagleBoardBeginners">http://elinux.org/BeagleBoardBeginners</a>
-<a href="http://www.reuk.co.uk/wordpress/bricking-a-beaglebone-black/">http://www.reuk.co.uk/wordpress/bricking-a-beaglebone-black/</a>
-<a href="http://downloads.angstrom-distribution.org/demo/beaglebone/">http://downloads.angstrom-distribution.org/demo/beaglebone/</a>
-<a href="http://downloads.angstrom-distribution.org/demo/beaglebone/">http://downloads.angstrom-distribution.org/demo/beaglebone/</a>
-<a href="http://hipstercircuits.com/unbrick-beaglebone-black-without-erasing-emmc/">http://hipstercircuits.com/unbrick-beaglebone-black-without-erasing-emmc/</a>
-<a href="http://elinux.org/BeagleBoardRecovery">http://elinux.org/BeagleBoardRecovery</a></p>
+<li><p>but in vein, so now plan is to copy all the files in / and copy it in mms that is inside angstrom folder and reboot it without the sd card, that also didn&rsquo;t turned up to correct the problem.</p></li>
+</ol>
+
+<p>Reference to solve the issue</p>
+
+<ol>
+<li><a href="https://pixhawk.ethz.ch/tutorials/omap/boot_from_sd_sdhc">https://pixhawk.ethz.ch/tutorials/omap/boot_from_sd_sdhc</a> <a href="http://eavise.wikispaces.com/Angstrom+installation">http://eavise.wikispaces.com/Angstrom+installation</a></li>
+<li><a href="http://www.angstrom-distribution.org/demo/beagleboard/">http://www.angstrom-distribution.org/demo/beagleboard/</a> <a href="http://www.angstrom-distribution.org/demo/beagleboard/">http://www.angstrom-distribution.org/demo/beagleboard/</a> <a href="http://elinux.org/BeagleBoardBeginners">http://elinux.org/BeagleBoardBeginners</a></li>
+<li><a href="http://www.reuk.co.uk/wordpress/bricking-a-beaglebone-black/">http://www.reuk.co.uk/wordpress/bricking-a-beaglebone-black/</a></li>
+<li><a href="http://downloads.angstrom-distribution.org/demo/beaglebone/">http://downloads.angstrom-distribution.org/demo/beaglebone/</a></li>
+<li><a href="http://downloads.angstrom-distribution.org/demo/beaglebone/">http://downloads.angstrom-distribution.org/demo/beaglebone/</a></li>
+<li><a href="http://hipstercircuits.com/unbrick-beaglebone-black-without-erasing-emmc/">http://hipstercircuits.com/unbrick-beaglebone-black-without-erasing-emmc/</a></li>
+<li><a href="http://elinux.org/BeagleBoardRecovery">http://elinux.org/BeagleBoardRecovery</a></li>
+</ol>
 
 
   <footer>
@@ -170,6 +164,6 @@ but in vein, so now plan is to copy all the files in / and copy it in mms that i
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

@@ -2,42 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dylos on Nishadh KA</title>
-    <link>//localhost:1313/tags/dylos/</link>
+    <link>/tags/dylos/</link>
     <description>Recent content in Dylos on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Nov 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/tags/dylos/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/dylos/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Redeploy Dylos TDM</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/redeploy_dylos_tdm/</link>
+      <link>/working-notes/2014/wn_2014-11/redeploy_dylos_tdm/</link>
       <pubDate>Wed, 05 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/redeploy_dylos_tdm/</guid>
+      <guid>/working-notes/2014/wn_2014-11/redeploy_dylos_tdm/</guid>
       <description>###Redeploy Dylos in TDM###
  After running with problem of excessive particle reading in UPS back up power, this note discuss its redeployment in same station. The problem of UPS back up power excessive reading was contained by using pure sine wave UPS. In redeployment as an addition, DHT11, humidity temperature sensor was added along with DYLOS, RPi, USB data card setup. The DHT 11 humidity temperature sensor was attached with RPI following this as per the below .</description>
     </item>
     
     <item>
       <title>Dylos RPi Serial problem</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</link>
+      <link>/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</link>
       <pubDate>Tue, 07 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</guid>
+      <guid>/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</guid>
       <description>####DYLOS RPi serial Problem#### 1. RPi(Raspberry pi) has problem in serial read of dylos air quality monitor data, the serial read ends with wrong or misplaced data from the dylos monitor, this problem was mentioned in this (note)(Serialportproblemlbm1knmr.md). For example runnnnig of the python command for getting dylos serial read ends as follows
  pi@raspberrypi ~/SMS $ python &amp;gt;&amp;gt;&amp;gt; import serial &amp;gt;&amp;gt;&amp;gt; ser = serial.Serial(&#39;/dev/dylos&#39;, 9600, timeout=60) &amp;gt;&amp;gt;&amp;gt; line = ser.</description>
     </item>
     
     <item>
-      <title>Serial port problem lbm1 knmr</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-07/serial_port_problem_lbm1_knmr/</link>
+      <title>Serial port problem in Dylos Air quality monitor</title>
+      <link>/working-notes/2014/wn_2014-07/serial-port-problem-lbm1-knmr/</link>
       <pubDate>Sun, 13 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-07/serial_port_problem_lbm1_knmr/</guid>
-      <description>##Serialport and other problem, lbm1 knmr monitor## - lbm1 knmr monitor is setup with three threepin plugs extension box serially wired, it is connected with another serially connected extension box with two pin plug. - In which three plugs, one plug, dylos air quality monitor is connected, another 2A 7port USB hub adapter is connected and third and final pin from right to left, TP link 3G router is connected. - With the above setup, router LAN is connected with rapberry pi which is connected with 7hub USB, Dylos serial port is connected with rpi, RPi is accessed via wireless connectivity through router.</description>
+      <guid>/working-notes/2014/wn_2014-07/serial-port-problem-lbm1-knmr/</guid>
+      <description>A monitor is set up with three three-pin plugs extension box serially wired, and connected to another serially connected extension box with two pin plug. In which three plugs, one Dylos air quality monitor is connected, another 2A 7port USB hub adapter is connected and third and final pin from right to left, TP-link 3G router is connected. With the above setup, router LAN connected with raspberry pi which connected with 7hub USB, Dylos serial port connected with RPI, RPi accessed via wireless connectivity through a router.</description>
     </item>
     
   </channel>

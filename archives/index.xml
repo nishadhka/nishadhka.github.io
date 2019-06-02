@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Archives on Nishadh KA</title>
-    <link>//localhost:1313/archives/</link>
+    <link>/archives/</link>
     <description>Recent content in Archives on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Jan 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/archives/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/archives/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>2019</title>
-      <link>//localhost:1313/archives/2019/</link>
+      <link>/archives/2019/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/archives/2019/</guid>
+      <guid>/archives/2019/</guid>
       <description></description>
     </item>
     
     <item>
       <title>2014</title>
-      <link>//localhost:1313/archives/2014/</link>
+      <link>/archives/2014/</link>
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/archives/2014/</guid>
+      <guid>/archives/2014/</guid>
       <description></description>
     </item>
     
     <item>
       <title>2013</title>
-      <link>//localhost:1313/archives/2013/</link>
+      <link>/archives/2013/</link>
       <pubDate>Mon, 16 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/archives/2013/</guid>
+      <guid>/archives/2013/</guid>
       <description></description>
     </item>
     

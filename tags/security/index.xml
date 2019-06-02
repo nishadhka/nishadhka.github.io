@@ -2,34 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Security on Nishadh KA</title>
-    <link>//localhost:1313/tags/security/</link>
+    <link>/tags/security/</link>
     <description>Recent content in Security on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 16 Jan 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/tags/security/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/security/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Secure ubuntu SERVER 1204</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-01/secure-ubuntu-server-1204/</link>
+      <link>/working-notes/2014/wn_2014-01/secure-ubuntu-server-1204/</link>
       <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-01/secure-ubuntu-server-1204/</guid>
-      <description>For key pair login and removing the password based on
-http://ubuntuforums.org/archive/index.php/t-30709.html http://blog.nas-admin.org/?p=63 http://www.thefanclub.co.za/how-to/how-install-psad-intrusion-detection-ubuntu-1204-lts-server following first one
- cd .ssh/
- ssh-keygen -t dsa
- scp iddsa.pub serverusername@IP:./iddsa.pub
- ssh into server
- cd .ssh
- touch authorized_keys2
- chmod 600 authorized_keys2
- cat ../iddsa.pub &amp;gt;&amp;gt; authorizedkeys2
- rm ../id_dsa.pub
- edited the /etc/ssh/sshd_config for #PasswordAuthentication yes &amp;gt;&amp;gt;&amp;gt; PasswordAuthentication no PermitRootLogin yes &amp;gt;&amp;gt;&amp;gt; PermitRootLogin no &amp;gt;&amp;gt;&amp;gt; DebianBanner no
- have to restart the ssh sudo /etc/init.</description>
+      <guid>/working-notes/2014/wn_2014-01/secure-ubuntu-server-1204/</guid>
+      <description>For key pair login and removing the password based on  http://ubuntuforums.org/archive/index.php/t-30709.html http://blog.nas-admin.org/?p=63 http://www.thefanclub.co.za/how-to/how-install-psad-intrusion-detection-ubuntu-1204-lts-server following first one  following steps
+cd .ssh/ ssh-keygen -t dsa scp id_dsa.pub serverusername@IP:./id_dsa.pub ssh into server cd .ssh touch authorized_keys2 chmod 600 authorized_keys2 cat ../id_dsa.pub &amp;gt;&amp;gt; authorized_keys2 rm ../id_dsa.pub  edited the /etc/ssh/sshd_config for for pass word less authentication
+#PasswordAuthentication yes &amp;gt;&amp;gt;&amp;gt; PasswordAuthentication no PermitRootLogin yes &amp;gt;&amp;gt;&amp;gt; PermitRootLogin no &amp;gt;&amp;gt;&amp;gt; DebianBanner no  then restarted the ssh</description>
     </item>
     
   </channel>

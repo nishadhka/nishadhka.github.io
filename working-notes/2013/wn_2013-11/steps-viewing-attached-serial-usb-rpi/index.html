@@ -15,17 +15,17 @@
 
     
       
-      <meta property="description" content="then create a file in /etc/init.d as pythonscript.sh and add following codes in it
-#!/bin/sh ### BEGIN INIT INFO # Provides: myservice # Required-Start: $remote_fs $syslog # Required-Stop: $remote_fs &amp;hellip;">
-      <meta property="og:description" content="then create a file in /etc/init.d as pythonscript.sh and add following codes in it
-#!/bin/sh ### BEGIN INIT INFO # Provides: myservice # Required-Start: $remote_fs $syslog # Required-Stop: $remote_fs &amp;hellip;">
+      <meta property="description" content="Now to use this for data logging and GSM data transmission for data logging python script from this replay is used#3 http://forum.arduino.cc/index.php?topic=105148.0
+import serial import time ser = &amp;hellip;">
+      <meta property="og:description" content="Now to use this for data logging and GSM data transmission for data logging python script from this replay is used#3 http://forum.arduino.cc/index.php?topic=105148.0
+import serial import time ser = &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -96,34 +96,39 @@
 <code>bash
 dmesg | grep -i tty
 </code></li>
-<li>Now to use this for data logging and GSM data transmission for data logging python script from this replay is used#3 <a href="http://forum.arduino.cc/index.php?topic=105148.0">http://forum.arduino.cc/index.php?topic=105148.0</a>
-<code>python
-import serial
+
+<li><p>Now to use this for data logging and GSM data transmission for data logging python script from this replay is used#3 <a href="http://forum.arduino.cc/index.php?topic=105148.0">http://forum.arduino.cc/index.php?topic=105148.0</a></p>
+
+<pre><code>import serial
 import time
 ser = serial.Serial(‘/dev/ttyUSB0’, 9600, timeout=60)
 time.sleep(60)
 logfile = open(‘test.csv’, ‘a’)
 while 1:
-        line = ser.readline()
-        now = time.strftime(“%Y-%m-%dT%H:%M:%S:00.000000+0530”, time.localtime())
-        a = “%s,%s” % (now,line)
-        print a
-        logfile.write(a)
-        logfile.flush()
+   line = ser.readline()
+   now = time.strftime(“%Y-%m-%dT%H:%M:%S:00.000000+0530”, time.localtime())
+   a = “%s,%s” % (now,line)
+   print a
+   logfile.write(a)
+   logfile.flush()
 logfile.close()
 ser.close()
-</code></li>
-<li>To make the RPi run automatically this script for every reboot, followed this well-written tutorial
-<a href="http://blog.scphillips.com/2013/07/getting-a-python-script-to-run-in-the-background-as-a-service-on-boot/">http://blog.scphillips.com/2013/07/getting-a-python-script-to-run-in-the-background-as-a-service-on-boot/</a> the steps were</li>
-<li>added this line to the first line of python script
-<code>python
-#!/usr/bin/env python
-</code></li>
-<li>then moved this file to the location of /usr/local/bin/myservice here myservice folder has to  be created</li>
-<li>give execute command for the file
-<code>bash
-chmod 755 pythonscript.py
-</code></li>
+</code></pre></li>
+
+<li><p>To make the RPi run automatically this script for every reboot, followed this well-written tutorial
+<a href="http://blog.scphillips.com/2013/07/getting-a-python-script-to-run-in-the-background-as-a-service-on-boot/">http://blog.scphillips.com/2013/07/getting-a-python-script-to-run-in-the-background-as-a-service-on-boot/</a> the steps were</p></li>
+
+<li><p>added this line to the first line of python script</p>
+
+<pre><code class="language-python">#!/usr/bin/env python
+</code></pre></li>
+
+<li><p>then moved this file to the location of /usr/local/bin/myservice here myservice folder has to  be created</p></li>
+
+<li><p>give execute command for the file</p>
+
+<pre><code class="language-bash">chmod 755 pythonscript.py
+</code></pre></li>
 
 <li><p>then create a file in /etc/init.d as pythonscript.sh and add following codes in it</p>
 
@@ -244,6 +249,6 @@ exit 0
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

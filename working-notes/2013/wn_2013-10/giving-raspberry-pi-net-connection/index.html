@@ -15,15 +15,19 @@
 
     
       
-      <meta property="description" content="The static IP address addition on SD card seems not connecting RPi (Raspberry Pi) to the Internet (1) 1. A possible way is to remove DHCP and invoke static 2. So the command netstat -nr will show up &amp;hellip;">
-      <meta property="og:description" content="The static IP address addition on SD card seems not connecting RPi (Raspberry Pi) to the Internet (1) 1. A possible way is to remove DHCP and invoke static 2. So the command netstat -nr will show up &amp;hellip;">
+      <meta property="description" content="The static IP address addition on SD card seems not connecting RPi (Raspberry Pi) to the Internet (1)
+[&amp;hellip;] So the command netstat -nr will show up only the
+Destination Gateway Genmask Flags MSS &amp;hellip;">
+      <meta property="og:description" content="The static IP address addition on SD card seems not connecting RPi (Raspberry Pi) to the Internet (1)
+[&amp;hellip;] So the command netstat -nr will show up only the
+Destination Gateway Genmask Flags MSS &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -31,6 +35,11 @@
 
     
     
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -84,73 +93,91 @@
 
 
 
-<p>The static IP address addition on SD card seems not connecting RPi (Raspberry Pi) to the Internet (1)
-1. A possible way is to remove DHCP and invoke static
-2. So the command netstat -nr will show up only the</p>
-
-<p>Destination Gateway  Genmask Flags MSS 
-192.168.1.0 0.0.0.0 255.255.255.0 U 0
-Window  irtt   Iface
- 0 0 eth0</p>
-
-<p>without UG flag (from <a href="http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues">http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues</a>)</p>
-
-<p>so no gateway, no way to access the Internet</p>
+<p>The static IP address addition on SD card seems not connecting RPi (Raspberry Pi) to the Internet (1)</p>
 
 <ol>
-<li>The solution is to add the following entries</li>
-</ol>
+<li>A possible way is to remove DHCP and invoke static</li>
 
-<p>pi@raspberrypi ~ $ cat /etc/network/interfaces
-auto lo</p>
+<li><p>So the command netstat -nr will show up only the</p>
 
-<p>iface lo inet loopback
+<pre><code>Destination Gateway  Genmask Flags MSS 
+192.168.1.0 0.0.0.0 255.255.255.0 U 0
+Window  irtt   Iface
+0 0 eth0
+</code></pre>
+
+<p>without UG flag (from <a href="http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues">http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues</a>)
+ so no gateway, no way to access the Internet</p></li>
+
+<li><p>The solution is to add the following entries</p>
+
+<pre><code>pi@raspberrypi ~ $ cat /etc/network/interfaces
+auto lo
+iface lo inet loopback
 iface eth0 inet static
 address 192.168.1.104
 netmask 255.255.255.0
-gateway 192.168.1.1</p>
-
-<p>allow-hotplug wlan0
+gateway 192.168.1.1
+allow-hotplug wlan0
 iface wlan0 inet manual
-wpa-roam /etc/wpa<em>supplicant/wpa</em>supplicant.conf
-iface default inet dhcp</p>
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
+</code></pre>
 
 <p>and</p>
 
-<p>pi@raspberrypi ~ $ cat /etc/resolv.conf
+<pre><code>pi@raspberrypi ~ $ cat /etc/resolv.conf
 DNS 218.248.240.179
-nameserver 218.248.240.179</p>
+nameserver 218.248.240.179
+</code></pre>
 
 <p>and</p>
 
-<p>sudo /sbin/route add -net 0.0.0.0 gw 192.168.1.254 eth0
-sudo /sbin/route add -net 0.0.0.0 gw 192.168.1.1 eth0</p>
+<pre><code>sudo /sbin/route add -net 0.0.0.0 gw 192.168.1.254 eth0
+sudo /sbin/route add -net 0.0.0.0 gw 192.168.1.1 eth0
+</code></pre></li>
 
-<ol>
-<li>It makes three lines in <code>netstat</code> table with these gateway address. After this, the Internet will be getting.</li>
-</ol>
+<li><p>It makes three lines in <code>netstat</code> table with these gateway address. After this, the Internet will be getting.
+ now the  netstat -nr will look like</p>
 
-<p>now the  netstat -nr will look like</p>
-
-<p>pi@raspberrypi ~ $ netstat -nr
+<pre><code>pi@raspberrypi ~ $ netstat -nr
 Kernel IP routing table
 Destination Gateway   Genmask Flags MSS Window  irtt Iface
 0.0.0.0 192.168.1.1 0.0.0.0 UG 0 0 0 eth0
 0.0.0.0 192.168.1.254 0.0.0.0 UG 0 0 0 eth0
-192.168.1.0 0.0.0.0 255.255.255.0 U 0 0 0 eth0</p>
+</code></pre>
 
-<p>References:
-1. <a href="http://raspberrypi.stackexchange.com/questions/7624/setting-a-static-eth0-ip">http://raspberrypi.stackexchange.com/questions/7624/setting-a-static-eth0-ip</a>
-2. <a href="http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues">http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues</a>
-3. <a href="http://www.soslug.org/wiki/getting_your_raspberry_pi_to_run_on_a_static_ip_with_internet">http://www.soslug.org/wiki/getting_your_raspberry_pi_to_run_on_a_static_ip_with_internet</a>
-4. <a href="http://www.penguintutor.com/linux/raspberrypi-webserver">http://www.penguintutor.com/linux/raspberrypi-webserver</a>
-5. <a href="http://pihw.wordpress.com/guides/direct-network-connection/">http://pihw.wordpress.com/guides/direct-network-connection/</a>
-6. <a href="http://www.penguintutor.com/linux/raspberrypi-headless">http://www.penguintutor.com/linux/raspberrypi-headless</a></p>
+<p>192.168.1.0 0.0.0.0 255.255.255.0 U 0 0 0 eth0</p></li>
+</ol>
+
+<p>References:</p>
+
+<ol>
+<li><a href="http://raspberrypi.stackexchange.com/questions/7624/setting-a-static-eth0-ip">http://raspberrypi.stackexchange.com/questions/7624/setting-a-static-eth0-ip</a></li>
+<li><a href="http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues">http://raspberrypi.stackexchange.com/questions/7146/static-local-ip-gateway-config-on-startup-issues</a></li>
+<li><a href="http://www.soslug.org/wiki/getting_your_raspberry_pi_to_run_on_a_static_ip_with_internet">http://www.soslug.org/wiki/getting_your_raspberry_pi_to_run_on_a_static_ip_with_internet</a></li>
+<li><a href="http://www.penguintutor.com/linux/raspberrypi-webserver">http://www.penguintutor.com/linux/raspberrypi-webserver</a></li>
+<li><a href="http://pihw.wordpress.com/guides/direct-network-connection/">http://pihw.wordpress.com/guides/direct-network-connection/</a></li>
+<li><a href="http://www.penguintutor.com/linux/raspberrypi-headless">http://www.penguintutor.com/linux/raspberrypi-headless</a></li>
+</ol>
 
 
   <footer>
   
   
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
   
   <hr>
@@ -159,6 +186,6 @@ Destination Gateway   Genmask Flags MSS Window  irtt Iface
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

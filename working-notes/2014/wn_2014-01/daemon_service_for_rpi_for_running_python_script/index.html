@@ -16,18 +16,16 @@
     
       
       <meta property="description" content="To make a python script run in demon which stores serial reading into a csv file and send one serial read value into SMS.
-[&amp;hellip;] /usr/local/bin/myservice/myscript.py
-#!/usr/bin/env python import &amp;hellip;">
+[&amp;hellip;] First save the python script as service inside this folder and make &amp;hellip;">
       <meta property="og:description" content="To make a python script run in demon which stores serial reading into a csv file and send one serial read value into SMS.
-[&amp;hellip;] /usr/local/bin/myservice/myscript.py
-#!/usr/bin/env python import &amp;hellip;">
+[&amp;hellip;] First save the python script as service inside this folder and make &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -95,11 +93,8 @@
 
 <p>To make a python script run in demon which stores serial reading into a csv file and send one serial read value into SMS.</p>
 
-<ul>
-<li>First save the python script as service inside this folder and make it executable</li>
-</ul>
-
-<p>/usr/local/bin/myservice/myscript.py</p>
+<ol>
+<li><p>First save the python script as service inside this folder and make it executable <code>/usr/local/bin/myservice/myscript.py</code></p>
 
 <pre><code>#!/usr/bin/env python
 import serial
@@ -131,17 +126,13 @@ gamu_sm = gammu.StateMachine()
 gamu_sm.ReadConfig()              #Read the default config file (~/.gammurc)
 gamu_sm.Init()                    #Connect to the phone   
 gamu_sm.SendSMS(SMS)
+</code></pre></li>
 
-</code></pre>
+<li><p>then make a sh script in  <code>/etc/init.d/</code>
+`
+    #!/bin/sh</p>
 
-<ul>
-<li>then make a sh script in
-/etc/init.d/</li>
-</ul>
-
-<pre><code>#!/bin/sh
- 
-###BEGIN INIT INFO
+<pre><code>###BEGIN INIT INFO
 #Provides: myservice
 #Required-Start: $remote_fs $syslog
 #Required-Stop: $remote_fs $syslog
@@ -150,21 +141,21 @@ gamu_sm.SendSMS(SMS)
 #Short-Description: Put a short description of the service here
 #Description: Put a long description of the service here
 ###END INIT INFO
- 
+
 #Change the next 3 lines to suit where you install your script and what you want to call it
 DIR=/usr/local/bin/myservice
 DAEMON=$DIR/dylos_csv_ser.py
 DAEMON_NAME=dylos_csv_ser
- 
+
 #This next line determines what user the script runs as.
 #Root generally not recommended but necessary if you are using the Raspberry Pi GPIO from Python.
 DAEMON_USER=root
- 
+
 #The process ID of the script when it runs is stored here:
 PIDFILE=/var/run/$DAEMON_NAME.pid
- 
+
 . /lib/lsb/init-functions
- 
+
 do_start () {
 log_daemon_msg &quot;Starting system $DAEMON_NAME daemon&quot;
 start-stop-daemon --start --background --pidfile $PIDFILE --make-pidfile --user $DAEMON_USER --startas $DAEMON
@@ -175,18 +166,18 @@ log_daemon_msg &quot;Stopping system $DAEMON_NAME daemon&quot;
 start-stop-daemon --stop --pidfile $PIDFILE --retry 10
 log_end_msg $?
 }
- 
+
 case &quot;$1&quot; in
- 
+
 start|stop)
 do_${1}
 ;;
- 
+
 restart|reload|force-reload)
 do_stop
 do_start
 ;;
- 
+
 status)
 status_of_proc &quot;$DAEMON_NAME&quot; &quot;$DAEMON&quot; &amp;&amp; exit 0 || exit $?
 ;;
@@ -194,37 +185,23 @@ status_of_proc &quot;$DAEMON_NAME&quot; &quot;$DAEMON&quot; &amp;&amp; exit 0 ||
 echo &quot;Usage: /etc/init.d/$DEAMON_NAME {start|stop|restart|status}&quot;
 exit 1
 ;;
- 
+
 esac
 exit 0
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>then make it executable by</li>
-</ul>
+<li><p>then make it executable by</p>
 
-<p>sudo chmod 755 /etc/init.d/NameOfYourScript</p>
+<pre><code>sudo chmod 755 /etc/init.d/NameOfYourScript
+</code></pre></li>
 
-<ul>
-<li>then make it into startup by</li>
-</ul>
+<li><p>then make it into startup by</p>
 
-<p>sudo update-rc.d NameOfYourScript defaults</p>
+<pre><code>sudo update-rc.d NameOfYourScript defaults 
+</code></pre></li>
 
-<p>this command has to run cautiously, will be different according to the OS distribution.</p>
-
-<ul>
-<li>based on
-<a href="http://blog.scphillips.com/2013/07/getting-a-python-script-to-run-in-the-background-as-a-service-on-boot/">http://blog.scphillips.com/2013/07/getting-a-python-script-to-run-in-the-background-as-a-service-on-boot/</a></li>
-</ul>
-
-<p><a href="http://www.stuffaboutcode.com/2012/06/raspberry-pi-run-program-at-start-up.html">http://www.stuffaboutcode.com/2012/06/raspberry-pi-run-program-at-start-up.html</a></p>
-
-<ul>
-<li>RPi Email IP On Boot Debian</li>
-</ul>
-
-<p><a href="http://elinux.org/RPi_Email_IP_On_Boot_Debian">http://elinux.org/RPi_Email_IP_On_Boot_Debian</a></p>
+<li><p>this command has to run cautiously, will be different according to the OS distribution. based on <a href="http://blog.scphillips.com/2013/07/getting-a-python-script-to-run-in-the-background-as-a-service-on-boot/">http://blog.scphillips.com/2013/07/getting-a-python-script-to-run-in-the-background-as-a-service-on-boot/</a> and <a href="http://www.stuffaboutcode.com/2012/06/raspberry-pi-run-program-at-start-up.html">http://www.stuffaboutcode.com/2012/06/raspberry-pi-run-program-at-start-up.html</a> and  RPi Email IP On Boot Debian <a href="http://elinux.org/RPi_Email_IP_On_Boot_Debian">http://elinux.org/RPi_Email_IP_On_Boot_Debian</a></p></li>
+</ol>
 
 
   <footer>
@@ -251,6 +228,6 @@ exit 0
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

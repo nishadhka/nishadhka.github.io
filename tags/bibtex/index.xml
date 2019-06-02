@@ -2,22 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bibtex on Nishadh KA</title>
-    <link>//localhost:1313/tags/bibtex/</link>
+    <link>/tags/bibtex/</link>
     <description>Recent content in Bibtex on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 18 Jul 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/tags/bibtex/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/bibtex/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Workflow docear mendely Python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-07/workflow_docear_mendely_python/</link>
+      <title>Workflow with Docear, Mendely and Python</title>
+      <link>/working-notes/2014/wn_2014-07/workflow-docear-mendely-python/</link>
       <pubDate>Fri, 18 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-07/workflow_docear_mendely_python/</guid>
-      <description>creating a script to select pdf files from a bunch of folders, subfolders, html files create folders with only pdf files the code is ``` import os count = 0 d=[] f=[] for (dirname, dirs, files) in os.walk(&amp;lsquo;/home/swl-sacon-dst/Documents/GISE2013/LAB/labnotes/&amp;lsquo;): #sepecifiying the directory to search for pdf files from for filename in files: if filename.endswith(&amp;lsquo;.pdf&amp;rsquo;) : thefile = os.path.join(dirname,filename) dire = os.path.dirname(thefile) f.append(thefile) d.append(dire) #makung a list of ifle names and folders for copying #using list comphrehsnsion to change the folder path from dc = [word.</description>
+      <guid>/working-notes/2014/wn_2014-07/workflow-docear-mendely-python/</guid>
+      <description>A script to select pdf files from a bunch of folders, subfolders, html files and create folders with only pdf files, the code is
+import os count = 0 d=[] f=[] for (dirname, dirs, files) in os.walk(&#39;/home/swl-sacon-dst/Documents/GISE_2013/LAB/lab_notes/&#39;): #sepecifiying the directory to search for pdf files [from](http://stackoverflow.com/questions/273192/check-if-a-directory-exists-and-create-it-if-necessary) for filename in files: if filename.endswith(&#39;.pdf&#39;) : thefile = os.path.join(dirname,filename) dire = os.path.dirname(thefile) f.append(thefile) d.append(dire) #makung a list of ifle names and folders for copying #using list comphrehsnsion to change the folder path [from](http://stackoverflow.</description>
     </item>
     
   </channel>

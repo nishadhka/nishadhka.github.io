@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>raspberry pi errors - Nishadh KA</title>
-    <meta property="og:title" content="raspberry pi errors - Nishadh KA">
+    <title>Raspberry pi errors - Nishadh KA</title>
+    <meta property="og:title" content="Raspberry pi errors - Nishadh KA">
     
     <meta name="twitter:card" content="summary">
 
@@ -15,19 +15,17 @@
 
     
       
-      <meta property="description" content="sudo hwclock --set --date &amp;quot;01/16/2014 08:33:01&amp;quot;  to set the computer time using
-https://wiki.debian.org/DateTime#Set_the_time_manually
-date &amp;ndash;set 1998-11-02 date &amp;ndash;set 21:08:00 &amp;hellip;">
-      <meta property="og:description" content="sudo hwclock --set --date &amp;quot;01/16/2014 08:33:01&amp;quot;  to set the computer time using
-https://wiki.debian.org/DateTime#Set_the_time_manually
-date &amp;ndash;set 1998-11-02 date &amp;ndash;set 21:08:00 &amp;hellip;">
+      <meta property="description" content="After dismantling the RPi with RTC, clock time become erroneous, so it was reconnected with lots of reboots and set the time manually using the command
+sudo hwclock --set --date &amp;quot;01/16/2014 &amp;hellip;">
+      <meta property="og:description" content="After dismantling the RPi with RTC, clock time become erroneous, so it was reconnected with lots of reboots and set the time manually using the command
+sudo hwclock --set --date &amp;quot;01/16/2014 &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -82,7 +80,7 @@ date &amp;ndash;set 1998-11-02 date &amp;ndash;set 21:08:00 &amp;hellip;">
     <article class="main">
       <header class="title">
       
-<h1>raspberry pi errors</h1>
+<h1>Raspberry pi errors</h1>
 
 <h3>
   2014-01-08</h3>
@@ -95,30 +93,29 @@ date &amp;ndash;set 1998-11-02 date &amp;ndash;set 21:08:00 &amp;hellip;">
 
 <ol>
 <li>with GSM data card and serial to USB connected to the USB hub, after connecting GSM data card, a few minutes after the ssh is getting disconnected</li>
-<li>After dismantling the RPi with RTC, clock time become erroneous, so it was reconnected with lots of reboots and set the time manually using the command</li>
-</ol>
+
+<li><p>After dismantling the RPi with RTC, clock time become erroneous, so it was reconnected with lots of reboots and set the time manually using the command</p>
 
 <pre><code>sudo hwclock --set --date &quot;01/16/2014 08:33:01&quot;
-</code></pre>
+</code></pre></li>
 
-<p>to set the computer time using</p>
+<li><p>to set the computer time using <a href="https://wiki.debian.org/DateTime#Set_the_time_manually">https://wiki.debian.org/DateTime#Set_the_time_manually</a></p>
 
-<p><a href="https://wiki.debian.org/DateTime#Set_the_time_manually">https://wiki.debian.org/DateTime#Set_the_time_manually</a></p>
+<pre><code>date --set 1998-11-02 
+date --set 21:08:00
+</code></pre></li>
 
-<p>date &ndash;set 1998-11-02
-     date &ndash;set 21:08:00</p>
+<li><p>Now RPI is connected with data card, without connecting serial to USB wire, now the RPi is working without a problem.</p></li>
 
-<ol>
-<li>Now RPI is connected with data card, without connecting serial to USB wire, now the RPi is working without a problem.
-Data card is checked with SMS also, so now connecting the serial USB to RPi, by connecting the USB serial second to a data card, not showing any problem.</li>
-</ol>
+<li><p>Data card is checked with SMS also, so now connecting the serial USB to RPi, by connecting the USB serial second to a data card, not showing any problem.</p></li>
 
-<p>create sqlite database by</p>
+<li><p>create sqlite database by</p>
 
 <pre><code>sudo apt-get install sqlite3 libsqlite3-dev
 sqlite3 mydatabase.db
 CREATE TABLE data3 (SNo  INTEGER PRIMARY KEY, data VARCHAR(100));
-</code></pre>
+</code></pre></li>
+</ol>
 
 
   <footer>
@@ -145,6 +142,6 @@ CREATE TABLE data3 (SNo  INTEGER PRIMARY KEY, data VARCHAR(100));
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

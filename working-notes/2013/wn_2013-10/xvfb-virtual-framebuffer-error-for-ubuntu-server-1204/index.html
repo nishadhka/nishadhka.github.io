@@ -23,7 +23,7 @@
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -31,6 +31,11 @@
 
     
     
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -84,84 +89,100 @@
 
 
 
-<p>The frame buffer is a hardware portion in memory to provide a display. X window systems are the basic display setup for computers. The display in the computer is organized as bitmap windows. In headless Ubuntu servers, virtual framebuffers are used for the application which requires display explicitly such as for Firefox or other browsers.
-Xvfb provides a virtual display for those applications. In Ubuntu headless server (server without any GUI) this is installed for mainly running Selenium scripts which require a browser to run. Installation in Ubuntu 12.04 is following this
+
+
+<p>The frame buffer is a hardware portion in memory to provide a display. X window
+systems are the basic display setup for computers. The display in the computer
+is organized as bitmap windows. In headless Ubuntu servers, virtual framebuffers
+ are used for the application which requires display explicitly such as for
+Firefox or other browsers. Xvfb provides a virtual display for those
+applications. In Ubuntu headless server (server without any GUI) this is
+installed for mainly running Selenium scripts which require a browser to run.
+Installation in Ubuntu 12.04 is following this
 <a href="http://www.installationpage.com/selenium/how-to-run-selenium-headless-firefox-in-ubuntu/">http://www.installationpage.com/selenium/how-to-run-selenium-headless-firefox-in-ubuntu/</a>
 and followed the commands</p>
 
-<p>sudo apt-get install xvfb</p>
-
-<p>sudo Xvfb :10 -ac
+<pre><code>sudo apt-get install xvfb
+sudo Xvfb :10 -ac
 firefox
-export DISPLAY=:10</p>
+export DISPLAY=:10
+</code></pre>
 
 <p>However, somehow after a reboot, it shows error.</p>
 
-<p>[dix] Could not init font path element /usr/share/fonts/X11/misc, removing from</p>
-
-<p>list!
-Could not init font path element /usr/share/fonts/X11/cyrillic, removing from</p>
-
-<p>[dix]
- list!
-[dix] Could not init font path element /usr/share/fonts/X11/100dpi/:unscaled,
-/:unscaled, removin</p>
-
-<p>removing from list!
-[dix] Could not init font path element /usr/share/fonts/X11/75dp
+<pre><code>[dix] could not init font path element /usr/share/fonts/x11/misc, removing from list!
+could not init font path element /usr/share/fonts/x11/cyrillic, removing from
+[dix]
+list!
+[dix] could not init font path element /usr/share/fonts/x11/100dpi/:unscaled,
+/:unscaled, removin
+removing from list!
+[dix] could not init font path element /usr/share/fonts/x11/75dp
 ig from list!
-[dix] Could not init font path element /usr/share/fonts/X11/Type1, removing
+[dix] could not init font path element /usr/share/fonts/x11/type1, removing
 from list!
-ot init font path element /usr/share/fonts/X11/75dpi, removing from list!</p>
-
-<p>[dix] Could not init font path element /usr/share/fonts/X11/100dpi, removing
+ot init font path element /usr/share/fonts/x11/75dpi, removing from list!
+[dix] could not init font path element /usr/share/fonts/x11/100dpi, removing
 from list!
-[dix] Could</p>
+[dix] could 
+</code></pre>
 
-<p>Thought it is not working but after waiting for some time, it seems starting the display, anyhow I move forward to the error and installed the following package to resolve the error based on</p>
+<p>Though it is not working but after waiting for some time, it seems starting the display, anyhow I move forward to the error and installed the following package to resolve the error based on</p>
 
 <p><a href="http://blog.martin-lyness.com/tag/xvfb">http://blog.martin-lyness.com/tag/xvfb</a></p>
 
-<p>sudo apt-get install xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic</p>
-
-<p>sudo apt-get install xserver-xorg-core</p>
+<pre><code>sudo apt-get install xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
+sudo apt-get install xserver-xorg-core
+</code></pre>
 
 <p>moreover, followed this for final touch up
 <a href="http://www.guguncube.com/2733/python-spynner-installation-in-ubuntu">http://www.guguncube.com/2733/python-spynner-installation-in-ubuntu</a>
 so installed</p>
 
-<p>sudo apt-get install -y x11-xkb-utils</p>
+<pre><code>sudo apt-get install -y x11-xkb-utils
+sudo apt-get install -y xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
+sudo apt-get install -y x-ttcidfont-conf cabextract ttf-mscorefonts-installer
+sudo dpkg-reconfigure --default-priority x-ttcidfont-conf
+</code></pre>
 
-<p>sudo apt-get install -y xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic</p>
-
-<p>sudo apt-get install -y x-ttcidfont-conf cabextract ttf-mscorefonts-installer</p>
-
-<p>sudo dpkg-reconfigure &ndash;default-priority x-ttcidfont-conf</p>
-
-<p>Then in different terminal ssh’d to run the display and then the Firefox, now it working nice, otherwise, it gets much error.
+<p>Then in different terminal ssh’d to run the display and then the Firefox, now it working, otherwise, it gets much error.
 Like RAND is not working.
 Another tip:
-to show the hidden file by cmd, use</p>
+to show the hidden file by cmd, use <code>ls -a</code></p>
 
-<p>ls -a</p>
+<h4 id="references">References</h4>
 
-<p>References
-<a href="http://stackoverflow.com/questions/17944234/xlib-extension-randr-missing-on-display-21-trying-to-run-headless-googl">http://stackoverflow.com/questions/17944234/xlib-extension-randr-missing-on-display-21-trying-to-run-headless-googl</a>
-<a href="http://askubuntu.com/questions/131051/how-to-kill-and-to-start-the-x-server">http://askubuntu.com/questions/131051/how-to-kill-and-to-start-the-x-server</a>
-<a href="http://permalink.gmane.org/gmane.comp.multimedia.puredata.general/88691">http://permalink.gmane.org/gmane.comp.multimedia.puredata.general/88691</a>
-<a href="http://www.guguncube.com/2733/python-spynner-installation-in-ubuntu">http://www.guguncube.com/2733/python-spynner-installation-in-ubuntu</a>
-<a href="http://veeraramkumar.blogspot.in/2011_06_01_archive.html">http://veeraramkumar.blogspot.in/2011_06_01_archive.html</a>
-<a href="https://github.com/daneroo/phantom-test">https://github.com/daneroo/phantom-test</a>
-<a href="http://serverfault.com/questions/239597/xvfb-error-on-ubuntu">http://serverfault.com/questions/239597/xvfb-error-on-ubuntu</a>
-<a href="http://ubuntuforums.org/archive/index.php/t-1956577.html">http://ubuntuforums.org/archive/index.php/t-1956577.html</a>
-<a href="http://ivanvillareal.com/linux/xvfb-and-firefox-headles-screenshot-generator/">http://ivanvillareal.com/linux/xvfb-and-firefox-headles-screenshot-generator/</a>
-<a href="http://blog.martin-lyness.com/tag/xvfb">http://blog.martin-lyness.com/tag/xvfb</a>
-<a href="http://www.installationpage.com/selenium/how-to-run-selenium-headless-firefox-in-ubuntu/">http://www.installationpage.com/selenium/how-to-run-selenium-headless-firefox-in-ubuntu/</a></p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/17944234/xlib-extension-randr-missing-on-display-21-trying-to-run-headless-googl">http://stackoverflow.com/questions/17944234/xlib-extension-randr-missing-on-display-21-trying-to-run-headless-googl</a></li>
+<li><a href="http://askubuntu.com/questions/131051/how-to-kill-and-to-start-the-x-server">http://askubuntu.com/questions/131051/how-to-kill-and-to-start-the-x-server</a></li>
+<li><a href="http://permalink.gmane.org/gmane.comp.multimedia.puredata.general/88691">http://permalink.gmane.org/gmane.comp.multimedia.puredata.general/88691</a></li>
+<li><a href="http://www.guguncube.com/2733/python-spynner-installation-in-ubuntu">http://www.guguncube.com/2733/python-spynner-installation-in-ubuntu</a></li>
+<li><a href="http://veeraramkumar.blogspot.in/2011_06_01_archive.html">http://veeraramkumar.blogspot.in/2011_06_01_archive.html</a></li>
+<li><a href="https://github.com/daneroo/phantom-test">https://github.com/daneroo/phantom-test</a></li>
+<li><a href="http://serverfault.com/questions/239597/xvfb-error-on-ubuntu">http://serverfault.com/questions/239597/xvfb-error-on-ubuntu</a></li>
+<li><a href="http://ubuntuforums.org/archive/index.php/t-1956577.html">http://ubuntuforums.org/archive/index.php/t-1956577.html</a></li>
+<li><a href="http://ivanvillareal.com/linux/xvfb-and-firefox-headles-screenshot-generator/">http://ivanvillareal.com/linux/xvfb-and-firefox-headles-screenshot-generator/</a></li>
+<li><a href="http://blog.martin-lyness.com/tag/xvfb">http://blog.martin-lyness.com/tag/xvfb</a></li>
+<li><a href="http://www.installationpage.com/selenium/how-to-run-selenium-headless-firefox-in-ubuntu/">http://www.installationpage.com/selenium/how-to-run-selenium-headless-firefox-in-ubuntu/</a></li>
+</ol>
 
 
   <footer>
   
   
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
   
   <hr>
@@ -170,6 +191,6 @@ to show the hidden file by cmd, use</p>
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

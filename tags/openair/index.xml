@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OpenAir on Nishadh KA</title>
-    <link>//localhost:1313/tags/openair/</link>
+    <link>/tags/openair/</link>
     <description>Recent content in OpenAir on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 17 Jun 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/tags/openair/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/openair/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Installing R and Openair in Ubuntu1204</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/installing_r_and_openair_in_ubuntu1204/</link>
+      <link>/working-notes/2014/wn_2014-06/installing-r-and-openair-in-ubuntu1204/</link>
       <pubDate>Tue, 17 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/installing_r_and_openair_in_ubuntu1204/</guid>
-      <description>##InstallingRandOpenairin_Ubuntu1204## - installation of R in ubuntu 12.04, there are deb packages available for R from its source page here - But after installation it shows error in installing openair package, and depndancy chain goes from 2 to 10 and much more package with version mismacth problem, starting from lattice saying Error: package ‘lattice’ was built before R 3.0.0: please re-install it - Even calling package by ```library(lattice&amp;rsquo;) thoughed error - So installation in apt-get library might be problem solving, followed these</description>
+      <guid>/working-notes/2014/wn_2014-06/installing-r-and-openair-in-ubuntu1204/</guid>
+      <description>Installation of R in Ubuntu 12.04, there are deb packages available for R from its source page here However, after installation, it shows error in installing openair package, and dependency chain goes from 2 to 10 and much more package with version mismatch problem, starting from lattice saying Error: package ‘lattice’ was built before R 3.0.0: please re-install it Even calling package by the library(lattice&amp;rsquo;) given error So installation in apt-get library might be a problem-solving step, followed these</description>
     </item>
     
   </channel>

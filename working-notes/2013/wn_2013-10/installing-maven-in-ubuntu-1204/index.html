@@ -15,15 +15,17 @@
 
     
       
-      <meta property="description" content="Based on links http://docs.geotools.org/latest/userguide/build/install/mvn.html http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/ &amp;hellip;">
-      <meta property="og:description" content="Based on links http://docs.geotools.org/latest/userguide/build/install/mvn.html http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/ &amp;hellip;">
+      <meta property="description" content="Based on links
+[&amp;hellip;] wget http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz tar -zxf apache-maven-3.0.4-bin.tar.gz sudo cp -R apache-maven-3.0.4 /usr/local   then link &amp;hellip;">
+      <meta property="og:description" content="Based on links
+[&amp;hellip;] wget http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz tar -zxf apache-maven-3.0.4-bin.tar.gz sudo cp -R apache-maven-3.0.4 /usr/local   then link &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -31,6 +33,11 @@
 
     
     
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -84,56 +91,70 @@
 
 
 
-<ul>
-<li><p>Based on links
-<a href="http://docs.geotools.org/latest/userguide/build/install/mvn.html">http://docs.geotools.org/latest/userguide/build/install/mvn.html</a> <a href="http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/">http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/</a> <a href="http://lukieb.wordpress.com/2011/02/15/installing-maven-3-on-ubuntu-10-04-lts-server/">http://lukieb.wordpress.com/2011/02/15/installing-maven-3-on-ubuntu-10-04-lts-server/</a></p></li>
 
-<li><p>Download, untar and copy maven in /usr/local/</p></li>
-</ul>
 
-<p>wget <a href="http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz">http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz</a>
+<p>Based on links</p>
+
+<ol>
+<li><a href="http://docs.geotools.org/latest/userguide/build/install/mvn.html">http://docs.geotools.org/latest/userguide/build/install/mvn.html</a></li>
+<li><a href="http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/">http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/</a></li>
+<li><a href="http://lukieb.wordpress.com/2011/02/15/installing-maven-3-on-ubuntu-10-04-lts-server/">http://lukieb.wordpress.com/2011/02/15/installing-maven-3-on-ubuntu-10-04-lts-server/</a></li>
+</ol>
+
+<h4 id="download-untar-and-copy-maven-in-usr-local">Download, untar and copy maven in /usr/local/</h4>
+
+<pre><code>wget http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz
 tar -zxf apache-maven-3.0.4-bin.tar.gz
-sudo cp -R apache-maven-3.0.4 /usr/local</p>
+sudo cp -R apache-maven-3.0.4 /usr/local 
+</code></pre>
 
-<ul>
-<li>then link with bin folder</li>
-</ul>
+<ol>
+<li><p>then link with bin folder</p>
 
-<p>sudo ln -s /usr/local/apache-maven-3.0.4/bin/mvn /usr/bin/mvn</p>
+<p><code>sudo ln -s /usr/local/apache-maven-3.0.4/bin/mvn /usr/bin/mvn</code></p></li>
 
-<ul>
-<li>Then add java home link in the .bashrc
-sudo nano .bashrc
-&mdash;JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64 Thats it maven is installed Test it</li>
-</ul>
+<li><p>Then add java home link in the .bashrc <code>sudo nano .bashrc</code></p>
 
-<p>mvn –version</p>
+<p><code>---JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64 Thats it maven is installed Test it</code></p></li>
 
-<ul>
-<li>Seems every think ok but there will be an issue while mvn install, the error of
-javac&rdquo;: java.io.IOException: error=2, No such file or directory javac not found</li>
-</ul>
+<li><p><code>mvn –version</code></p></li>
 
-<p>type
-javac – version in terminal it will say no javac in computer</p>
+<li><p>Seems every think ok but there will be an issue while mvn install, the error of</p>
 
-<p>javac &ndash;version</p>
+<p><code>javac&quot;: java.io.IOException: error=2, No such file or directory javac not found
+type
+javac – version in terminal it will say no javac in computer</code></p></li>
 
-<p>The program &lsquo;javac&rsquo; can be found in the following packages:
- * default-jdk
- * ecj
- * gcj-4.6-jdk
- * openjdk-6-jdk
- * gcj-4.5-jdk
- * openjdk-7-jdk</p>
+<li><p><code>javac --version</code> gives</p>
 
-<p>So do sudo apt-get install default-jdk
-the error goes away</p>
+<p><code>The program 'javac' can be found in the following packages:
+ default-jdk
+ ecj
+ gcj-4.6-jdk
+ openjdk-6-jdk
+ gcj-4.5-jdk
+ openjdk-7-jdk</code></p></li>
+
+<li><p>So doing <code>sudo apt-get install default-jdk</code>, the error goes away</p></li>
+</ol>
 
 
   <footer>
   
   
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
   
   <hr>
@@ -142,6 +163,6 @@ the error goes away</p>
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

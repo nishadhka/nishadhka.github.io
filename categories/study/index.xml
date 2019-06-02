@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Study on Nishadh KA</title>
-    <link>//localhost:1313/categories/study/</link>
+    <link>/categories/study/</link>
     <description>Recent content in Study on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 14 Sep 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/categories/study/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/study/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>EmisInv REAS Pandas</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/emisinv_reas_pandas/</link>
+      <link>/working-notes/2014/wn_2014-09/emisinv_reas_pandas/</link>
       <pubDate>Sun, 14 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/emisinv_reas_pandas/</guid>
+      <guid>/working-notes/2014/wn_2014-09/emisinv_reas_pandas/</guid>
       <description>###Working on REAS emission inventory to feed into WRF-CHEM### 1. REAS is a emission inventory for Asia, it has files for different pollutant separated with each category of emission source. For example, pollutant SO2 has 9 files for each emission source categories such as Aviation, Domestic, Industry etc for year 2008.
 1. The files are space separated txt files having fields (columns) for longitude, latitude and monthly emission value 1. Python library pandas is used for importing data into python environment and combining these different category emission source files (9 files) into one single file.</description>
     </item>
     
     <item>
       <title>PM Emission Inventory CBE SD</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/pm_emission_inventory_cbe_sd/</link>
+      <link>/working-notes/2014/wn_2014-09/pm_emission_inventory_cbe_sd/</link>
       <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/pm_emission_inventory_cbe_sd/</guid>
+      <guid>/working-notes/2014/wn_2014-09/pm_emission_inventory_cbe_sd/</guid>
       <description>####PMEmissionInventoryCoimbatoreStudy design####
 Particulate pollution level and vehicular count sample 1. A sample consist of 3 minutes PM pollution monitoring(1 minute particle count mode, 2 minute mass mode) and 2 minute video recording. 1. Sampling carried on a CNG auto rickshaw, equipped with hand held PM monitor and a web camera based video recorder attached to right side at 0.75 meter from ground of Auto rickshaw.
 1. Sixty random points in Coimbatore urban limits, sampling every 4th day for 20 sampling days.</description>

@@ -15,19 +15,19 @@
 
     
       
-      <meta property="description" content="EMS WRF OF COIMBATORE REGION USING 4 DOMAINS :-
+      <meta property="description" content="EMS-WRF for Coimbatore region using four domains
 Five simple steps required for the execution of EMS (Environmental modeling system) WRF.
-Step 1: Create a computational domain with the Domain &amp;hellip;">
-      <meta property="og:description" content="EMS WRF OF COIMBATORE REGION USING 4 DOMAINS :-
+After the successful installation of EMS follow these steps, &amp;hellip;">
+      <meta property="og:description" content="EMS-WRF for Coimbatore region using four domains
 Five simple steps required for the execution of EMS (Environmental modeling system) WRF.
-Step 1: Create a computational domain with the Domain &amp;hellip;">
+After the successful installation of EMS follow these steps, &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -35,6 +35,11 @@ Step 1: Create a computational domain with the Domain &amp;hellip;">
 
     
     
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -88,78 +93,119 @@ Step 1: Create a computational domain with the Domain &amp;hellip;">
 
 
 
-<p>EMS WRF OF COIMBATORE REGION USING 4 DOMAINS :-<br />
+<p>EMS-WRF for Coimbatore region using four domains<br />
 Five simple steps required for the execution of EMS (Environmental modeling system) WRF.</p>
 
-<p>Step 1: Create a computational domain with the Domain Wizard(DW) GUI
-                 After the successful installation of EMS follow these steps,</p>
+<p>After the successful installation of EMS follow these steps,</p>
 
-<p>a) Start the DW by executing the command &ldquo;dwiz&rdquo; in terminal .
-b) DW window should appear and gives you an opportunity to select from creating a new domain or  modifying existing domain. Current run directory also shown in this window.
-c) Select &ldquo;Create new Domain&rdquo; and then &ldquo;Continue&rdquo; button.
-d) &ldquo;Name your domain challenge window&rdquo; should appear and give name to your Domain. Name of domain should be in lower case characters without any spaces. Example : cbrwrf. This will create a new directory cbrwrf underneath wrfems/runs/cbrwrf.
-e) Click on &ldquo;Continue&rdquo; button to move on to the &ldquo;Horizontal Editor&rdquo; window.
-f) The Horizontal Editor window allows you to define a model domain by drawing a bounding
-box on a map . You can edit the “Centerpoint Lon = 77.03 “and “Centerpoint Lat =11.03 “in Projection Options  to get our exact region of interest( Coimbatore).
-g) On the right side of window, in Domain menu map section allows to change the “Scale = 12.5%” and “Center = Over 180 degrees longitude ” . In Projection Options (degrees) change the “Type = Lambert Conformal”. You can change the grid points in X &amp; Y directions and resolution of geographic data in Grid options.
-h) Click on “Update Map” , this will create a primary domain of our region.
-i) Nested domain configuration can be achieved by selecting “Nests” menu. Here you can create new nested domains or edit/delete existing ones .
-j) To create a new sub-domain, simply click on the “New” button to bring up the “New Nest” configuration window. Here Nest properties section allows you to edit the parent ID, Grid spacing ratio to parent, Geographic data resolution and Nest coordinates defines the coordinates of particular domain.
-k) Created 4 domains to stimulate Coimbatore region with 1KM resolution.
-l) Click on “Next” button to run the Localization in Run Preprocessors window. Localization serves to extract the terrestrial data over the area covered by the domain(s) from the large global files at the resolution(s) that you specified during your domain creation .
-m) Click on “Localize Domain”.
-n) After successful execution geogrid created 4 output files such as geo.em.d01.nc , geo.em.d02.nc , geo.em.d03.nc , geo.em.d04.nc. These files will reside in wrfems/runs/cbrwrf/static.
-o) Click on “Next “ button and select each domain to visualize the outputs by clicking on “view in  panoply”. You should get a dataset window and double click on any dataset to display.
-p) Click “ Exit ” when work done.</p>
+<p><strong>Step 1: Create a computational domain with the Domain Wizard(DW) GUI</strong></p>
 
-<p>Step 2 : Prepare to run a simulation</p>
+<ol>
+<li>Start the DW by executing the command &ldquo;dwiz&rdquo; in the terminal.</li>
+<li>DW window should appear and gives an option to select from creating a new domain or modifying an existing Domain. The current run directory also is shown in this window.</li>
+<li>Select &ldquo;Create a new Domain&rdquo; and then the &ldquo;Continue&rdquo; button.</li>
+<li>&ldquo;Name your domain challenge window&rdquo; should appear and give the name to Domain. Name of Domain should be in lower case characters without any spaces. Example: cbrwrf. Which creates a new directory cbrwrf underneath wrfems/runs/cbrwrf.</li>
+<li>Click on the &ldquo;Continue&rdquo; button to move on to the &ldquo;Horizontal Editor&rdquo; window.</li>
+<li>The Horizontal Editor window allows defining a model domain by drawing a bounding
+box on a map. Edit the &ldquo;Centerpoint Lon = 77.03 &ldquo;and &ldquo;Centerpoint Lat =11.03 &ldquo;in Projection, Options to get specific region of interest( Coimbatore).</li>
+<li>On the right side of the window, in Domain menu map section allows to change the &ldquo;Scale = 12.5%&rdquo; and &ldquo;Center = Over 180 degrees longitude&rdquo;. In Projection Options (degrees) change the &ldquo;Type = Lambert Conformal&rdquo;. The grid points in X &amp; Y directions and resolution of geographic data in Grid options can be changed.</li>
+<li>Click on &ldquo;Update Map,&rdquo; this will create a primary domain of region.</li>
+<li>Nested domain configuration by selecting &ldquo;Nests&rdquo; menu gives the option to create new nested domains or edit/delete existing ones.</li>
+<li>To create a new sub-domain, click on the &ldquo;New&rdquo; button to bring up the &ldquo;New Nest&rdquo; configuration window. Here Nest properties section allows for editing the parent ID, Grid spacing ratio to parent, Geographic data resolution and Nest coordinates defines the coordinates of particular Domain.</li>
+<li>Created four domains to stimulate Coimbatore region with 1KM resolution.</li>
+<li>Click on the &ldquo;Next&rdquo; button to run the Localization in Run Preprocessors window. Localization serves to extract the terrestrial data over the area covered by the Domain (s) from the large global files at the resolution(s) that specified during domain creation.</li>
+<li>Click on &ldquo;Localize Domain.&rdquo;</li>
+<li>After successful execution geogrid created four output files such as geo.em.d01.nc , geo.em.d02.nc , geo.em.d03.nc , geo.em.d04.nc. These files will reside in wrfems/runs/cbrwrf/static.</li>
+<li>Click on the &ldquo;Next &ldquo;button and select each Domain to visualize the outputs by clicking on &ldquo;view in panoply&rdquo;. Gives dataset window and double click on any dataset to display.</li>
+<li>Click &ldquo;Exit&rdquo; to finish the work.</li>
+</ol>
 
-<p>a) A new domain “cbrwrf” was created and placed in a directory wrfems/runs/cbrwrf. From this directory you will run your simulation.
-b) The EMS default configuration should be sufficient for running simulations . But sometimes it will change so there are two configuration files that you can review just to make sure everything is correct.
-c)In the “conf/ems<em>run/run</em>ncpus.conf” configuration file, make sure that the number of CPUs is
-correctly specified for your computer. Check the following parameters :
-        REAL<em>NODECPUS = local:3
-        WRFM</em>NODECPUS = local:3
-Where 3 represents the number of processors on your system.
-d) The other file that you might want to examine is “conf/ems<em>run/run</em>physics.conf”, which
-contains all the model physics settings for your simulation. If your grid spacing is less than 8 KM then change the parameter CU<em>PHYSICS = 1,0 to  CU</em>PHYSICS = 0,0 or  CU_PHYSICS = 5,0</p>
+<p><strong>Step 2: Prepare to run a simulation.</strong></p>
 
-<p>Step 3 : Processing your Initialization data</p>
+<ol>
+<li>A new domain &ldquo;cbrwrf&rdquo; is created and placed in the directory wrfems/runs/cbrwrf. From this directory, Simulation happens.</li>
+<li>The EMS default configuration should be sufficient for running simulations. However, sometimes it will change so two configuration files can review to make sure everything is correct.</li>
 
-<p>a)This step assumes that you have an internet connection so you can access the initialization data
-sets . If you have good bandwidth, try running the following command in domain (Directory :wrfems/runs/cbrwrf):
-            % ems<em>prep &ndash;dset gfs &ndash;length 24
-If you have limited bandwidth, then try running:
-        % ems</em>prep &ndash;dset gfsptiles &ndash;length 24
-Running either command causes the ems<em>prep routine to download and process the
-first 24 hours of forecast files from the most recent Global Forecast System (GFS) operational
-model run. These files will serve to provide your initial and boundary condition data for a 24 hour
-simulation (“&ndash;length 24”) .
-b)For nested domains try the following command
-        % ems</em>prep –dset gfsptiles –domains 2,3,4 (for 3 nested domains)
-Or      % ems_prep –dset gfsptiles –domains 4  (this will automatically activate 2,3 domains too)
-c) Domain 1 is the parent of all domains and is always included by default.
-d) Check wrfems/runs/cbrwrf/wpsprd , all the WRF intermediate files are located here.</p>
+<li><p>In the “conf/ems<em>run/run</em>ncpus.conf&rdquo; configuration file, make sure that the number of CPUs correct for the computer. Check the following parameters :</p>
 
-<p>Step 4 : Running your Simulation</p>
+<pre><code>REAL_NODECPUS = local:3
+WRFM_NODECPUS = local:3 
+</code></pre>
 
-<p>a) Change your directory to wrfems/runs/cbrwrf , and run the following command
-        % ems<em>run
-b) For nested domains , run the command
-        % ems</em>run –domains 2,3,4
-c) Output files will reside in wrfems/runs/cbrwrf/wrfprd</p>
+<p>Where 3 represents the number of processors on the system.</p></li>
 
-<p>Step 5 : Processing the model output files</p>
+<li><p>The other file that might want to examine is &ldquo;conf/ems<em>run/run</em>physics.conf&rdquo;, which contains all the model physics settings for Simulation. If your grid spacing is less than 8 KM then change the parameter CU<em>PHYSICS = 1,0 to  CU</em>PHYSICS = 0,0 or  CU_PHYSICS = 5,0</p></li>
+</ol>
 
-<p>a) After successful simulation you will get the WRF output files .These data should be in netCDF format can be viewed using ncview command. So try the command
-        % ncview <netCDF file></p>
+<p><strong>Step 3 : Processing your Initialization data</strong></p>
 
-<p>Ex:         % ncview wrfbdy_d01</p>
+<ol>
+<li><p>This step assumes that have an internet connection so that the initialization data can be accessed. By running the following command in Domain (Directory: wrfems/runs/cbrwrf):</p>
+
+<pre><code>% ems_prep --dset gfs --length 24 
+</code></pre>
+
+<p>If bandwidth is limited, then try running:</p>
+
+<pre><code>% ems_prep --dset gfsptiles --length 24 
+</code></pre>
+
+<p>Running either command causes the ems_prep routine to download and process the first 24 hours of forecast files from the most recent Global Forecast System (GFS) operational model run. These files will serve to provide initial and boundary condition data for a 24-hour simulation (&ldquo;&ndash;length 24&rdquo;).</p></li>
+
+<li><p>For nested domains try the following command</p>
+
+<pre><code>% ems_prep –dset gfsptiles –domains 2,3,4 (for 3 nested domains) or
+% ems_prep –dset gfsptiles –domains 4  (this will automatically activate 2,3 domains too)
+</code></pre></li>
+
+<li><p>Domain 1 is the parent of all domains and so by default included.</p></li>
+
+<li><p>Check wrfems/runs/cbrwrf/wpsprd , where all the WRF intermediate files located.</p></li>
+</ol>
+
+<p><strong>Step 4: Running the Simulation</strong></p>
+
+<ol>
+<li><p>Change directory to wrfems/runs/cbrwrf , and run the following command</p>
+
+<pre><code>% ems_run
+</code></pre></li>
+
+<li><p>For nested domains, run the command</p>
+
+<pre><code>% ems_run –domains 2,3,4
+</code></pre></li>
+
+<li><p>Output files will reside in wrfems/runs/cbrwrf/wrfprd</p></li>
+</ol>
+
+<p><strong>Step 5: Processing the model output files</strong></p>
+
+<ol>
+<li><p>WRF output files are created after successful Simulation. These data is in netCDF format and viewed using ncview command. So try the command</p>
+
+<pre><code>% ncview &lt;netCDF file&gt;, ex
+% ncview wrfbdy_d01
+</code></pre></li>
+</ol>
 
 
   <footer>
   
   
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
   
   <hr>
@@ -168,6 +214,6 @@ c) Output files will reside in wrfems/runs/cbrwrf/wrfprd</p>
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

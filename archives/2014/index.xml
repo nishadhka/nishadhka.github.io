@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2014 on Nishadh KA</title>
-    <link>//localhost:1313/archives/2014/</link>
+    <link>/archives/2014/</link>
     <description>Recent content in 2014 on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 29 Dec 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/archives/2014/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/archives/2014/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>WRF CHEM cluster</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_cluster/</link>
+      <link>/working-notes/2014/wn_2014-12/wrf_chem_cluster/</link>
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_cluster/</guid>
+      <guid>/working-notes/2014/wn_2014-12/wrf_chem_cluster/</guid>
       <description>####WRFCHEMsimluation by cluster####
 #to Do 1. write the script, lazywrfchem 1. draw computational inventory of the cluster comparision experiment, and libnrary program needed 1. compile the library 1. do the experiment
 #single computer HP laptop, parallell execution, three cores
@@ -25,30 +25,30 @@ Domain four: onehour=12:16 to 08:43, 8.5 hours so for 6 hours simulation= 48+24=
     
     <item>
       <title>WRF CHEM compile QN</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_compile_qn/</link>
+      <link>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn/</link>
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_compile_qn/</guid>
+      <guid>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn/</guid>
       <description>####Compile wrf chem: QUICK NOTE####
  It is based on the NCAR wrf chem compile complete process and note on wrf chem compile by this Basic environemtn testl, passes all the tests which checks libs such as, gcc, gfortran, gcc+gfortran, perl, csh. Made sure the gcc and gfortran versions are matching, current case version is 4.8.2 for both gcc and gfortran Basic library compile MPICh and NETCDF  For setting up PATH for NETCDF</description>
     </item>
     
     <item>
       <title>WRF CHEM compile QN AWS</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_aws/</link>
+      <link>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_aws/</link>
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_aws/</guid>
+      <guid>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_aws/</guid>
       <description>#####Compile wrf chem in AWS: QUICK NOTE#####
  It is based on the NCAR wrf chem compile complete process and note on wrf chem compile by this Create a ubuntu trusty based image. Make a small elastic block storage 8GB, it will be permanent even if the instance is kept stop. There will be storage space in /mnt for upto 300GB based on instance, for example c3.large has it. This storage gets erased while stopping the instance but not the /home folder where the small 8GB EBS is being mounted/ Install basic required libs sudo apt-get install g++ sudo apt-get install gfortran sudo apt-get install gcc Basic environment test, make sure the test passes all good for libs checks such as, gcc, gfortran, gcc+gfortran, perl, csh.</description>
     </item>
     
     <item>
       <title>WRF CHEM compile QN CT</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_ct/</link>
+      <link>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_ct/</link>
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_ct/</guid>
+      <guid>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_ct/</guid>
       <description>####Compile wrf chem in CubieTruck CT: QUICK NOTE####
  It is based on the NCAR wrf chem compile complete process and note on wrf chem compile by this Loaded a ubuntu trusty based image from here. Solved the issue of no Internet in CT by editing the interfaces file as follows
  # interfaces(5) file used by ifup(8) and ifdown(8) # Include files from /etc/network/interfaces.d: source-directory /etc/network/interfaces.d auto lo eth0 iface lo inet loopback auto eth0 iface eth0 inet static address 192.</description>
@@ -56,10 +56,10 @@ Domain four: onehour=12:16 to 08:43, 8.5 hours so for 6 hours simulation= 48+24=
     
     <item>
       <title>WRF CHEM compile QN PL</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_pl/</link>
+      <link>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_pl/</link>
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_pl/</guid>
+      <guid>/working-notes/2014/wn_2014-12/wrf_chem_compile_qn_pl/</guid>
       <description>####Compile wrf chem in Parallella PL: QUICK NOTE####
  It is based on the NCAR wrf chem compile complete process and note on wrf chem compile by this Loaded a ubuntu trusty based image from here. Solved the issue of no Internet in PL by editing the interfaces file as follows and changing the files networkmanager.onf and remove net rules as stated in Parallella up and run note.
  # interfaces(5) file used by ifup(8) and ifdown(8) # Include files from /etc/network/interfaces.</description>
@@ -67,135 +67,135 @@ Domain four: onehour=12:16 to 08:43, 8.5 hours so for 6 hours simulation= 48+24=
     
     <item>
       <title>Print map shape file python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-12/print_map_shape_file_python/</link>
+      <link>/working-notes/2014/wn_2014-12/print_map_shape_file_python/</link>
       <pubDate>Wed, 17 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-12/print_map_shape_file_python/</guid>
+      <guid>/working-notes/2014/wn_2014-12/print_map_shape_file_python/</guid>
       <description>####Create and print map using pandas in python from SHAPE file#####
  Based on this note to print map from shape file, a sort of scripting map creation and printing without using qgis kind GUI. The above note uses fiona lib. Intsallation of fiona is super easy with anaconda. Command conda install fiona does all the jobs of installing with all its depndancy starting from gdal. Native installtion of gdal and linkingit with python libs are super hard.</description>
     </item>
     
     <item>
       <title>Parallella upand run</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-12/parallella_upand_run/</link>
+      <link>/working-notes/2014/wn_2014-12/parallella_upand_run/</link>
       <pubDate>Wed, 10 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-12/parallella_upand_run/</guid>
+      <guid>/working-notes/2014/wn_2014-12/parallella_upand_run/</guid>
       <description>####Parallellaupand_run#### 1. Ubunut image for parallella can be downloaded from this note, it was dd&amp;rsquo;d into 8GB SD card micro. 1. The BOOT foilder content was not as such of this note,these files were making problem related with rebooting of the parallella. For this there is a foruym post states that need of device tree.dtb has to be changed and there is a file was attached with that. Using that file the problem of no rebooting of parallella was solved 1.</description>
     </item>
     
     <item>
       <title>Geonames Pandas Shapefile</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</link>
+      <link>/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</link>
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</guid>
+      <guid>/working-notes/2014/wn_2014-11/geonames_pandas_shapefile/</guid>
       <description>###GEONAMESPandasintoSHape file#### ####For the scripts /script/ /scripts/csvtoshp.py, csvtoshpTEST.py, Geoname.py#### 1. The industry data for emission inventory is in address with its details. To get get the latitude and longitude value of each address has to have a database with address with its latitude and longitude. 1. One such database is Geonames, its country wise data is having smaller amount of data for Coimbatore case, but POSTAL CODE data has more than 641 postal code details with latitude and longitude information.</description>
     </item>
     
     <item>
       <title>Reverse Geocoding</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/reverse_geocoding/</link>
+      <link>/working-notes/2014/wn_2014-11/reverse_geocoding/</link>
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/reverse_geocoding/</guid>
+      <guid>/working-notes/2014/wn_2014-11/reverse_geocoding/</guid>
       <description>####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude is not having high resolution to differentiate between to nearby postal code points. For this need a high resolution latitude longitude data, IN this regard GOOGLE MAP API is a good help. As per this from address the latitude and longitude json files can be obtained with its API key, based on this and getting the API access key from here.</description>
     </item>
     
     <item>
       <title>Pandas JSON</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/pandas_json/</link>
+      <link>/working-notes/2014/wn_2014-11/pandas_json/</link>
       <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/pandas_json/</guid>
+      <guid>/working-notes/2014/wn_2014-11/pandas_json/</guid>
       <description>####Pandas to JSON#### #####It is for this script /scripts/PandasJSONscript.py#####
  To convert pandas dataframe into JSON, converted pandas dataframe into csv and then using this script to convert csv into json. But it was not giving satisfactory json file, the fields where completely shuffled. Then used pandas in built function of to_json but it was giving nested json file.  import pandas import pandas as pd d=pd.read_csv(&#39;/home/swl-sacon-dst/Documents/GISE_2013/LAB/Aerocet_DATA/Oct_sample/json/A08102014M.csv&#39;) db=d[[&#39;Time&#39;,&#39;long&#39;,&#39;lat&#39;,&#39;PM1(ug/m3)&#39;,&#39;PM2.5(ug/m3)&#39;,&#39;PM4(ug/m3)&#39;,&#39;PM7(ug/m3)&#39;,&#39;PM10(ug/m3)&#39;,&#39;TSP(ug/m3)&#39;]] db[&#39;geojson&#39;]=&#39;{\\&amp;quot;type\\&amp;quot;:\\&amp;quot;Point\\&amp;quot;,\\&amp;quot;coordinates\\&amp;quot;:[&#39;+db[&#39;long&#39;].astype(str)+&#39;,&#39;+db[&#39;lat&#39;].astype(str)+&#39;]}&#39; db2=db[[&#39;Time&#39;,&#39;PM2.5(ug/m3)&#39;,&#39;PM10(ug/m3)&#39;,&#39;TSP(ug/m3)&#39;,&#39;geojson&#39;]] db2.</description>
     </item>
     
     <item>
       <title>WRFCHEM output PM25PM10</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/wrfchem_output_pm25pm10/</link>
+      <link>/working-notes/2014/wn_2014-11/wrfchem_output_pm25pm10/</link>
       <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/wrfchem_output_pm25pm10/</guid>
+      <guid>/working-notes/2014/wn_2014-11/wrfchem_output_pm25pm10/</guid>
       <description>####WRF CHEM output into PM25 and PM10####
  To get various variables from WRF OUTPUT following python codes and references were used #####to get WRF output NETCDF into python##### The below code import netcdf file into python and subset the data based on Coimbatore domain of  from netCDF4 import Dataset import numpy as np wrfoutput = &#39;wrfout_d01_2014-06-05_05:00:00_D03&#39; fh = Dataset(wrfoutput, mode=&#39;r&#39;) #to view all the variables in imported wrf output netcdf vars = fh.</description>
     </item>
     
     <item>
       <title>Ubunut1204 recovery</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/ubunut1204_recovery/</link>
+      <link>/working-notes/2014/wn_2014-11/ubunut1204_recovery/</link>
       <pubDate>Sat, 22 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/ubunut1204_recovery/</guid>
+      <guid>/working-notes/2014/wn_2014-11/ubunut1204_recovery/</guid>
       <description>###Ubunut 12.04 recovery###
  It is found that changing the file /etc/environment has huge problem after reboot. Added the environment variables for ncl language in /etc/environment as export NCARG_ROOT=/usr/local/ncl-6.2.1; export PATH=$NCARG_ROOT/bin:$PATH. This was resultant in problematic reboot of the system. The system gets instead of into login page, gets flickering command log. By reboot went inside of command line and there no system command like ls or sudo was not working.</description>
     </item>
     
     <item>
       <title>NCL install ubunut1204</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/ncl_install_ubunut1204/</link>
+      <link>/working-notes/2014/wn_2014-11/ncl_install_ubunut1204/</link>
       <pubDate>Thu, 20 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/ncl_install_ubunut1204/</guid>
+      <guid>/working-notes/2014/wn_2014-11/ncl_install_ubunut1204/</guid>
       <description>http://www.ncl.ucar.edu/Download/install.shtml</description>
     </item>
     
     <item>
       <title>Plot Aerocet sample D3JS</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/plot_aerocet_sample_d3js/</link>
+      <link>/working-notes/2014/wn_2014-11/plot_aerocet_sample_d3js/</link>
       <pubDate>Sun, 16 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/plot_aerocet_sample_d3js/</guid>
+      <guid>/working-notes/2014/wn_2014-11/plot_aerocet_sample_d3js/</guid>
       <description>####Plot aerocet data with D3 JS scrip####
  Based on this and its source code. The meteor web application is based on one index.html file and marker visualizer based on JS drawMap.js. The index.html was edited for to remove the CHART in the line 14 to 19 contains  &amp;lt;div id=&amp;quot;year-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Year of Impact&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div id=&amp;quot;mass-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Mass (g)&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt;   IN drawMap.js, following lines were removed ``` function renderAll(){ chart.</description>
     </item>
     
     <item>
       <title>git delete routine</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/git_delete_routine/</link>
+      <link>/working-notes/2014/wn_2014-11/git_delete_routine/</link>
       <pubDate>Sat, 15 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/git_delete_routine/</guid>
+      <guid>/working-notes/2014/wn_2014-11/git_delete_routine/</guid>
       <description>####git delete routine####
  Using git and github, to remove a file which is committed earlier is requier following steps. Even though the file will be removed with delete button option of OS. The committed files still be inside the git version control system and it will make problem in uploading it into github if it is large file size &amp;gt;100MB accidently committed. First to list the files deleted in the OS but not in git system, based on this.</description>
     </item>
     
     <item>
       <title>Redeploy Dylos TDM</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/redeploy_dylos_tdm/</link>
+      <link>/working-notes/2014/wn_2014-11/redeploy_dylos_tdm/</link>
       <pubDate>Wed, 05 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/redeploy_dylos_tdm/</guid>
+      <guid>/working-notes/2014/wn_2014-11/redeploy_dylos_tdm/</guid>
       <description>###Redeploy Dylos in TDM###
  After running with problem of excessive particle reading in UPS back up power, this note discuss its redeployment in same station. The problem of UPS back up power excessive reading was contained by using pure sine wave UPS. In redeployment as an addition, DHT11, humidity temperature sensor was added along with DYLOS, RPi, USB data card setup. The DHT 11 humidity temperature sensor was attached with RPI following this as per the below .</description>
     </item>
     
     <item>
       <title>DOCX table into python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-11/docx_table_into_python/</link>
+      <link>/working-notes/2014/wn_2014-11/docx_table_into_python/</link>
       <pubDate>Sat, 01 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-11/docx_table_into_python/</guid>
+      <guid>/working-notes/2014/wn_2014-11/docx_table_into_python/</guid>
       <description>###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Insted of this the table can be all select, copy paste in Libre calculator and save it as csv. 1. This csv file will be having one blank line after every row as of DOCX table. To remove this row use this script, edited with considering the special delimiter used to silence the &amp;lsquo;,&amp;rsquo; in address column.</description>
     </item>
     
     <item>
       <title>plot NETCDF</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-10/plot_netcdf/</link>
+      <link>/working-notes/2014/wn_2014-10/plot_netcdf/</link>
       <pubDate>Fri, 31 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-10/plot_netcdf/</guid>
+      <guid>/working-notes/2014/wn_2014-10/plot_netcdf/</guid>
       <description>###Plot NETCDF and create xlsx file for pyWRFChemEmiss####
  The 2010 anthropogenic emission file of Asian region is available in netcdf format. To use it with WRF CHEM, PREPCHEMSRC is limited use mainy because the emission source has to specify and it&amp;rsquo;s conversion factor might not be correct. Complexity/understandability is case for similar emission converter program such as Air Emissions Processor program and SMOKE. In this regard pyWRFChemEmiss give more modular and easy interface to convert emission file to be used with wrf chem.</description>
     </item>
     
     <item>
       <title>Excel Pandas LATEX PDF</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</link>
+      <link>/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</link>
       <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</guid>
+      <guid>/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</guid>
       <description>###CSV data into pandas and LATEX then into PDF and then print!###
  To import csv file with date into pandas dataframe. Pands can parse date column, but it won&amp;rsquo;t be correct. The date column formate has top be mentiod and parsed for this, like below based on [this], then this can be imported into pandas datafrem emntioing the dateparse.  dateparse = lambda x: pd.datetime.strptime(x, &amp;lsquo;%d/%m/%y&amp;rsquo;) pro=pd.readcsv(&amp;lsquo;PROJECTEXPNDTR1.csv&amp;rsquo;,parsedates=[1],date_parser=dateparse)
 dateparse = lambda x: pd.</description>
@@ -203,10 +203,10 @@ dateparse = lambda x: pd.</description>
     
     <item>
       <title>PythonGDALproblem</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-10/pythongdalproblem/</link>
+      <link>/working-notes/2014/wn_2014-10/pythongdalproblem/</link>
       <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-10/pythongdalproblem/</guid>
+      <guid>/working-notes/2014/wn_2014-10/pythongdalproblem/</guid>
       <description>####Python GDAL problem####
 ImportError: /usr/lib/libgdal.so.1: undefined symbol: sqlite3columntable_name
 main.gdalconfigerror: [Errno 2] No such file or directory
@@ -226,20 +226,20 @@ install.packages(repos=c(&amp;lsquo;http://cran.fhcrc.org/&#39;),pkgs=c(&#39;ncd
     
     <item>
       <title>Timeseries Pandas</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-10/timeseries_pandas/</link>
+      <link>/working-notes/2014/wn_2014-10/timeseries_pandas/</link>
       <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-10/timeseries_pandas/</guid>
+      <guid>/working-notes/2014/wn_2014-10/timeseries_pandas/</guid>
       <description>###Time series data plot and table creation with pandas and latex###
  to import the csv file into pandas df = pd.read_csv(&#39;/home/swl-sacon-dst/Documents/GISE_2013/LAB/Aerocet_DATA/TDM/TDM_MASS_20102014_171059-073359.csv&#39;), based on this To sepcifiy date time index in the dateframe df = df.set_index(pd.DatetimeIndex(df[&#39;Time&#39;])), based on this To resample 1 minute data into 15 minutes by avergae method, bars=df.resample(&#39;15min&#39;), here default method is mean. based on this To select specific columns in pandas df1=df[[&#39;Time&#39;,&#39;PM2.5(ug/m3)&#39;,&#39;PM10(ug/m3)&#39;,&#39;TSP(ug/m3)&#39;,&#39;AT(C)&#39;,&#39;RH(%)&#39;]] based on this To plot datframe by import matplotlib.</description>
     </item>
     
     <item>
       <title>Cubietruck cluster WRFCHEM</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-10/cubietruck_cluster_wrfchem/</link>
+      <link>/working-notes/2014/wn_2014-10/cubietruck_cluster_wrfchem/</link>
       <pubDate>Sat, 25 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-10/cubietruck_cluster_wrfchem/</guid>
+      <guid>/working-notes/2014/wn_2014-10/cubietruck_cluster_wrfchem/</guid>
       <description>####cubie truck cluster for WRF CHEM####
 This note explains the steps in creating cubietruck cluster for WRF CHEM modeling.
 #####Installing debian##### 1. cubietruck is preinstalled with Android as its main os for its inbuilt nand storage of 8 GB harddisk. To chane this into debian os follwoing steps were followed. 1. More number of attempts was made for running debain or ubunut os image in cubietruck, Later found a tweaked image from here aat first sight shows promising for WRF CHEM.</description>
@@ -247,79 +247,79 @@ This note explains the steps in creating cubietruck cluster for WRF CHEM modelin
     
     <item>
       <title>Aerocet sampleData KML Pandas</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</link>
+      <link>/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</link>
       <pubDate>Wed, 15 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</guid>
+      <guid>/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</guid>
       <description>####Aerocet Sampling Data, using kml files and pandas####
  The data from dust pollution monitoring in Coimbatore using Aerocet was copy paste into a csv file from miniterm.py program and command 2 given to aerocet. Seprate CSV files were made for count and mass mode sampling. The location of sampling point is made into a point feature in Google earth with name of respective sampling time. This was saved as kml file and opened in QGIS converted into shape file to add gemoetry.</description>
     </item>
     
     <item>
       <title>Dylos RPi Serial problem</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</link>
+      <link>/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</link>
       <pubDate>Tue, 07 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</guid>
+      <guid>/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</guid>
       <description>####DYLOS RPi serial Problem#### 1. RPi(Raspberry pi) has problem in serial read of dylos air quality monitor data, the serial read ends with wrong or misplaced data from the dylos monitor, this problem was mentioned in this (note)(Serialportproblemlbm1knmr.md). For example runnnnig of the python command for getting dylos serial read ends as follows
  pi@raspberrypi ~/SMS $ python &amp;gt;&amp;gt;&amp;gt; import serial &amp;gt;&amp;gt;&amp;gt; ser = serial.Serial(&#39;/dev/dylos&#39;, 9600, timeout=60) &amp;gt;&amp;gt;&amp;gt; line = ser.</description>
     </item>
     
     <item>
       <title>WRFCHEM output python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_output_python/</link>
+      <link>/working-notes/2014/wn_2014-09/wrfchem_output_python/</link>
       <pubDate>Mon, 29 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_output_python/</guid>
+      <guid>/working-notes/2014/wn_2014-09/wrfchem_output_python/</guid>
       <description>###WRFCHEM_output pythonic####
  Related to the last note on getting txt time series data from wrf output here. This note details getting numpy array from wrf output and plotting data in python. The variables requiered from wrfoutput are Temperature, Realtive humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for quick view of the wrf output.</description>
     </item>
     
     <item>
       <title>WRFCHEM CBE lazyWRF py</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</link>
+      <link>/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</link>
       <pubDate>Thu, 25 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</guid>
+      <guid>/working-notes/2014/wn_2014-09/wrfchem_cbe_lazywrf_py/</guid>
       <description>###Use script to execute WRF CHEM CBE### 1. To run in real time and in cluster environment(AWS or ARM), various steps of WRF have to be made into script. 1. There are several python based scripts avaiable for running WRF. The script lazyWRF is a neat and simple script to run wrf from WPS stage. 1. The script has minor problem in running, it was forked from its git hub repository and edited.</description>
     </item>
     
     <item>
       <title>compileGSIonUbuntu1404</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/compilegsionubuntu1404/</link>
+      <link>/working-notes/2014/wn_2014-09/compilegsionubuntu1404/</link>
       <pubDate>Sat, 20 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/compilegsionubuntu1404/</guid>
+      <guid>/working-notes/2014/wn_2014-09/compilegsionubuntu1404/</guid>
       <description>###compile GSI in Ubunut 14.04###
  GSI was tried to compile in Ubuntu 12.04, but ended with failure. GSI requieres Gfortran 4.7 and above, ubunut 12.04 repostory is updated upto 4.6, so ubunut has to upgraded from 12.04 to 14.04 to have gfortran 4.7. Due to this Server was upghraded from Ubuntu 12.04 to 14.04 and compiled WRFV4.3.1 and WPS 4.3.1 in it. It was by Gfortran 4.8.2, Netcdf 4.1.3, and other necssary libraries such as libpng, zlib and jasper as per apt-get method.</description>
     </item>
     
     <item>
       <title>EmisInv REAS Pandas</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/emisinv_reas_pandas/</link>
+      <link>/working-notes/2014/wn_2014-09/emisinv_reas_pandas/</link>
       <pubDate>Sun, 14 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/emisinv_reas_pandas/</guid>
+      <guid>/working-notes/2014/wn_2014-09/emisinv_reas_pandas/</guid>
       <description>###Working on REAS emission inventory to feed into WRF-CHEM### 1. REAS is a emission inventory for Asia, it has files for different pollutant separated with each category of emission source. For example, pollutant SO2 has 9 files for each emission source categories such as Aviation, Domestic, Industry etc for year 2008.
 1. The files are space separated txt files having fields (columns) for longitude, latitude and monthly emission value 1. Python library pandas is used for importing data into python environment and combining these different category emission source files (9 files) into one single file.</description>
     </item>
     
     <item>
       <title>Aerocet531S serial read</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/aerocet531s_serial_read/</link>
+      <link>/working-notes/2014/wn_2014-09/aerocet531s_serial_read/</link>
       <pubDate>Wed, 10 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/aerocet531s_serial_read/</guid>
+      <guid>/working-notes/2014/wn_2014-09/aerocet531s_serial_read/</guid>
       <description>####Serial read from Aerocet 531S###
  Aerocet 531S(A531S) has serial communication and commanding interface through USB connection. By connecting USB to Linux ubunut 12.04, running the program serial port terminal and giving the command such as S starts the A531S. These commands are elaborated in its user manual. There number of other commands to view the data and get more about the A531S operation as per its user manual. To make the process of running the machine and entering the command in Python to start the machine or read output is the aim of this note.</description>
     </item>
     
     <item>
       <title>WRF CHEM Compile completenote SERVER</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/wrf_chem_compile_completenote_server/</link>
+      <link>/working-notes/2014/wn_2014-09/wrf_chem_compile_completenote_server/</link>
       <pubDate>Wed, 10 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/wrf_chem_compile_completenote_server/</guid>
+      <guid>/working-notes/2014/wn_2014-09/wrf_chem_compile_completenote_server/</guid>
       <description>export DIR=/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs
 sftp://hoopoe@192.168.1.100/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs/netcdf/include
 export CC=gcc export CXX=g++ export FC=gfortran export FCFLAGS=-m64 export F77=gfortran export FFLAGS=-m64
@@ -330,10 +330,10 @@ error 1. /bin/sh: 6: mpif90: not found 1. gfortran treating comments as code baa
     
     <item>
       <title>PM Emission Inventory CBE SD</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/pm_emission_inventory_cbe_sd/</link>
+      <link>/working-notes/2014/wn_2014-09/pm_emission_inventory_cbe_sd/</link>
       <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/pm_emission_inventory_cbe_sd/</guid>
+      <guid>/working-notes/2014/wn_2014-09/pm_emission_inventory_cbe_sd/</guid>
       <description>####PMEmissionInventoryCoimbatoreStudy design####
 Particulate pollution level and vehicular count sample 1. A sample consist of 3 minutes PM pollution monitoring(1 minute particle count mode, 2 minute mass mode) and 2 minute video recording. 1. Sampling carried on a CNG auto rickshaw, equipped with hand held PM monitor and a web camera based video recorder attached to right side at 0.75 meter from ground of Auto rickshaw.
 1. Sixty random points in Coimbatore urban limits, sampling every 4th day for 20 sampling days.</description>
@@ -341,20 +341,20 @@ Particulate pollution level and vehicular count sample 1. A sample consist of 3 
     
     <item>
       <title>WRFCHEM CBE aOptionwithAWS StarCluster</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_cbe_aoptionwithaws_starcluster/</link>
+      <link>/working-notes/2014/wn_2014-09/wrfchem_cbe_aoptionwithaws_starcluster/</link>
       <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_cbe_aoptionwithaws_starcluster/</guid>
+      <guid>/working-notes/2014/wn_2014-09/wrfchem_cbe_aoptionwithaws_starcluster/</guid>
       <description>####WRF-CHEM for Coimabtore: An option with AWS and starcluster####
  Considering the huge time requirement for running wrf chem over Coimbatore with high resolution (It roughly took 8 hour 15 minutes X 7 for domain 4 alone, 6 second time steps with average 50 seconds), Amazon Web Service (AWS) t2.medium instace and StarCluster compute cluster would be a viable option to make wrf-chem run in &amp;lsquo;real time&amp;rsquo;. ####AWS charges for a typical cluster####  ####upgrading aws free tier into ubunut 14.</description>
     </item>
     
     <item>
       <title>forumpost</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/forumpost/</link>
+      <link>/working-notes/2014/wn_2014-09/forumpost/</link>
       <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/forumpost/</guid>
+      <guid>/working-notes/2014/wn_2014-09/forumpost/</guid>
       <description>there are example of porting WRF model in ARM processors. Fine grained parallellism, OpenMP, 16bytes genration in GPU exampel study
 WRF is developed with single floating point oeprations and newer modules of WRF such as WRF CHEM for air quality predictions are having single as well as double floating point implemntaiton. There are studies comparing GPU enhanment with double and single point operations.
 Plan of server board cluster Hardware enahmenet Limitation of OpenMP</description>
@@ -362,10 +362,10 @@ Plan of server board cluster Hardware enahmenet Limitation of OpenMP</descriptio
     
     <item>
       <title>WRFCHEM CBE A1</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_cbe_a1/</link>
+      <link>/working-notes/2014/wn_2014-09/wrfchem_cbe_a1/</link>
       <pubDate>Mon, 08 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_cbe_a1/</guid>
+      <guid>/working-notes/2014/wn_2014-09/wrfchem_cbe_a1/</guid>
       <description>###WRF CHEM for Coimbatore A1 using ndown.exe###
 ####WPS#### 1. The WPS components geogrid.exe, ungrib.exe and metgrid.exe was from the output of last run on detailed in this
 ####real.exe#### 1. Real.exe also from the last run output. The output comprised of files namely wrfbdyd01, wrfinputd01, wrfinputd02, wrfinputd03, wrfinputd04 were used as such for convertemiss.exe run.
@@ -374,10 +374,10 @@ Plan of server board cluster Hardware enahmenet Limitation of OpenMP</descriptio
     
     <item>
       <title>ubuntu1204to1404</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/ubuntu1204to1404/</link>
+      <link>/working-notes/2014/wn_2014-09/ubuntu1204to1404/</link>
       <pubDate>Mon, 08 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/ubuntu1204to1404/</guid>
+      <guid>/working-notes/2014/wn_2014-09/ubuntu1204to1404/</guid>
       <description>####Ubuntu 12.04 to Ubunut 14.04 upgradation####
 fellow@dhcppc3:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 12.04.3 LTS Release: 12.04 Codename: precise
 fellow@dhcppc3:~$ uname -r 3.5.0-44-generic 1. /boot foldeer is full, free some space to continue upgrade. This isssue was solved by this. Importatnly the command dpkg -l &#39;linux-*&#39; | sed &#39;/^ii/!d;/&#39;&amp;quot;$(uname -r | sed &amp;quot;s/\(.*\)-\([^0-9]\+\)/\1/&amp;quot;)&amp;quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39; shows the absolute kernals in /boot to be removed.</description>
@@ -385,10 +385,10 @@ fellow@dhcppc3:~$ uname -r 3.5.0-44-generic 1. /boot foldeer is full, free some 
     
     <item>
       <title>Working with WRF CHEM part70 CBE DustOnlyTutorial</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/working_with_wrf_chem_part70_cbe_dustonlytutorial/</link>
+      <link>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part70_cbe_dustonlytutorial/</link>
       <pubDate>Sat, 06 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/working_with_wrf_chem_part70_cbe_dustonlytutorial/</guid>
+      <guid>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part70_cbe_dustonlytutorial/</guid>
       <description>##Trail for WRF-CHEM, WRF CHEM simulation with dust only for Coimbatore using TWO WAY NESTING TWO files method## 1. It is based on this to run compiled wrf chem in serial mode with only dust.
 ###WPS:Geogrid### 9. As per this point 7, file GEOGRID.TBL.ARW_CHEM in WPS geogrid directory was linked as GEOGRID.TBL using GUI of Ubuntu 12.04. 10. The namelist.wps used was as follows,
  &amp;amp;share max_dom = 4, start_date =&#39;2014-06-05_00:00:00&#39;,&#39;2014-06-05_00:00:00&#39;,&#39;2014-06-05_00:00:00&#39;,&#39;2014-06-05_00:00:00&#39; end_date =&#39;2014-06-05_06:00:00&#39;,&#39;2014-06-05_06:00:00&#39;,&#39;2014-06-05_06:00:00&#39;,&#39;2014-06-05_06:00:00&#39; interval_seconds = 10800, io_form_geogrid = 2, / &amp;amp;geogrid parent_id = 1, 1, 2, 3 parent_grid_ratio = 1, 3, 3, 3 i_parent_start = 1, 26, 22, 22 j_parent_start = 1, 7, 15, 32 e_we = 90, 76, 97, 136 e_sn = 85, 73, 106, 157 geog_data_res = &#39;10m&#39;, &#39;5m&#39;, &#39;30s&#39;, &#39;30s&#39; dx = 27000 dy = 27000 map_proj = &#39;lambert&#39; ref_lat = 18.</description>
@@ -396,10 +396,10 @@ fellow@dhcppc3:~$ uname -r 3.5.0-44-generic 1. /boot foldeer is full, free some 
     
     <item>
       <title>Working with WRF CHEM part71 emission inventory CBE Ndown</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/working_with_wrf_chem_part71_emission_inventory_cbe_ndown/</link>
+      <link>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part71_emission_inventory_cbe_ndown/</link>
       <pubDate>Sat, 06 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/working_with_wrf_chem_part71_emission_inventory_cbe_ndown/</guid>
+      <guid>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part71_emission_inventory_cbe_ndown/</guid>
       <description>###WRF CHEM for Coimbatore domain with emission inventory and one way nesting using ndown.exe###
 ####WPS#### 1. The WPS components geogrid.exe, ungrib.exe and metgrid.exe was from the output of last run on detailed in this
 ####real.exe#### 1. Real.exe also from the last run output. The output comprised of files namely wrfbdyd01, wrfinputd01, wrfinputd02, wrfinputd03, wrfinputd04 were used as such for convertemiss.exe run.
@@ -408,30 +408,30 @@ fellow@dhcppc3:~$ uname -r 3.5.0-44-generic 1. /boot foldeer is full, free some 
     
     <item>
       <title>WRFCHEM domain view python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</link>
+      <link>/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</guid>
+      <guid>/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</guid>
       <description>####WRF_CHEM domain view by python script####
  WRF CHEM domain in nested has to be visulaised to correct the nesting and for domain size adjustment. There are few tools availble to do that such as dwiz of wrf ems and plotgrid.ncl. There is an alternative with python based on this, it is a wrf script tools for visualizing and nesting based simulation. Set of scripts available has a function to visualize the namelist.</description>
     </item>
     
     <item>
       <title>Working with WRF CHEM part65 EmissionInventoryTut</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-09/working_with_wrf_chem_part65_emissioninventorytut/</link>
+      <link>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part65_emissioninventorytut/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-09/working_with_wrf_chem_part65_emissioninventorytut/</guid>
+      <guid>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part65_emissioninventorytut/</guid>
       <description>##Trail for WRF-CHEM, WRF CHEM simulation with dust only tutorial## 1. It is based on this to run compiled wrf chem in serial mode with only dust.
 ###WPS### 1. WPS components ungrib.exe,geogrid.exe and metgrid.exe was from former dust only run&amp;rsquo;s output based on the note of . ###PrepChemSrc### 1. Prep chem src used was of compiled as per the note. This was ran as per the tutorial point4, the namelist used is this.</description>
     </item>
     
     <item>
       <title>GSI assimilation PM25PM10 WRFCHEM</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-08/gsi_assimilation_pm25pm10_wrfchem/</link>
+      <link>/working-notes/2014/wn_2014-08/gsi_assimilation_pm25pm10_wrfchem/</link>
       <pubDate>Sat, 30 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-08/gsi_assimilation_pm25pm10_wrfchem/</guid>
+      <guid>/working-notes/2014/wn_2014-08/gsi_assimilation_pm25pm10_wrfchem/</guid>
       <description>###PM10,PM2.5 observation assimilation for WRF CHEM based on GSI###
 based on this paper Implementation of aerosol assimilation in Gridpoint Statistical Interpolation (v. 3.2) and WRF-Chem (v. 3.4.1)
 http://www.geosci-model-dev.net/7/1621/2014/gmd-7-1621-2014.pdf</description>
@@ -439,19 +439,19 @@ http://www.geosci-model-dev.net/7/1621/2014/gmd-7-1621-2014.pdf</description>
     
     <item>
       <title>SOSforWRFCHEM output</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-08/sosforwrfchem_output/</link>
+      <link>/working-notes/2014/wn_2014-08/sosforwrfchem_output/</link>
       <pubDate>Sat, 30 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-08/sosforwrfchem_output/</guid>
+      <guid>/working-notes/2014/wn_2014-08/sosforwrfchem_output/</guid>
       <description>###Sensor Observation service for WRF CHEM output###</description>
     </item>
     
     <item>
       <title>WRF CHEM compilingInARM BeagleBoneBlack</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-08/wrf_chem_compilinginarm_beagleboneblack/</link>
+      <link>/working-notes/2014/wn_2014-08/wrf_chem_compilinginarm_beagleboneblack/</link>
       <pubDate>Sat, 23 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-08/wrf_chem_compilinginarm_beagleboneblack/</guid>
+      <guid>/working-notes/2014/wn_2014-08/wrf_chem_compilinginarm_beagleboneblack/</guid>
       <description>###WRF CHEM compiling in ARM architecture, Beagle Bone Black###
 This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compiler test#### went successful, except in test4 using 64 bit ###libraries### ####Netcdf compiling#### 1. Environment has to be properly setup, following was correct for ARM arch, clarified based on this
  export DIR=/media/card/wrf/lib export CC=gcc export CXX=g++ export FC=gfortran export FCFLAGS=-g export F77=gfortran export FFLAGS=-g export CXXFLAGS=-g   Faced error in make after configure command of .</description>
@@ -459,19 +459,19 @@ This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compi
     
     <item>
       <title>Parallella for WRF CHEM</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</link>
+      <link>/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</link>
       <pubDate>Thu, 21 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</guid>
+      <guid>/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</guid>
       <description>###Parallella cluster for WRF CHEM### 1. WRF-CHEM is a computationally intensive model, for example &amp;ldquo;On a typically-sized 40×40 grid with 20 horizontal layers, the meteorological part of the simulation (the WRF weather model itself) is only 160 × 106 floating point operations per time step, about 2.5% the cost of the full WRF-Chem with both chemical kinetics and aerosol&amp;rdquo;[1].It is generally executed with parallel mode to reduce time latency of model execution time.</description>
     </item>
     
     <item>
       <title>Working with WRF CHEM part63 WRF CoimbatoreNesting</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part63_wrf_coimbatorenesting/</link>
+      <link>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part63_wrf_coimbatorenesting/</link>
       <pubDate>Tue, 19 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part63_wrf_coimbatorenesting/</guid>
+      <guid>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part63_wrf_coimbatorenesting/</guid>
       <description>##Trail for WRF-CHEM, WRF simulation with domain for Coimbatore and one way Nesting-Ndown.exe## 1. It is based on this to run compiled wrf in serial mode to execute domain over Coimbatore with nested model run by Ndown.exe based one way nesting.
 ###WPS: Ungrib###
  As per this page, the WPS ungrib stage was carried out. The gfs files downloaded was used, average size around 45MB for each files. The files for time peroid 00,03, 06 was kept under a folder gfs.</description>
@@ -479,10 +479,10 @@ This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compi
     
     <item>
       <title>Working with WRF CHEM part64 DustOnlyTutorial</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part64_dustonlytutorial/</link>
+      <link>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part64_dustonlytutorial/</link>
       <pubDate>Tue, 19 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part64_dustonlytutorial/</guid>
+      <guid>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part64_dustonlytutorial/</guid>
       <description>##Trail for WRF-CHEM, WRF CHEM simulation with dust only tutorial## 1. It is based on this to run compiled wrf chem in serial mode with only dust.
 ###WPS:Geogrid### 9. As per this point 7, file GEOGRID.TBL.ARW_CHEM in WPS geogrid directory was linked as GEOGRID.TBL using GUI of ubuntu 12.04. 10. The namelist.wps from the page was used. The namelist.wps is as follows,
  &amp;amp;share wrf_core = &#39;ARW&#39;, max_dom = 1, start_date = &#39;2010-07-14_00:00:00&#39;,&#39;2010-07-14_00:00:00&#39;, end_date = &#39;2010-07-19_00:00:00&#39;,&#39;2010-07-19_00:00:00&#39;, interval_seconds = 10800, io_form_geogrid = 2, / &amp;amp;geogrid parent_id = 1, 1, 1, parent_grid_ratio = 1, 5, 5, i_parent_start = 1, 6, 105, j_parent_start = 1, 65, 25, e_we = 41, 201, 226, e_sn = 41, 311, 231, geog_data_res = &#39;10m&#39;, &#39;2m&#39;, &#39;30s&#39; dx = 100000, dy = 100000, map_proj = &#39;lambert&#39;, ref_lat = 35.</description>
@@ -490,549 +490,561 @@ This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compi
     
     <item>
       <title>Working with WRF CHEM part60 dustonly CBE</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part60_dustonly_cbe/</link>
+      <link>/working-notes/2014/wn_2014-08/working-with-wrf-chem-part60-dustonly-cbe/</link>
       <pubDate>Tue, 12 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part60_dustonly_cbe/</guid>
-      <description>##WRF CHEM for Coimbatore domain with dust only##
- Made a copy of WPS folder and WRFv3, parallel compiled folder test/realem* into a new folder of cbedomain. By doing mere copy paste, the link was broken and no correct files were copied. Instead of this a try was made as per the m2lab tutorial and copied the files from em_real as like this cp /home/swl-sacon-dst/wrf/WRF341/WRFV3_par/test/em_real/* ., this time the link was not made but the executables was copied, it has to checked weather it is working For starting WPS of WRF with geogrid, used the namelist.</description>
+      <guid>/working-notes/2014/wn_2014-08/working-with-wrf-chem-part60-dustonly-cbe/</guid>
+      <description>In a measure to make the compiled executables reuse, made a copy of WPS folder and WRFv3, parallel compiled folder test/real_em* into a new folder of cbe_domain. The link gets broken, and no correct files were copied by doing mere copy paste. Instead, a try was made as per the m2lab tutorial and copied the files from em_real as like this cp /em_real/* ., this time the link was not made, but the executables get copied, it has to check whether it is working For starting WPS of WRF with geogrid, used the namelist.</description>
     </item>
     
     <item>
       <title>Working with WRF CHEM part61 WRF KatrinaSingleDomain</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part61_wrf_katrinasingledomain/</link>
+      <link>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part61_wrf_katrinasingledomain/</link>
       <pubDate>Tue, 12 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part61_wrf_katrinasingledomain/</guid>
-      <description>##Trail for WRF-CHEM, working with WRF simulation with Katrina single domain case## 1. It is based on this to run compiled wrf in serial mode to execute the Katrina case with single domain. 2. As per this page, the WPS ungrib stage was carried out
+      <guid>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part61_wrf_katrinasingledomain/</guid>
+      <description>##Trail for WRF-CHEM, working with WRF simulation with Katrina single domain case## 1. It is based on this to run compiled WRF in serial mode to execute the Katrina case with a single domain. 2. As per this page, the WPS ungrib stage was carried out
 ###WPS: Ungrib### 3. The tar file provided with the tutorial was unzipped and compiled WPS folder was copied and bothe these folders were kept under a folder named katrina.</description>
     </item>
     
     <item>
       <title>Working with WRF CHEM part62 WRF KatrinaNesting</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part62_wrf_katrinanesting/</link>
+      <link>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part62_wrf_katrinanesting/</link>
       <pubDate>Tue, 12 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-08/working_with_wrf_chem_part62_wrf_katrinanesting/</guid>
-      <description>##Trail for WRF-CHEM, WRF simulation with Katrina case and one way Nesting-Ndown.exe## 1. It is based on this to run compiled wrf in serial mode to execute the Katrina case with nested model run by Ndown.exe based one way nesting.
+      <guid>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part62_wrf_katrinanesting/</guid>
+      <description>##Trail for WRF-CHEM, WRF simulation with Katrina case and one-way Nesting-Ndown.exe## 1. Based on this to run compiled wrf in serial mode to execute the Katrina case with the nested model run by Ndown.exe based one-way nesting.
 ###WPS: Ungrib###
- As per this page, the WPS ungrib stage was carried out. The tar file provided with the tutorial was unzipped and compiled WPS folder was copied and both these folders were kept under a folder named katrina as katrina_nesting.</description>
+ As per this page, the WPS ungrib stage was carried out. Unzipped the tar file provided with the tutorial. Copied WPS folder both under a shared folder named as katrina_nesting. The vtable was linked inside the WPS folder by ln -sf ungrib/Variable_Tables/Vtable.</description>
     </item>
     
     <item>
-      <title>python script InsertObservation istSOS xml</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-08/python_script_insertobservation_istsos_xml/</link>
+      <title>Insert Observation in istSOS xml</title>
+      <link>/working-notes/2014/wn_2014-08/python-script-insertobservation-istsos-xml/</link>
       <pubDate>Wed, 06 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-08/python_script_insertobservation_istsos_xml/</guid>
-      <description>##python script to InsertObservation into istSOSxml way## 1. Based on the early experience of inserting observation in xml way with python using HTTP post in 52North SOS, made a try with Ist SOS, other way to do is using calling another python script to import data in csv formate. 2. Based on this note on OWS service [requests](https://geoservice.ist.supsi.ch/projects/istsos/index.php/ExampleofSOSrequest). to get the DescribeSensor information used this link, it always failed in specfying formate but other request was succeffull</description>
+      <guid>/working-notes/2014/wn_2014-08/python-script-insertobservation-istsos-xml/</guid>
+      <description>Based on the early experience of inserting observation in xml way with python using HTTP post in 52North SOS, made a try with Ist SOS, another way to do is using calling another python script to import data in CSV format. Based on this note on OWS service requests. to get the DescribeSensor information used this link, it always failed in specifying formate, but another request was successful
+http://54.255.173.125/istsos/cbed?request=describeSensor&amp;amp;procedure=KNMR&amp;amp;outputFormat= text xml;subtype=&amp;quot;sensorML/1.</description>
     </item>
     
     <item>
-      <title>English Grammer checker</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-08/english_grammer_checker/</link>
+      <title>Find the tense and voices in a sentence by English grammar checker</title>
+      <link>/working-notes/2014/wn_2014-08/english-grammer-checker/</link>
       <pubDate>Fri, 01 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-08/english_grammer_checker/</guid>
-      <description>###Find the tense and voices in a sentence: English grammar checker###
- Search made to find various type of tense in a sentence. Ended in this, sf page. Stanford core NLP and NLTK with python are good natural language processors used for this purposes. NLP gives statistical measure of likely role of words in a sentence, Standford NLP is giving a web service with visualization of various statical measures in part-of-speech tags.</description>
+      <guid>/working-notes/2014/wn_2014-08/english-grammer-checker/</guid>
+      <description>Search made to find various type of tense in a sentence. Ended in this, page. Stanford core NLP and NLTK with python are good natural language processors used for this purposes. NLP gives a statistical measure of the possible role of words in a sentence, Standford NLP is giving a web service with visualization of various statical measures in part-of-speech tags. Its grammatical state is inferred using the Penn tags, yes machine based!</description>
     </item>
     
     <item>
-      <title>gh pages HTML css js</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-07/gh_pages_html_css_js/</link>
+      <title>The Github pages, HTML, css and js</title>
+      <link>/working-notes/2014/wn_2014-07/gh-pages-html-css-js/</link>
       <pubDate>Tue, 29 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-07/gh_pages_html_css_js/</guid>
-      <description>###gh-pagesHTMLcss_js###
- HTML, css and js is enoght for creating a web site. In github this is determental in any gh-pages intended to create. There are several templates specifically available, useed in gh-pages For simple markdown template this template was used. https://github.com/aplib/markdown-site-template Final usage of this web site was selected based on its demonstration  </description>
+      <guid>/working-notes/2014/wn_2014-07/gh-pages-html-css-js/</guid>
+      <description> The files HTML, css and js, is enough for creating a web site. In GitHub this is detrimental in any gh-pages intended to create. There are several templates available to render web pages A simple markdown template used is, . https://github.com/aplib/markdown-site-template Final usage of this web site was selected based on its demonstration  </description>
     </item>
     
     <item>
-      <title>Latex beamer based pdf presntation</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-07/latex_beamer_based_pdf_presntation/</link>
+      <title>Latex beamer based pdf presentation</title>
+      <link>/working-notes/2014/wn_2014-07/latex-beamer-based-pdf-presentation/</link>
       <pubDate>Fri, 18 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-07/latex_beamer_based_pdf_presntation/</guid>
-      <description>###Latexbeamerbasedpdfpresntation###
- For creating a presentation with lot of images in it, a latex based presentation was preferred It is easier than ppt with tight control of formating and content referencing The presentation is based on this note and chosen Berlin theme within beamer&amp;rsquo;s n number of variety themes. Main problem faced was bibtex based referencing and it couldn&amp;rsquo;t be solved and used normal superscript referencing. Another problem faced was box and its colour choosing, it was solved follwoing this wonderful tutorial  </description>
+      <guid>/working-notes/2014/wn_2014-07/latex-beamer-based-pdf-presentation/</guid>
+      <description> For creating a presentation with many images in it, better to use latex based presentation It is easier than ppt with tight control on formatting and content referencing The presentation is based on this note and chosen Berlin theme within beamer&amp;rsquo;s n number of various themes. The main problem faced is with BibTeX based referencing, and could not be solved and used normal superscript referencing. Another problem faced was box and its colour choosing, it was solved following this excellent tutorial  </description>
     </item>
     
     <item>
-      <title>Workflow docear mendely Python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-07/workflow_docear_mendely_python/</link>
+      <title>Workflow with Docear, Mendely and Python</title>
+      <link>/working-notes/2014/wn_2014-07/workflow-docear-mendely-python/</link>
       <pubDate>Fri, 18 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-07/workflow_docear_mendely_python/</guid>
-      <description>creating a script to select pdf files from a bunch of folders, subfolders, html files create folders with only pdf files the code is ``` import os count = 0 d=[] f=[] for (dirname, dirs, files) in os.walk(&amp;lsquo;/home/swl-sacon-dst/Documents/GISE2013/LAB/labnotes/&amp;lsquo;): #sepecifiying the directory to search for pdf files from for filename in files: if filename.endswith(&amp;lsquo;.pdf&amp;rsquo;) : thefile = os.path.join(dirname,filename) dire = os.path.dirname(thefile) f.append(thefile) d.append(dire) #makung a list of ifle names and folders for copying #using list comphrehsnsion to change the folder path from dc = [word.</description>
+      <guid>/working-notes/2014/wn_2014-07/workflow-docear-mendely-python/</guid>
+      <description>A script to select pdf files from a bunch of folders, subfolders, html files and create folders with only pdf files, the code is
+import os count = 0 d=[] f=[] for (dirname, dirs, files) in os.walk(&#39;/home/swl-sacon-dst/Documents/GISE_2013/LAB/lab_notes/&#39;): #sepecifiying the directory to search for pdf files [from](http://stackoverflow.com/questions/273192/check-if-a-directory-exists-and-create-it-if-necessary) for filename in files: if filename.endswith(&#39;.pdf&#39;) : thefile = os.path.join(dirname,filename) dire = os.path.dirname(thefile) f.append(thefile) d.append(dire) #makung a list of ifle names and folders for copying #using list comphrehsnsion to change the folder path [from](http://stackoverflow.</description>
     </item>
     
     <item>
-      <title>Check null in python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-07/check_null_in_python/</link>
+      <title>Checkng Null in Python for loop</title>
+      <link>/working-notes/2014/wn_2014-07/check_null_in_python/</link>
       <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-07/check_null_in_python/</guid>
-      <description>##checking for null in python## - lbm1, connected with tp-link and to upload data to thinkspeak internet of things services, a script is used as follows,
+      <guid>/working-notes/2014/wn_2014-07/check_null_in_python/</guid>
+      <description>Checking for null in python
+ The Dylos montior, connected with tp-link and to upload data to thinkspeak internet of things services, following script is used,
 import sqlite3 as lite import logging import httplib, urllib from time import localtime, strftime import time logger = logging.getLogger(&#39;lbm1&#39;) hdlr = logging.FileHandler(&#39;/home/pi/SMS/pyts.log&#39;) formatter = logging.Formatter(&#39;%(asctime)s: %(levelname)s %(message)s&#39;) headers = {&amp;quot;Content-type&amp;quot;: &amp;quot;application/x-www-form-urlencoded&amp;quot;,&amp;quot;Accept&amp;quot;: &amp;quot;text/plain&amp;quot;} conn = httplib.HTTPConnection(&amp;quot;api.thingspeak.com:80&amp;quot;) hdlr.setFormatter(formatter) logger.addHandler(hdlr) logger.setLevel(logging.INFO) logger.info(&amp;quot;tss&amp;quot;) con = lite.connect(&#39;/home/pi/SMS/dylos.db&#39;) try: with con: cur = con.</description>
     </item>
     
     <item>
-      <title>Serial port problem lbm1 knmr</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-07/serial_port_problem_lbm1_knmr/</link>
+      <title>Serial port problem in Dylos Air quality monitor</title>
+      <link>/working-notes/2014/wn_2014-07/serial-port-problem-lbm1-knmr/</link>
       <pubDate>Sun, 13 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-07/serial_port_problem_lbm1_knmr/</guid>
-      <description>##Serialport and other problem, lbm1 knmr monitor## - lbm1 knmr monitor is setup with three threepin plugs extension box serially wired, it is connected with another serially connected extension box with two pin plug. - In which three plugs, one plug, dylos air quality monitor is connected, another 2A 7port USB hub adapter is connected and third and final pin from right to left, TP link 3G router is connected. - With the above setup, router LAN is connected with rapberry pi which is connected with 7hub USB, Dylos serial port is connected with rpi, RPi is accessed via wireless connectivity through router.</description>
+      <guid>/working-notes/2014/wn_2014-07/serial-port-problem-lbm1-knmr/</guid>
+      <description>A monitor is set up with three three-pin plugs extension box serially wired, and connected to another serially connected extension box with two pin plug. In which three plugs, one Dylos air quality monitor is connected, another 2A 7port USB hub adapter is connected and third and final pin from right to left, TP-link 3G router is connected. With the above setup, router LAN connected with raspberry pi which connected with 7hub USB, Dylos serial port connected with RPI, RPi accessed via wireless connectivity through a router.</description>
     </item>
     
     <item>
       <title>Working with WRF CHEM part4 cbe domain run</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-07/working_with_wrf_chem_part4_cbe_domain_run/</link>
+      <link>/working-notes/2014/wn_2014-07/working_with_wrf_chem_part4_cbe_domain_run/</link>
       <pubDate>Sun, 13 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-07/working_with_wrf_chem_part4_cbe_domain_run/</guid>
-      <description>##Running WRF-CHEM for Coimbatore domain## - After doing wps with wrf-chem and problem faced to run wrf.exe, recompilation then decided to run the wrf-chem for Coimbatore domain - Coimbatore domain made with four nested domain feature has been run with wrf ems with resolution starting from 100&amp;gt;27&amp;gt;9&amp;gt;3&amp;gt;1km, this was made with dwiz application in wrf ems. - However to test the domain above the Coimbatore region the output was subject for wrfncxnj.</description>
+      <guid>/working-notes/2014/wn_2014-07/working_with_wrf_chem_part4_cbe_domain_run/</guid>
+      <description>Coimbatore domain made with four nests has been run with WRF-EMS with resolution starting from 100&amp;gt;27&amp;gt;9&amp;gt;3&amp;gt;1km. The domain is made using dwiz application in WRF-EMS. However, to test the domain above the Coimbatore region, the output was subject for wrfncxnj.py utility. It took 4 hours and 33 minutes to run this domain in IBM X4 series server computer with 16 GB ram. To overlay the Coimbatore city shape file above the WRF output NetCDF from wrfcnxnj.</description>
     </item>
     
     <item>
       <title>Working with WRF CHEM part5 prep emis</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-07/working_with_wrf_chem_part5_prep_emis/</link>
+      <link>/working-notes/2014/wn_2014-07/working-with-wrf-chem-part5-prep-emiss/</link>
       <pubDate>Sun, 13 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-07/working_with_wrf_chem_part5_prep_emis/</guid>
-      <description>##Running prepchemsrc## - based on part 1 prepchemSRC was compiled and ready to executed for emission inventory creation. - Following WRF-chem nepal tutorial and PREPCHEMSRC, README edited prep_chem_sources.inp. - then run the preogram by executing ./prep_chem_sources_RADM_WRF_FIM.exe, it ran for some steps but exited with error of Warning! ***HDF5 library version mismatched error*** saying the HDF5 version used in compiling is 1.8.8 and version for running PREPCHEMSRC is 1.8.12 - to check what hdf5 is used by prepchesrc, run a command h5dump -V which gives h5dump: Version 1.</description>
+      <guid>/working-notes/2014/wn_2014-07/working-with-wrf-chem-part5-prep-emiss/</guid>
+      <description>Running prep-chem-src
+ Based on part 1 prep-chem-SRC was compiled and ready to execute for emission inventory creation. Following WRF-chem Nepal tutorial and PREP-CHEM-SRC, README edited prep_chem_sources.inp. Then run the program by executing ./prep_chem_sources_RADM_WRF_FIM.exe, it ran for some steps but exited with error of Warning! ***HDF5 library version mismatched error*** saying the HDF5 version used in compiling is 1.8.8 and version for running PREP-CHEM-SRC is 1.8.12 To check what hdf5 is used by prepchesrc, run a command h5dump -V which gives h5dump: Version 1.</description>
     </item>
     
     <item>
-      <title>LAN based Internet problem and solutionforRaspberry</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-07/lan_based_internet_problem_and_solutionforraspberry/</link>
+      <title>LAN based Internet problem and th Raspberry Pi and solution</title>
+      <link>/working-notes/2014/wn_2014-07/lan_based_internet_problem_and_solutionforraspberry/</link>
       <pubDate>Wed, 02 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-07/lan_based_internet_problem_and_solutionforraspberry/</guid>
-      <description>##LANbasedInternetproblemand_solutionforRaspberry## - LAN based internet for Raspberry pi (RPi) is not on the go, the netsat, network interfaces has to be edited, and also based on the gateway of server it has to be changed - current case used server was TP-LINK MR3420, it is a small single board computer based 3G modem, wirless device, its gateway address is 192.168.0.254. A 3G dongle was connected with device and LAN from this device is connected into RPi.</description>
+      <guid>/working-notes/2014/wn_2014-07/lan_based_internet_problem_and_solutionforraspberry/</guid>
+      <description>LAN based internet for Raspberry pi (RPi) is not on the go, the netsat, network interfaces has to be edited, and also based on the gateway of server it has to be changed The current case used server was TP-LINK MR3420, it is a single small board computer based 3G modem, wireless device, its gateway address is 192.168.0.254. A 3G dongle connected with device and LAN from this device connected to RPi.</description>
     </item>
     
     <item>
-      <title>Textfile from WRFoutput pythonic</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/textfile_from_wrfoutput_pythonic/</link>
+      <title>Textfile from WRFoutput using Python</title>
+      <link>/working-notes/2014/wn_2014-06/textfile-from-wrfoutput-pythonic/</link>
       <pubDate>Sat, 28 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/textfile_from_wrfoutput_pythonic/</guid>
-      <description>##TextfilefromWRFoutputpythonic## - to convert wrf output into text file for the value of a specified lat long - Using the script WrfncXnj.py, convert wrf output in cf abiding nc file - the steps are as follows - cp wrfoutd04* /home/hoopoe/wrfncxnj-0.1_r2120/ - to get the list of available files in a directory
-import os a=[] for file in os.listdir(&amp;quot;/home/hoopoe/wrfncxnj-0.1_r2120/&amp;quot;): if file.startswith(&amp;quot;wrfout_d04&amp;quot;): a.append(file)   to run a external python script from another python script,  import subprocess a= wrfout_d04_2014-06-11_00:00:00 subprocess.</description>
+      <guid>/working-notes/2014/wn_2014-06/textfile-from-wrfoutput-pythonic/</guid>
+      <description>To convert wrf output into a text file for the value of a specified lat long Using the script WrfncXnj.py, convert wrf output in cf abiding nc file The steps are as follows, cp wrfout_d04* /home/hoopoe/wrfncxnj-0.1_r2120/. To get the list of available files in a directory
+import os a=[] for file in os.listdir(&amp;quot;/home/hoopoe/wrfncxnj-0.1_r2120/&amp;quot;): if file.startswith(&amp;quot;wrfout_d04&amp;quot;): a.append(file)  To run a external python script from another python script,
+import subprocess a= wrfout_d04_2014-06-11_00:00:00 subprocess.</description>
     </item>
     
     <item>
-      <title>Latex into HTML</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/latex_into_html/</link>
+      <title>Convert Latex into HTML</title>
+      <link>/working-notes/2014/wn_2014-06/latex-into-html/</link>
       <pubDate>Fri, 27 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/latex_into_html/</guid>
-      <description>##Latex into HTML## - For a workflow with latex and peer editing, latex in PDF has to be converted into some editieable formate can be used in texteditor - based on this, latex tex files can be directly converted into html without going for pdf. - have to use this command htlatex mydocument.tex, but asks to install the progrma sudo apt-get install tex4ht, so install tex4ht - then exectute the command of htlatex mydocument.</description>
+      <guid>/working-notes/2014/wn_2014-06/latex-into-html/</guid>
+      <description> For a workflow with latex and peer editing, latex in PDF has to converted into some editable formate can be used in text editor/word processor Based on this, latex tex files can be directly converted into HTML without going for pdf. Have to use this command htlatex mydocument.tex, but asks to install the program sudo apt-get install tex4ht, so install tex4ht Then execute the command of htlatex mydocument.tex and it produced HTML with css and other required files, this can be open in Libre text editor to make peers to edit or correct the content  </description>
     </item>
     
     <item>
       <title>Working with WRF CHEM part1 PrepChemSrc</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/working_with_wrf_chem_part1_prepchemsrc/</link>
+      <link>/working-notes/2014/wn_2014-06/working-with-wrf-chem-part1-prepchemsrc/</link>
       <pubDate>Thu, 26 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/working_with_wrf_chem_part1_prepchemsrc/</guid>
-      <description>##working with WRF_CHEM:compiling and install prep-chem-src##
- to isntall prep-chem-src, it requiers to install HDF5,ZLIB and NETCDF based on the readme of PREPCHEMSRC as follows ```
-Third Party Software Requirements  ZLIB 1.2.5(libz.a) or later distribution. You may download the software from the http://www.zlib.net/ site.
- HDF5-1.8.8(libhdf5fortran.a, libhdf5hlfortran.a) or later distribution. You may download the software from http://www.hdfgroup.org/HDF5/release/obtain5.html.
- NetCDF 4.1.1 (libnetcdf.a). You may download the software from http://www.unidata.ucar.edu/downloads/netcdf/netcdf-4_0_1/index.jsp</description>
+      <guid>/working-notes/2014/wn_2014-06/working-with-wrf-chem-part1-prepchemsrc/</guid>
+      <description>compiling and install prep-chem-src
+ To install prep-chem-src, it requires to install HDF5,ZLIB and NETCDF based on the readme of PREPCHEMSRC as follows
+Third Party Software Requirements --------------------------------- 1. ZLIB 1.2.5(libz.a) or later distribution. You may download the software from the http://www.zlib.net/ site. 2. HDF5-1.8.8(libhdf5_fortran.a, libhdf5hl_fortran.a) or later distribution. You may download the software from http://www.hdfgroup.org/HDF5/release/obtain5.html. 3. NetCDF 4.1.1 (libnetcdf.a). You may download the software from http://www.unidata.ucar.edu/downloads/netcdf/netcdf-4_0_1/index.jsp Configuring/Installing HDF 5 ------------------------------ When compiling PREP-CHEM-SRC codes on a Linux system using the PGI (Intel) compiler, make sure the netCDF and HDF* library has been installed using the same PGI (Intel) compiler.</description>
     </item>
     
     <item>
       <title>Working with WRF CHEM part2 WPS</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/working_with_wrf_chem_part2_wps/</link>
+      <link>/working-notes/2014/wn_2014-06/working-with-wrf-chem-part2-wps/</link>
       <pubDate>Thu, 26 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/working_with_wrf_chem_part2_wps/</guid>
-      <description>##working with WRF_CHEM:Running WPS##
-The steps for running WPS as per m2lab tutorial ###Geogrid### - create namelist and geogrid - copy wps folder and edit namelist for domain - use ncl program to view domain - reflat and reflon center point of domain, ewe, esn, number of point in x and y direction - edit geog file location in name list and geogrid outptut location - then run geogrid.exe, run geogrid after editing the name list as .</description>
+      <guid>/working-notes/2014/wn_2014-06/working-with-wrf-chem-part2-wps/</guid>
+      <description>working with WRF-CHEM: Running WPS
+The steps for running WPS as per the m2lab tutorial
+Geogrid
+ Create namelist and geogrid Copy wps folder and edit namelist for domain Use ncl program to view the domain Reflat and reflon center point of the domain, ewe, esn, number of point in x and y-direction Edit geog file location in name list and geogrid output location Then run geogrid.exe, run geogrid after editing the name list as .</description>
     </item>
     
     <item>
       <title>Working with WRF CHEM part3 compile wrf exe</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/working_with_wrf_chem_part3_compile_wrf_exe/</link>
+      <link>/working-notes/2014/wn_2014-06/working-with-wrf-chem-part3-compile-wrf-exe/</link>
       <pubDate>Thu, 26 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/working_with_wrf_chem_part3_compile_wrf_exe/</guid>
-      <description>##WorkingwithWRFCHEMpart3-compilewrfexe## - for running wrf.exe after wps, it is found that no link for wrf.exe and real.exe was made during the compilation of wrf-chem. - so now need of fresh compilation of wrf alone to make it work - the compilation involves only setting environment, installing dependent packages and running,  ./configure then ./compile em_real and ./compile emi_conv - the first step of .configure ended with error saying can&amp;rsquo;t find netcdf in the path, the path specified is wrong one.</description>
+      <guid>/working-notes/2014/wn_2014-06/working-with-wrf-chem-part3-compile-wrf-exe/</guid>
+      <description>For running wrf.exe after wps, wrf.exe and real.exe is not being made during the compilation of wrf-chem. Made a new compilation of wrf alone to make it work. The compilation involves only setting environment, installing dependent packages and running, ./configure then ./compile em_real and ./compile emi_conv The first step of .configure ended with an error saying cannot find NetCDF in the path, the path specified is the wrong one. The file sudo nano bash.</description>
+    </item>
+    
+    <item>
+      <title>Editing shapefile using QGIS</title>
+      <link>/working-notes/2014/wn_2014-06/shapefile-edit-qgis/</link>
+      <pubDate>Wed, 18 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-06/shapefile-edit-qgis/</guid>
+      <description> To edit multipart shapefile in QGIS into a one outline map Used QGIS multipart into a single feature by selected attributes It converts shapefile with multiple attributes feature(multiple rows) into single rows The resultant shapefile need to be edited to delete any residuals in operation, used delete ring in QGIS for that  </description>
     </item>
     
     <item>
       <title>Installing GDAL with Python in Ubunut1204</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/installing_gdal_with_python_in_ubunut1204/</link>
+      <link>/working-notes/2014/wn_2014-06/installing-gdal-with-python-in-ubunut1204/</link>
       <pubDate>Wed, 18 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/installing_gdal_with_python_in_ubunut1204/</guid>
-      <description>##InstallingGDALwith_Python## - to make geotiff file from wrf output, python script requiers gdal such as for this from osgeo import gdal and from osgeo import osr - to install it in Ubuntu 12.04, it reuiers to install gdal-bin, libgdal1 and ptthon-gdal, after installing running python and importing crahes python with this message segmentation error(core dumped) - first it was detected of version difference, so installed with deb packages avaolable for the version for 1.</description>
+      <guid>/working-notes/2014/wn_2014-06/installing-gdal-with-python-in-ubunut1204/</guid>
+      <description>Convert WRF output into geotiff. Python script requires gdal such as for this from osgeo import gdal and from osgeo import osr To install it in Ubuntu 12.04, it requires to install gdal-bin, libgdal1 and python-gdal, after installing and running python import of these libs ends up in crashes with this message segmentation error(core dumped) Detected error due to version difference, so installed with deb packages available for the version for 1.</description>
     </item>
     
     <item>
-      <title>Reprojecting SHAPE file python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/reprojecting_shape_file_python/</link>
+      <title>Reprojecting SHAPE file uing Python</title>
+      <link>/working-notes/2014/wn_2014-06/reprojecting-shape-file-python/</link>
       <pubDate>Wed, 18 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/reprojecting_shape_file_python/</guid>
-      <description>##reporjecting shape file using python##
- WRF output netcdf(nc) or wrfncx.py output nc files are converted into geotiff(tiff) file with coustom projections, see the codes for nc to tiff conversion.
-from osgeo import gdal from osgeo import osr import numpy import numpy.ma as ma datafile = &#39;ZZZG3wrfout_psl.nc&#39; proj_out = osr.SpatialReference() proj_out.SetMercator(0.0, 115.02, 0.98931892612652, 0.0, 0.0) ds_in = gdal.Open(datafile) #subdatasets = ds_in.GetSubDatasets() #variables = [] #for subdataset in subdatasets: # variables.</description>
-    </item>
-    
-    <item>
-      <title>Shapefile edit QGIS</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/shapefile_edit_qgis/</link>
-      <pubDate>Wed, 18 Jun 2014 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/shapefile_edit_qgis/</guid>
-      <description>##to edit shape file in qgis## - to edit multipart shape file in qgis into a one outline map - used qgis multipart into single feature by selected attributes - it conveert shape file with multiple attirbutes feature-multiple rows into single rows - this can be edited to delete any redisuals in the operaation, used delete ring in qgis for that</description>
+      <guid>/working-notes/2014/wn_2014-06/reprojecting-shape-file-python/</guid>
+      <description>WRF output netcdf(nc) or wrfncx.py output nc files converted into geotiff(tiff) file with custom projections, see the codes for nc to tiff conversion.
+from osgeo import gdal from osgeo import osr import numpy import numpy.ma as ma datafile = &#39;ZZZG3wrfout_psl.nc&#39; proj_out = osr.SpatialReference() proj_out.SetMercator(0.0, 115.02, 0.98931892612652, 0.0, 0.0) ds_in = gdal.Open(datafile) #subdatasets = ds_in.GetSubDatasets() #variables = [] #for subdataset in subdatasets: # variables.append(subdataset[1].split(&amp;quot; &amp;quot;)[1]) ds_lon = gdal.Open(&#39;NETCDF:&amp;quot;ZZZG3wrfout_psl.nc&amp;quot;:lon&#39;) ds_lat = gdal.</description>
     </item>
     
     <item>
       <title>Installing R and Openair in Ubuntu1204</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/installing_r_and_openair_in_ubuntu1204/</link>
+      <link>/working-notes/2014/wn_2014-06/installing-r-and-openair-in-ubuntu1204/</link>
       <pubDate>Tue, 17 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/installing_r_and_openair_in_ubuntu1204/</guid>
-      <description>##InstallingRandOpenairin_Ubuntu1204## - installation of R in ubuntu 12.04, there are deb packages available for R from its source page here - But after installation it shows error in installing openair package, and depndancy chain goes from 2 to 10 and much more package with version mismacth problem, starting from lattice saying Error: package ‘lattice’ was built before R 3.0.0: please re-install it - Even calling package by ```library(lattice&amp;rsquo;) thoughed error - So installation in apt-get library might be problem solving, followed these</description>
+      <guid>/working-notes/2014/wn_2014-06/installing-r-and-openair-in-ubuntu1204/</guid>
+      <description>Installation of R in Ubuntu 12.04, there are deb packages available for R from its source page here However, after installation, it shows error in installing openair package, and dependency chain goes from 2 to 10 and much more package with version mismatch problem, starting from lattice saying Error: package ‘lattice’ was built before R 3.0.0: please re-install it Even calling package by the library(lattice&amp;rsquo;) given error So installation in apt-get library might be a problem-solving step, followed these</description>
     </item>
     
     <item>
-      <title>data editing with pandas</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/data_editing_with_pandas/</link>
+      <title>Working with CSV using Python Pandas</title>
+      <link>/working-notes/2014/wn_2014-06/data-editing-with-pandas/</link>
       <pubDate>Tue, 17 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/data_editing_with_pandas/</guid>
-      <description>##data editing with pandas## - to import data into python
-import pandas as pd data=pd.read_csv(&#39;value.txt&#39;)   to view dat ahead or sepcified rows  data.iloc[:5, :4]  to sort data based on specific oclumn, here data column  d2=d1.sort([&#39;observation_time&#39;])  to make a dataetime column recognized as date column in padnas dataframe  d1[&#39;SamplingDate&#39;] = pd.to_datetime(d1[&#39;SamplingDate&#39;])  to remove NaN valued rows in any of the columns of dataframe  d1=data.</description>
+      <guid>/working-notes/2014/wn_2014-06/data-editing-with-pandas/</guid>
+      <description>To import data into python
+import pandas as pd data=pd.read_csv(&#39;value.txt&#39;)  To view data head or specified rows
+data.iloc[:5, :4]  To sort data based on a specific column, here data column
+d2=d1.sort([&#39;observation_time&#39;])  To make a dataetime column recognized as date column in padnas dataframe
+d1[&#39;SamplingDate&#39;] = pd.to_datetime(d1[&#39;SamplingDate&#39;])  To remove NaN valued rows in any of the columns of the data frame
+ d1=data.dropna()  To reindex data frame with date time columns</description>
     </item>
     
     <item>
-      <title>editing WRF logfile Python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/editing_wrf_logfile_python/</link>
+      <title>Parsing the WRF logfile in Python</title>
+      <link>/working-notes/2014/wn_2014-06/editing-wrf-logfile-python/</link>
       <pubDate>Sun, 08 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/editing_wrf_logfile_python/</guid>
-      <description>##editingWRFlogfile_Python and pandas##
- to get sum seconds wrf is running, the wrf.out.log was imported into python to sum the elapsed seconds in each domains to get the log file into wrf bf = open(&#39;run_wrfm.log&#39;, &#39;r&#39;) to read each lines in the file bf_lines=bf.readlines() to make the lines into list array and select only the list with particular words in it, here the word &amp;ldquo;Timing for Writing&amp;rdquo;  f=[] for line in bf_lines: if &#39;Timing for Writing&#39; in line: f.</description>
+      <guid>/working-notes/2014/wn_2014-06/editing-wrf-logfile-python/</guid>
+      <description>To get a sum of seconds WRF is running, the wrf.out.log was imported into python to sum the elapsed seconds in each domain To get the log file into wrf bf = open(&#39;run_wrfm.log&#39;, &#39;r&#39;) To read each lines in the file bf_lines=bf.readlines() To make the lines into list array and select only the list with particular words in it, here the word &amp;ldquo;Timing for Writing&amp;rdquo;
+f=[] for line in bf_lines: if &#39;Timing for Writing&#39; in line: f.</description>
     </item>
     
     <item>
-      <title>compiling grib2json in AWS</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/compiling_grib2json_in_aws/</link>
+      <title>Compiling grib2json in AWS</title>
+      <link>/working-notes/2014/wn_2014-06/compiling-grib2json-in-aws/</link>
       <pubDate>Fri, 06 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/compiling_grib2json_in_aws/</guid>
-      <description>Install latest java and jdk follow this (http://askubuntu.com/questions/117189/apt-get-install-openjdk-7-jdk-doesnt-install-javac-why) Install latest maven  wget http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz tar -zxf apache-maven-3.0.4-bin.tar.gz sudo cp -R apache-maven-3.0.4 /usr/local sudo ln -s /usr/local/apache-maven-3.0.4/bin/mvn /usr/bin/mvn  then edit .bashrc file and add this line, not working, don&amp;rsquo;t do this  nano .bashrc &amp;gt;&amp;gt;&amp;gt;JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64  check installation with mvn version and mvn package gives spurious errors Never mind the error, download the grib2json as told here No need to install git in aws, instead use https with wget and get the folder, unzip, have to install unzip, then follow the readME.</description>
+      <guid>/working-notes/2014/wn_2014-06/compiling-grib2json-in-aws/</guid>
+      <description>To install the latest java and JDK follow this (http://askubuntu.com/questions/117189/apt-get-install-openjdk-7-jdk-doesnt-install-javac-why) Install the latest maven
+wget http://archive.apache.org/dist/maven/binaries/apache-maven-3.0.4-bin.tar.gz tar -zxf apache-maven-3.0.4-bin.tar.gz sudo cp -R apache-maven-3.0.4 /usr/local sudo ln -s /usr/local/apache-maven-3.0.4/bin/mvn /usr/bin/mvn  hen edit .bashrc file and add this line, not working, don&amp;rsquo;t do this
+nano .bashrc &amp;gt;&amp;gt;&amp;gt;JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64  Check the installation with mvn version and mvn package gives spurious errors
+ Never mind the error, download the grib2json as told here</description>
     </item>
     
     <item>
-      <title>Bewolf cluster for WRF EMS</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/bewolf_cluster_for_wrf_ems/</link>
+      <title>Bewolf cluster setup or WRF EMS</title>
+      <link>/working-notes/2014/wn_2014-06/bewolf-cluster-for-wrf-ems/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/bewolf_cluster_for_wrf_ems/</guid>
-      <description>##BewolfclusterforWRFEMS##
- The four domain running of WRF EMS with reoslution startng from 27km, 9km, 3km to 1km gives error of exit with status of -9,
-this showing that it would because of outof memeory status([more from this])(http://forum.wrfforum.com/viewtopic.php?f=6&amp;amp;t=407), this gives motivation further for cluster running of wrf ems passwordless SSH is not suffecieidnt for cluster running of WRF EMS, as specfied in run_ncpus.conf, the created cluster has to be checked with netcheck script given with WRF-EMS, it is in strc folder hint So while running netcheck with passwordless ssh, it gives error that ssh localhostname hostname is not doing pasword less ssh, in the begning, this error seems to be ridiculus, how and what!</description>
+      <guid>/working-notes/2014/wn_2014-06/bewolf-cluster-for-wrf-ems/</guid>
+      <description>The four domain running of WRF EMS with resolution starting from 27km, 9km, 3km to 1km gives an error of exit with the status of -9. This showing that it would because of out of memory statusmore from this, this gives motivation further for a cluster running of WRF-EMS Mere passwordless SSH is not sufficient for cluster running of WRF EMS, as specified in run_ncpus.conf, the created cluster has to be checked with netcheck script given with WRF-EMS, it is in strc folder hint So while running netcheck with passwordless ssh, it gives an error that ssh localhostname hostname is not doing passwordless ssh, in the begning, this error seems to be ridiculous, how and what!</description>
     </item>
     
     <item>
-      <title>Localinstall WRFEMS</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/localinstall_wrfems/</link>
+      <title>Four Nested WRF-EMS simulation and its log file</title>
+      <link>/working-notes/2014/wn_2014-06/wrf-ems-log/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/localinstall_wrfems/</guid>
-      <description>##localinstall_WRFEMS##
- WRF ems can be installed locally using the file inside the folder releases based on the WRF ems manual, chapter2, installaation from local netwrok, use ./ems_install.pl --install --repodir &#39;releases folder content&#39; After this the ems will be installed, for running the user&amp;rsquo;s default shell has to be set into tcsh, by following this as follows echo $SHELL if it gives /bin/bash chnage into tcsh by chsh -s /bin/tcsh, still after this it was showing the terminal without any $ or username.</description>
+      <guid>/working-notes/2014/wn_2014-06/wrf-ems-log/</guid>
+      <description>WRF-EMS installed through a local file in the laptop WRF-EMS was installed by online and script in server WRF-EMS was installed by online and script in server Four nested domain is not running in desktop saying error code 9 during wrf real.exe  Four nested domain run of WRF-EMS above Trivandrum area
+ The domain made for Trivandrum tvm-gfs4, after running a test, it gives history output for every 30 minutes and took some four hours to complete To check the domain is covering the Trivandrum districts, after converting the WRF output into NetCDF using wrfncxnj.</description>
     </item>
     
     <item>
-      <title>SSH for WRF EMS Cluster running</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/ssh_for_wrf_ems_cluster_running/</link>
+      <title>Installing and running the WRF EMS</title>
+      <link>/working-notes/2014/wn_2014-06/running-wrf-ems/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/ssh_for_wrf_ems_cluster_running/</guid>
-      <description>###SSH for WRFEMS cluster running### - For executing the WRF EMS in cluster computer mode, pass wordless ssh is required, it is specified in &amp;hellip;/runs/domain/config/emsrun/run_ncpus.conf as follows
+      <guid>/working-notes/2014/wn_2014-06/running-wrf-ems/</guid>
+      <description>WRF EMS is a pearl scripted implementation of weather research and forecast (WRF) model. Relatively simple scripting implementations, it hides the complex compiling and running steps in the WRF model for operational and research purposes. Its installation is by running a Perl script provided by mail request; the total installation size goes around 22 GB, and so a long process. The first step in model execution in the creation of model domain, for high-resolution forecasting of weather in Coimbatore, has to make a four nested domain.</description>
+    </item>
+    
+    <item>
+      <title>Local install tion of WRF-EMS</title>
+      <link>/working-notes/2014/wn_2014-06/local-install-wrf-ems/</link>
+      <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-06/local-install-wrf-ems/</guid>
+      <description>WRF ems can be installed locally using the file inside the folder releases Based on the WRF ems manual, chapter2, installation from local network, use ./ems_install.pl --install --repodir &#39;releases folder content&#39; After this the ems will be installed, for running the user&amp;rsquo;s default shell has to be set into tcsh, by following this as follows echo $SHELL if it gives /bin/bash change into tcsh by chsh -s /bin/tcsh, still after this it was showing the terminal without any $ or username.</description>
+    </item>
+    
+    <item>
+      <title>The SSH for WRF EMS Cluster running</title>
+      <link>/working-notes/2014/wn_2014-06/ssh-for-wrf-ems-cluster-running/</link>
+      <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-06/ssh-for-wrf-ems-cluster-running/</guid>
+      <description>For executing the WRF EMS in cluster computer mode, pass wordless ssh is required, it is specified in .../runs/domain/config/ems_run/run_ncpus.conf, the content of files is as follows
 LOG: R.Rozumalski - NWS January 2012 - I&#39;m still gruven # # Running the WRF on a cluster? # # If so, then make sure you that you have passwordless SSH on machines that # you plan to use when running on multiple nodes (not necessary for single # workstation runs).</description>
     </item>
     
     <item>
       <title>WRF EMS install and running in IBM X3100 M4</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/wrf_ems_install_and_running_in_ibm_x3100_m4/</link>
+      <link>/working-notes/2014/wn_2014-06/wrf-ems-install-and-running-in-ibm-x3100-m4/</link>
       <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/wrf_ems_install_and_running_in_ibm_x3100_m4/</guid>
-      <description>##WRFEMSinstallandrunninginIBMX3100M4##
- Working in HP i5 system with quad core processor and 8GB memory, memory limit error was getting for 1km resolution domains. So made a try to make a cluster with another HP laptop with same configuration, this step also returen EXIT file9, memeory limit error. changed domain to make it 3 km resoliotn and ran in cluster steup and it took 1 hour for four doamins from 81km to 3km at 3 hour interval, so for 48 hour simurlaiotn it would be taking a 16 hour model running.</description>
+      <guid>/working-notes/2014/wn_2014-06/wrf-ems-install-and-running-in-ibm-x3100-m4/</guid>
+      <description>Memory limit error is getting for 1km resolution domains in HP i5 system with a quad-core processor and 8GB memory. So made a try to make a cluster with another HP laptop with the same configuration, this step also returns EXIT file9, memory limit error. Changed the domain to make it 3 km resolution and ran in a cluster setup and it took 1 hour for four domains from 81km to 3km at 3-hour interval, so for 48-hour simulation, it would be taking a 16-hour model running.</description>
     </item>
     
     <item>
-      <title>WRF EMS log</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/wrf_ems_log/</link>
-      <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/wrf_ems_log/</guid>
-      <description>##WRFEMSlog##
- WRF ems instaled through local file in laptop WRF ems was installed by online and script in server wrf ems was installed by online and script in server Four netsed domain is not running in desktop saying error code 9 during wrf real.exe  ###four nested domain run of wrf ems above trivandrum area###
- the domain made for trivandrum tvm-gfs4, aftre running a test, it gives hostory output for eavery 30 minitres and took some four hours to complete To check the domain is covering the trivandrum districts, after converting the wrf ouput into netcdf using wrfncxnj.</description>
-    </item>
-    
-    <item>
-      <title>running WRF EMS</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-06/running_wrf_ems/</link>
-      <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/working-notes/2014/wn_2014-06/running_wrf_ems/</guid>
-      <description>##Running WRF EMS## - WRF EMS is a pearl scripted implementation of weather research and forecast (WRF) model. By user easy scripting implementations, it hides the complex compiling and running steps in WRF model for operational and research purposes. - It&amp;rsquo;s installation is by running a perl script provided by mail request, the installation size goes around 22 GB and so being a long processes. - The foremost step in model execution in creation of model domain, for high resolution forecasting of weather in Coimbatore, has to make a four nested domain.</description>
-    </item>
-    
-    <item>
-      <title>python_querying_and_editing_json</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/python_querying_and_editing_json/</link>
+      <title>Python to query and edit json files</title>
+      <link>/working-notes/2014/wn_2014-05/python-querying-and-editing-json/</link>
       <pubDate>Wed, 28 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/python_querying_and_editing_json/</guid>
-      <description>##pythonqueryingandeditingjson## - For most of the works related with this and this involves editing and querying of json and its formates such as GeoJson and Topojson - In cbe-air web application, topjson is going to act as map element and its editing is required for real time map generation and for map styling - In node.js based web application for visualizing model output, netcdf output from WRF has to converted into geojson and made similar with the earth wind data formate.</description>
+      <guid>/working-notes/2014/wn_2014-05/python-querying-and-editing-json/</guid>
+      <description>For most of the works related to this and this It involves editing and querying of JSON and its formats such as GeoJson and Topojson In cbe-air web application, topjson is going to act as map element, and its editing required for real-time map generation and map styling In node.js based web application for visualizing model output, NetCDF output from WRF has to converted into geojson and made similar with the earth wind data formate.</description>
     </item>
     
     <item>
-      <title>Merge geojsons into one</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/merge_geojsons_into_one/</link>
+      <title>Merge multiple geojsons into single file</title>
+      <link>/working-notes/2014/wn_2014-05/merge-multiple-geojsons-into-single-file/</link>
       <pubDate>Sat, 24 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/merge_geojsons_into_one/</guid>
-      <description>##Mergegeojsonsinto_one## - For converting qs into cbe-air, map is rendered using geojson rendering capability of github - the marker was easiliy made into geojson from qgis and org2ogr as a shape file. based on this under section &amp;ldquo;getting map data&amp;rdquo;, the command is
-ogr2ogr -f GeoJSON point.json point.shp //and adding this script line in html &amp;lt;script src=&amp;quot;https://embed.github.com/view/geojson/saconswl/cbeair/gh-pages/cbe-s.json?height=530&amp;amp;width=1300&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; //under div map   To include coimbatore city limits along with point marker, adding another script line of github embed renderes another map!</description>
+      <guid>/working-notes/2014/wn_2014-05/merge-multiple-geojsons-into-single-file/</guid>
+      <description>For converting qs into cbe-air, the map is rendered using geojson rendering capability of GitHub The marker was easily made into geojson from QGIS and org2ogr as a shapefile. based on this under section &amp;ldquo;getting map data,&amp;rdquo; the command is
+ogr2ogr -f GeoJSON point.json point.shp  and adding this script line in html
+&amp;lt;script src=&amp;quot;https://embed.github.com/view/geojson/saconswl/cbeair/gh-pages/cbe-s.json?height=530&amp;amp;width=1300&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;  under div map
+ To include Coimbatore city limits along with point marker, adding another script line of GitHub embed renderers another map!</description>
     </item>
     
     <item>
-      <title>Node js withAIRwindandEarthwind</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/node_js_withairwindandearthwind/</link>
+      <title>Node js with AIRwind and Earthwind applications</title>
+      <link>/working-notes/2014/wn_2014-05/node-js-withairwindandearthwind/</link>
       <pubDate>Fri, 23 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/node_js_withairwindandearthwind/</guid>
-      <description>##Node.jswithairwindandearthwindintocbe-air##
- for addressing objective2 of web processing service for real time air pollution model, the implementation with node.jsearth or airis planned. These are perfect match for this objective in showing the grandioseness of air circulation and how air pollution effect this grandioseness in real time animation of wind As a node.js web application, node has to installed as specified in the project&amp;rsquo;s readme. for node installation followed this wonderful tutorial, it basically involves and checking with node -v and npm -v  apt-get install python-software-properties apt-add-repository ppa:chris-lea/node.</description>
+      <guid>/working-notes/2014/wn_2014-05/node-js-withairwindandearthwind/</guid>
+      <description>To address objective2 of web processing service for real-time air pollution model, the implementation with node.jsearth or airis planned. These are the perfect match for this objective in showing the grandioseness of air circulation and how air pollution effect this grandioseness in real time animation of wind As a node.js web application, it has to installed as specified in the project&amp;rsquo;s readme. For node installation followed this wonderful tutorial, it involves and checking with node -v and npm -v</description>
     </item>
     
     <item>
-      <title>json data into SQLinsert with python</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/json_data_into_sqlinsert_with_python/</link>
+      <title>The json data into SQLinsert with python</title>
+      <link>/working-notes/2014/wn_2014-05/json-data-into-sqlinsert-with-python/</link>
       <pubDate>Fri, 23 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/json_data_into_sqlinsert_with_python/</guid>
-      <description>##jsondataintoSQLinsertwith python## - to start with json data in python and loop over its elements
-import json json_data=open(&#39;data.json&#39;) data=json.load(json_data) a=data[0][&#39;samples&#39;] for rs in a: print rs[&#39;wind&#39;]   to join two list as a column in python  to join two list inpython for c1, c2 in zip(de, c): print &amp;quot;%-9s %s&amp;quot; % (c1, c2)  to append loop items into a array  c=[] for rs in a: c.append(rs[&#39;wind&#39;])  to remove u from list elemnt  de=[] for x in d: de.</description>
+      <guid>/working-notes/2014/wn_2014-05/json-data-into-sqlinsert-with-python/</guid>
+      <description>To start with json data in python and loop over its elements
+import json json_data=open(&#39;data.json&#39;) data=json.load(json_data) a=data[0][&#39;samples&#39;] for rs in a: print rs[&#39;wind&#39;]  To join two list as a column in python, to join two list inpython
+for c1, c2 in zip(de, c): print &amp;quot;%-9s %s&amp;quot; % (c1, c2)  To append loop items into a array
+c=[] for rs in a: c.append(rs[&#39;wind&#39;])  To remove u from list elemnt</description>
     </item>
     
     <item>
-      <title>Querying netcdf with python_kdtree</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/querying_netcdf_with_python_kdtree/</link>
+      <title>Querying netcdf with python and KDtree algorithm</title>
+      <link>/working-notes/2014/wn_2014-05/querying-netcdf-with-python-kdtree/</link>
       <pubDate>Wed, 21 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/querying_netcdf_with_python_kdtree/</guid>
-      <description>##QueryingnetcdfwithPYTHONKDTREE## - To query a netcdf with latitude and longitude is required for objective three, in which user pointed lat long, revived as SMS from Android app has to parsed and find its model and nearest dylos monitoring station to send replay. - there is very useful tutorial on this with elaboration on different implementations advantages - In which most advanced querying was based on KDtree, this implementation was used to query netcdf generated from WRF model the code is as follows</description>
+      <guid>/working-notes/2014/wn_2014-05/querying-netcdf-with-python-kdtree/</guid>
+      <description>To query a NetCDF with latitude and longitude is required for objective three, in which user pointed lat-long, revived as SMS from Android app has to parsed and find its model and nearest Dylos monitoring station to send replay. There is handy tutorial on this with elaboration on different implementations advantages In which most advanced querying based on KDtree, this implementation was used to query NetCDF generated from WRF model the code is as follows</description>
     </item>
     
     <item>
       <title>Installing netcdf python in Ubuntu1204</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/installing_netcdf_python_in_ubuntu1204/</link>
+      <link>/working-notes/2014/wn_2014-05/installing-netcdf-python-in-ubuntu1204/</link>
       <pubDate>Tue, 20 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/installing_netcdf_python_in_ubuntu1204/</guid>
-      <description>##InstallingnetcdfpythoninUbuntu12.04##
- to install netcdf-python requiers HDF, based on this HDF isntallation from source got failed, used synaptic package manager to install HDF5 Downloaded netcdf-python, extracted and run python setup.py install Failed, saying netcdf is not found in usr/ So follwoed this, downloaded version of netcdf-4.0.1, placed in /usr/local cd into netcdf-4.0.1, and run the code LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=/usr/local then sudo make and then sudo make install seems got installed, then went into netcdf4-python as given in this and run sduo python setup.</description>
+      <guid>/working-notes/2014/wn_2014-05/installing-netcdf-python-in-ubuntu1204/</guid>
+      <description>To install NetCDF-python requires HDF, based on this The HDF installation from source got failed, used the synaptic package manager instead to install HDF5 Downloaded NetCDF-python, extracted and run python setup.py install Failed, saying NetCDF is not found in usr/ So followed this, downloaded version of NetCDF-4.0.1, placed in /usr/local Doing cd into netcdf-4.0.1, and run the code
+LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include ./configure --enable-netcdf-4 --enable-dap --enable-shared --prefix=/usr/local  Then doing sudo make and then sudo make install, seems got installed, then went into netcdf4-python as given in this</description>
     </item>
     
     <item>
-      <title>converting WRF ouput netcdf into json</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/converting_wrf_ouput_netcdf_into_json/</link>
+      <title>Converting WRF ouput netcdf into json</title>
+      <link>/working-notes/2014/wn_2014-05/converting-wrf-ouput-netcdf-into-json/</link>
       <pubDate>Mon, 19 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/converting_wrf_ouput_netcdf_into_json/</guid>
-      <description>##convertingWRFouputnetcdfinto_json## - tried with grib2json for converting netcdf into json 1 - for this netcdf has to converted into grib2 - for converting into grib2, python based iris is useful 2, but only work with cf compliant netcdf - WRF output in netcdf is not a cf compliant - So has to use a tool which convert WRF netcdf into CF compliant - Wrfncxnj.py tool 3 exactly do this with more functions such as extraction of variables etc - Wrfncxnj.</description>
+      <guid>/working-notes/2014/wn_2014-05/converting-wrf-ouput-netcdf-into-json/</guid>
+      <description>Tried with grib2json for converting NetCDF into JSON 1 For this NetCDF has to converted into grib2 For converting into grib2, python based iris is useful 2, but only work with cf compliant NetCDF WRF output in NetCDF is not a cf compliant So has to use a tool which converts WRF NetCDF into CF compliant The Wrfncxnj.py tool 3 exactly do this with more functions such as extraction of variables.</description>
     </item>
     
     <item>
-      <title>gammu MYSQL</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/gammu_mysql/</link>
+      <title>The database MySQL for Gammu</title>
+      <link>/working-notes/2014/wn_2014-05/gammu-mysql/</link>
       <pubDate>Fri, 16 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/gammu_mysql/</guid>
-      <description>gammu_mysql
- followed this,this the running, file based gammu-smsd backend configuration file is as follows    nano /etc/gammu-smsdrc # Configuration file for Gammu SMS Daemon # Gammu library configuration, see gammurc(5) [gammu] # Please configure this! port = /dev/ttyUSB2 model = connection = at synchronizetime = yes #logfile = /home/debian/gammulog #logformat = textalldate use_locking = gammuloc = # SMSD configuration, see gammu-smsdrc(5) [smsd] #debuglevel = 255 #Service = sql #Driver = sqlite3 #database = kalkun.</description>
+      <guid>/working-notes/2014/wn_2014-05/gammu-mysql/</guid>
+      <description>Followed this,this The running, file-based gammu-smsd backend configuration file is as follows
+ nano /etc/gammu-smsdrc # Configuration file for Gammu SMS Daemon # Gammu library configuration, see gammurc(5) [gammu] # Please configure this! port = /dev/ttyUSB2 model = connection = at synchronizetime = yes #logfile = /home/debian/gammulog #logformat = textalldate use_locking = gammuloc = # SMSD configuration, see gammu-smsdrc(5) [smsd] #debuglevel = 255 #Service = sql #Driver = sqlite3 #database = kalkun.</description>
     </item>
     
     <item>
       <title>QualitySCHU to cbe air</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/qualityschu_to_cbe_air/</link>
+      <link>/working-notes/2014/wn_2014-05/qualityschu-to-cbe-air/</link>
       <pubDate>Thu, 15 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/qualityschu_to_cbe_air/</guid>
-      <description>##QualitySCHU to cbe-air##
- qualityschu(qs) is a web application coupled with istsos sensor web, it&amp;rsquo;s elegant, simple html with javascript design makes easy to work with it and being educative. It is base code to build particulate matter air quality monitors web application in Coimbatore named cbeair web application. The app&amp;rsquo;s main difference with source(qs) would be its ability to work with github pages it is basically a html file with map and menu javascript files, main functions it provide is map view, table, chart view and download functions all are coupled with istSOS.</description>
+      <guid>/working-notes/2014/wn_2014-05/qualityschu-to-cbe-air/</guid>
+      <description>Qualityschu(qs) is a web application coupled with istsos sensor web; it&amp;rsquo;s elegant, simple HTML with javascript design makes it easy to work with and to be educative. It is base code to build particulate matter air quality monitors web application in Coimbatore named cbeair web application. The app&amp;rsquo;s main difference with the source(qs) would be its ability to work with GitHub pages It is an HTML file with map and menu javascript files, main functions it provides is map view, table, chart view, and download functions coupled with istSOS.</description>
     </item>
     
     <item>
-      <title>postgresql</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/postgresql/</link>
+      <title>Edit a table in postgresql</title>
+      <link>/working-notes/2014/wn_2014-05/edit-a-table-in-postgresql/</link>
       <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/postgresql/</guid>
-      <description>#to edit a table in postgresql
- to list databases  \list  to list tables in a database based on this  SELECT table_schema,table_name FROM information_schema.tables ORDER BY table_schema,table_name;  to view details about a table  \d table.name  to edit a column in a table  ALTER TABLE cbed.measures ALTER COLUMN val_msr TYPE numeric(14,6);   </description>
+      <guid>/working-notes/2014/wn_2014-05/edit-a-table-in-postgresql/</guid>
+      <description>to list databases  \list
+ to list tables in a database based on this  SELECT tableschema,tablename FROM informationschema.tables ORDER BY tableschema,table_name;
+ to view details about a table  \d table.name
+ to edit a column in a table  ALTER TABLE cbed.measures ALTER COLUMN val_msr TYPE numeric(14,6);</description>
     </item>
     
     <item>
-      <title>OnPython</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/onpython/</link>
+      <title>Convert pandas dataframe into a PDF file using Latex</title>
+      <link>/working-notes/2014/wn_2014-05/pandas-dataframe-into-latex-pdf/</link>
       <pubDate>Sat, 10 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/onpython/</guid>
-      <description>##Python with sqlite, istsos dat formate and time downscaling#
-###WIth sqlite - to convert a list, for example cur.fetch from database like sqlite,
-[&#39;2014-04-30T10:25,2797,147&#39;, &#39;2014-04-30T10:27,2639,174&#39;, &#39;2014-04-30T10:29,2645,158&#39;, &#39;2014-04-30T10:31,2676,149&#39;]   use print &amp;quot;\n&amp;quot;.join(b) based on this gives  &amp;quot;2014-04-30T10:25,2797,147 2014-04-30T10:27,2639,174 2014-04-30T10:29,2645,158 2014-04-30T10:31,2676,149&amp;quot;  to remove double quotes from above to write into a .DAT, tryed almost two hours then find out that the used mehtod will not do this. the full code is as follows with uncommented lines are failed attmepts.</description>
+      <guid>/working-notes/2014/wn_2014-05/pandas-dataframe-into-latex-pdf/</guid>
+      <description>Huge data frames which go for multiple A4 pages landscape is difficult to make in excel The alternative uses python pandas and convert the pandas&amp;rsquo; data frame into pdf through latex or HTML, latex is promising for just printing Basically from ([1])(http://stackoverflow.com/questions/14380371/export-a-latex-table-from-pandas-dataframe) for convert data frame into tex and this for converting Tex into landscape pdf document The python script to make table text is as follows, It is mostly from third answer [1], and bold column heading write python trick from</description>
     </item>
     
     <item>
-      <title>pandas dataframe into LATEX PDF</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/pandas_dataframe_into_latex_pdf/</link>
+      <title>IStSOS Data formating using Python</title>
+      <link>/working-notes/2014/wn_2014-05/onpython/</link>
       <pubDate>Sat, 10 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/pandas_dataframe_into_latex_pdf/</guid>
-      <description>##pandasdataframeinto_PDF## - Huge dataframes whihc goes for multiple A4 pages landscape is difficult to make in excel - Alternative is use python pandas and convert the pandas dataframe into pdf thorugh latex or html, latex is promising for just printing - Basically from ([1])(http://stackoverflow.com/questions/14380371/export-a-latex-table-from-pandas-dataframe) for convert dataframe into tex and this for converting tex into landscape pdf document - the python script to make table text is as follows, It is mostly from 3rd answer [1] and bold column heading write python trick from</description>
+      <guid>/working-notes/2014/wn_2014-05/onpython/</guid>
+      <description>Use Python with SQLite, istsos data formate and timeseries subsampling (downscaling).
+ With sqlite to convert a list, for example cur.fetch from database like sqlite,
+[&#39;2014-04-30T10:25,2797,147&#39;, &#39;2014-04-30T10:27,2639,174&#39;, &#39;2014-04-30T10:29,2645,158&#39;, &#39;2014-04-30T10:31,2676,149&#39;]  Use print &amp;ldquo;\n&amp;rdquo;.join(b) based on this gives
+&amp;quot;2014-04-30T10:25,2797,147 2014-04-30T10:27,2639,174 2014-04-30T10:29,2645,158 2014-04-30T10:31,2676,149&amp;quot;  To remove double quotes from above to write into a.DAT, tried almost two hours then find out that the used method will not do this. The full code is as follows with uncommented lines showing failed attempts.</description>
     </item>
     
     <item>
-      <title>Mount SDcard with BBB</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/mount_sdcard_with_bbb/</link>
+      <title>Installing mysql database in Beagle Bone Black</title>
+      <link>/working-notes/2014/wn_2014-05/mysql-bbb/</link>
       <pubDate>Tue, 06 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/mount_sdcard_with_bbb/</guid>
-      <description>#MountSDcardwithBBB.md# - Mounting SD card is not so easy with BBB, it is due to the problem of mysql error, saying sock file is missing and while starting satying /var folder is full - By cheking df -h shows it is true. So only way to increase the partition is use sd card, but noraml sd card with partiion cannot mount with BBB, due to some kernal inclination - there is work arroun, based on [[this]](http://dev.</description>
+      <guid>/working-notes/2014/wn_2014-05/mysql-bbb/</guid>
+      <description>Based on 1 and 2
+apt-get install mysql-server apt-get install phpmyadmin  The phpmyadmin not showing up, so working with mysql command line followed this to get into mysql shell /usr/bin/mysql -u root -p
+ To create a new database followed this by create database gammu in mysql shell
+ To execute gammu mysql.sql file to create tables for gammu back end, used this mysql -u root -p’passwd’ and then run the command gammu &amp;lt; /home/debian/gammu-1.</description>
     </item>
     
     <item>
-      <title>mysql BBB</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/mysql_bbb/</link>
+      <title>Mount SDcard in Beagle Bone Black</title>
+      <link>/working-notes/2014/wn_2014-05/mount-sdcard-with-bbb/</link>
       <pubDate>Tue, 06 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/mysql_bbb/</guid>
-      <description>installing mysql and phpmyadmin in BBB.md
- Based on this and this apt-get install mysql-server apt-get install phpmyadmin phpmyadmin not showing up, so wokring with mysql command line followed this to get into mysql shell /usr/bin/mysql -u root -p to create new data base followed this by create database gammu in mysql shell to excute gammu mysql.sql file to create tables for gammu backend, used this mysql -u root -p&#39;passwd&#39; gammu &amp;lt; /home/debian/gammu-1.</description>
+      <guid>/working-notes/2014/wn_2014-05/mount-sdcard-with-bbb/</guid>
+      <description>Mounting SD card is not so easy with BBB, it is due to the problem of MySQL error, saying sock file is missing and while starting saying /var folder is full By checking df -h shows it is true. So only way to increase the partition in sd card, but regular sd card with partition cannot mount with BBB, due to some kernel inclination There is a workaround, based on [this] under title code listing 7.</description>
     </item>
     
     <item>
-      <title>gammu compile BBB</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/gammu_compile_bbb/</link>
+      <title>Compile Gammu in Beagle Bone Black</title>
+      <link>/working-notes/2014/wn_2014-05/gammu-compile-bbb/</link>
       <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/gammu_compile_bbb/</guid>
-      <description>Gammu_compile-in-BBB
- Gammu was compiled in BBB follwoing this The dependacnies was intaalled using this command  apt-get install cmake python-dev pkg-config libmysqlclient-dev libpq-dev \ libcurl4-gnutls-dev libusb-1.0-0-dev libdbi0-dev libbluetooth-dev \ libgudev-1.0-dev libglib2.0-dev unixodbc-dev  the command ./configure gives error of CMake Error: CMake was unable to find a build program corresponding to &amp;quot;Unix Makefiles&amp;quot;. based on this installed make by apt-get install make after this the error goes away executed this command cmake .</description>
+      <guid>/working-notes/2014/wn_2014-05/gammu-compile-bbb/</guid>
+      <description>Gammu was compiled in BBB following this The dependencies were installed using this command
+apt-get install cmake python-dev pkg-config libmysqlclient-dev libpq-dev \ libcurl4-gnutls-dev libusb-1.0-0-dev libdbi0-dev libbluetooth-dev \ libgudev-1.0-dev libglib2.0-dev unixodbc-dev  The command ./configure gives error of CMake Error: CMake was unable to find a build program corresponding to &amp;quot;Unix Makefiles&amp;quot;.
+ Based on this installed make by apt-get install make after this the error goes away
+ Executed this command cmake .</description>
     </item>
     
     <item>
       <title>Cross Origin Resource Sharing</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-05/cross_origin_resource_sharing/</link>
+      <link>/working-notes/2014/wn_2014-04/cross-origin-resource-sharing/</link>
       <pubDate>Wed, 30 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-05/cross_origin_resource_sharing/</guid>
-      <description>#Cross-OriginResourceSharing#
- WHile working with qs into cbe-air, in populating table and charts with istsos json data, stucked with a error the error was not informative in firebug.firefox, a simple correct repsonse of 200 with red fonts and also not giving any console.log in JS after trying with changing jquery version, different old edited version of qs, experimenting with differneet json url no clue was found, finally tryed to run the aptana server in chromium and its devloper tools option gives verbal error of No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource.</description>
+      <guid>/working-notes/2014/wn_2014-04/cross-origin-resource-sharing/</guid>
+      <description>While working with qs into cbe-air, in populating table and charts with istsos JSON data, stuck with an error The error was not informative in firebug. firefox, a simple correct response of 200 with red fonts and also not giving any console.log in JS After trying with changing jquery version, different old edited version of qs, experimenting with different JSON URL found no clue, finally Tried to run the server in chromium and its developer tools option gives an error of</description>
     </item>
     
     <item>
       <title>File system based SOS using github AJAX</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/file_system_based_sos_using_github_ajax/</link>
+      <link>/working-notes/2014/wn_2014-04/file-system-based-sos-using-github-ajax/</link>
       <pubDate>Thu, 24 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/file_system_based_sos_using_github_ajax/</guid>
-      <description>FilesystembasedSOSusinggithubAJAX Found a article discussing similar to this line.
-https://www.academia.edu/1502083/A_flexible_geospatial_sensor_observation_service_for_diverse_sensor_data_based_on
-Monitoring real-time environmental information using Web 2.0 and GIServices technology
-Integrating Sensor Webs with Modeling and Data-assimilation Applications: An SOA Implementation
-see
-http://buyya.com/papers/SensorWebChapter.pdf
-http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;amp;arnumber=4526452&amp;amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D4526452
-simple SOS https://github.com/jcu-eresearch/python-simplesos</description>
+      <guid>/working-notes/2014/wn_2014-04/file-system-based-sos-using-github-ajax/</guid>
+      <description> Found an article discussing similar to this line. https://www.academia.edu/1502083/A_flexible_geospatial_sensor_observation_service_for_diverse_sensor_data_based_on Some related paperes are Monitoring real-time environmental information using Web 2.0 and GIServices technology and Integrating Sensor Webs with Modeling and Data-assimilation Applications: An SOA Implementation Also see  http://buyya.com/papers/SensorWebChapter.pdf http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;amp;arnumber=4526452&amp;amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D4526452  For simple SOS implementation https://github.com/jcu-eresearch/python-simplesos  </description>
     </item>
     
     <item>
       <title>IRIS install</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/iris_install/</link>
+      <link>/working-notes/2014/wn_2014-04/iris-install/</link>
       <pubDate>Thu, 24 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/iris_install/</guid>
-      <description>Installing_IRIS
- IRIS is a python tool for working with netcdf and grib files. It is installed to convert WRF output in netCDF to grib2 formate, which is need for grib2json tool. IRIS is dependent of large number of python scientific libraries. Most of the libraries are python and it can be isntalled though  pip install libarry  based on the failure report It&amp;rsquo;s installation further gets erroneous due to unavailability of netcdf, HDF5, netcdf-python packages.</description>
+      <guid>/working-notes/2014/wn_2014-04/iris-install/</guid>
+      <description>IRIS is a python tool for working with NetCDF and Grib files. It is installed to convert WRF output in netCDF to grib2 formate, which is the need for grib2json tool. IRIS is dependent on a large number of scientific python libraries. Most of the libraries are the python and installed through
+pip install library  Installation further gets erroneous due to unavailability of NetCDF, HDF5, NetCDF-python packages.
+ Has to follow this note (http://code.</description>
     </item>
     
     <item>
-      <title>package using maven</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/package_using_maven/</link>
+      <title>Package using maven</title>
+      <link>/working-notes/2014/wn_2014-04/package-using-maven/</link>
       <pubDate>Thu, 24 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/package_using_maven/</guid>
-      <description>PackageusingMavenforGRIB2JSON
- Java based tools such as grib2json has to compiled with maven latest maven is installed, following as per this note (https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2013-10/Installing_maven_in_Ubuntu_12.04.md) the tool grib2json requieres java 1.7 made huge search due to error while trying for  mvn package  it gives error of  Error: JAVA_HOME is not defined correctly. We cannot execute ”/usr/lib/jvm/jdk1.7.0”/bin/java   later found that, the system doesn&amp;rsquo;t containing jdk1.7.0 installed jdk1.7.0 follwoing (http://askubuntu.</description>
+      <guid>/working-notes/2014/wn_2014-04/package-using-maven/</guid>
+      <description>Java-based tools such as grib2json have to compiled with maven The latest maven is installed, following as per this note (https://github.com/saconswl/Real_time_air_pollution_Mod_Proj-2013-2014/blob/home/working_notes/wn_2013-10/Installing_maven_in_Ubuntu_12.04.md) The tool grib2json requires java 1.7
+ Done search due to error while trying for
+mvn package  It gives the error of
+Error: JAVA_HOME is not defined correctly. We cannot execute ”/usr/lib/jvm/jdk1.7.0”/bin/java  Later found that the system does not contain jdk1.7.0
+ Installed jdk1.7.0 following (http://askubuntu.com/questions/117189/apt-get-install-openjdk-7-jdk-doesnt-install-javac-why)</description>
     </item>
     
     <item>
       <title>Gammu smsd shared memeory error for Huwaei E303F</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/gammu_smsd_shared_memeory_error_for_huwaei_e303f/</link>
+      <link>/working-notes/2014/wn_2014-04/gammu-smsd-shared-memeory-error-for-huwaei-e303f/</link>
       <pubDate>Mon, 21 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/gammu_smsd_shared_memeory_error_for_huwaei_e303f/</guid>
-      <description>I am running gammu and gammu-smsd backed by Mysql in Ubuntu 12.04, All these setup was running with out error using Huwaei E173 data card. But upgraded model of this, Huwaei E303F, working fine with gammu, but starting gammu-smsd collapsing gammu. for example gammu &amp;ndash;identify says phone not connected
-gammurc ~/.gammurc  port = /dev/ttyUSB0 model = auto connection = at synchronizetime = yes logfile = /home/user/gammu.log logformat = textalldate use_locking = gammuloc =</description>
+      <guid>/working-notes/2014/wn_2014-04/gammu-smsd-shared-memeory-error-for-huwaei-e303f/</guid>
+      <description>Running gammu and gammu-smsd backed by Mysql in Ubuntu 12.04, All these setup was running without error using Huwaei E173 data card. However, upgraded model of this, Huwaei E303F, working fine with gammu, but starting gammu-smsd collapsing gammu. For example gammu --identify says phone not connected Looking into file of gammurc ~/.gammurc
+port = /dev/ttyUSB0 model = auto connection = at synchronizetime = yes logfile = /home/user/gammu.log logformat = textalldate use_locking = gammuloc =  Looking into file gammu-smsdrc ~/etc/gammu-smsdrc</description>
     </item>
     
     <item>
-      <title>Shared memory ERROR MORE</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/shared_memory_error_more/</link>
+      <title>Program for usbreset</title>
+      <link>/working-notes/2014/wn_2014-04/usbreset-program/</link>
       <pubDate>Mon, 21 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/shared_memory_error_more/</guid>
-      <description>More Insight into shared memory error -Was working on Beagle bone balck with Huwaei E173 -gammu &amp;ndash;identify -tail -f /home/debian/gammu-smsd.log - gammu-smsd -d - /etc/init.d/gammu-smsd restart - top - kill -9 2383 - ipcs -a - ipcrm -m 32768</description>
+      <guid>/working-notes/2014/wn_2014-04/usbreset-program/</guid>
+      <description>From this ask ubuntu answer. to reset the USB data card Saving this code as usbreset.c
+/* usbreset -- send a USB port reset to a USB device */ #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;errno.h&amp;gt; #include &amp;lt;sys/ioctl.h&amp;gt; #include &amp;lt;linux/usbdevice_fs.h&amp;gt; int main(int argc, char **argv) { const char *filename; int fd; int rc; if (argc != 2) { fprintf(stderr, &amp;quot;Usage: usbreset device-filename\n&amp;quot;); return 1; } filename = argv[1]; fd = open(filename, O_WRONLY); if (fd &amp;lt; 0) { perror(&amp;quot;Error opening output file&amp;quot;); return 1; } printf(&amp;quot;Resetting USB device %s\n&amp;quot;, filename); rc = ioctl(fd, USBDEVFS_RESET, 0); if (rc &amp;lt; 0) { perror(&amp;quot;Error in ioctl&amp;quot;); return 1; } printf(&amp;quot;Reset successful\n&amp;quot;); close(fd); return 0; }  Compile code using cc usbreset.</description>
     </item>
     
     <item>
-      <title>usbreset Program</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/usbreset_program/</link>
-      <pubDate>Mon, 21 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/usbreset_program/</guid>
-      <description>USBRESETPROGRAM From this ask ubuntu answer. to reset the USB data card
- saving this code as usbreset.c  /* usbreset -- send a USB port reset to a USB device */ #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;errno.h&amp;gt; #include &amp;lt;sys/ioctl.h&amp;gt; #include &amp;lt;linux/usbdevice_fs.h&amp;gt; int main(int argc, char **argv) { const char *filename; int fd; int rc; if (argc != 2) { fprintf(stderr, &amp;quot;Usage: usbreset device-filename\n&amp;quot;); return 1; } filename = argv[1]; fd = open(filename, O_WRONLY); if (fd &amp;lt; 0) { perror(&amp;quot;Error opening output file&amp;quot;); return 1; } printf(&amp;quot;Resetting USB device %s\n&amp;quot;, filename); rc = ioctl(fd, USBDEVFS_RESET, 0); if (rc &amp;lt; 0) { perror(&amp;quot;Error in ioctl&amp;quot;); return 1; } printf(&amp;quot;Reset successful\n&amp;quot;); close(fd); return 0; }   compile code using cc usbreset.</description>
-    </item>
-    
-    <item>
-      <title>Compileling WRF CHEM</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/compileling_wrf_chem/</link>
+      <title>Compiling WRF CHEM</title>
+      <link>/working-notes/2014/wn_2014-04/compiling-wrf-chem/</link>
       <pubDate>Fri, 18 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/compileling_wrf_chem/</guid>
-      <description>Compiling WRF-CHEM
-Based on this Most exhaustive tutorial
- in WRFV3 folder, (the &amp;lsquo;chem&amp;rsquo; folder has to copied inside of this folder) entering  $ ./configure checking for perl5... no checking for perl... found /usr/bin/perl (perl) ** WARNING: No path to NETCDF and environment variable NETCDF not set. ** would you like me to try to fix? [y] y Enter full path to NetCDF include directory on your system /usr/include Enter full path to NetCDF library directory on your system /usr/lib created new .</description>
+      <guid>/working-notes/2014/wn_2014-04/compiling-wrf-chem/</guid>
+      <description>Based on this tutorial
+ In WRFV3 folder, (the &amp;lsquo;chem&amp;rsquo; folder has to copied inside of this folder) entering
+$ ./configure Checking for perl5... no checking for perl... found /usr/bin/perl (perl) ** WARNING: No path to NETCDF and environment variable NETCDF not set. ** would you like me to try to fix? [y] y Enter full path to NetCDF include directory on your system /usr/include Enter full path to NetCDF library directory on your system /usr/lib created new .</description>
     </item>
     
     <item>
       <title>CSV edit by pandas</title>
-      <link>//localhost:1313/working-notes/2014/wn_2014-04/csv_edit_by_pandas/</link>
+      <link>/working-notes/2014/wn_2014-04/csv-edit-by-pandas/</link>
       <pubDate>Thu, 10 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/working-notes/2014/wn_2014-04/csv_edit_by_pandas/</guid>
-      <description>Modfying csv files using pandas, python
- to import csv file into python  import pandas data = pd.read_csv(&#39;/home/hoopoe/Documents/Real_time_air_pollution_Mod_Proj-2013-2014/obj2/237.csv&#39;)   to query the specfic column in data frame  data[&#39;SamplingDate&#39;]   to specifiy the column as datetime formate column for pandas  data[&#39;SamplingDate&#39;] = pd.to_datetime(data[&#39;SamplingDate&#39;])  to avoid date and month mismatch specify the formate of date as
-data[&#39;SamplingDate&#39;] = pd.to_datetime(data[&#39;SamplingDate&#39;],format=&#39;%d/%m/%Y&#39;)   to sort the data based on date column descending  dataso=data.</description>
+      <guid>/working-notes/2014/wn_2014-04/csv-edit-by-pandas/</guid>
+      <description>to import csv file into python
+import pandas data = pd.read_csv(&#39;/home/hoopoe/Documents/Real_time_air_pollution_Mod_Proj-2013-2014/obj2/237.csv&#39;)  to query the specific column in the data frame
+data[&#39;SamplingDate&#39;]  to specify the column as DateTime formate column for pandas
+data[&#39;SamplingDate&#39;] = pd.to_datetime(data[&#39;SamplingDate&#39;])  to avoid date and month mismatch specify the format of date as
+data[&#39;SamplingDate&#39;] = pd.to_datetime(data[&#39;SamplingDate&#39;],format=&#39;%d/%m/%Y&#39;)  to sort the data based on date column descending
+dataso=data.sort(&#39;SamplingDate&#39;, ascending=False)  to join two data frame in particular column</description>
+    </item>
+    
+    <item>
+      <title>Dylos monitor setup full with log</title>
+      <link>/working-notes/2014/wn_2014-04/dylos-monitor-setup-full-with-log/</link>
+      <pubDate>Thu, 10 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-04/dylos-monitor-setup-full-with-log/</guid>
+      <description>Following http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/ and UdevrulesforUSB&amp;rsquo;sattachedtoRPi
+ Create a udev rule for RPI, edited the file /etc/udev/rules.d using command sudo nano /etc/udev/rules.d/90-phone.rules and add following lines to giving a persistent name for USB data card (HUWAEI E303F) and USB to serial cable for Dylos monitor.
+KERNEL==&amp;quot;ttyUSB*&amp;quot;, ATTRS{idVendor}==&amp;quot;12d1&amp;quot;, ATTRS{idProduct}==&amp;quot;1506&amp;quot;, NAME=&amp;quot;phone&amp;quot;, MODE=&amp;quot;0666&amp;quot;,SYMLINK+=&amp;quot;mobile&amp;quot; KERNEL==&amp;quot;ttyUSB*&amp;quot;, ATTRS{idVendor}==&amp;quot;067b&amp;quot;, ATTRS{idProduct}==&amp;quot;2303&amp;quot;, NAME=&amp;quot;dylos&amp;quot;, MODE=&amp;quot;0666&amp;quot;,SYMLINK+=&amp;quot;dylos&amp;quot;  Adding udev rules gives option select devices, while connecting two or more devices. The folder /dev shows the files for USB data card and USB to serial cable for Dylos monitor.</description>
     </item>
     
   </channel>

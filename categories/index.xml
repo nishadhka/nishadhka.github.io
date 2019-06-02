@@ -2,102 +2,102 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Nishadh KA</title>
-    <link>//localhost:1313/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Jan 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Code snippet</title>
-      <link>//localhost:1313/categories/code-snippet/</link>
+      <link>/categories/code-snippet/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/categories/code-snippet/</guid>
+      <guid>/categories/code-snippet/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Markdown</title>
-      <link>//localhost:1313/categories/markdown/</link>
+      <link>/categories/markdown/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/categories/markdown/</guid>
+      <guid>/categories/markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Software</title>
-      <link>//localhost:1313/categories/software/</link>
+      <link>/categories/software/</link>
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/categories/software/</guid>
+      <guid>/categories/software/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Script</title>
-      <link>//localhost:1313/categories/script/</link>
+      <link>/categories/script/</link>
       <pubDate>Wed, 17 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/categories/script/</guid>
+      <guid>/categories/script/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hardware</title>
-      <link>//localhost:1313/categories/hardware/</link>
+      <link>/categories/hardware/</link>
       <pubDate>Wed, 10 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/categories/hardware/</guid>
+      <guid>/categories/hardware/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Operating System</title>
-      <link>//localhost:1313/categories/operating-system/</link>
+      <link>/categories/operating-system/</link>
       <pubDate>Sat, 22 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/categories/operating-system/</guid>
+      <guid>/categories/operating-system/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Study</title>
-      <link>//localhost:1313/categories/study/</link>
+      <link>/categories/study/</link>
       <pubDate>Sun, 14 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/categories/study/</guid>
+      <guid>/categories/study/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cloud computing</title>
-      <link>//localhost:1313/categories/cloud-computing/</link>
+      <link>/categories/cloud-computing/</link>
       <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/categories/cloud-computing/</guid>
+      <guid>/categories/cloud-computing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Code snippets</title>
-      <link>//localhost:1313/categories/code-snippets/</link>
-      <pubDate>Wed, 08 Jan 2014 00:00:00 +0000</pubDate>
+      <link>/categories/code-snippets/</link>
+      <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/categories/code-snippets/</guid>
+      <guid>/categories/code-snippets/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python programming</title>
-      <link>//localhost:1313/categories/python-programming/</link>
+      <link>/categories/python-programming/</link>
       <pubDate>Tue, 10 Sep 2013 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/categories/python-programming/</guid>
+      <guid>/categories/python-programming/</guid>
       <description></description>
     </item>
     

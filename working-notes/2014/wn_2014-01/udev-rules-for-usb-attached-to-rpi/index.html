@@ -15,17 +15,15 @@
 
     
       
-      <meta property="description" content="It seems the /dev/tty* address for the attached USB is changing intermittently, giving a permanent rules name for each device will be the workaround.
-Based on this &amp;hellip;">
-      <meta property="og:description" content="It seems the /dev/tty* address for the attached USB is changing intermittently, giving a permanent rules name for each device will be the workaround.
-Based on this &amp;hellip;">
+      <meta property="description" content="It seems the /dev/tty* address for the attached USB is changing intermittently, giving a permanent rules name for each device will be the workaround. Based on this &amp;hellip;">
+      <meta property="og:description" content="It seems the /dev/tty* address for the attached USB is changing intermittently, giving a permanent rules name for each device will be the workaround. Based on this &amp;hellip;">
       
     
 
     
     
     
-    <meta name="twitter:image" content="//localhost:1313/images/logo.png">
+    <meta name="twitter:image" content="/images/logo.png">
     
     
 
@@ -33,6 +31,11 @@ Based on this &amp;hellip;">
 
     
     
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -86,22 +89,32 @@ Based on this &amp;hellip;">
 
 
 
-<p>It seems the /dev/tty* address for the attached USB is changing intermittently, giving a permanent rules name for each device will be the workaround.</p>
-
-<p>Based on this
+<p>It seems the /dev/tty* address for the attached USB is changing intermittently, giving a permanent rules name for each device will be the workaround. Based on this
 <a href="http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/">http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/</a></p>
 
-<p>So the udev rules for cocemsd, setup is as follows.</p>
+<p>So the udev rules for cocemsd USB datacard, config file under folder /etc/udev/rules.d, with file name 90-phone.rules, is edited with this contents</p>
 
-<p>/etc/udev/rules.d, with file name 90-phone.rules, with this contents</p>
-
-<p>KERNEL==&ldquo;ttyUSB<em>&rdquo;, ATTRS{idVendor}==&ldquo;12d1&rdquo;, ATTRS{idProduct}==&ldquo;1436&rdquo;, NAME=&ldquo;phone&rdquo;, MODE=&ldquo;0666&rdquo;,SYMLINK+=&ldquo;phone&rdquo;
-KERNEL==&ldquo;ttyUSB</em>&rdquo;, ATTRS{idVendor}==&ldquo;067b&rdquo;, ATTRS{idProduct}==&ldquo;2303&rdquo;, NAME=&ldquo;dylos&rdquo;, MODE=&ldquo;0666&rdquo;,SYMLINK+=&ldquo;dylos&rdquo;</p>
+<pre><code>KERNEL==&quot;ttyUSB*&quot;, ATTRS{idVendor}==&quot;12d1&quot;, ATTRS{idProduct}==&quot;1436&quot;, NAME=&quot;phone&quot;, MODE=&quot;0666&quot;,SYMLINK+=&quot;phone&quot;
+KERNEL==&quot;ttyUSB*&quot;, ATTRS{idVendor}==&quot;067b&quot;, ATTRS{idProduct}==&quot;2303&quot;, NAME=&quot;dylos&quot;, MODE=&quot;0666&quot;,SYMLINK+=&quot;dylos&quot;
+</code></pre>
 
 
   <footer>
   
   
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
   
   <hr>
@@ -110,6 +123,6 @@ KERNEL==&ldquo;ttyUSB</em>&rdquo;, ATTRS{idVendor}==&ldquo;067b&rdquo;, ATTRS{id
   </footer>
   </article>
   
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 
