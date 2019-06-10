@@ -27,11 +27,11 @@ install.packages(filenameand_path, repos = NULL, type=&amp;ldquo;source&amp;rdqu
 http://marc.info/?l=grass-dev&amp;amp;m=138736238422272&amp;amp;w=2
 http://askubuntu.com/questions/443379/sqlite-header-and-source-version-mismatch
 http://stackoverflow.com/questions/16095942/sqlite-header-and-source-version-mismatch/16366457#16366457
-for R based netcdf view
+for R based NetCDF view
 https://gist.github.com/xuanlongma/5874674
 http://stackoverflow.com/questions/11319698/how-to-install-r-packages-rnetcdf-and-ncdf-on-ubuntu
 install.packages(repos=c(&amp;lsquo;http://cran.fhcrc.org/&#39;),pkgs=c(&#39;ncdf&#39;),lib=&amp;quot;/usr/lib/R/site-library/&amp;quot;,configure.args=&amp;quot;--with-netcdf-include=/usr/local/include &amp;ndash;with-netcdf-lib=/usr/local/lib&amp;rdquo;)
-1.correcting the grid of coimbatore urban 1</description>
+1.correcting the grid of Coimbatore urban 1</description>
     </item>
     
     <item>

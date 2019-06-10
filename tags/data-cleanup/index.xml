@@ -17,7 +17,7 @@
       <pubDate>Sat, 01 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-11/docx_table_into_python/</guid>
-      <description>###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Insted of this the table can be all select, copy paste in Libre calculator and save it as csv. 1. This csv file will be having one blank line after every row as of DOCX table. To remove this row use this script, edited with considering the special delimiter used to silence the &amp;lsquo;,&amp;rsquo; in address column.</description>
+      <description>###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Instead of this the table can be all select, copy paste in Libre calculator and save it as csv. 1. This CSV file will have one blank line after every row as of DOCX table. To remove this row use this script, edited with considering the special delimiter used to silence the &amp;lsquo;,&amp;rsquo; in the address column.</description>
     </item>
     
   </channel>

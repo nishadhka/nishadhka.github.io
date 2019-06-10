@@ -15,12 +15,10 @@
 
     
       
-      <meta property="description" content="export DIR=/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs
-sftp://hoopoe@192.168.1.100/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs/netcdf/include
-export CC=gcc export CXX=g&#43;&#43; export FC=gfortran export &amp;hellip;">
-      <meta property="og:description" content="export DIR=/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs
-sftp://hoopoe@192.168.1.100/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs/netcdf/include
-export CC=gcc export CXX=g&#43;&#43; export FC=gfortran export &amp;hellip;">
+      <meta property="description" content="###Reinstall due to GSI netcdf tested requirement###
+[&amp;hellip;] with this netcdf version, wrfV4.3.1 and WPS4.3.1 working has to be tested 3. Installed other required libraries for WRF such libpng, &amp;hellip;">
+      <meta property="og:description" content="###Reinstall due to GSI netcdf tested requirement###
+[&amp;hellip;] with this netcdf version, wrfV4.3.1 and WPS4.3.1 working has to be tested 3. Installed other required libraries for WRF such libpng, &amp;hellip;">
       
     
 
@@ -93,49 +91,6 @@ export CC=gcc export CXX=g&#43;&#43; export FC=gfortran export &amp;hellip;">
 
 
 
-<p>export DIR=/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs</p>
-
-<p>sftp://hoopoe@192.168.1.100/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs/netcdf/include</p>
-
-<p>export CC=gcc
-export CXX=g++
-export FC=gfortran
-export FCFLAGS=-m64
-export F77=gfortran
-export FFLAGS=-m64</p>
-
-<p>export PATH=$DIR/mpich/bin:$PATH</p>
-
-<p>export NETCDF=$DIR/netcdf
-export JASPERLIB=$DIR/grib2/lib
-export JASPERINC=$DIR/grib2/include
-export WRF<em>EM</em>CORE=1
-export WRF<em>NMM</em>CORE=0
-export WRF<em>CHEM=1
-export WRF</em>KPP=0
-export WRFIO<em>NCD</em>LARGE<em>FILE</em>SUPPORT=1</p>
-
-<p>error
-1. /bin/sh: 6: mpif90: not found
-1. gfortran treating comments as code baased on <a href="http://forum.wrfforum.com/viewtopic.php?f=5&amp;t=6086">this</a>
-1. still no wrf.exe was formed, by seeing configure.wrf thought environemnt WRF<em>SRC</em>ROOT<em>DIR has to be set
-export WRF</em>SRC<em>ROOT</em>DIR=/home/hoopoe/wrfchem341/WRFV3
-1. installed sudo apt-get install libcloog-ppl1
-1. WPS compile confgiure says inconsistent gfortran and netcdf
-1. and not forming any exe files</p>
-
-<p>problem 1 based on</p>
-
-<p><a href="http://www.tddft.org/pipermail/libxc/2013-August/000141.html">http://www.tddft.org/pipermail/libxc/2013-August/000141.html</a></p>
-
-<p>export WRF_DIR=/home/hoopoe/wrfchem341/WRFV3</p>
-
-<ol>
-<li>dpkg-query &ndash;show libpng12-dev</li>
-<li>dpkg -L libpng12-dev</li>
-<li>dpkg &ndash;get-selections | grep -v deinstall</li>
-</ol>
-
 <p>###Reinstall due to GSI netcdf tested requirement###</p>
 
 <ol>
@@ -153,7 +108,7 @@ export WRF</em>SRC<em>ROOT</em>DIR=/home/hoopoe/wrfchem341/WRFV3
 </ol>
 
 <p>with this netcdf version, wrfV4.3.1 and WPS4.3.1 working has to be tested
-3. Other required libraries for WRF such libpng, zlib, jasper was installed by debian package systems based on <a href="http://sergioibarra.blogspot.in/2012/10/wrf-chem-compilacion-en-ubuntu-1204.html">this</a>, the commands executed was</p>
+3. Installed other required libraries for WRF such libpng, zlib, jasper by debian package systems based on <a href="http://sergioibarra.blogspot.in/2012/10/wrf-chem-compilacion-en-ubuntu-1204.html">this</a>, the commands executed was</p>
 
 <pre><code>            sudo apt-get install libjasper-dev
             sudo apt-get install libpng-dev
@@ -170,7 +125,7 @@ export WRF</em>SRC<em>ROOT</em>DIR=/home/hoopoe/wrfchem341/WRFV3
 </code></pre>
 
 <ol>
-<li><p>Based on <a href="http://sergioibarra.blogspot.in/2012/10/wrf-chem-compilacion-en-ubuntu-1204.html">this</a>, edited the file <code>sudo nano /etc/bash.bashrc</code> and added the following envirotnemn variables</p>
+<li><p>Based on <a href="http://sergioibarra.blogspot.in/2012/10/wrf-chem-compilacion-en-ubuntu-1204.html">this</a>, edited the file <code>sudo nano /etc/bash.bashrc</code> and added the following environment variables</p>
 
 <pre><code>        export NETCDF=/home/hoopoe/wrfchem341/test/netcdf36
         export JASPERLIB=/usr/lib
@@ -182,7 +137,7 @@ export WRF</em>SRC<em>ROOT</em>DIR=/home/hoopoe/wrfchem341/WRFV3
         export WRFIO_NCD_LARGE_FILE_SUPPORT=1
 </code></pre></li>
 
-<li><p>Then as per <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php">this</a> enter into unzipped wrfV3 directory in which the chem folder is copied and started <code>./configure</code>, it though warning says that large netcdf files are supported and it can be enabled by <code>export WRFIO_NCD_LARGE_FILE_SUPPORT=1</code>, so it seems the bash file is not refreshed. Then made again <code>./configure</code> and edited <code>configure.wrf</code> file and line no. 127 from <code>CPP             =      /lib/cpp -C -P</code> to <code>CPP             =      /lib/cpp -P</code>. But <code>./compile</code> ends in error of <code>Fatal Error: Can't open module file 'module_configure.mod' for reading at (1): No such file or directory</code>`.</p></li>
+<li><p>Then as per <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php">this</a> enter into unzipped wrfV3 directory in which the chem folder is copied and started <code>./configure</code>, Though there is warning says that large NetCDF files are supported and enabled by <code>export WRFIO_NCD_LARGE_FILE_SUPPORT=1</code>, so it seems the bash file is not needed to refresh. Then made again <code>./configure</code> and edited <code>configure.wrf</code> file and line no. 127 from <code>CPP             =      /lib/cpp -C -P</code> to <code>CPP             =      /lib/cpp -P</code>. But <code>./compile</code> ends in error of <code>Fatal Error: Can't open module file 'module_configure.mod' for reading at (1): No such file or directory</code>`.</p></li>
 
 <li><p>export WRF<em>SRC</em>ROOT_DIR=/home/hoopoe/wrfchem341/test/WRFV3</p></li>
 </ol>

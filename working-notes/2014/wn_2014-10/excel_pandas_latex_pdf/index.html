@@ -94,7 +94,7 @@
 <p>###CSV data into pandas and LATEX then into PDF and then print!###</p>
 
 <ol>
-<li>To import csv file with date into pandas dataframe. Pands can parse date column, but it won&rsquo;t be correct. The date column formate has top be mentiod and parsed for this, like below based on [this], then this can be imported into pandas datafrem emntioing the dateparse.</li>
+<li>To import csv file with date into pandas data frame. Pandas can parse the date column, but it won&rsquo;t be correct. The date column formate has top be mentioned and parsed for this, like below based on [this], then this can be imported into pandas data frame indicating the date parser.</li>
 </ol>
 
 <p>dateparse = lambda x: pd.datetime.strptime(x, &lsquo;%d/%m/%y&rsquo;)
@@ -104,13 +104,13 @@ pro=pd.read<em>csv(&lsquo;PROJECT</em>EXPNDTR<em>1.csv&rsquo;,parse</em>dates=[1
 pro=pd.read<em>csv(&lsquo;PROJECT</em>EXPNDTR<em>1.csv&rsquo;,parse</em>dates=[1],date_parser=dateparse)</p>
 
 <ol>
-<li>To concat two pandas dataframe as row wise</li>
+<li>To concat two pandas data frame as row wise</li>
 </ol>
 
 <p>pro0=pandas.concat([pro,pro1],axis=0)</p>
 
 <ol>
-<li>To fill empty cells in pandas dataframe with zero values.</li>
+<li>To fill empty cells in pandas data frame with zero values.</li>
 </ol>
 
 <p>pro2=pro0.fillna(0)</p>
@@ -140,18 +140,18 @@ pro=pd.read<em>csv(&lsquo;PROJECT</em>EXPNDTR<em>1.csv&rsquo;,parse</em>dates=[1
 <p>pro5=pro4.set_index([&lsquo;Date&rsquo;])</p>
 
 <ol>
-<li>To give a s.no column to dataframe, first has to create a numpy array with length of dataframe as</li>
+<li>To give s.no column to data frames first has to create a numpy array with the length of data frames as</li>
 </ol>
 
 <p>import numpy
 count =  numpy.arange(1,149,1)</p>
 
-<p>then attached this array into datafarem as s.no</p>
+<p>then attached this array into dataframe as s.no</p>
 
 <p>pro6[&rsquo;S.no&rsquo;] = count</p>
 
 <ol>
-<li>To reorder the dataframe and kept s.no oclumn as first column abased on <a href="http://stackoverflow.com/questions/13148429/how-to-change-the-order-of-dataframe-columns">this</a></li>
+<li>To reorder the dataframe and kept s.no column as the first column based on <a href="http://stackoverflow.com/questions/13148429/how-to-change-the-order-of-dataframe-columns">this</a></li>
 </ol>
 
 <p>cols = list(pro6.columns.values)</p>
@@ -159,25 +159,25 @@ count =  numpy.arange(1,149,1)</p>
 <p>pro6=pro6[[&rsquo;S.no&rsquo;,&lsquo;Particulars&rsquo;, &lsquo;Permanent Equipment&rsquo;, &lsquo;Consumables&rsquo;, &lsquo;Travel &lsquo;, &lsquo;Remote Deployment&rsquo;, &lsquo;Site Preparation&rsquo;, &lsquo;Other Project Works&rsquo;, &lsquo;Total&rsquo;]]</p>
 
 <ol>
-<li>To get a total row for values, there is a way with sepcficying margin in pandas pivot table, but it is giving error. Based on <a href="http://stackoverflow.com/questions/20804673/appending-column-totals-to-a-pandas-dataframe">this</a> done that
-sum all the row  in datafraem by</li>
+<li>To get a total row for values, there is a way with specifying margin in the pandas pivot table, but it is giving the error. Based on <a href="http://stackoverflow.com/questions/20804673/appending-column-totals-to-a-pandas-dataframe">this</a> done that
+sum all the row  in data frame by</li>
 </ol>
 
 <p>sum_row = {col: pro6[col].sum() for col in pro6}</p>
 
-<p>convert the resultant dict into dataframe</p>
+<p>convert the resultant dict into data frame</p>
 
 <p>sum<em>df = pd.DataFrame(sum</em>row, index=[&ldquo;Total&rdquo;])</p>
 
-<p>drop unwanted columns from the dataframe</p>
+<p>drop unwanted columns from the data frame</p>
 
 <p>sum<em>row1=sum</em>df.drop([&lsquo;Particulars&rsquo;,&rsquo;S.no&rsquo;],axis=1)</p>
 
-<p>Then append the dataframe with olde dataframe</p>
+<p>Then append the data frame with old data frame</p>
 
 <p>pro7=pro6.append(sum_row1)</p>
 
-<p>reorder the datfarme</p>
+<p>reorder the datafarme</p>
 
 <p>pro8=pro7[[&rsquo;S.no&rsquo;,&lsquo;Date&rsquo;,&lsquo;Particulars&rsquo;, &lsquo;Permanent Equipment&rsquo;, &lsquo;Consumables&rsquo;, &lsquo;Travel &lsquo;, &lsquo;Remote Deployment&rsquo;, &lsquo;Site Preparation&rsquo;, &lsquo;Other Project Works&rsquo;, &lsquo;Total&rsquo;]]</p>
 
@@ -213,7 +213,7 @@ sum all the row  in datafraem by</li>
 </code></pre>
 
 <ol>
-<li>Final table doesn&rsquo;t contain Date column, it is due to it is a index in pandas dataframe</li>
+<li>The final table doesn&rsquo;t contain Date column, it is due to it is an index in pandas data frame</li>
 </ol>
 
 

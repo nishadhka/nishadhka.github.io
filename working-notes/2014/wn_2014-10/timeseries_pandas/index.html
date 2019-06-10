@@ -130,8 +130,8 @@ df1=df[[&lsquo;Time&rsquo;,&lsquo;PM2.5(ug/m3)&rsquo;,&lsquo;PM10(ug/m3)&rsquo;,
 df1 = df1.set</em>index(pd.DatetimeIndex(df[&lsquo;Time&rsquo;])) bars=df1.resample(&lsquo;15min&rsquo;)
 data2=np.round(data1, decimals=2)</p>
 
-<p>####To print table outof dataframe####
-1. Based on earlier note on converting pandas dataframe into latex, following script were used to take the tex from pandas dataframe</p>
+<p>####To print table out of dataframe####
+1. Based on earlier note on converting pandas data frame into latex, the following script was used to take the tex from the pandas&rsquo; data frame</p>
 
 <pre><code>            import pandas as pd
             import numpy as np
@@ -149,7 +149,7 @@ data2=np.round(data1, decimals=2)</p>
                 for i, row in data2.iterrows():
                     f.write(&quot; &amp; &quot;.join([str(x) for x in row.values]) + &quot; \\\\\n&quot;)
                 f.write(&quot;\\end{tabular}&quot;)
-                f.close()
+                f.close
 </code></pre>
 
 

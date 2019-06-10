@@ -26,7 +26,7 @@
       <pubDate>Thu, 21 Aug 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</guid>
-      <description>###Parallella cluster for WRF CHEM### 1. WRF-CHEM is a computationally intensive model, for example &amp;ldquo;On a typically-sized 40×40 grid with 20 horizontal layers, the meteorological part of the simulation (the WRF weather model itself) is only 160 × 106 floating point operations per time step, about 2.5% the cost of the full WRF-Chem with both chemical kinetics and aerosol&amp;rdquo;[1].It is generally executed with parallel mode to reduce time latency of model execution time.</description>
+      <description>###Parallella cluster for WRF CHEM### 1. WRF-CHEM is a computationally intensive model, for example, &amp;ldquo;On a typically-sized 40×40 grid with 20 horizontal layers, the meteorological part of the simulation (the WRF weather model itself) is only 160 × 106 floating point operations per time step, about 2.5% the cost of the full WRF-Chem with both chemical kinetics and aerosol&amp;rdquo;[1]. It is generally executed with parallel mode to reduce time latency of model execution time.</description>
     </item>
     
   </channel>

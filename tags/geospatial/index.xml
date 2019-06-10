@@ -17,7 +17,7 @@
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-11/reverse_geocoding/</guid>
-      <description>####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude is not having high resolution to differentiate between to nearby postal code points. For this need a high resolution latitude longitude data, IN this regard GOOGLE MAP API is a good help. As per this from address the latitude and longitude json files can be obtained with its API key, based on this and getting the API access key from here.</description>
+      <description>####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude do not have high resolution to differentiate between to nearby postal code points. For this need a high-resolution latitude-longitude data, Google Map API gives solution. As per its documentation, giving address, the latitude and longitude json files can be obtained with its API key, based on this and getting the API access key from here.</description>
     </item>
     
     <item>

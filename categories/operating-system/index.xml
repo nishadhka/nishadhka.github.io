@@ -18,18 +18,7 @@
       
       <guid>/working-notes/2014/wn_2014-11/ubunut1204_recovery/</guid>
       <description>###Ubunut 12.04 recovery###
- It is found that changing the file /etc/environment has huge problem after reboot. Added the environment variables for ncl language in /etc/environment as export NCARG_ROOT=/usr/local/ncl-6.2.1; export PATH=$NCARG_ROOT/bin:$PATH. This was resultant in problematic reboot of the system. The system gets instead of into login page, gets flickering command log. By reboot went inside of command line and there no system command like ls or sudo was not working.</description>
-    </item>
-    
-    <item>
-      <title>ubuntu1204to1404</title>
-      <link>/working-notes/2014/wn_2014-09/ubuntu1204to1404/</link>
-      <pubDate>Mon, 08 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/working-notes/2014/wn_2014-09/ubuntu1204to1404/</guid>
-      <description>####Ubuntu 12.04 to Ubunut 14.04 upgradation####
-fellow@dhcppc3:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 12.04.3 LTS Release: 12.04 Codename: precise
-fellow@dhcppc3:~$ uname -r 3.5.0-44-generic 1. /boot foldeer is full, free some space to continue upgrade. This isssue was solved by this. Importatnly the command dpkg -l &#39;linux-*&#39; | sed &#39;/^ii/!d;/&#39;&amp;quot;$(uname -r | sed &amp;quot;s/\(.*\)-\([^0-9]\+\)/\1/&amp;quot;)&amp;quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39; shows the absolute kernals in /boot to be removed.</description>
+ Changing/ editing the file /etc/environment has a huge problem after a reboot in Ubuntu. Added the environment variables for ncl language in /etc/environment as export NCARG_ROOT=/usr/local/ncl-6.2.1; export PATH=$NCARG_ROOT/bin:$PATH. Which resultant in the problematic reboot of the system. The system gets instead of into login page, gets flickering command log. By reboot went inside of command line and there no system command like ls or sudo was not working and indicating no /bin folder in PATH environment.</description>
     </item>
     
     <item>

@@ -118,11 +118,11 @@ data=pd.read_csv('/home/swl-sacon-dst/Documents/GISE_2013/LAB/Aerocet_DATA/Oct_s
 db=data[['Time','long','lat','PM2.5(ug/m3)','PM10(ug/m3)','TSP(ug/m3)']]
 db['geojson']='{\&quot;type\&quot;:\&quot;Point\&quot;,\&quot;coordinates\&quot;:['+db['long'].astype(str)+','+db['lat'].astype(str)+']}'
 d = [
-	dict([
-		(colname, row[i])
-		for i,colname in enumerate(db.columns)
-	])
-	for row in df.values
+    dict([
+        (colname, row[i])
+        for i,colname in enumerate(db.columns)
+    ])
+    for row in df.values
 ]
 
 #alternative to above which gives error of IndexError: index out of bounds
@@ -137,7 +137,7 @@ jsonf.close()
 </code></pre>
 
 <ol>
-<li>The dict creation line given as a comments with the script ends without any error. The line is as follows</li>
+<li>The dict creation line given as a comment with the script ends without any error. The line is as follows</li>
 </ol>
 
 <p><code>d=[{k:db.values[i][v] for v,k in enumerate(db.columns)} for i in range(len(db)) ]</code></p>

@@ -82,8 +82,8 @@ Domain four: onehour=12:16 to 08:43, 8.5 hours so for 6 hours simulation= 48+24=
       
       <guid>/working-notes/2014/wn_2014-10/cubietruck_cluster_wrfchem/</guid>
       <description>####cubie truck cluster for WRF CHEM####
-This note explains the steps in creating cubietruck cluster for WRF CHEM modeling.
-#####Installing debian##### 1. cubietruck is preinstalled with Android as its main os for its inbuilt nand storage of 8 GB harddisk. To chane this into debian os follwoing steps were followed. 1. More number of attempts was made for running debain or ubunut os image in cubietruck, Later found a tweaked image from here aat first sight shows promising for WRF CHEM.</description>
+This note explains the steps in creating Cubietruck cluster for WRF CHEM modeling.
+#####Installing debian##### 1. Cubietruck is having Android OS preinstalled as its main os for its inbuilt nand storage of 8 GB hard disk. To change this into Debian os following steps were followed. 1. Made several attempts for running Debian or ubuntu os image in Cubietruck. Later found a tweaked image from here at first sight shows promising for WRF CHEM.</description>
     </item>
     
     <item>
@@ -93,7 +93,7 @@ This note explains the steps in creating cubietruck cluster for WRF CHEM modelin
       
       <guid>/working-notes/2014/wn_2014-09/wrfchem_output_python/</guid>
       <description>###WRFCHEM_output pythonic####
- Related to the last note on getting txt time series data from wrf output here. This note details getting numpy array from wrf output and plotting data in python. The variables requiered from wrfoutput are Temperature, Realtive humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for quick view of the wrf output.</description>
+ Related to the last note on getting txt time series data from wrf output here. This note details getting numpy array from wrf output and plotting data in python. The variables required from wrfoutput are Temperature, Relative humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for a quick view of the wrf output.</description>
     </item>
     
     <item>
@@ -111,8 +111,8 @@ This note explains the steps in creating cubietruck cluster for WRF CHEM modelin
       <pubDate>Sun, 14 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-09/emisinv_reas_pandas/</guid>
-      <description>###Working on REAS emission inventory to feed into WRF-CHEM### 1. REAS is a emission inventory for Asia, it has files for different pollutant separated with each category of emission source. For example, pollutant SO2 has 9 files for each emission source categories such as Aviation, Domestic, Industry etc for year 2008.
-1. The files are space separated txt files having fields (columns) for longitude, latitude and monthly emission value 1. Python library pandas is used for importing data into python environment and combining these different category emission source files (9 files) into one single file.</description>
+      <description>###Working on REAS emission inventory to feed into WRF-CHEM### 1. REAS is an emission inventory for Asia, it has separate files for different pollutant with each category of emission source. For example, pollutant SO2 has 9 data files for each emission source types such as Aviation, Domestic, Industry etc for the year 2008.
+1. The files are space separated text files having fields (columns) for longitude, latitude and monthly emission value 1.</description>
     </item>
     
     <item>
@@ -121,12 +121,9 @@ This note explains the steps in creating cubietruck cluster for WRF CHEM modelin
       <pubDate>Wed, 10 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-09/wrf_chem_compile_completenote_server/</guid>
-      <description>export DIR=/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs
-sftp://hoopoe@192.168.1.100/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs/netcdf/include
-export CC=gcc export CXX=g++ export FC=gfortran export FCFLAGS=-m64 export F77=gfortran export FFLAGS=-m64
-export PATH=$DIR/mpich/bin:$PATH
-export NETCDF=$DIR/netcdf export JASPERLIB=$DIR/grib2/lib export JASPERINC=$DIR/grib2/include export WRFEMCORE=1 export WRFNMMCORE=0 export WRFCHEM=1 export WRFKPP=0 export WRFIONCDLARGEFILESUPPORT=1
-error 1. /bin/sh: 6: mpif90: not found 1. gfortran treating comments as code baased on this 1. still no wrf.exe was formed, by seeing configure.wrf thought environemnt WRFSRCROOTDIR has to be set export WRFSRCROOTDIR=/home/hoopoe/wrfchem341/WRFV3 1. installed sudo apt-get install libcloog-ppl1 1.</description>
+      <description>###Reinstall due to GSI netcdf tested requirement###
+ Compiled netcdf4.2.1.1 based on the [compile.wrf] but it didn&amp;rsquo;t generating nay netcdf.inc as needed by the wrf fortran code and so fails in netcdf gfortran testing stage. Another option is to use netcdf3.6.3, and it gets compiled and generated netcdf.inc, the codes used for compilations are, export CC=gcc export CXX=g++ export FC=gfortran export FCFLAGS=-m64 export F77=gfortran export FFLAGS=-m64
+./configure &amp;ndash;prefix=$DIR/netcdf36 make make install  with this netcdf version, wrfV4.</description>
     </item>
     
     <item>
@@ -136,7 +133,7 @@ error 1. /bin/sh: 6: mpif90: not found 1. gfortran treating comments as code baa
       
       <guid>/working-notes/2014/wn_2014-09/pm_emission_inventory_cbe_sd/</guid>
       <description>####PMEmissionInventoryCoimbatoreStudy design####
-Particulate pollution level and vehicular count sample 1. A sample consist of 3 minutes PM pollution monitoring(1 minute particle count mode, 2 minute mass mode) and 2 minute video recording. 1. Sampling carried on a CNG auto rickshaw, equipped with hand held PM monitor and a web camera based video recorder attached to right side at 0.75 meter from ground of Auto rickshaw.
+Particulate pollution level and vehicular count sample 1. A sample consists of 3 minutes of PM pollution monitoring(1-minute particle count mode, 2-minute mass mode) and 2-minute video recording. 1. Sampling carried on a CNG auto rickshaw, equipped with handheld PM monitor and a web camera based video recorder attached to right side at 0.75 meters from ground of Autorickshaw.
 1. Sixty random points in Coimbatore urban limits, sampling every 4th day for 20 sampling days.</description>
     </item>
     
@@ -192,17 +189,7 @@ Particulate pollution level and vehicular count sample 1. A sample consist of 3 
       
       <guid>/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</guid>
       <description>####WRF_CHEM domain view by python script####
- WRF CHEM domain in nested has to be visulaised to correct the nesting and for domain size adjustment. There are few tools availble to do that such as dwiz of wrf ems and plotgrid.ncl. There is an alternative with python based on this, it is a wrf script tools for visualizing and nesting based simulation. Set of scripts available has a function to visualize the namelist.</description>
-    </item>
-    
-    <item>
-      <title>Working with WRF CHEM part65 EmissionInventoryTut</title>
-      <link>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part65_emissioninventorytut/</link>
-      <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part65_emissioninventorytut/</guid>
-      <description>##Trail for WRF-CHEM, WRF CHEM simulation with dust only tutorial## 1. It is based on this to run compiled wrf chem in serial mode with only dust.
-###WPS### 1. WPS components ungrib.exe,geogrid.exe and metgrid.exe was from former dust only run&amp;rsquo;s output based on the note of . ###PrepChemSrc### 1. Prep chem src used was of compiled as per the note. This was ran as per the tutorial point4, the namelist used is this.</description>
+ WRF CHEM domain in nested has to be visualized to correct the nesting and for domain size adjustment. There are few tools available to do that such as dwiz of wrf ems and plotgrid.ncl. There is an alternative with python based on this, it is a wrf script tools for visualizing and nesting based simulation. Set of scripts available has a function to visualize the namelist.</description>
     </item>
     
     <item>
@@ -242,7 +229,7 @@ This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compi
       <pubDate>Thu, 21 Aug 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</guid>
-      <description>###Parallella cluster for WRF CHEM### 1. WRF-CHEM is a computationally intensive model, for example &amp;ldquo;On a typically-sized 40×40 grid with 20 horizontal layers, the meteorological part of the simulation (the WRF weather model itself) is only 160 × 106 floating point operations per time step, about 2.5% the cost of the full WRF-Chem with both chemical kinetics and aerosol&amp;rdquo;[1].It is generally executed with parallel mode to reduce time latency of model execution time.</description>
+      <description>###Parallella cluster for WRF CHEM### 1. WRF-CHEM is a computationally intensive model, for example, &amp;ldquo;On a typically-sized 40×40 grid with 20 horizontal layers, the meteorological part of the simulation (the WRF weather model itself) is only 160 × 106 floating point operations per time step, about 2.5% the cost of the full WRF-Chem with both chemical kinetics and aerosol&amp;rdquo;[1]. It is generally executed with parallel mode to reduce time latency of model execution time.</description>
     </item>
     
     <item>
@@ -251,9 +238,9 @@ This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compi
       <pubDate>Tue, 19 Aug 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part63_wrf_coimbatorenesting/</guid>
-      <description>##Trail for WRF-CHEM, WRF simulation with domain for Coimbatore and one way Nesting-Ndown.exe## 1. It is based on this to run compiled wrf in serial mode to execute domain over Coimbatore with nested model run by Ndown.exe based one way nesting.
+      <description>##Trail for WRF-CHEM, WRF simulation with domain for Coimbatore and one-way Nesting-Ndown.exe## 1. The trail is based on this page to run compiled WRF in serial mode to execute domain over Coimbatore. Trying the nested model run by Ndown.exe using one-way nesting.
 ###WPS: Ungrib###
- As per this page, the WPS ungrib stage was carried out. The gfs files downloaded was used, average size around 45MB for each files. The files for time peroid 00,03, 06 was kept under a folder gfs.</description>
+ The WPS ungrib stage was carried out as per page, The gfs files downloaded used, average size around 45MB for each file. The data for period 00,03, 06 was kept under a folder gfs.</description>
     </item>
     
     <item>
@@ -278,12 +265,13 @@ This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compi
     
     <item>
       <title>Working with WRF CHEM part61 WRF KatrinaSingleDomain</title>
-      <link>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part61_wrf_katrinasingledomain/</link>
+      <link>/working-notes/2014/wn_2014-08/working-with-wrf-chem-part61-wrf-katrinasingledomain/</link>
       <pubDate>Tue, 12 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part61_wrf_katrinasingledomain/</guid>
-      <description>##Trail for WRF-CHEM, working with WRF simulation with Katrina single domain case## 1. It is based on this to run compiled WRF in serial mode to execute the Katrina case with a single domain. 2. As per this page, the WPS ungrib stage was carried out
-###WPS: Ungrib### 3. The tar file provided with the tutorial was unzipped and compiled WPS folder was copied and bothe these folders were kept under a folder named katrina.</description>
+      <guid>/working-notes/2014/wn_2014-08/working-with-wrf-chem-part61-wrf-katrinasingledomain/</guid>
+      <description>Trail for WRF-CHEM, working with WRF simulation with Katrina single domain case
+ It is based on this to run compiled WRF in serial mode to execute the Katrina case with a single domain. As per this page, the WPS ungrib stage was carried out  WPS: Ungrib
+ The tar file provided with the tutorial was unzipped and compiled WPS folder was copied and bothe these folders were kept under a folder named katrina.</description>
     </item>
     
     <item>

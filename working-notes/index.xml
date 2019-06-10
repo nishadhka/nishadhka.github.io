@@ -99,7 +99,7 @@ Domain four: onehour=12:16 to 08:43, 8.5 hours so for 6 hours simulation= 48+24=
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-11/reverse_geocoding/</guid>
-      <description>####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude is not having high resolution to differentiate between to nearby postal code points. For this need a high resolution latitude longitude data, IN this regard GOOGLE MAP API is a good help. As per this from address the latitude and longitude json files can be obtained with its API key, based on this and getting the API access key from here.</description>
+      <description>####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude do not have high resolution to differentiate between to nearby postal code points. For this need a high-resolution latitude-longitude data, Google Map API gives solution. As per its documentation, giving address, the latitude and longitude json files can be obtained with its API key, based on this and getting the API access key from here.</description>
     </item>
     
     <item>
@@ -129,7 +129,7 @@ Domain four: onehour=12:16 to 08:43, 8.5 hours so for 6 hours simulation= 48+24=
       
       <guid>/working-notes/2014/wn_2014-11/ubunut1204_recovery/</guid>
       <description>###Ubunut 12.04 recovery###
- It is found that changing the file /etc/environment has huge problem after reboot. Added the environment variables for ncl language in /etc/environment as export NCARG_ROOT=/usr/local/ncl-6.2.1; export PATH=$NCARG_ROOT/bin:$PATH. This was resultant in problematic reboot of the system. The system gets instead of into login page, gets flickering command log. By reboot went inside of command line and there no system command like ls or sudo was not working.</description>
+ Changing/ editing the file /etc/environment has a huge problem after a reboot in Ubuntu. Added the environment variables for ncl language in /etc/environment as export NCARG_ROOT=/usr/local/ncl-6.2.1; export PATH=$NCARG_ROOT/bin:$PATH. Which resultant in the problematic reboot of the system. The system gets instead of into login page, gets flickering command log. By reboot went inside of command line and there no system command like ls or sudo was not working and indicating no /bin folder in PATH environment.</description>
     </item>
     
     <item>
@@ -148,7 +148,7 @@ Domain four: onehour=12:16 to 08:43, 8.5 hours so for 6 hours simulation= 48+24=
       
       <guid>/working-notes/2014/wn_2014-11/plot_aerocet_sample_d3js/</guid>
       <description>####Plot aerocet data with D3 JS scrip####
- Based on this and its source code. The meteor web application is based on one index.html file and marker visualizer based on JS drawMap.js. The index.html was edited for to remove the CHART in the line 14 to 19 contains  &amp;lt;div id=&amp;quot;year-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Year of Impact&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div id=&amp;quot;mass-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Mass (g)&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt;   IN drawMap.js, following lines were removed ``` function renderAll(){ chart.</description>
+ Based on this and its source code. One index.html file combines the code for the meteor web application. Web map marker codes are in the file JS drawMap.js. The index.html was edited to remove the CHART in line 14 to 19 contains  &amp;lt;div id=&amp;quot;year-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Year of Impact&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div id=&amp;quot;mass-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Mass (g)&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt;   IN drawMap.</description>
     </item>
     
     <item>
@@ -158,7 +158,7 @@ Domain four: onehour=12:16 to 08:43, 8.5 hours so for 6 hours simulation= 48+24=
       
       <guid>/working-notes/2014/wn_2014-11/git_delete_routine/</guid>
       <description>####git delete routine####
- Using git and github, to remove a file which is committed earlier is requier following steps. Even though the file will be removed with delete button option of OS. The committed files still be inside the git version control system and it will make problem in uploading it into github if it is large file size &amp;gt;100MB accidently committed. First to list the files deleted in the OS but not in git system, based on this.</description>
+ Completely remove or delete a committed file in git repo require following steps. Even though the file gets removed with delete button option of OS. The committed files are still inside the git version control system, and it will make problem in uploading it into GitHub if it is large file size &amp;gt;100MB accidentally committed. First to list the files deleted in the OS but not in git system, based on this.</description>
     </item>
     
     <item>
@@ -168,7 +168,7 @@ Domain four: onehour=12:16 to 08:43, 8.5 hours so for 6 hours simulation= 48+24=
       
       <guid>/working-notes/2014/wn_2014-11/redeploy_dylos_tdm/</guid>
       <description>###Redeploy Dylos in TDM###
- After running with problem of excessive particle reading in UPS back up power, this note discuss its redeployment in same station. The problem of UPS back up power excessive reading was contained by using pure sine wave UPS. In redeployment as an addition, DHT11, humidity temperature sensor was added along with DYLOS, RPi, USB data card setup. The DHT 11 humidity temperature sensor was attached with RPI following this as per the below .</description>
+ After running with the problem of excessive particle reading in UPS back up power, this note discusses its redeployment in the same station. The problem of UPS back up excessive power reading was contained by using pure sine wave UPS. In redeployment as an addition, added DHT11, humidity temperature sensor along with Dylos, RPi, USB data card setup. Attached the DHT 11 humidity temperature sensor with RPI following this as per the below .</description>
     </item>
     
     <item>
@@ -177,7 +177,7 @@ Domain four: onehour=12:16 to 08:43, 8.5 hours so for 6 hours simulation= 48+24=
       <pubDate>Sat, 01 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-11/docx_table_into_python/</guid>
-      <description>###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Insted of this the table can be all select, copy paste in Libre calculator and save it as csv. 1. This csv file will be having one blank line after every row as of DOCX table. To remove this row use this script, edited with considering the special delimiter used to silence the &amp;lsquo;,&amp;rsquo; in address column.</description>
+      <description>###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Instead of this the table can be all select, copy paste in Libre calculator and save it as csv. 1. This CSV file will have one blank line after every row as of DOCX table. To remove this row use this script, edited with considering the special delimiter used to silence the &amp;lsquo;,&amp;rsquo; in the address column.</description>
     </item>
     
     <item>
@@ -187,7 +187,7 @@ Domain four: onehour=12:16 to 08:43, 8.5 hours so for 6 hours simulation= 48+24=
       
       <guid>/working-notes/2014/wn_2014-10/plot_netcdf/</guid>
       <description>###Plot NETCDF and create xlsx file for pyWRFChemEmiss####
- The 2010 anthropogenic emission file of Asian region is available in netcdf format. To use it with WRF CHEM, PREPCHEMSRC is limited use mainy because the emission source has to specify and it&amp;rsquo;s conversion factor might not be correct. Complexity/understandability is case for similar emission converter program such as Air Emissions Processor program and SMOKE. In this regard pyWRFChemEmiss give more modular and easy interface to convert emission file to be used with wrf chem.</description>
+ The 2010 anthropogenic emission file of Asian region is available in NetCDF format. To use it with WRF CHEM, PREPCHEMSRC is limited use mainly because the emission source has to specify, and its conversion factor might not be correct. Complexity/understandability is case for similar emission converter program such as Air Emissions Processor program and SMOKE. In this regard pyWRFChemEmiss give a more modular and easy interface to convert emission file to be used with wrf chem.</description>
     </item>
     
     <item>
@@ -197,8 +197,7 @@ Domain four: onehour=12:16 to 08:43, 8.5 hours so for 6 hours simulation= 48+24=
       
       <guid>/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</guid>
       <description>###CSV data into pandas and LATEX then into PDF and then print!###
- To import csv file with date into pandas dataframe. Pands can parse date column, but it won&amp;rsquo;t be correct. The date column formate has top be mentiod and parsed for this, like below based on [this], then this can be imported into pandas datafrem emntioing the dateparse.  dateparse = lambda x: pd.datetime.strptime(x, &amp;lsquo;%d/%m/%y&amp;rsquo;) pro=pd.readcsv(&amp;lsquo;PROJECTEXPNDTR1.csv&amp;rsquo;,parsedates=[1],date_parser=dateparse)
-dateparse = lambda x: pd.</description>
+ To import csv file with date into pandas data frame. Pandas can parse the date column, but it won&amp;rsquo;t be correct. The date column formate has top be mentioned and parsed for this, like below based on [this], then this can be imported into pandas data frame indicating the date parser.  dateparse = lambda x: pd.datetime.strptime(x, &amp;lsquo;%d/%m/%y&amp;rsquo;) pro=pd.</description>
     </item>
     
     <item>
@@ -217,11 +216,11 @@ install.packages(filenameand_path, repos = NULL, type=&amp;ldquo;source&amp;rdqu
 http://marc.info/?l=grass-dev&amp;amp;m=138736238422272&amp;amp;w=2
 http://askubuntu.com/questions/443379/sqlite-header-and-source-version-mismatch
 http://stackoverflow.com/questions/16095942/sqlite-header-and-source-version-mismatch/16366457#16366457
-for R based netcdf view
+for R based NetCDF view
 https://gist.github.com/xuanlongma/5874674
 http://stackoverflow.com/questions/11319698/how-to-install-r-packages-rnetcdf-and-ncdf-on-ubuntu
 install.packages(repos=c(&amp;lsquo;http://cran.fhcrc.org/&#39;),pkgs=c(&#39;ncdf&#39;),lib=&amp;quot;/usr/lib/R/site-library/&amp;quot;,configure.args=&amp;quot;--with-netcdf-include=/usr/local/include &amp;ndash;with-netcdf-lib=/usr/local/lib&amp;rdquo;)
-1.correcting the grid of coimbatore urban 1</description>
+1.correcting the grid of Coimbatore urban 1</description>
     </item>
     
     <item>
@@ -241,8 +240,8 @@ install.packages(repos=c(&amp;lsquo;http://cran.fhcrc.org/&#39;),pkgs=c(&#39;ncd
       
       <guid>/working-notes/2014/wn_2014-10/cubietruck_cluster_wrfchem/</guid>
       <description>####cubie truck cluster for WRF CHEM####
-This note explains the steps in creating cubietruck cluster for WRF CHEM modeling.
-#####Installing debian##### 1. cubietruck is preinstalled with Android as its main os for its inbuilt nand storage of 8 GB harddisk. To chane this into debian os follwoing steps were followed. 1. More number of attempts was made for running debain or ubunut os image in cubietruck, Later found a tweaked image from here aat first sight shows promising for WRF CHEM.</description>
+This note explains the steps in creating Cubietruck cluster for WRF CHEM modeling.
+#####Installing debian##### 1. Cubietruck is having Android OS preinstalled as its main os for its inbuilt nand storage of 8 GB hard disk. To change this into Debian os following steps were followed. 1. Made several attempts for running Debian or ubuntu os image in Cubietruck. Later found a tweaked image from here at first sight shows promising for WRF CHEM.</description>
     </item>
     
     <item>
@@ -252,7 +251,7 @@ This note explains the steps in creating cubietruck cluster for WRF CHEM modelin
       
       <guid>/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</guid>
       <description>####Aerocet Sampling Data, using kml files and pandas####
- The data from dust pollution monitoring in Coimbatore using Aerocet was copy paste into a csv file from miniterm.py program and command 2 given to aerocet. Seprate CSV files were made for count and mass mode sampling. The location of sampling point is made into a point feature in Google earth with name of respective sampling time. This was saved as kml file and opened in QGIS converted into shape file to add gemoetry.</description>
+ The data from dust pollution monitoring in Coimbatore using Aerocet was copy paste into a csv file from miniterm.py program and commanded 2 given to aerocet. Made separate CSV files for count and mass mode sampling. Sampling point locations made into a point feature in Google earth with the name of respective sampling time. Further saved as kml file and opened in QGIS, converted into shapefile to add geometry.</description>
     </item>
     
     <item>
@@ -261,7 +260,7 @@ This note explains the steps in creating cubietruck cluster for WRF CHEM modelin
       <pubDate>Tue, 07 Oct 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</guid>
-      <description>####DYLOS RPi serial Problem#### 1. RPi(Raspberry pi) has problem in serial read of dylos air quality monitor data, the serial read ends with wrong or misplaced data from the dylos monitor, this problem was mentioned in this (note)(Serialportproblemlbm1knmr.md). For example runnnnig of the python command for getting dylos serial read ends as follows
+      <description>####DYLOS RPi serial Problem#### 1. RPi(Raspberry pi) has a problem in the serial read of dylos air quality monitor data. The serial read ends with wrong or misplaced data from the dylos monitor, this problem is mentioned in this (note)(Serialportproblemlbm1knmr.md). For example, running of the python command for getting dylos serial read ends as follows
  pi@raspberrypi ~/SMS $ python &amp;gt;&amp;gt;&amp;gt; import serial &amp;gt;&amp;gt;&amp;gt; ser = serial.Serial(&#39;/dev/dylos&#39;, 9600, timeout=60) &amp;gt;&amp;gt;&amp;gt; line = ser.</description>
     </item>
     
@@ -272,7 +271,7 @@ This note explains the steps in creating cubietruck cluster for WRF CHEM modelin
       
       <guid>/working-notes/2014/wn_2014-09/wrfchem_output_python/</guid>
       <description>###WRFCHEM_output pythonic####
- Related to the last note on getting txt time series data from wrf output here. This note details getting numpy array from wrf output and plotting data in python. The variables requiered from wrfoutput are Temperature, Realtive humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for quick view of the wrf output.</description>
+ Related to the last note on getting txt time series data from wrf output here. This note details getting numpy array from wrf output and plotting data in python. The variables required from wrfoutput are Temperature, Relative humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for a quick view of the wrf output.</description>
     </item>
     
     <item>
@@ -291,7 +290,7 @@ This note explains the steps in creating cubietruck cluster for WRF CHEM modelin
       
       <guid>/working-notes/2014/wn_2014-09/compilegsionubuntu1404/</guid>
       <description>###compile GSI in Ubunut 14.04###
- GSI was tried to compile in Ubuntu 12.04, but ended with failure. GSI requieres Gfortran 4.7 and above, ubunut 12.04 repostory is updated upto 4.6, so ubunut has to upgraded from 12.04 to 14.04 to have gfortran 4.7. Due to this Server was upghraded from Ubuntu 12.04 to 14.04 and compiled WRFV4.3.1 and WPS 4.3.1 in it. It was by Gfortran 4.8.2, Netcdf 4.1.3, and other necssary libraries such as libpng, zlib and jasper as per apt-get method.</description>
+ GSI was tried to compile in Ubuntu 12.04, but ended with failure. GSI requires Gfortran 4.7 and above, but 12.04 repository for up to 4.6, so ubuntu has to upgraded from 12.04 to 14.04 to have gfortran 4.7. Due to this Server was upgraded from Ubuntu 12.04 to 14.04 and compiled WRFV4.3.1 and WPS 4.3.1 in it. It was by Gfortran 4.8.2, Netcdf 4.1.3, and other necessary libraries such as libpng, zlib and jasper as per apt-get method.</description>
     </item>
     
     <item>
@@ -300,8 +299,8 @@ This note explains the steps in creating cubietruck cluster for WRF CHEM modelin
       <pubDate>Sun, 14 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-09/emisinv_reas_pandas/</guid>
-      <description>###Working on REAS emission inventory to feed into WRF-CHEM### 1. REAS is a emission inventory for Asia, it has files for different pollutant separated with each category of emission source. For example, pollutant SO2 has 9 files for each emission source categories such as Aviation, Domestic, Industry etc for year 2008.
-1. The files are space separated txt files having fields (columns) for longitude, latitude and monthly emission value 1. Python library pandas is used for importing data into python environment and combining these different category emission source files (9 files) into one single file.</description>
+      <description>###Working on REAS emission inventory to feed into WRF-CHEM### 1. REAS is an emission inventory for Asia, it has separate files for different pollutant with each category of emission source. For example, pollutant SO2 has 9 data files for each emission source types such as Aviation, Domestic, Industry etc for the year 2008.
+1. The files are space separated text files having fields (columns) for longitude, latitude and monthly emission value 1.</description>
     </item>
     
     <item>
@@ -320,12 +319,9 @@ This note explains the steps in creating cubietruck cluster for WRF CHEM modelin
       <pubDate>Wed, 10 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-09/wrf_chem_compile_completenote_server/</guid>
-      <description>export DIR=/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs
-sftp://hoopoe@192.168.1.100/home/hoopoe/wrfchem341/lib/Netcdf4.1.3libs/netcdf/include
-export CC=gcc export CXX=g++ export FC=gfortran export FCFLAGS=-m64 export F77=gfortran export FFLAGS=-m64
-export PATH=$DIR/mpich/bin:$PATH
-export NETCDF=$DIR/netcdf export JASPERLIB=$DIR/grib2/lib export JASPERINC=$DIR/grib2/include export WRFEMCORE=1 export WRFNMMCORE=0 export WRFCHEM=1 export WRFKPP=0 export WRFIONCDLARGEFILESUPPORT=1
-error 1. /bin/sh: 6: mpif90: not found 1. gfortran treating comments as code baased on this 1. still no wrf.exe was formed, by seeing configure.wrf thought environemnt WRFSRCROOTDIR has to be set export WRFSRCROOTDIR=/home/hoopoe/wrfchem341/WRFV3 1. installed sudo apt-get install libcloog-ppl1 1.</description>
+      <description>###Reinstall due to GSI netcdf tested requirement###
+ Compiled netcdf4.2.1.1 based on the [compile.wrf] but it didn&amp;rsquo;t generating nay netcdf.inc as needed by the wrf fortran code and so fails in netcdf gfortran testing stage. Another option is to use netcdf3.6.3, and it gets compiled and generated netcdf.inc, the codes used for compilations are, export CC=gcc export CXX=g++ export FC=gfortran export FCFLAGS=-m64 export F77=gfortran export FFLAGS=-m64
+./configure &amp;ndash;prefix=$DIR/netcdf36 make make install  with this netcdf version, wrfV4.</description>
     </item>
     
     <item>
@@ -335,7 +331,7 @@ error 1. /bin/sh: 6: mpif90: not found 1. gfortran treating comments as code baa
       
       <guid>/working-notes/2014/wn_2014-09/pm_emission_inventory_cbe_sd/</guid>
       <description>####PMEmissionInventoryCoimbatoreStudy design####
-Particulate pollution level and vehicular count sample 1. A sample consist of 3 minutes PM pollution monitoring(1 minute particle count mode, 2 minute mass mode) and 2 minute video recording. 1. Sampling carried on a CNG auto rickshaw, equipped with hand held PM monitor and a web camera based video recorder attached to right side at 0.75 meter from ground of Auto rickshaw.
+Particulate pollution level and vehicular count sample 1. A sample consists of 3 minutes of PM pollution monitoring(1-minute particle count mode, 2-minute mass mode) and 2-minute video recording. 1. Sampling carried on a CNG auto rickshaw, equipped with handheld PM monitor and a web camera based video recorder attached to right side at 0.75 meters from ground of Autorickshaw.
 1. Sixty random points in Coimbatore urban limits, sampling every 4th day for 20 sampling days.</description>
     </item>
     
@@ -350,17 +346,6 @@ Particulate pollution level and vehicular count sample 1. A sample consist of 3 
     </item>
     
     <item>
-      <title>forumpost</title>
-      <link>/working-notes/2014/wn_2014-09/forumpost/</link>
-      <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/working-notes/2014/wn_2014-09/forumpost/</guid>
-      <description>there are example of porting WRF model in ARM processors. Fine grained parallellism, OpenMP, 16bytes genration in GPU exampel study
-WRF is developed with single floating point oeprations and newer modules of WRF such as WRF CHEM for air quality predictions are having single as well as double floating point implemntaiton. There are studies comparing GPU enhanment with double and single point operations.
-Plan of server board cluster Hardware enahmenet Limitation of OpenMP</description>
-    </item>
-    
-    <item>
       <title>WRFCHEM CBE A1</title>
       <link>/working-notes/2014/wn_2014-09/wrfchem_cbe_a1/</link>
       <pubDate>Mon, 08 Sep 2014 00:00:00 +0000</pubDate>
@@ -370,17 +355,6 @@ Plan of server board cluster Hardware enahmenet Limitation of OpenMP</descriptio
 ####WPS#### 1. The WPS components geogrid.exe, ungrib.exe and metgrid.exe was from the output of last run on detailed in this
 ####real.exe#### 1. Real.exe also from the last run output. The output comprised of files namely wrfbdyd01, wrfinputd01, wrfinputd02, wrfinputd03, wrfinputd04 were used as such for convertemiss.exe run.
 ####PrepChemSrc.exe#### 1. It was executed as per the tutorial and PrepChemSrc.exe was executed by following point 3 in that tutorial.</description>
-    </item>
-    
-    <item>
-      <title>ubuntu1204to1404</title>
-      <link>/working-notes/2014/wn_2014-09/ubuntu1204to1404/</link>
-      <pubDate>Mon, 08 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/working-notes/2014/wn_2014-09/ubuntu1204to1404/</guid>
-      <description>####Ubuntu 12.04 to Ubunut 14.04 upgradation####
-fellow@dhcppc3:~$ lsb_release -a No LSB modules are available. Distributor ID: Ubuntu Description: Ubuntu 12.04.3 LTS Release: 12.04 Codename: precise
-fellow@dhcppc3:~$ uname -r 3.5.0-44-generic 1. /boot foldeer is full, free some space to continue upgrade. This isssue was solved by this. Importatnly the command dpkg -l &#39;linux-*&#39; | sed &#39;/^ii/!d;/&#39;&amp;quot;$(uname -r | sed &amp;quot;s/\(.*\)-\([^0-9]\+\)/\1/&amp;quot;)&amp;quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39; shows the absolute kernals in /boot to be removed.</description>
     </item>
     
     <item>
@@ -413,17 +387,7 @@ fellow@dhcppc3:~$ uname -r 3.5.0-44-generic 1. /boot foldeer is full, free some 
       
       <guid>/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</guid>
       <description>####WRF_CHEM domain view by python script####
- WRF CHEM domain in nested has to be visulaised to correct the nesting and for domain size adjustment. There are few tools availble to do that such as dwiz of wrf ems and plotgrid.ncl. There is an alternative with python based on this, it is a wrf script tools for visualizing and nesting based simulation. Set of scripts available has a function to visualize the namelist.</description>
-    </item>
-    
-    <item>
-      <title>Working with WRF CHEM part65 EmissionInventoryTut</title>
-      <link>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part65_emissioninventorytut/</link>
-      <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/working-notes/2014/wn_2014-09/working_with_wrf_chem_part65_emissioninventorytut/</guid>
-      <description>##Trail for WRF-CHEM, WRF CHEM simulation with dust only tutorial## 1. It is based on this to run compiled wrf chem in serial mode with only dust.
-###WPS### 1. WPS components ungrib.exe,geogrid.exe and metgrid.exe was from former dust only run&amp;rsquo;s output based on the note of . ###PrepChemSrc### 1. Prep chem src used was of compiled as per the note. This was ran as per the tutorial point4, the namelist used is this.</description>
+ WRF CHEM domain in nested has to be visualized to correct the nesting and for domain size adjustment. There are few tools available to do that such as dwiz of wrf ems and plotgrid.ncl. There is an alternative with python based on this, it is a wrf script tools for visualizing and nesting based simulation. Set of scripts available has a function to visualize the namelist.</description>
     </item>
     
     <item>
@@ -463,7 +427,7 @@ This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compi
       <pubDate>Thu, 21 Aug 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-08/parallella_for_wrf_chem/</guid>
-      <description>###Parallella cluster for WRF CHEM### 1. WRF-CHEM is a computationally intensive model, for example &amp;ldquo;On a typically-sized 40×40 grid with 20 horizontal layers, the meteorological part of the simulation (the WRF weather model itself) is only 160 × 106 floating point operations per time step, about 2.5% the cost of the full WRF-Chem with both chemical kinetics and aerosol&amp;rdquo;[1].It is generally executed with parallel mode to reduce time latency of model execution time.</description>
+      <description>###Parallella cluster for WRF CHEM### 1. WRF-CHEM is a computationally intensive model, for example, &amp;ldquo;On a typically-sized 40×40 grid with 20 horizontal layers, the meteorological part of the simulation (the WRF weather model itself) is only 160 × 106 floating point operations per time step, about 2.5% the cost of the full WRF-Chem with both chemical kinetics and aerosol&amp;rdquo;[1]. It is generally executed with parallel mode to reduce time latency of model execution time.</description>
     </item>
     
     <item>
@@ -472,9 +436,9 @@ This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compi
       <pubDate>Tue, 19 Aug 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part63_wrf_coimbatorenesting/</guid>
-      <description>##Trail for WRF-CHEM, WRF simulation with domain for Coimbatore and one way Nesting-Ndown.exe## 1. It is based on this to run compiled wrf in serial mode to execute domain over Coimbatore with nested model run by Ndown.exe based one way nesting.
+      <description>##Trail for WRF-CHEM, WRF simulation with domain for Coimbatore and one-way Nesting-Ndown.exe## 1. The trail is based on this page to run compiled WRF in serial mode to execute domain over Coimbatore. Trying the nested model run by Ndown.exe using one-way nesting.
 ###WPS: Ungrib###
- As per this page, the WPS ungrib stage was carried out. The gfs files downloaded was used, average size around 45MB for each files. The files for time peroid 00,03, 06 was kept under a folder gfs.</description>
+ The WPS ungrib stage was carried out as per page, The gfs files downloaded used, average size around 45MB for each file. The data for period 00,03, 06 was kept under a folder gfs.</description>
     </item>
     
     <item>
@@ -499,12 +463,13 @@ This is based on http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php ####compi
     
     <item>
       <title>Working with WRF CHEM part61 WRF KatrinaSingleDomain</title>
-      <link>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part61_wrf_katrinasingledomain/</link>
+      <link>/working-notes/2014/wn_2014-08/working-with-wrf-chem-part61-wrf-katrinasingledomain/</link>
       <pubDate>Tue, 12 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>/working-notes/2014/wn_2014-08/working_with_wrf_chem_part61_wrf_katrinasingledomain/</guid>
-      <description>##Trail for WRF-CHEM, working with WRF simulation with Katrina single domain case## 1. It is based on this to run compiled WRF in serial mode to execute the Katrina case with a single domain. 2. As per this page, the WPS ungrib stage was carried out
-###WPS: Ungrib### 3. The tar file provided with the tutorial was unzipped and compiled WPS folder was copied and bothe these folders were kept under a folder named katrina.</description>
+      <guid>/working-notes/2014/wn_2014-08/working-with-wrf-chem-part61-wrf-katrinasingledomain/</guid>
+      <description>Trail for WRF-CHEM, working with WRF simulation with Katrina single domain case
+ It is based on this to run compiled WRF in serial mode to execute the Katrina case with a single domain. As per this page, the WPS ungrib stage was carried out  WPS: Ungrib
+ The tar file provided with the tutorial was unzipped and compiled WPS folder was copied and bothe these folders were kept under a folder named katrina.</description>
     </item>
     
     <item>
@@ -1045,6 +1010,36 @@ dataso=data.sort(&#39;SamplingDate&#39;, ascending=False)  to join two data fram
       <description>Following http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/ and UdevrulesforUSB&amp;rsquo;sattachedtoRPi
  Create a udev rule for RPI, edited the file /etc/udev/rules.d using command sudo nano /etc/udev/rules.d/90-phone.rules and add following lines to giving a persistent name for USB data card (HUWAEI E303F) and USB to serial cable for Dylos monitor.
 KERNEL==&amp;quot;ttyUSB*&amp;quot;, ATTRS{idVendor}==&amp;quot;12d1&amp;quot;, ATTRS{idProduct}==&amp;quot;1506&amp;quot;, NAME=&amp;quot;phone&amp;quot;, MODE=&amp;quot;0666&amp;quot;,SYMLINK+=&amp;quot;mobile&amp;quot; KERNEL==&amp;quot;ttyUSB*&amp;quot;, ATTRS{idVendor}==&amp;quot;067b&amp;quot;, ATTRS{idProduct}==&amp;quot;2303&amp;quot;, NAME=&amp;quot;dylos&amp;quot;, MODE=&amp;quot;0666&amp;quot;,SYMLINK+=&amp;quot;dylos&amp;quot;  Adding udev rules gives option select devices, while connecting two or more devices. The folder /dev shows the files for USB data card and USB to serial cable for Dylos monitor.</description>
+    </item>
+    
+    <item>
+      <title>Sending SMS with AT and python</title>
+      <link>/working-notes/2014/wn_2014-04/sending-sms-with-at-and-python/</link>
+      <pubDate>Tue, 08 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-04/sending-sms-with-at-and-python/</guid>
+      <description>Huwaei E303F is not working with Gammu, especially in RPi. So found a method to send SMS using this data card without using gammu but using simple AT commands.
+ primarly based on this 1 and this 2 the code written for sending SMS from Dylos serial is as follows
+#!/usr/bin/python import serial import time from curses import ascii import sqlite3 as lite import logging logger = logging.getLogger(&#39;lbm1&#39;) hdlr = logging.</description>
+    </item>
+    
+    <item>
+      <title>HYSPLIT compile</title>
+      <link>/working-notes/2014/wn_2014-04/hysplit_compile/</link>
+      <pubDate>Fri, 04 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-04/hysplit_compile/</guid>
+      <description>Compiling HYSPLIT in Ubuntu 12.04 was hurdled by a error related with netcdf.
+ Installation of netcdf is through compiling and package installation from synaptic package manager. Synaptic and latest source download compilation gives error of &amp;ldquo;no netcdf.inc&amp;rdquo; in hysplit compile. It is due to a fortran binding lapse in latest verision. So used a old version of the netcdf 3.6.3 and compiled following this&amp;ndash; http://code.google.com/p/netcdf4-python/wiki/UbuntuInstall has to give sudo in make and make install, with the first comment disable-shared</description>
+    </item>
+    
+    <item>
+      <title>Sending SMS with Beagle bone black</title>
+      <link>/working-notes/2014/wn_2014-03/sending_sms_with_beagle_bone_black/</link>
+      <pubDate>Tue, 25 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2014/wn_2014-03/sending_sms_with_beagle_bone_black/</guid>
+      <description>BBB is setup with Angstrom Linux, first connected to Ubuntu lap using USB wire from BBB, then a USB was connected to the powered USB hub, in which a serial USB connector and a Huwaei e 173 data (This tested for Huwaei E303F, it worked) card were connected. ssh&amp;rsquo;s into it using ssh 192.168.7.2 -l root and password blank (an enter) lsusb shows Huwaei with modem and serial usb. Need to make usb_modeswitch for Huwaei GSM to sent SMS, so usb_modeswitch has to be installed in the Angstrom, downloaded ipk file (deb in angstrom) from http://feeds.</description>
     </item>
     
   </channel>

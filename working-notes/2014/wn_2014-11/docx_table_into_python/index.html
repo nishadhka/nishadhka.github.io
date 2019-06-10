@@ -15,8 +15,8 @@
 
     
       
-      <meta property="description" content="###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Insted of this the table can be &amp;hellip;">
-      <meta property="og:description" content="###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Insted of this the table can be &amp;hellip;">
+      <meta property="description" content="###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Instead of this the table can &amp;hellip;">
+      <meta property="og:description" content="###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Instead of this the table can &amp;hellip;">
       
     
 
@@ -91,10 +91,10 @@
 
 <p>###Docx table into pandas####
 ####FOr this script /scripts/DOCX<em>PANDAS</em>SEARCH.py####
-1. to import the table in docx format has to use window based python library pywin32. Insted of this the table can be all select, copy paste in Libre calculator and save it as csv.
-1. This csv file will be having one blank line after every row as of DOCX table. To remove this row use <a href="http://stackoverflow.com/questions/4521426/delete-blank-rows-from-csv">this</a> script, edited with considering the special delimiter used to silence the &lsquo;,&rsquo; in address column.</p>
+1. to import the table in docx format has to use window based python library pywin32. Instead of this the table can be all select, copy paste in Libre calculator and save it as csv.
+1. This CSV file will have one blank line after every row as of DOCX table. To remove this row use <a href="http://stackoverflow.com/questions/4521426/delete-blank-rows-from-csv">this</a> script, edited with considering the special delimiter used to silence the &lsquo;,&rsquo; in the address column.</p>
 
-<pre><code>import csv
+<pre><code>import CSV
 ...
 
 input = open('CBEN2.csv', 'rb')
@@ -117,21 +117,21 @@ output.close()
 <p>above gives non equal row values for each column, the csv fileopened in text editor was serached for multiple &lsquo;]]]&rsquo; and removed all of it. but still having unequal row value.</p>
 
 <ol>
-<li>To know the presnece of null values in dat aframe used</li>
+<li>To know the presence of null values in the data frame used</li>
 </ol>
 
 <p>da=pd.isnull(db[&lsquo;Name and Factory address&rsquo;])
 db[&lsquo;Nullys&rsquo;]=pd.isnull(db[&lsquo;Products manufactured with Quantity and Intermediate / By-Products manufactured with Quantity&rsquo;])</p>
 
 <ol>
-<li>To sort the null boolean values and view its location</li>
+<li>To sort the null, boolean values and view its location</li>
 </ol>
 
 <pre><code>rec=db.sort(['Nullys'],ascending=[0])
 </code></pre>
 
 <ol>
-<li>To search for string in particular column</li>
+<li>To search for a string in particular column</li>
 </ol>
 
 <pre><code>db2=db[db['columns'].str.contains(&quot;Search string&quot;)]

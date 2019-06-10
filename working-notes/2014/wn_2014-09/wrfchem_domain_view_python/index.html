@@ -89,10 +89,10 @@
 <p>####WRF_CHEM domain view by python script####</p>
 
 <ol>
-<li>WRF CHEM domain in nested has to be visulaised to correct the nesting and for domain size adjustment. There are few tools availble to do that such as dwiz of wrf ems and plotgrid.ncl.</li>
+<li>WRF CHEM domain in nested has to be visualized to correct the nesting and for domain size adjustment. There are few tools available to do that such as dwiz of wrf ems and plotgrid.ncl.</li>
 <li>There is an alternative with python based on <a href="https://code.google.com/p/pywrf/">this</a>, it is a wrf script tools for visualizing and nesting based simulation. Set of scripts available has a function to visualize the namelist.wps as grid using python matplotlib.</li>
-<li>The <code>def</code> function named as <code>wrf_grid_wrapper</code> is included with wrfutil.py script and it is module like function for pydown.py a main script in pywrf program. In order to use the funcitionality of <code>wrf_grid_wrapper</code>, which rea the namelist.wps and p[lot the grids as per like plotgrid.ncl, the def funciotn and its requiered functions are copied and pasted in a seprate file named <code>wrf_domain.py</code>.</li>
-<li>In the separate file, following def functions are added <code>wrf2latlon, read_namelist, set_default_basemap, plot_grid</code> along with main  <code>wrf_grid_wrapper</code> function and it was called by adding a line  <code>wrf_grid_wrapper()</code> in the end of script. Some of the axuillary def functions are copied from <code>viz/utils.py</code> file which is imported by the wrfutils.py script.</li>
+<li>The <code>def</code> function named as <code>wrf_grid_wrapper</code> is included with wrfutil.py script and it is module like function for pydown.py a main script in pywrf program. In order to use the functionality of <code>wrf_grid_wrapper</code>, which rea the namelist.wps and p[lot the grids as per like plotgrid.ncl, the def function and its required functions are copied and pasted in a separate file named <code>wrf_domain.py</code>.</li>
+<li>In the separate file, following def functions are added <code>wrf2latlon, read_namelist, set_default_basemap, plot_grid</code> along with main  <code>wrf_grid_wrapper</code> function and it was called by adding a line  <code>wrf_grid_wrapper()</code> in the end of script. Some of the auxiliary def functions are copied from <code>viz/utils.py</code> file which is imported by the wrfutils.py script.</li>
 <li>The running of script requires following libraries to import and faced problem related to that.
 
 <ol>
@@ -101,7 +101,7 @@ __import__('pkg_resources').declare_namespace(__name__)</code> this error was so
 <li>have to import <code>import numpy as n</code></li>
 <li>have to import <code>from matplotlib.numerix import ma</code> but based on <a href="http://matplotlib.org/api/api_changes.html">this</a> import was changed into <code>from numpy import ma</code></li>
 <li>have to import <code>from pyproj import Proj</code> this module was installed by downloading it source file from <a href="https://pypi.python.org/pypi/pyproj?">here</a> and installed following its readme as by <code>python setup.py build, sudo python setup.py install</code></li>
-<li>Some minor edits was made on this and also needed to add more functions into the program from main program. Finally the edit fetches to correctness with ploting of outer domain in the background map such as <img src="wrf_domain.png" alt="this" />. Having limitation of viewing only one domain per time.</li>
+<li>Some minor edits were made on this and also needed to add more functions into the program from the main program. Finally, the edit fetches to correctness with the plotting of the outer domain in the background map such as<img src="wrf_domain.png" alt="this" />. Having a limitation of viewing only one domain per time.</li>
 </ol></li>
 </ol>
 

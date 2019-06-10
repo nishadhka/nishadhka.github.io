@@ -36,7 +36,7 @@
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-11/reverse_geocoding/</guid>
-      <description>####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude is not having high resolution to differentiate between to nearby postal code points. For this need a high resolution latitude longitude data, IN this regard GOOGLE MAP API is a good help. As per this from address the latitude and longitude json files can be obtained with its API key, based on this and getting the API access key from here.</description>
+      <description>####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude do not have high resolution to differentiate between to nearby postal code points. For this need a high-resolution latitude-longitude data, Google Map API gives solution. As per its documentation, giving address, the latitude and longitude json files can be obtained with its API key, based on this and getting the API access key from here.</description>
     </item>
     
     <item>
@@ -55,7 +55,7 @@
       <pubDate>Sat, 01 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-11/docx_table_into_python/</guid>
-      <description>###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Insted of this the table can be all select, copy paste in Libre calculator and save it as csv. 1. This csv file will be having one blank line after every row as of DOCX table. To remove this row use this script, edited with considering the special delimiter used to silence the &amp;lsquo;,&amp;rsquo; in address column.</description>
+      <description>###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Instead of this the table can be all select, copy paste in Libre calculator and save it as csv. 1. This CSV file will have one blank line after every row as of DOCX table. To remove this row use this script, edited with considering the special delimiter used to silence the &amp;lsquo;,&amp;rsquo; in the address column.</description>
     </item>
     
     <item>
@@ -65,7 +65,7 @@
       
       <guid>/working-notes/2014/wn_2014-10/plot_netcdf/</guid>
       <description>###Plot NETCDF and create xlsx file for pyWRFChemEmiss####
- The 2010 anthropogenic emission file of Asian region is available in netcdf format. To use it with WRF CHEM, PREPCHEMSRC is limited use mainy because the emission source has to specify and it&amp;rsquo;s conversion factor might not be correct. Complexity/understandability is case for similar emission converter program such as Air Emissions Processor program and SMOKE. In this regard pyWRFChemEmiss give more modular and easy interface to convert emission file to be used with wrf chem.</description>
+ The 2010 anthropogenic emission file of Asian region is available in NetCDF format. To use it with WRF CHEM, PREPCHEMSRC is limited use mainly because the emission source has to specify, and its conversion factor might not be correct. Complexity/understandability is case for similar emission converter program such as Air Emissions Processor program and SMOKE. In this regard pyWRFChemEmiss give a more modular and easy interface to convert emission file to be used with wrf chem.</description>
     </item>
     
     <item>
@@ -75,7 +75,7 @@
       
       <guid>/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</guid>
       <description>####Aerocet Sampling Data, using kml files and pandas####
- The data from dust pollution monitoring in Coimbatore using Aerocet was copy paste into a csv file from miniterm.py program and command 2 given to aerocet. Seprate CSV files were made for count and mass mode sampling. The location of sampling point is made into a point feature in Google earth with name of respective sampling time. This was saved as kml file and opened in QGIS converted into shape file to add gemoetry.</description>
+ The data from dust pollution monitoring in Coimbatore using Aerocet was copy paste into a csv file from miniterm.py program and commanded 2 given to aerocet. Made separate CSV files for count and mass mode sampling. Sampling point locations made into a point feature in Google earth with the name of respective sampling time. Further saved as kml file and opened in QGIS, converted into shapefile to add geometry.</description>
     </item>
     
     <item>
@@ -85,7 +85,7 @@
       
       <guid>/working-notes/2014/wn_2014-09/wrfchem_output_python/</guid>
       <description>###WRFCHEM_output pythonic####
- Related to the last note on getting txt time series data from wrf output here. This note details getting numpy array from wrf output and plotting data in python. The variables requiered from wrfoutput are Temperature, Realtive humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for quick view of the wrf output.</description>
+ Related to the last note on getting txt time series data from wrf output here. This note details getting numpy array from wrf output and plotting data in python. The variables required from wrfoutput are Temperature, Relative humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for a quick view of the wrf output.</description>
     </item>
     
     <item>
@@ -104,7 +104,7 @@
       
       <guid>/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</guid>
       <description>####WRF_CHEM domain view by python script####
- WRF CHEM domain in nested has to be visulaised to correct the nesting and for domain size adjustment. There are few tools availble to do that such as dwiz of wrf ems and plotgrid.ncl. There is an alternative with python based on this, it is a wrf script tools for visualizing and nesting based simulation. Set of scripts available has a function to visualize the namelist.</description>
+ WRF CHEM domain in nested has to be visualized to correct the nesting and for domain size adjustment. There are few tools available to do that such as dwiz of wrf ems and plotgrid.ncl. There is an alternative with python based on this, it is a wrf script tools for visualizing and nesting based simulation. Set of scripts available has a function to visualize the namelist.</description>
     </item>
     
     <item>

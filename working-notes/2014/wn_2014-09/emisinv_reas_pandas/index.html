@@ -15,8 +15,8 @@
 
     
       
-      <meta property="description" content="###Working on REAS emission inventory to feed into WRF-CHEM### 1. REAS is a emission inventory for Asia, it has files for different pollutant separated with each category of emission source. For &amp;hellip;">
-      <meta property="og:description" content="###Working on REAS emission inventory to feed into WRF-CHEM### 1. REAS is a emission inventory for Asia, it has files for different pollutant separated with each category of emission source. For &amp;hellip;">
+      <meta property="description" content="###Working on REAS emission inventory to feed into WRF-CHEM### 1. REAS is an emission inventory for Asia, it has separate files for different pollutant with each category of emission source. For &amp;hellip;">
+      <meta property="og:description" content="###Working on REAS emission inventory to feed into WRF-CHEM### 1. REAS is an emission inventory for Asia, it has separate files for different pollutant with each category of emission source. For &amp;hellip;">
       
     
 
@@ -90,10 +90,10 @@
 
 
 <p>###Working on REAS emission inventory to feed into WRF-CHEM###
-1. REAS is a emission inventory for Asia, it has files for different pollutant separated with each category of emission source. For example, pollutant SO2 has 9 files for each emission source categories such as Aviation, Domestic, Industry etc for year 2008.<br />
-1. The files are space separated txt files having fields (columns) for longitude, latitude and monthly emission value
-1. Python library pandas is used for importing data into python environment and combining these different category emission source files (9 files) into one single file.
-1. to import the files of REAS2.1 into python as pandas dataframe</p>
+1. REAS is an emission inventory for Asia, it has separate files for different pollutant with each category of emission source. For example, pollutant SO2 has 9 data files for each emission source types such as Aviation, Domestic, Industry etc for the year 2008.<br />
+1. The files are space separated text files having fields (columns) for longitude, latitude and monthly emission value
+1. Used the Python library, pandas for importing data into python environment and combining these different category emission source files (9 files) into one single file.
+1. to import the files of REAS2.1 into python as pandas data frame</p>
 
 <pre><code>            a1 = pd.read_csv('REASv2.1_BC__AVIATION_2008_0.25x0.25',skiprows=10,delim_whitespace=True,header=None)
     # to drop the first empty column in dataframe
@@ -133,9 +133,9 @@ for file in fl:
 equal( df1, df2 )</p>
 
 <ol>
-<li>The files for different categories of pollutant source for particular species is having different row length. These different length rows has to matched with every other category and perform addition, faced huge task and difficult in imagine the routine required for this.</li>
-<li>Unable to visualize the data in python platform and using qgis left more difficult in proceed with the above rotine&gt; this made to search for any availability fo NETCDF of REAS data, found <a href="http://mix.greenresource.cn/">this</a> and resolved the need of huge task above. More over this source has Asian emission inventory for the year 2010.</li>
-<li>Realeted to this it is found to access netcdf files without osgeo library. Based on <a href="http://www.hydro.washington.edu/~jhamman/hydro-logic/blog/2013/10/12/plot-netcdf-data/">this</a></li>
+<li>The files have different row length for different categories of pollutant source for particular species. These different length rows have to match with every other category and perform addition, faced the huge task and difficult to imagine the routine required for this.</li>
+<li>Unable to visualize the data in python platform and to use qgis left more difficult in proceeding with the above rotine&gt; this made to search for any availability fo NETCDF of REAS data, found <a href="http://mix.greenresource.cn/">this</a> and resolved the need of huge task above. Moreover, this source has Asian emission inventory for the year 2010.</li>
+<li>Related to this it is found to access NetCDF files without osgeo library. Based on <a href="http://www.hydro.washington.edu/~jhamman/hydro-logic/blog/2013/10/12/plot-netcdf-data/">this</a></li>
 </ol>
 
 

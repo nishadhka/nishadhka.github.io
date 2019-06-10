@@ -18,7 +18,7 @@
       
       <guid>/working-notes/2014/wn_2014-10/plot_netcdf/</guid>
       <description>###Plot NETCDF and create xlsx file for pyWRFChemEmiss####
- The 2010 anthropogenic emission file of Asian region is available in netcdf format. To use it with WRF CHEM, PREPCHEMSRC is limited use mainy because the emission source has to specify and it&amp;rsquo;s conversion factor might not be correct. Complexity/understandability is case for similar emission converter program such as Air Emissions Processor program and SMOKE. In this regard pyWRFChemEmiss give more modular and easy interface to convert emission file to be used with wrf chem.</description>
+ The 2010 anthropogenic emission file of Asian region is available in NetCDF format. To use it with WRF CHEM, PREPCHEMSRC is limited use mainly because the emission source has to specify, and its conversion factor might not be correct. Complexity/understandability is case for similar emission converter program such as Air Emissions Processor program and SMOKE. In this regard pyWRFChemEmiss give a more modular and easy interface to convert emission file to be used with wrf chem.</description>
     </item>
     
     <item>

@@ -15,8 +15,8 @@
 
     
       
-      <meta property="description" content="####DYLOS RPi serial Problem#### 1. RPi(Raspberry pi) has problem in serial read of dylos air quality monitor data, the serial read ends with wrong or misplaced data from the dylos monitor, this &amp;hellip;">
-      <meta property="og:description" content="####DYLOS RPi serial Problem#### 1. RPi(Raspberry pi) has problem in serial read of dylos air quality monitor data, the serial read ends with wrong or misplaced data from the dylos monitor, this &amp;hellip;">
+      <meta property="description" content="####DYLOS RPi serial Problem#### 1. RPi(Raspberry pi) has a problem in the serial read of dylos air quality monitor data. The serial read ends with wrong or misplaced data from the dylos monitor, this &amp;hellip;">
+      <meta property="og:description" content="####DYLOS RPi serial Problem#### 1. RPi(Raspberry pi) has a problem in the serial read of dylos air quality monitor data. The serial read ends with wrong or misplaced data from the dylos monitor, this &amp;hellip;">
       
     
 
@@ -90,10 +90,10 @@
 
 
 <p>####DYLOS RPi serial Problem####
-1. RPi(Raspberry pi) has problem in serial read of dylos air quality monitor data, the serial read ends with wrong or misplaced data from the dylos monitor, this problem was mentioned in this (note)(Serial<em>port</em>problem<em>lbm1</em>knmr.md). For example runnnnig of the python command for getting dylos serial read ends as follows</p>
+1. RPi(Raspberry pi) has a problem in the serial read of dylos air quality monitor data. The serial read ends with wrong or misplaced data from the dylos monitor, this problem is mentioned in this (note)(Serial<em>port</em>problem<em>lbm1</em>knmr.md). For example, running of the python command for getting dylos serial read ends as follows</p>
 
 <pre><code>            pi@raspberrypi ~/SMS $ python
-        &gt;&gt;&gt; import serial
+          &gt;&gt;&gt; import serial
     &gt;&gt;&gt; ser = serial.Serial('/dev/dylos', 9600, timeout=60)
     &gt;&gt;&gt; line = ser.readline()
             &gt;&gt;&gt; line
@@ -110,7 +110,7 @@
 
         real    1m0.474s
         user    0m0.311s
-        sys 0m0.088s
+        sys    0m0.088s
 </code></pre></li>
 </ol>
 

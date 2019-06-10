@@ -18,7 +18,7 @@
       
       <guid>/working-notes/2014/wn_2014-11/git_delete_routine/</guid>
       <description>####git delete routine####
- Using git and github, to remove a file which is committed earlier is requier following steps. Even though the file will be removed with delete button option of OS. The committed files still be inside the git version control system and it will make problem in uploading it into github if it is large file size &amp;gt;100MB accidently committed. First to list the files deleted in the OS but not in git system, based on this.</description>
+ Completely remove or delete a committed file in git repo require following steps. Even though the file gets removed with delete button option of OS. The committed files are still inside the git version control system, and it will make problem in uploading it into GitHub if it is large file size &amp;gt;100MB accidentally committed. First to list the files deleted in the OS but not in git system, based on this.</description>
     </item>
     
   </channel>

@@ -6,10 +6,19 @@
     <description>Recent content in AWS on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Sep 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GEOS-CHEM simulation using AWS</title>
+      <link>/working-notes/2019/geos-chem-simulation-using-aws/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2019/geos-chem-simulation-using-aws/</guid>
+      <description>Based on https://cloud-gc.readthedocs.io/en/latest/</description>
+    </item>
     
     <item>
       <title>WRFCHEM CBE aOptionwithAWS StarCluster</title>

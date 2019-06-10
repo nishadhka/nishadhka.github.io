@@ -16,9 +16,9 @@
     
       
       <meta property="description" content="###Plot NETCDF and create xlsx file for pyWRFChemEmiss####
-[&amp;hellip;] #####Plotting netcdf file##### 1. Below script is used for a start on plotting netcdf file. Earlier not on plotting netcdf with &amp;hellip;">
+[&amp;hellip;] #####Plotting NetCDF file##### 1. Below script is used for a start on plotting NetCDF file. Earlier not on plotting NetCDF with &amp;hellip;">
       <meta property="og:description" content="###Plot NETCDF and create xlsx file for pyWRFChemEmiss####
-[&amp;hellip;] #####Plotting netcdf file##### 1. Below script is used for a start on plotting netcdf file. Earlier not on plotting netcdf with &amp;hellip;">
+[&amp;hellip;] #####Plotting NetCDF file##### 1. Below script is used for a start on plotting NetCDF file. Earlier not on plotting NetCDF with &amp;hellip;">
       
     
 
@@ -94,13 +94,13 @@
 <p>###Plot NETCDF and create xlsx file for pyWRFChemEmiss####</p>
 
 <ol>
-<li>The 2010 anthropogenic emission file of Asian region is <a href="http://mix.greenresource.cn/">available</a> in netcdf format. To use it with WRF CHEM, PREP<em>CHEM</em>SRC is limited use mainy because the emission source has to specify and it&rsquo;s conversion factor might not be correct. Complexity/understandability is case for similar emission converter program such as <a href="https://bitbucket.org/ctessum/aep/">Air Emissions Processor program</a> and <a href="http://www.cmascenter.org/smoke/">SMOKE</a>.</li>
-<li>In this regard <a href="https://github.com/arifwn/pyWRFChemEmiss">pyWRFChemEmiss</a> give more modular and easy interface to convert emission file to be used with wrf chem. This program requires emission file to be in xlsx formate as specified <a href="https://github.com/arifwn/pyWRFChemEmiss/issues/1">here</a>.</li>
-<li>So a shopping is made for visualizing and convert netcdf file. Available option  is one using R based on library ncdf and another with python netcdf4. The attempt with ncdf was not fruitful due to gdal library conflict. The library python-netcdf4 is vaible otion is with lots of examples and use case.</li>
+<li>The 2010 anthropogenic emission file of Asian region is <a href="http://mix.greenresource.cn/">available</a> in NetCDF format. To use it with WRF CHEM, PREP<em>CHEM</em>SRC is limited use mainly because the emission source has to specify, and its conversion factor might not be correct. Complexity/understandability is case for similar emission converter program such as <a href="https://bitbucket.org/ctessum/aep/">Air Emissions Processor program</a> and <a href="http://www.cmascenter.org/smoke/">SMOKE</a>.</li>
+<li>In this regard <a href="https://github.com/arifwn/pyWRFChemEmiss">pyWRFChemEmiss</a> give a more modular and easy interface to convert emission file to be used with wrf chem. This program requires emission file to be in xlsx formate as specified <a href="https://github.com/arifwn/pyWRFChemEmiss/issues/1">here</a>.</li>
+<li>Did a search for visualizing and convert NetCDF file. An available option is one using R based on library ncdf and another with python netcdf4. The attempt with ncdf was not fruitful due to gdal library conflict. The library python-netcdf4 is viable option is with lots of examples and use case.</li>
 </ol>
 
-<p>#####Plotting netcdf file#####
-1. Below script is used for a start on plotting netcdf file. Earlier not on plotting netcdf with gdal is not working now due to soime gdal library conflict. The below prgram is from <a href="http://waterprogramming.wordpress.com/2014/04/30/plotting-a-map-of-netcdf-data-with-matplotlibbasemap/">here</a></p>
+<p>#####Plotting NetCDF file#####
+1. Below script is used for a start on plotting NetCDF file. Earlier not on plotting NetCDF with gdal is not working now due to some gdal library conflict. The below program is from <a href="http://waterprogramming.wordpress.com/2014/04/30/plotting-a-map-of-netcdf-data-with-matplotlibbasemap/">here</a></p>
 
 <pre><code>            import matplotlib.pyplot as plt
             from mpl_toolkits.basemap import Basemap
@@ -116,18 +116,18 @@
             for i,j in xrange(0, lats.size):
                 ilat = int(lats[i] + 90.0)
                 ilon = int(lons[i] - 0.5)
-                if ilon &lt; 179 or ilon &gt; 181: # HACK: to avoid               date-line wraparound problem
-    array[ilat,ilon] = tmax[i,j]
+                if ilon &lt; 179 or ilon &gt; 181: # HACK: to avoid                 date-line wraparound problem
+      array[ilat,ilon] = tmax[i,j]
 </code></pre>
 
 <ol>
-<li><p>Another working script to plot the netcdf file</p>
+<li><p>Another working script to plot the NetCDF file</p>
 
 <pre><code>        import matplotlib.pyplot as plt
         from mpl_toolkits.basemap import Basemap
         from netCDF4 import Dataset
         import numpy as np
-        my_example_nc_file = '/home/swl-sacon-dst/Documents/GISE_2013/LAB/WRF-chem/Data/2010/   MICS_Asia_BC_2010_0.25x0.25.nc'
+        my_example_nc_file = '/home/swl-sacon-dst/Documents/GISE_2013/LAB/WRF-chem/Data/2010/    MICS_Asia_BC_2010_0.25x0.25.nc'
         fh = Dataset(my_example_nc_file, mode='r')
         print fh.variables.keys()
         print fh.variables['BC_POWER']
@@ -146,7 +146,7 @@
         #cs = m.pcolor(tmaxA)
         #above command retunrs error of ```TypeError: pcolor() takes at least 4 arguments (2 given)```
         cs = m.imshow(tmaxA)
-        m.drawparallels(np.arange(-80., 81., 10.),  labels= [1,0,0,0], fontsize=10)
+        m.drawparallels(np.arange(-80., 81., 10.),     labels=    [1,0,0,0], fontsize=10)
         m.drawmeridians(np.arange(-180., 181., 10.), labels=[0,0,0,1], fontsize=10)
         m.drawcoastlines()
         cbar = m.colorbar(cs, location='bottom', pad=&quot;10%&quot;)
@@ -167,7 +167,7 @@
 </code></pre>
 
 <ol>
-<li><p>The library utm requires lat long in specified range, for this the emission netcdf file has to be subset, it is based on <a href="http://gis.stackexchange.com/questions/112595/gdal-for-python-extracting-subdomains-from-netcdf-file">this</a> and <a href="http://netcdf4-python.googlecode.com/svn/trunk/docs/netCDF4-module.html">this</a> more comprehensive page on netcdf4. Based on this it is found that the netcdf can be converted into numpy array and it can be subset by calling the position based numpy array query. The method followed is to view the lat or loin value is netcdf file and creat and dump array based on the lat long values from this it cna be count the likely position of required lat long to be subset, that way the emission concentration also can be subset</p>
+<li><p>The library utm requires lat long in the specified range, for this the emission NetCDF file has to be a subset, it is based on <a href="http://gis.stackexchange.com/questions/112595/gdal-for-python-extracting-subdomains-from-netcdf-file">this</a> and <a href="http://netcdf4-python.googlecode.com/svn/trunk/docs/netCDF4-module.html">this</a> more comprehensive page on netcdf4. Based on this it is found that the netcdf can be converted into numpy array and it can be subset by calling the position based numpy array query. The method followed is to view the lat or loin value is netcdf file and creat and dump array based on the lat long values from this it cna be count the likely position of required lat long to be subset, that way the emission concentration also can be subset</p>
 
 <pre><code>        count =  numpy.arange(40.125,110.125,0.25)
         len(count)
@@ -196,7 +196,7 @@ d1.to_csv('data.csv')
 
 <li><p>This xlsx file was opened in pywrfemiss program and mentioned its variable as per specifed and it created two file <code>wrfem_00to12z_d01</code> and <code>wrfem_12to24z_d01</code>. SOme minor problem due to not correct conversion of netcdf file into xlsx by python is faced but it was solved and reported in program issue.</p></li>
 
-<li><p>Attmept to creat PM2.5 and PM10 emission for cbe domain 2</p></li>
+<li><p>Attempt to create PM2.5 and PM10 emission for cbe domain 2</p></li>
 </ol>
 
 <p>from netCDF4 import Dataset
@@ -438,7 +438,7 @@ MICS</em>m1[&lsquo;PM10<em>0</em>c&rsquo;]=MICS<em>m1.PM10</em>0*(1000000/731.48
 
 <p><a href="http://stackoverflow.com/questions/2641691/building-up-an-array-in-numpy-scipy-by-iteration-in-python">http://stackoverflow.com/questions/2641691/building-up-an-array-in-numpy-scipy-by-iteration-in-python</a></p>
 
-<p>here for <a href="http://docs.scipy.org/doc/numpy/user/basics.rec.html">http://docs.scipy.org/doc/numpy/user/basics.rec.html</a> basic of strcutre list</p>
+<p>here for <a href="http://docs.scipy.org/doc/numpy/user/basics.rec.html">http://docs.scipy.org/doc/numpy/user/basics.rec.html</a> basic of structure list</p>
 
 <p><a href="http://stackoverflow.com/questions/13693751/how-can-we-join-two-columns-of-a-numpy-array-into-a-single-column-separating-th">http://stackoverflow.com/questions/13693751/how-can-we-join-two-columns-of-a-numpy-array-into-a-single-column-separating-th</a></p>
 

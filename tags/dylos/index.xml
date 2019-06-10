@@ -18,7 +18,7 @@
       
       <guid>/working-notes/2014/wn_2014-11/redeploy_dylos_tdm/</guid>
       <description>###Redeploy Dylos in TDM###
- After running with problem of excessive particle reading in UPS back up power, this note discuss its redeployment in same station. The problem of UPS back up power excessive reading was contained by using pure sine wave UPS. In redeployment as an addition, DHT11, humidity temperature sensor was added along with DYLOS, RPi, USB data card setup. The DHT 11 humidity temperature sensor was attached with RPI following this as per the below .</description>
+ After running with the problem of excessive particle reading in UPS back up power, this note discusses its redeployment in the same station. The problem of UPS back up excessive power reading was contained by using pure sine wave UPS. In redeployment as an addition, added DHT11, humidity temperature sensor along with Dylos, RPi, USB data card setup. Attached the DHT 11 humidity temperature sensor with RPI following this as per the below .</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       <pubDate>Tue, 07 Oct 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-10/dylos_rpi_serial_problem/</guid>
-      <description>####DYLOS RPi serial Problem#### 1. RPi(Raspberry pi) has problem in serial read of dylos air quality monitor data, the serial read ends with wrong or misplaced data from the dylos monitor, this problem was mentioned in this (note)(Serialportproblemlbm1knmr.md). For example runnnnig of the python command for getting dylos serial read ends as follows
+      <description>####DYLOS RPi serial Problem#### 1. RPi(Raspberry pi) has a problem in the serial read of dylos air quality monitor data. The serial read ends with wrong or misplaced data from the dylos monitor, this problem is mentioned in this (note)(Serialportproblemlbm1knmr.md). For example, running of the python command for getting dylos serial read ends as follows
  pi@raspberrypi ~/SMS $ python &amp;gt;&amp;gt;&amp;gt; import serial &amp;gt;&amp;gt;&amp;gt; ser = serial.Serial(&#39;/dev/dylos&#39;, 9600, timeout=60) &amp;gt;&amp;gt;&amp;gt; line = ser.</description>
     </item>
     

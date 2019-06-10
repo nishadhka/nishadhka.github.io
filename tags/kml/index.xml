@@ -18,7 +18,7 @@
       
       <guid>/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</guid>
       <description>####Aerocet Sampling Data, using kml files and pandas####
- The data from dust pollution monitoring in Coimbatore using Aerocet was copy paste into a csv file from miniterm.py program and command 2 given to aerocet. Seprate CSV files were made for count and mass mode sampling. The location of sampling point is made into a point feature in Google earth with name of respective sampling time. This was saved as kml file and opened in QGIS converted into shape file to add gemoetry.</description>
+ The data from dust pollution monitoring in Coimbatore using Aerocet was copy paste into a csv file from miniterm.py program and commanded 2 given to aerocet. Made separate CSV files for count and mass mode sampling. Sampling point locations made into a point feature in Google earth with the name of respective sampling time. Further saved as kml file and opened in QGIS, converted into shapefile to add geometry.</description>
     </item>
     
   </channel>

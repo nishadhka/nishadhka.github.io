@@ -16,11 +16,11 @@
     
       
       <meta property="description" content="####cubie truck cluster for WRF CHEM####
-This note explains the steps in creating cubietruck cluster for WRF CHEM modeling.
-#####Installing debian##### 1. cubietruck is preinstalled with Android as &amp;hellip;">
+This note explains the steps in creating Cubietruck cluster for WRF CHEM modeling.
+#####Installing debian##### 1. Cubietruck is having Android OS preinstalled &amp;hellip;">
       <meta property="og:description" content="####cubie truck cluster for WRF CHEM####
-This note explains the steps in creating cubietruck cluster for WRF CHEM modeling.
-#####Installing debian##### 1. cubietruck is preinstalled with Android as &amp;hellip;">
+This note explains the steps in creating Cubietruck cluster for WRF CHEM modeling.
+#####Installing debian##### 1. Cubietruck is having Android OS preinstalled &amp;hellip;">
       
     
 
@@ -95,33 +95,33 @@ This note explains the steps in creating cubietruck cluster for WRF CHEM modelin
 
 <p>####cubie truck cluster for WRF CHEM####</p>
 
-<p>This note explains the steps in creating cubietruck cluster for WRF CHEM modeling.</p>
+<p>This note explains the steps in creating Cubietruck cluster for WRF CHEM modeling.</p>
 
 <p>#####Installing debian#####
-1. cubietruck is preinstalled with Android as its main os for its inbuilt nand storage of 8 GB harddisk. To chane this into debian os follwoing steps were followed.
-1. More number of attempts was made for running debain or ubunut os image in cubietruck, Later found a tweaked image from <a href="http://www.igorpecovnik.com/2013/12/24/cubietruck-debian-wheezy-sd-card-image/">here</a> aat first sight shows promising for WRF CHEM.
+1. Cubietruck is having Android OS preinstalled as its main os for its inbuilt nand storage of 8 GB hard disk. To change this into Debian os following steps were followed.
+1. Made several attempts for running Debian or ubuntu os image in Cubietruck. Later found a tweaked image from <a href="http://www.igorpecovnik.com/2013/12/24/cubietruck-debian-wheezy-sd-card-image/">here</a> at first sight shows promising for WRF CHEM.
 1. The image from <a href="http://cubie.nobrainz.de/downloads/Cubietruck_Debian_2.8_wheezy.zip">here</a> was copied into 4GB SD card using this command <code>dd if=/home/swl-sacon-dst/Documents/GISE_2013/LAB/Cubietruck/CT_Debian_2.7_wheezy/CT_Debian_2.7_wheezy.raw of=/dev/sdb bs=4096; sync</code>. The system tool gpart was used for foramting the sd card.
-1. AFtre this wrting sd card was loaded into cubietruck(CT) and booted, by default CT is primed for SD card boot than nand, so it booted and the debian was running from the SD card. To write the SD card os into NAND flash, follwoing attempts werew made
-1. First attempt: used the provided script with sd card to flash the nand. Though the script ended without any error but failed to boot without sd card.
-1. Second attempt: based on this <a href="http://linux-sunxi.org/Cubieboard/Installing_on_NAND">page</a> the SD card os image was copied into nand flash by formating and rsync. This also ends in non bootable nand flash. Followed this <a href="http://www.cubieforums.com/index.php?topic=1134.0">note</a> also, but no positive output.
-1. Third attempt: followed as per the used os image page instruction. It is instructed to flash lubunut os on the nand image using All winner supplied tool LiveSuit, then use the nand_flash.sh script. For this live suit was used based on thsi <a href="http://linux-sunxi.org/LiveSuit">page</a> but ends in problem of not recognized by laptop for the allwinner USB of cubitruck attached to it. Later it is found that from <a href="https://groups.google.com/forum/#!topic/cubieboard/pKFduXRdeNc">here</a> it is of problem with kernal version. So started livesuit in a nother ubunut 12.04 with keranl version 3.02, it recongnized cuibitruck usb and flashed its nand with lubuntu os.
-1. In the lubuntu os, then used the sd card debian image and flashed, this time the nand was flashed and cubietruck was running without sd card os, debain wheezy in NAND flash.</p>
+1. Aftre writing, loaded the sd card into cubietruck(CT) and booted. It is by default CT is primed for SD card boot than nand, so it booted and the Debian was running from the SD card. To write the SD card os into NAND flash, following attempts were made
+1. The first attempt: used the provided script with sd card to flash the nand. Though the script ended without any error but failed to boot without sd card.
+1. Second attempt: based on this <a href="http://linux-sunxi.org/Cubieboard/Installing_on_NAND">page</a> the SD card os image was copied into NAND flash by formating and rsync. This also ends in non bootable NAND flash. Followed this <a href="http://www.cubieforums.com/index.php?topic=1134.0">note</a> also, but no actual output.
+1. The third attempt: followed as per the used os image page instruction. It is instructed to flash lubuntu os on the nand image using All winner supplied tool LiveSuit, then use the nand_flash.sh script. For this live suit was used based on thsi <a href="http://linux-sunxi.org/LiveSuit">page</a> but ended in the problem of not recognized by the laptop for the allwinner USB of cubietruck attached to it. Later it is found that from <a href="https://groups.google.com/forum/#!topic/cubieboard/pKFduXRdeNc">here</a> it is of the problem with kernel version. So started livesuit in another ubunut 12.04 with kernel version 3.02, it recognized cuibetruck usb and flashed its nand with lubuntu os.
+1. In the lubuntu os, then used the sd card Debian image and flashed, this time the nand was flashed and cubietruck was running without sd card os, Debian wheezy in NAND flash.</p>
 
 <p>####Compile WRF CHEM####
-1. Choosing the right gcc and gfortran based on update-alternatives, and it choosed gcc 4.7 and gfortran 4.7. With different gcc and gfrotran version as of GSI compilation it ends in gcc, gfortran testing of wrf compilaiton a erroneaous. Same version of gcc and gfortran cleared the test without any error.</p>
+1. Choosing the right gcc and gfortran based on update-alternatives, and it chose gcc 4.7 and gfortran 4.7. With different gcc and gfrotran version as of GSI compilation, it ends in gcc, gfortran testing of wrf compilation an erroneous. The same version of gcc and gfortran cleared the test without any error.</p>
 
 <pre><code>                sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.4 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.4 
                 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.6 40 --slave /usr/bin/g++ g++ /usr/bin/g++-4.6 
                 sudo update-alternatives --config gcc      
 
 
-                sudo update-alternatives --install /usr/bin/gfortran gfortran   /usr/bin/gfortran-4.7 60
+                sudo update-alternatives --install /usr/bin/gfortran gfortran    /usr/bin/gfortran-4.7 60
                 sudo update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran-4.4 10
                 sudo update-alternatives --config gfortran
 </code></pre>
 
 <ol>
-<li><p>Following GSI compilation Openmpi 1.6.1 was compiled in cubietruck debian wheezy. It was based on <a href="http://verahill.blogspot.in/2012/06/compiling-openmpi-on-debian-wheezy.html">this</a>. Earlier openmpi 1.8.1 compilation ends in failure.</p>
+<li><p>Following GSI compilation Openmpi 1.6.1 was compiled in cubietruck Debian wheezy. It was based on <a href="http://verahill.blogspot.in/2012/06/compiling-openmpi-on-debian-wheezy.html">this</a>. Earlier openmpi 1.8.1 compilation fails.</p>
 
 <pre><code>        wget http://www.open-mpi.org/software/ompi/v1.6/downloads/openmpi-1.6.tar.bz2
         tar xvf openmpi-1.6.tar.bz2

@@ -15,8 +15,8 @@
 
     
       
-      <meta property="description" content="####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude is not &amp;hellip;">
-      <meta property="og:description" content="####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude is not &amp;hellip;">
+      <meta property="description" content="####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude do not &amp;hellip;">
+      <meta property="og:description" content="####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude do not &amp;hellip;">
       
     
 
@@ -91,8 +91,8 @@
 
 <p>####REVERSE<em>GEocdoing####
 #####It is for this script /scripts/api</em>script.py and jsontopandas.py#####
-1. As per the notes on <code>Geonames_Pandas_Shapefile.md</code>, the postal code latitude and longitude is not having high resolution to differentiate between to nearby postal code points. For this need a high resolution latitude longitude data, IN  this regard GOOGLE MAP API is a good help. As per this from address the latitude and longitude json files can be obtained with its API key, based on <a href="https://developers.google.com/maps/documentation/geocoding/#api_key">this</a> and getting the API access key from <a href="https://code.google.com/apis/console/">here</a>.  For more <a href="https://developers.google.com/maps/documentation/javascript/geocoding">info</a>, <a href="https://developers.google.com/maps/documentation/business/geolocation/">info2</a>
-1. To get the latitde and logitue of location name used follwoing script based on <a href="http://stackoverflow.com/questions/19795012/how-to-convert-a-list-to-jsonarray-in-python">this</a> and the script is below</p>
+1. As per the notes on <code>Geonames_Pandas_Shapefile.md</code>, the postal code latitude and longitude do not have high resolution to differentiate between to nearby postal code points. For this need a high-resolution latitude-longitude data, Google Map API gives solution. As per its documentation, giving address, the latitude and longitude json files can be obtained with its API key, based on <a href="https://developers.google.com/maps/documentation/geocoding/#api_key">this</a> and getting the API access key from <a href="https://code.google.com/apis/console/">here</a>.  For more <a href="https://developers.google.com/maps/documentation/javascript/geocoding">info</a>, <a href="https://developers.google.com/maps/documentation/business/geolocation/">info2</a>
+1. To get the latitude and longitude of location, used following script based on <a href="http://stackoverflow.com/questions/19795012/how-to-convert-a-list-to-jsonarray-in-python">this</a> and the script is below</p>
 
 <pre><code>import json
 import urllib2
@@ -109,29 +109,28 @@ db[&quot;placeName_1&quot;] = df[&quot;placeName&quot;].map(str.strip)
 data = json.load(urllib2.urlopen(url))
 a=[]
 for name in names:
-		url = &quot;https://maps.googleapis.com/maps/api/geocode/json?address=&quot;+name+&quot;&amp;key=APIkey&quot;
-		data = json.load(urllib2.urlopen(url))
-		a.append(data)
+        url = &quot;https://maps.googleapis.com/maps/api/geocode/json?address=&quot;+name+&quot;&amp;key=APIkey&quot;
+        data = json.load(urllib2.urlopen(url))
+        a.append(data)
 ouputfilename='loc_latA1.json'
 with open(outputfilename, 'wb') as outfile:
      json.dump(a, outfile)
 </code></pre>
 
 <ol>
-<li>IN which the dataframae also can added as a list but having problem with names having space in it such name having <code>RS Puram</code> which through error of &lsquo;url wrong&rsquo; so it has to converted into <code>RS+PURAM</code></li>
-<li>For that to replace the empty space with +, use below code as per <a href="http://stackoverflow.com/questions/14345739/replacing-part-of-string-in-python-pandas-dataframe">this</a></li>
+<li>In which the data frame also can be added as a list but having problem with names having space in it such name having <code>RS Puram</code> which through the error of &lsquo;url wrong&rsquo; so it has to converted into <code>RS+PURAM</code></li>
+<li>For that to replace the space with +, use below code as per <a href="http://stackoverflow.com/questions/14345739/replacing-part-of-string-in-python-pandas-dataframe">this</a></li>
 </ol>
 
 <p>db[&lsquo;placeName<em>1&rsquo;] = db[&lsquo;placeName&rsquo;].str.replace(&rsquo; &lsquo;, &lsquo;+&rsquo;)
-db[&lsquo;placeName</em>2&rsquo;] = db[&lsquo;placeName<em>1&rsquo;].str.replace(&lsquo;.&rsquo;, &lsquo;+&rsquo;)
-1. With this change the above script returned all the json putput into the file specified and cotaines arround 550 ekement removing empty spaces.
-1. This json has to be converted into csv or pandas dataframe to be use with location merging and creating shape file etc. Huge number of attempt was taken for converting theis dataframe into csv formate.
-1. A former attempt was made with this and it was very easier to edit or work with json, since it is forgotten the attmepts were spent for reinventing the wheel. Even though this attmept is made with converting json into pandas different to earlier with list makes worthwhile.
-1. Major steps made was on with reading json as dataframe, removing eny empty sapces such ZERO</em>STATUS in API call, then converted into array list of dcitonaty and for loop this list to get the requiered field of infomration from json file of API call.
-1. It is found that the JSON created by earlier step is not per se json. The created file is list of dictonaries, json is pure dictionaries, this seems to made problem in correct query and large attmep is spend on the correct query of the requered filds from the json file.
-1. A sperate for loop was made for sperated the delimtter betwen address and lat long. another for loop for to Select only the Pincode from the address leaving other address details . The last for loop list has to be flatten by <code>sdp1=list(itertools.chain(*sdp))</code> to avoid the double column creation in pandas dataframe creation.
-1. A huge attempt was amde for join the two dataframe to get the address with latit and long information from API json, but it was not happeining nand it has to be resolved, one working example in this regard is <a href="http://stackoverflow.com/questions/19763084/comparison-and-join-of-two-different-data-frames-with-strings">this</a>
-1. All the google saerch result stack overflow answers and other info are saved in a folder jsontopands.</p>
+db[&lsquo;placeName</em>2&rsquo;] = db[&lsquo;placeName_1&rsquo;].str.replace(&lsquo;.&rsquo;, &lsquo;+&rsquo;)</p>
+
+<ol>
+<li>With this change, the above script returned all the json output into the file specified and contains around 550 element removing empty spaces.</li>
+<li>This json has to be converted into csv or pandas data frame to be used with location merging and creating shape file etc.</li>
+<li>Major steps made was on with reading json as data frames, removing any empty spaces such ZERO_STATUS in API call, then converted into array list of dictionary and for a loop this list to get the required field of information from json file of API call.</li>
+<li>The created JSON by earlier step is not a standard json. Instead, it is a list of dictionaries, JSON is pure dictionaries without list, this seems to making problem in incorrect query.</li>
+</ol>
 
 
   <footer>

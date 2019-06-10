@@ -89,13 +89,13 @@
 <p>####git delete routine####</p>
 
 <ol>
-<li>Using git and github, to remove a file which is committed earlier is requier following steps. Even though the file will be removed with delete button option of OS. The committed files still be inside the git version control system and it will make problem in uploading it into github if it is large file size &gt;100MB accidently committed.</li>
-<li>First to list the files deleted in the OS but not in git system, based on <a href="http://stackoverflow.com/questions/6017987/is-there-a-way-in-git-to-list-all-deleted-files-in-the-repository">this</a>. The command for list the deleted files <code>git ls-files --deleted</code></li>
-<li>The remove all the files in deleted list from git system using same above command but with xarg command to loop the list and execute the git rm command as follows <code>git ls-files --deleted | xargs git rm</code></li>
+<li>Completely remove or delete a committed file in git repo require following steps. Even though the file gets removed with delete button option of OS. The committed files are still inside the git version control system, and it will make problem in uploading it into GitHub if it is large file size &gt;100MB accidentally committed.</li>
+<li>First to list the files deleted in the OS but not in git system, based on <a href="http://stackoverflow.com/questions/6017987/is-there-a-way-in-git-to-list-all-deleted-files-in-the-repository">this</a>. The command for listing the deleted files <code>git ls-files --deleted</code></li>
+<li>The remove all the files in the deleted list from git system using same above command but with xarg command to loop the list and execute the git rm command as follows <code>git ls-files --deleted | xargs git rm</code></li>
 <li>From the same page to list all the files in git system also
 <code>git log --all --pretty=format: --name-only --diff-filter=D | sort -u</code></li>
-<li>But the problem of large file size of github is not gone away, it is found that the problem is complex and need specific codes to do that such <a href="http://stackoverflow.com/questions/23435624/git-complaining-about-a-large-file-i-deleted">this</a>.</li>
-<li>The easiest way forward in this situation is feshely clone the remtotre repositry and add the new files in it and recommit. The issue here is lose of no nupdates commit.</li>
+<li>The problem of the large file size of GitHub is still not addressed. The problem is complex and needs specific codes to do that such <a href="http://stackoverflow.com/questions/23435624/git-complaining-about-a-large-file-i-deleted">this</a>.</li>
+<li>The easiest way forward in this situation is freshly clone the remote repository and add the new files in it and recommit. The issue here is losing of old commits.</li>
 </ol>
 
 

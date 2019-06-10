@@ -16,11 +16,11 @@
     
       
       <meta property="description" content="###compile GSI in Ubunut 14.04###
-[&amp;hellip;] OpenMpi was installed by following commands from from above refered page
-wget https://www.open-mpi.org/software/ompi/v1.8/downloads/openmpi-1.8.1.tar.gz &amp;hellip;">
+[&amp;hellip;] OpenMpi was installed by following commands from above-refered page
+wget https://www.open-mpi.org/software/ompi/v1.8/downloads/openmpi-1.8.1.tar.gz tar &amp;hellip;">
       <meta property="og:description" content="###compile GSI in Ubunut 14.04###
-[&amp;hellip;] OpenMpi was installed by following commands from from above refered page
-wget https://www.open-mpi.org/software/ompi/v1.8/downloads/openmpi-1.8.1.tar.gz &amp;hellip;">
+[&amp;hellip;] OpenMpi was installed by following commands from above-refered page
+wget https://www.open-mpi.org/software/ompi/v1.8/downloads/openmpi-1.8.1.tar.gz tar &amp;hellip;">
       
     
 
@@ -96,15 +96,15 @@ wget https://www.open-mpi.org/software/ompi/v1.8/downloads/openmpi-1.8.1.tar.gz 
 <p>###compile GSI in Ubunut 14.04###</p>
 
 <ol>
-<li>GSI was tried to compile in Ubuntu 12.04, but ended with failure. GSI requieres Gfortran 4.7 and above, ubunut 12.04 repostory is updated upto 4.6, so ubunut has to upgraded from 12.04 to 14.04 to have gfortran 4.7.</li>
-<li>Due to this Server was upghraded from Ubuntu 12.04 to 14.04 and compiled WRFV4.3.1 and WPS 4.3.1 in it. It was by Gfortran 4.8.2, Netcdf 4.1.3, and other necssary libraries such as libpng, zlib and jasper as per apt-get method.</li>
-<li>GSI is requiered to have OpenMPI for its parallell programming. For this the installation of OpenMPI was follwoed from <a href="http://www.sysads.co.uk/2014/05/install-open-mpi-1-8-ubuntu-14-04-13-10/">this</a>.</li>
+<li>GSI was tried to compile in Ubuntu 12.04, but ended with failure. GSI requires Gfortran 4.7 and above, but 12.04 repository for up to 4.6, so ubuntu has to upgraded from 12.04 to 14.04 to have gfortran 4.7.</li>
+<li>Due to this Server was upgraded from Ubuntu 12.04 to 14.04 and compiled WRFV4.3.1 and WPS 4.3.1 in it. It was by Gfortran 4.8.2, Netcdf 4.1.3, and other necessary libraries such as libpng, zlib and jasper as per apt-get method.</li>
+<li>GSI is required to have OpenMPI for its parallel programming. For this, the installation of OpenMPI was followed from <a href="http://www.sysads.co.uk/2014/05/install-open-mpi-1-8-ubuntu-14-04-13-10/">this</a>.</li>
 
-<li><p>OpenMpi was installed by following commands from from above refered page</p>
+<li><p>OpenMpi was installed by following commands from above-refered page</p>
 
 <pre><code>wget https://www.open-mpi.org/software/ompi/v1.8/downloads/openmpi-1.8.1.tar.gz
 tar -xvf openmpi-1.8.1.tar.gz
-cd openmpi-1.8.1.tar.gz 
+cd openmpi-1.8.1.tar.gz    
 ./configure --prefix=&quot;/home/$USER/.openmpi&quot;
 make
 do make
@@ -114,7 +114,7 @@ export LD_LIBRARY_PATH=&quot;$LD_LIBRARY_PATH:/home/$USER/.openmpi/lib/&quot;
 
 <p>to check the installation by <code>mpirun</code>. Based on the last environment setup the openmpi will become the MPI library instead of mpich used for WRF3V compilation</p></li>
 
-<li><p>Following environments were setup for GSI configure</p>
+<li><p>Following environments were set up for GSI configure</p>
 
 <pre><code>export WRF_DIR=/home/hoopoe/wrfchem341/test/WRFV3
 export NETCDF=/home/hoopoe/wrfchem341/test/netcdf36
@@ -123,13 +123,13 @@ export LAPACK_PATH=/usr/lib
 
 <p>LAPACK<em>PATH environment was setup following [this](<a href="http://qiita.com/make">http://qiita.com/make</a></em>now_just/items/d6e251bbf18f4c141c1d)</p></li>
 
-<li><p>After above point, <code>./configre</code> was executed and configure.gsi was edited to change its line number 43 to consider the difference in gfortaan and its commanding problem mentioned <a href="http://forum.wrfforum.com/viewtopic.php?f=5&amp;t=6086&amp;p=22377#p22377">here</a></p></li>
+<li><p>After the above point, <code>./configre</code> was executed and configure.gsi was edited to change its line number 43 to consider the difference in gfortaan and its commanding problem mentioned <a href="http://forum.wrfforum.com/viewtopic.php?f=5&amp;t=6086&amp;p=22377#p22377">here</a></p></li>
 
-<li><p>AFter this made <code>./compile &gt; &amp;log.compileA1</code> and it ends in this error <code>*** Error in `/usr/lib/gcc/x86_64-linux-gnu/4.8/f951': corrupted double-linked list: 0x0000000002b5e5e0 ***</code>. Before getting this error, faced minimal error related with mpif90 command missing etc, easily resolved those issues, need of expert direction for above error.</p></li>
+<li><p>After this made <code>./compile &gt; &amp;log.compileA1</code> and it ends in this error <code>*** Error in `/usr/lib/gcc/x86_64-linux-gnu/4.8/f951': corrupted double-linked list: 0x0000000002b5e5e0 ***</code>. Before getting this error, faced minimal error related with mpif90 command missing etc, easily resolved those issues, need of expert direction for the above error.</p></li>
 
-<li><p>Based on this error it is decided to use the exact same compiler and gfortran version mentioned in the user guide. For this the gfortran version 4.7 is installed by <code>sudo apt-get install gfortran4.7</code> and gcc version 4.4.5 was tried to install by typing <code>sudo apt-get install gcc-4.4</code> but it installed version 4.4.7 instead. A number of attempts such as commands <code>sudo apt-get install    gcc-4.4=4.4.5-15ubuntu1</code> ends but in failure.</p></li>
+<li><p>Based on this error it is decided to use the same compiler and gfortran version mentioned in the user guide. For this, the gfortran version 4.7 is installed by <code>sudo apt-get install gfortran4.7</code> and gcc version 4.4.5 was tried to install by typing <code>sudo apt-get install gcc-4.4</code> but it installed version 4.4.7 instead. Attempts such as commands <code>sudo apt-get install     gcc-4.4=4.4.5-15ubuntu1</code> ends but in failure.</p></li>
 
-<li><p>So based on the available compilers version, gcc-4.4.7 and g++-4.4.7, gfortran-4.7, the wrf will be compiled and tested for its suitablity for GSI.</p></li>
+<li><p>So based on the available compilers version, gcc-4.4.7 and g++-4.4.7, gfortran-4.7, the wrf will be compiled and tested for its suitability for GSI.</p></li>
 </ol>
 
 <p>####compiling WRF-CHEM-3.4.1 with gcc-4.4.7, gfortan-4.7.3 and netcdf 3.6.3###
@@ -156,7 +156,7 @@ export LAPACK_PATH=/usr/lib
 
 <p>but ends in error saying <code>use typeSizes
       1
-Fatal Error: Wrong module version '10' (expected '9') for file 'typesizes.mod' opened at (1)</code> based on <a href="http://stackoverflow.com/questions/13696820/wrong-module-version-on-compile">this</a> it might be due to compiler version mismatch. To choose in between different versions of same program, <code>update-alternatives</code> has to be used, refered by <a href="http://stackoverflow.com/questions/7832892/how-to-change-the-default-gcc-compiler-in-ubuntu/7834049#7834049">this</a> and based on <a href="http://charette.no-ip.com:81/programming/2011-12-24_GCCv47/">this</a>. To set up gcc and g++, used follwoing commands</p>
+Fatal Error: Wrong module version '10' (expected '9') for file 'typesizes.mod' opened at (1)</code> based on <a href="http://stackoverflow.com/questions/13696820/wrong-module-version-on-compile">this</a> it might be due to compiler version mismatch. To choose in between different versions of the same program, <code>update-alternatives</code> has to be used, referred by <a href="http://stackoverflow.com/questions/7832892/how-to-change-the-default-gcc-compiler-in-ubuntu/7834049#7834049">this</a> and based on <a href="http://charette.no-ip.com:81/programming/2011-12-24_GCCv47/">this</a>. To set up gcc and g++, used following commands</p>
 
 <pre><code>                sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.4 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.4 
                 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40 --slave /usr/bin/g++ g++ /usr/bin/g++-4.8 
@@ -171,7 +171,7 @@ Fatal Error: Wrong module version '10' (expected '9') for file 'typesizes.mod' o
             ls -lh /usr/bin/gfortran
             ls -lh /usr/bin/gfortran*
   #to knwo the list of links for each version
-            sudo update-alternatives --install /usr/bin/gfortran gfortran   /usr/bin/gfortran-4.8 60
+            sudo update-alternatives --install /usr/bin/gfortran gfortran    /usr/bin/gfortran-4.8 60
             sudo update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran-4.7 40
             sudo update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran-4.6 20
             sudo update-alternatives --config gfortran
@@ -190,14 +190,14 @@ Fatal Error: Wrong module version '10' (expected '9') for file 'typesizes.mod' o
         export FFLAGS=-m64
 </code></pre></li>
 
-<li><p>With this setup also, compilation ends with same error as noted above, so it is concluded that the gfortran, gcc, and g++ has to be have same version, that if it is 4.4, all has to be same. So install gfortran4.4 by <code>sudo apt-get install gfortran-4.4</code>, this version was added into <code>update-alternatives</code> by</p>
+<li><p>With this setup also, compilation ends with the same error as noted above, so concluded that the gfortran, gcc, and g++ has to be the same version. If it is 4.4, all have to be the same. So install gfortran4.4 by <code>sudo apt-get install gfortran-4.4</code>, this version was added into <code>update-alternatives</code> by</p>
 
 <pre><code>            sudo update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran-4.4 10
 </code></pre></li>
 
-<li><p>With the above change also faced same <code>Fatal Error: Wrong module version</code> error, from <a href="https://bugs.archlinux.org/task/23957">this</a> it is found that the error is due to OPENMPI compiled with wrong gfortran. Basically the gfortran when doing OPENMPI compilation based on <a href="http://www.sysads.co.uk/2014/05/install-open-mpi-1-8-ubuntu-14-04-13-10/">this</a> is 4.8. So OPENMPI has to be compiled with correct gfortran needed by GSI, that is 4.7. So made <code>update-alternatives</code> configuration chosen to gfortran 4.7 and gcc and g++ in 4.4 then proceeded with openmpi compilation as per <a href="http://www.sysads.co.uk/2014/05/install-open-mpi-1-8-ubuntu-14-04-13-10/">this</a>.</p></li>
+<li><p>With the above change also faced same <code>Fatal Error: Wrong module version</code> error, from <a href="https://bugs.archlinux.org/task/23957">this</a> found that the failure is due to OPENMPI compiled with the wrong gfortran. The gfortran, when doing OPENMPI compilation based on <a href="http://www.sysads.co.uk/2014/05/install-open-mpi-1-8-ubuntu-14-04-13-10/">this</a> is 4.8. So OPENMPI has to be compiled with correct gfortran needed by GSI, that is 4.7. So made <code>update-alternatives</code> configuration chosen to gfortran 4.7 and gcc and g++ in 4.4 then proceeded with openmpi compilation as per <a href="http://www.sysads.co.uk/2014/05/install-open-mpi-1-8-ubuntu-14-04-13-10/">this</a>.</p></li>
 
-<li><p>Them again tried with netcdf compilation, But got same error as of former. For a check, tried gcc and gfortran was made into 4.8 and compiled netcdf(NOte here openmpi is made by gfortran4.7), it make check passed without any error. Then again changed the gcc to 4.4 and gfortran to 4.7, this time netcdf make check passed without any error, strange!. Made exporting of compiled netcdf folder by
+<li><p>Tried with NetCDF compilation, But got the same error as of former. For a check, tried gcc and gfortran was made into 4.8 and compiled netcdf(NOte here openmpi is made by gfortran4.7), it make check passed without any error. Then again changed the gcc to 4.4 and gfortran to 4.7, this time netcdf make check passed without any error, strange!. Made exporting of compiled netcdf folder by
             export PATH=$DIR/netcdf36g44/bin:$PATH
             export NETCDF=$DIR/netcdf36g44</p></li>
 
@@ -211,7 +211,7 @@ from <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_f
             cp ${NETCDF}/include/netcdf.inc .
             gfortran -c 01<em>fortran+c+netcdf</em>f.f
             gcc -c 01<em>fortran+c+netcdf</em>c.c
-            gfortran 01<em>fortran+c+netcdf</em>f.o 01<em>fortran+c       +netcdf</em>c.o      -L${NETCDF}/lib -lnetcdff -lnetcdf
+            gfortran 01<em>fortran+c+netcdf</em>f.o 01<em>fortran+c        +netcdf</em>c.o      -L${NETCDF}/lib -lnetcdff -lnetcdf<br />
             ./a.out</p></li>
 
 <li><p>Based on good pass in testing, went into compile wrf with chemistry option as per <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/index.php">this</a>, checked the environment setup as per <a href="http://sergioibarra.blogspot.in/2012/10/wrf-chem-compilacion-en-ubuntu-1204.html">this</a>, checked  <code>sudo nano /etc/bash.bashrc</code> for its correctness. Then went into configure and compilation but ends with commenting errors, the log files is <a href="WRFGSIlog.compileA2">this</a> and configure file is <a href="WRFGSIconfigure.wrfA2">this</a>.</p></li>
@@ -228,7 +228,7 @@ from <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_f
       FORMAT_FEE     =       -ffree-form -ffree-line-length-none
 </code></pre></li>
 
-<li><p>Then made attempt 3 in this regard by <code>./clean</code> and <code>./configure</code> then editing line 119 to 120 of configure <a href="WRFGSIconfigure.wrfA3">file</a>, and then doing <code>./compile em_real &gt;&amp; log.compileA3</code>. This time it took 17 minutes and finished compilation without error and creation of all exe files. This is advancement in compiling WRF CHEM based on openMPI instead of MPICH.</p></li>
+<li><p>Then attempted 3 in this regard by <code>./clean</code> and <code>./configure</code> then editing line 119 to 120 of configure <a href="WRFGSIconfigure.wrfA3">file</a>, and then doing <code>./compile em_real &gt;&amp; log.compileA3</code>. This time it took 17 minutes and finished compilation without error and creation of all exe files. This is an advancement in compiling WRF CHEM based on openMPI instead of MPICH.</p></li>
 
 <li><p>Next started GSI compilations, made sure the environment variable for GSI is correct</p>
 
@@ -250,7 +250,7 @@ from <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_f
 </code></pre>
 
 <p>then executed compile by <code>./compile &gt; &amp;GSIlog.compileA12</code>
-edited to change its line number 43 to consider the difference in gfortaan and its commanding problem mentioned <a href="http://forum.wrfforum.com/viewtopic.php?f=5&amp;t=6086&amp;p=22377#p22377">here</a>. With this compile took time and ends with error of no lmkl, indicating no intel mkl, it was mentioned in the confiugre.gsi file in the line 58 starts with <code>MYLIBsys</code>, in the next attempt this line was eidted from</p>
+Edited to change its line number 43 to consider the difference in gfortaan and its commanding problem mentioned <a href="http://forum.wrfforum.com/viewtopic.php?f=5&amp;t=6086&amp;p=22377#p22377">here</a>. With this compile took time and ends with error of no lmkl, indicating no intel mkl, mentioned in the confiugre.gsi file in the line 58 starts with <code>MYLIBsys</code>, in the next attempt this line was eidted from</p>
 
 <pre><code>       MYLIBsys       =  -L$(LAPACK_PATH)/lib/intel64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core
 </code></pre>
@@ -269,13 +269,13 @@ edited to change its line number 43 to consider the difference in gfortaan and i
             sudo apt-get install liblapack-dev
 towards LAPCK_PATH was installed in the system.</p></li>
 
-<li><p>Some of the notes related with advantages of mkl, such as on <a href="http://www.r-bloggers.com/speeding-up-r-with-intels-math-kernel-library-mkl/">R</a> and it bench mark is astonishing with OPEN source LAPACK which currently trying to use.</p></li>
+<li><p>Some of the notes related with advantages of mkl, such as on <a href="http://www.r-bloggers.com/speeding-up-r-with-intels-math-kernel-library-mkl/">R</a> and it benchmark is astonishing with OPEN source LAPACK which currently trying to use.</p></li>
 
-<li><p>This ends with missing file error of <code>ar: plib8b.o: No such file or directory</code>, but less compilation than last attempt 11, log file is <a href="GSIlog.compileA13">here</a>. This makes to speculate problem lies with LAPACK library compilation requirement than just apt-get.</p></li>
+<li><p>Ends with missing file error of <code>ar: plib8b.o: No such file or directory</code>, but less compilation than last attempt 11, log file is <a href="GSIlog.compileA13">here</a>. Makes to speculate problem lies with LAPACK library compilation requirement than just apt-get.</p></li>
 
 <li><p>LAPCK was compiled based on <a href="https://gcc.gnu.org/testing/testing-lapack.html">this</a>, in which the example file for compile <code>make.inc.example</code> used as such by renaming into <code>make.inc</code> and run the command <code>PATH=$PATH:. export PATH; make install blaslib lapacklib tmglib testing blas_testing timing blas_timing</code> but this ended in error of <code>make: *** No rule to make target `make.inc'.  Stop.</code></p></li>
 
-<li><p>As an another attempt related with failure of compiling LAPCK, a command line search is made for actual location of liblapack3 using <code>sudo dpkg -L liblapack3</code>. It showed the location as <code>/usr/lib/lapack</code> and so changed the LPACK_PATH into <code>export LAPACK_PATH=/usr/lib/lapack</code> and redone the compile, to surprise this time compile finished with out any error and created the <code>gsi.exe</code> executables, <a href="GSIconfigure.gsiA14">this</a> and <a href="GSIlog.compileA14">this</a> are configure and compile log file.</p></li>
+<li><p>As another attempt related with failure of compiling LAPCK, made a command line search for the actual location of liblapack3 using <code>sudo dpkg -L liblapack3</code>. It showed the place as <code>/usr/lib/lapack</code> and so changed the LPACK_PATH into <code>export LAPACK_PATH=/usr/lib/lapack</code> and redone the compile, to surprise this time compile finished without any error and created the <code>gsi.exe</code> executables, <a href="GSIconfigure.gsiA14">this</a> and <a href="GSIlog.compileA14">this</a> are configured and compile log file.</p></li>
 </ol>
 
 

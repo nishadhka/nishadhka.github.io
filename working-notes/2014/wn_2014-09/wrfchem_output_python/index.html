@@ -89,15 +89,15 @@
 <p>###WRFCHEM_output pythonic####</p>
 
 <ol>
-<li>Related to the last note on getting txt time series data from wrf output <a href="wn_2014-06/Textfile_from_WRFoutput_pythonic.md">here</a>. This note details  getting numpy array from wrf output and plotting data in python.</li>
-<li>The variables requiered from wrfoutput are Temperature, Realtive humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for quick view of the wrf output.</li>
-<li>The nummpy array creaytion is based on <a href="https://github.com/johnrobertlawson/WEM/blob/master/postWRF/postWRF/wrfout.py">this</a>, <a href="https://github.com/rveciana/geoexamples/blob/master/python/wrf-NetCDF/read_netcdf.py">this</a> and <a href="https://gist.github.com/jbeezley/944049">this</a>.</li>
-<li>The plotting is primarly based on <a href="https://github.com/muellermichel/pyWRF-NMM">this</a> and <a href="http://www.hydro.washington.edu/~jhamman/hydro-logic/blog/2013/10/12/plot-netcdf-data/">this</a>.</li>
+<li>Related to the last note on getting txt time series data from wrf output <a href="wn_2014-06/Textfile_from_WRFoutput_pythonic.md">here</a>. This note details getting numpy array from wrf output and plotting data in python.</li>
+<li>The variables required from wrfoutput are Temperature, Relative humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for a quick view of the wrf output.</li>
+<li>The numpy array creation is based on <a href="https://github.com/johnrobertlawson/WEM/blob/master/postWRF/postWRF/wrfout.py">this</a>, <a href="https://github.com/rveciana/geoexamples/blob/master/python/wrf-NetCDF/read_netcdf.py">this</a> and <a href="https://gist.github.com/jbeezley/944049">this</a>.</li>
+<li>The plotting is primarily based on <a href="https://github.com/muellermichel/pyWRF-NMM">this</a> and <a href="http://www.hydro.washington.edu/~jhamman/hydro-logic/blog/2013/10/12/plot-netcdf-data/">this</a>.</li>
 <li>The numpy array creation and plotting for each wrf output variables is attempted as follows
 ###Temperature###</li>
-<li>From <a href="https://github.com/johnrobertlawson/WEM/blob/master/postWRF/postWRF/wrfout.py">this</a>, it is requiered to post process wrfoutput using <code>p_interp</code> utility to get pressure correction for varioables such RH.</li>
+<li>From <a href="https://github.com/johnrobertlawson/WEM/blob/master/postWRF/postWRF/wrfout.py">this</a>, it is required to post-process wrfoutput using <code>p_interp</code> utility to get pressure correction for variables such as RH.</li>
 <li>For this, the source code was downloaded and compiled using the command <code>gfortran p_interp.F90 -L/usr/local/lib -lnetcdf -lnetcdff -lm  \
-  -I/usr/local/include  -Mfree  -o p_interp</code>, with this p_interp got compiled and a executable of the same name is created.</li>
+  -I/usr/local/include  -Mfree  -o p_interp</code>, with this p_interp got compiled and an executable of the same name is created.</li>
 </ol>
 
 

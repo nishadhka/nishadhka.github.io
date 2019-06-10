@@ -89,11 +89,10 @@
 <p>###Ubunut 12.04 recovery###</p>
 
 <ol>
-<li>It is found that changing the file /etc/environment has huge problem after reboot.</li>
+<li>Changing/ editing the file /etc/environment has a huge problem after a reboot in Ubuntu.</li>
 <li>Added the environment variables for ncl language in /etc/environment as <code>export NCARG_ROOT=/usr/local/ncl-6.2.1; export PATH=$NCARG_ROOT/bin:$PATH</code>.</li>
-<li>This was resultant in problematic reboot of the system. The system gets instead of into login page, gets flickering command log. By reboot went inside of command line and there no system command like <code>ls</code> or <code>sudo</code> was not working. saying no /bin folder in PATH environment. Indicating the problem of above.</li>
-<li>More over the command line is populated with info of <code>KEYPAD ID some thing...</code> with no room for enter ing anything. Still in this situation the command such as sudo nano /etc/environment was entered and removed those lines added for ncl language and then saved quickly. For running the sudo and nano its respective folder has to be entered to over come the no /bin PATH error.</li>
-<li>After this the system loaded without any error mentioned earlier.</li>
+<li>Which resultant in the problematic reboot of the system. The system gets instead of into login page, gets flickering command log. By reboot went inside of command line and there no system command like <code>ls</code> or <code>sudo</code> was not working and indicating no /bin folder in PATH environment.</li>
+<li>Moreover, the command line is populated with info of <code>KEYPAD ID some thing...</code> with no room for entering anything. Using the command <code>sudo nano /etc/environment</code> and removed those lines added for ncl language and then saved. For running the sudo and nano its respective folder has to be entered to over come the no /bin PATH error.</li>
 </ol>
 
 

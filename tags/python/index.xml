@@ -6,10 +6,38 @@
     <description>Recent content in Python on Nishadh KA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GEOS-CHEM simulation using AWS</title>
+      <link>/working-notes/2019/geos-chem-simulation-using-aws/</link>
+      <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2019/geos-chem-simulation-using-aws/</guid>
+      <description>Based on https://cloud-gc.readthedocs.io/en/latest/</description>
+    </item>
+    
+    <item>
+      <title>Large Eddy Simulation using Julia</title>
+      <link>/working-notes/2019/large-eddy-simulation-using-julia/</link>
+      <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2019/large-eddy-simulation-using-julia/</guid>
+      <description>A large Eddy simulation for Oceanic processes, written entirely in Julia https://github.com/climate-machine/Oceananigans.jl</description>
+    </item>
+    
+    <item>
+      <title>PUFF- A Lagrangian Trajectory model using Python</title>
+      <link>/working-notes/2019/puff-a-lagrangian-trajectory-model-using-python/</link>
+      <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/working-notes/2019/puff-a-lagrangian-trajectory-model-using-python/</guid>
+      <description>Based on this blog post on PUFF model which uses python to simulate the paper on Lagrangian Trajectory model
+ Searcy, C., K. Dean, W. Stringer (1998), PUFF: a highresolutionvolcanic ash tracking model,J. Volcanol. Geotherm. Res., 80,No. 1/2, 1–16, doi:10.1016/S0377-0273(97)00037-1  http://publish.illinois.edu/pillsburydoughcat/puff-model/</description>
+    </item>
     
     <item>
       <title>Finding route between two points from OSM road network input</title>
@@ -45,7 +73,7 @@
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-11/reverse_geocoding/</guid>
-      <description>####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude is not having high resolution to differentiate between to nearby postal code points. For this need a high resolution latitude longitude data, IN this regard GOOGLE MAP API is a good help. As per this from address the latitude and longitude json files can be obtained with its API key, based on this and getting the API access key from here.</description>
+      <description>####REVERSEGEocdoing#### #####It is for this script /scripts/apiscript.py and jsontopandas.py##### 1. As per the notes on Geonames_Pandas_Shapefile.md, the postal code latitude and longitude do not have high resolution to differentiate between to nearby postal code points. For this need a high-resolution latitude-longitude data, Google Map API gives solution. As per its documentation, giving address, the latitude and longitude json files can be obtained with its API key, based on this and getting the API access key from here.</description>
     </item>
     
     <item>
@@ -74,7 +102,7 @@
       <pubDate>Sat, 01 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-11/docx_table_into_python/</guid>
-      <description>###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Insted of this the table can be all select, copy paste in Libre calculator and save it as csv. 1. This csv file will be having one blank line after every row as of DOCX table. To remove this row use this script, edited with considering the special delimiter used to silence the &amp;lsquo;,&amp;rsquo; in address column.</description>
+      <description>###Docx table into pandas#### ####FOr this script /scripts/DOCXPANDASSEARCH.py#### 1. to import the table in docx format has to use window based python library pywin32. Instead of this the table can be all select, copy paste in Libre calculator and save it as csv. 1. This CSV file will have one blank line after every row as of DOCX table. To remove this row use this script, edited with considering the special delimiter used to silence the &amp;lsquo;,&amp;rsquo; in the address column.</description>
     </item>
     
     <item>
@@ -84,8 +112,7 @@
       
       <guid>/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</guid>
       <description>###CSV data into pandas and LATEX then into PDF and then print!###
- To import csv file with date into pandas dataframe. Pands can parse date column, but it won&amp;rsquo;t be correct. The date column formate has top be mentiod and parsed for this, like below based on [this], then this can be imported into pandas datafrem emntioing the dateparse.  dateparse = lambda x: pd.datetime.strptime(x, &amp;lsquo;%d/%m/%y&amp;rsquo;) pro=pd.readcsv(&amp;lsquo;PROJECTEXPNDTR1.csv&amp;rsquo;,parsedates=[1],date_parser=dateparse)
-dateparse = lambda x: pd.</description>
+ To import csv file with date into pandas data frame. Pandas can parse the date column, but it won&amp;rsquo;t be correct. The date column formate has top be mentioned and parsed for this, like below based on [this], then this can be imported into pandas data frame indicating the date parser.  dateparse = lambda x: pd.datetime.strptime(x, &amp;lsquo;%d/%m/%y&amp;rsquo;) pro=pd.</description>
     </item>
     
     <item>
@@ -104,11 +131,11 @@ install.packages(filenameand_path, repos = NULL, type=&amp;ldquo;source&amp;rdqu
 http://marc.info/?l=grass-dev&amp;amp;m=138736238422272&amp;amp;w=2
 http://askubuntu.com/questions/443379/sqlite-header-and-source-version-mismatch
 http://stackoverflow.com/questions/16095942/sqlite-header-and-source-version-mismatch/16366457#16366457
-for R based netcdf view
+for R based NetCDF view
 https://gist.github.com/xuanlongma/5874674
 http://stackoverflow.com/questions/11319698/how-to-install-r-packages-rnetcdf-and-ncdf-on-ubuntu
 install.packages(repos=c(&amp;lsquo;http://cran.fhcrc.org/&#39;),pkgs=c(&#39;ncdf&#39;),lib=&amp;quot;/usr/lib/R/site-library/&amp;quot;,configure.args=&amp;quot;--with-netcdf-include=/usr/local/include &amp;ndash;with-netcdf-lib=/usr/local/lib&amp;rdquo;)
-1.correcting the grid of coimbatore urban 1</description>
+1.correcting the grid of Coimbatore urban 1</description>
     </item>
     
     <item>
@@ -118,7 +145,7 @@ install.packages(repos=c(&amp;lsquo;http://cran.fhcrc.org/&#39;),pkgs=c(&#39;ncd
       
       <guid>/working-notes/2014/wn_2014-09/wrfchem_output_python/</guid>
       <description>###WRFCHEM_output pythonic####
- Related to the last note on getting txt time series data from wrf output here. This note details getting numpy array from wrf output and plotting data in python. The variables requiered from wrfoutput are Temperature, Realtive humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for quick view of the wrf output.</description>
+ Related to the last note on getting txt time series data from wrf output here. This note details getting numpy array from wrf output and plotting data in python. The variables required from wrfoutput are Temperature, Relative humidity, Wind direction, wind speed, PM2.5 and PM 10. Numpy array from these variables will be used for air earth application, to insert the grid data into Postgresql. Data plots is for a quick view of the wrf output.</description>
     </item>
     
     <item>
@@ -131,24 +158,13 @@ install.packages(repos=c(&amp;lsquo;http://cran.fhcrc.org/&#39;),pkgs=c(&#39;ncd
     </item>
     
     <item>
-      <title>forumpost</title>
-      <link>/working-notes/2014/wn_2014-09/forumpost/</link>
-      <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/working-notes/2014/wn_2014-09/forumpost/</guid>
-      <description>there are example of porting WRF model in ARM processors. Fine grained parallellism, OpenMP, 16bytes genration in GPU exampel study
-WRF is developed with single floating point oeprations and newer modules of WRF such as WRF CHEM for air quality predictions are having single as well as double floating point implemntaiton. There are studies comparing GPU enhanment with double and single point operations.
-Plan of server board cluster Hardware enahmenet Limitation of OpenMP</description>
-    </item>
-    
-    <item>
       <title>WRFCHEM domain view python</title>
       <link>/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>/working-notes/2014/wn_2014-09/wrfchem_domain_view_python/</guid>
       <description>####WRF_CHEM domain view by python script####
- WRF CHEM domain in nested has to be visulaised to correct the nesting and for domain size adjustment. There are few tools availble to do that such as dwiz of wrf ems and plotgrid.ncl. There is an alternative with python based on this, it is a wrf script tools for visualizing and nesting based simulation. Set of scripts available has a function to visualize the namelist.</description>
+ WRF CHEM domain in nested has to be visualized to correct the nesting and for domain size adjustment. There are few tools available to do that such as dwiz of wrf ems and plotgrid.ncl. There is an alternative with python based on this, it is a wrf script tools for visualizing and nesting based simulation. Set of scripts available has a function to visualize the namelist.</description>
     </item>
     
     <item>

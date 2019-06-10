@@ -18,8 +18,7 @@
       
       <guid>/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</guid>
       <description>###CSV data into pandas and LATEX then into PDF and then print!###
- To import csv file with date into pandas dataframe. Pands can parse date column, but it won&amp;rsquo;t be correct. The date column formate has top be mentiod and parsed for this, like below based on [this], then this can be imported into pandas datafrem emntioing the dateparse.  dateparse = lambda x: pd.datetime.strptime(x, &amp;lsquo;%d/%m/%y&amp;rsquo;) pro=pd.readcsv(&amp;lsquo;PROJECTEXPNDTR1.csv&amp;rsquo;,parsedates=[1],date_parser=dateparse)
-dateparse = lambda x: pd.</description>
+ To import csv file with date into pandas data frame. Pandas can parse the date column, but it won&amp;rsquo;t be correct. The date column formate has top be mentioned and parsed for this, like below based on [this], then this can be imported into pandas data frame indicating the date parser.  dateparse = lambda x: pd.datetime.strptime(x, &amp;lsquo;%d/%m/%y&amp;rsquo;) pro=pd.</description>
     </item>
     
     <item>

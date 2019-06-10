@@ -18,7 +18,7 @@
       
       <guid>/working-notes/2014/wn_2014-11/plot_aerocet_sample_d3js/</guid>
       <description>####Plot aerocet data with D3 JS scrip####
- Based on this and its source code. The meteor web application is based on one index.html file and marker visualizer based on JS drawMap.js. The index.html was edited for to remove the CHART in the line 14 to 19 contains  &amp;lt;div id=&amp;quot;year-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Year of Impact&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div id=&amp;quot;mass-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Mass (g)&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt;   IN drawMap.js, following lines were removed ``` function renderAll(){ chart.</description>
+ Based on this and its source code. One index.html file combines the code for the meteor web application. Web map marker codes are in the file JS drawMap.js. The index.html was edited to remove the CHART in line 14 to 19 contains  &amp;lt;div id=&amp;quot;year-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Year of Impact&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div id=&amp;quot;mass-chart&amp;quot; class=&amp;quot;chart display&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;title&amp;quot;&amp;gt;Mass (g)&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt;   IN drawMap.</description>
     </item>
     
     <item>

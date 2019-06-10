@@ -37,8 +37,7 @@
       
       <guid>/working-notes/2014/wn_2014-10/excel_pandas_latex_pdf/</guid>
       <description>###CSV data into pandas and LATEX then into PDF and then print!###
- To import csv file with date into pandas dataframe. Pands can parse date column, but it won&amp;rsquo;t be correct. The date column formate has top be mentiod and parsed for this, like below based on [this], then this can be imported into pandas datafrem emntioing the dateparse.  dateparse = lambda x: pd.datetime.strptime(x, &amp;lsquo;%d/%m/%y&amp;rsquo;) pro=pd.readcsv(&amp;lsquo;PROJECTEXPNDTR1.csv&amp;rsquo;,parsedates=[1],date_parser=dateparse)
-dateparse = lambda x: pd.</description>
+ To import csv file with date into pandas data frame. Pandas can parse the date column, but it won&amp;rsquo;t be correct. The date column formate has top be mentioned and parsed for this, like below based on [this], then this can be imported into pandas data frame indicating the date parser.  dateparse = lambda x: pd.datetime.strptime(x, &amp;lsquo;%d/%m/%y&amp;rsquo;) pro=pd.</description>
     </item>
     
     <item>
@@ -58,7 +57,7 @@ dateparse = lambda x: pd.</description>
       
       <guid>/working-notes/2014/wn_2014-10/aerocet_sampledata_kml_pandas/</guid>
       <description>####Aerocet Sampling Data, using kml files and pandas####
- The data from dust pollution monitoring in Coimbatore using Aerocet was copy paste into a csv file from miniterm.py program and command 2 given to aerocet. Seprate CSV files were made for count and mass mode sampling. The location of sampling point is made into a point feature in Google earth with name of respective sampling time. This was saved as kml file and opened in QGIS converted into shape file to add gemoetry.</description>
+ The data from dust pollution monitoring in Coimbatore using Aerocet was copy paste into a csv file from miniterm.py program and commanded 2 given to aerocet. Made separate CSV files for count and mass mode sampling. Sampling point locations made into a point feature in Google earth with the name of respective sampling time. Further saved as kml file and opened in QGIS, converted into shapefile to add geometry.</description>
     </item>
     
     <item>
